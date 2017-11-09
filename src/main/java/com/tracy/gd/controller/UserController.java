@@ -15,6 +15,7 @@ import com.tracy.gd.domain.User;
 import com.tracy.gd.service.IUserService;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -30,6 +31,13 @@ public class UserController {
         // User user = this.userService.getUserById(userId);
         // model.addAttribute("user", user);
         return "showUser";
+    }
+    @RequestMapping("/PersonDetail")
+    public @ResponseBody
+    User showPersonalInfo(HttpServletRequest request, HttpServletResponse response){
+        int userId = (Integer) request.getSession().getAttribute("userId");
+        User user = userService.getUserById(userId);
+        return user;
     }
 
     @RequestMapping(value = "/GetUser", method = RequestMethod.POST)

@@ -3,10 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Personal Info</title>
+
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script>
+
+        //ajax获取个人信息
+        $(function(){
+            $.ajax({
+                url: "http://localhost:8080/user/PersonDetail",
+                type: "POST",
+                //   data: JSON.stringify(user), //转JSON字符串
+                dataType: 'json',
+                contentType: 'application/json;charset=UTF-8', //contentType很重要
+                success: function (result) {
+                    // var data = eval('('+result+')');
+                    $("#ti").text(result.userName);
+                }
+            })
+        })
+
+        $(function(){
+
+        });
+
+    </script>
+
+
 </head>
 <body>
-    <h1>个人信息修改页面</h1>
-<br>
-    
+<h1 id="ti">个人信息修改页面</h1>
 </body>
+
+
+
+
 </html>
