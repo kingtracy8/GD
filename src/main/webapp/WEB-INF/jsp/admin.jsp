@@ -10,7 +10,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title> Car Hire System</title>
+    <title> csu system</title>
     <link rel="stylesheet" href="../../js/css/layui.css">
     <style>
 
@@ -33,12 +33,13 @@
 
 <div class="layui-layout layui-layout-admin ">
     <div class="layui-header ">
-        <div class="layui-logo">Car Hire System</div>
+        <div class="layui-logo">csu system</div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-left ">
             <li class="layui-nav-item"><a href="#">控制台</a></li>
             <li class="layui-nav-item"><a href="#">系统管理</a></li>
-            <li class="layui-nav-item"><a href="#"><%=identity%>
+            <li class="layui-nav-item"><a href="#">
+                <%--<%=identity%>--%>用户
             </a></li>
             <li class="layui-nav-item">
                 <a href="javascript:void(0)">其它系统</a>
@@ -56,8 +57,8 @@
                     <span id="user"><%=userName%></span>
                 </a>
                 <dl class="layui-nav-child">
-                    <dd><a href="../../html/PersonalInfo.html" target="ifrbody">基本资料</a></dd>
-                    <dd><a href="#">安全设置</a></dd>
+                    <dd><a href="../../html/PersonalInfo.html" target="ifrbody">修改个人资料</a></dd>
+                    <dd><a href="#">修改个人密码</a></dd>
                 </dl>
             </li>
             <li class="layui-nav-item"><a href="#" onclick="logout()">退出</a></li>
@@ -69,18 +70,22 @@
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree" lay-filter="test">
                 <li class="layui-nav-item layui-nav-itemed">
-                    <a class="" href="javascript:;">数据管理</a>
+                    <a class="" href="javascript:;">用户模块</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">学生管理</a></dd>
-                        <dd><a href="javascript:;">课程管理</a></dd>
-                        <dd><a href="javascript:;">题库管理</a></dd>
+                        <dd><a href="javascript:;">查看/修改个人信息</a></dd>
+                        <dd><a href="javascript:;">修改密码</a></dd>
+                        <dd><a href="javascript:;">计算机使用申请</a></dd>
+                        <dd><a href="javascript:;">申请记录</a></dd>
+                        <dd><a href="javascript:;">发表评论</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="javascript:;">解决方案</a>
+                    <a href="javascript:;">管理员模块</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;" data-url="error.html">列表一</a></dd>
-                        <dd><a href="javascript:;">列表二</a></dd>
+                        <dd><a href="javascript:;" data-url="error.html">用户管理</a></dd>
+                        <dd><a href="javascript:;">计算机档案管理</a></dd>
+                        <dd><a href="javascript:;">审核管理</a></dd>
+                        <dd><a href="javascript:;">记录管理</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item"><a href="#">云市场</a></li>
@@ -98,7 +103,7 @@
 
     <div class="layui-footer">
         <!-- 底部固定区域 -->
-        © layui.com - 底部固定区域
+        © Power by linsong.wei
     </div>
 </div>
 <script src="../js/jquery-3.2.1.min.js"></script>

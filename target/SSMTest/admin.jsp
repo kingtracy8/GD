@@ -10,7 +10,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title> Car Hire System</title>
+    <title>ComSmr System</title>
     <link rel="stylesheet" href="/js/css/layui.css">
     <style>
         body{margin: 10px;}
@@ -26,7 +26,7 @@
 
 <div class="layui-layout layui-layout-admin ">
     <div class="layui-header ">
-        <div class="layui-logo">Car Hire System</div>
+        <div class="layui-logo">csu system</div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-left ">
             <li class="layui-nav-item"><a href="#">控制台</a></li>
