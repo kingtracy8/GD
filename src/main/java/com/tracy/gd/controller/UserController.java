@@ -32,13 +32,47 @@ public class UserController {
         // model.addAttribute("user", user);
         return "showUser";
     }
+
+    //获取用户身份
+    @RequestMapping("/GetIdentity")
+    public @ResponseBody
+    HashMap getIdentity(HttpServletRequest request, HttpServletResponse response) {
+        String identity = (String) request.getSession().getAttribute("identity");
+        HashMap map = new HashMap();
+        map.put("identity",identity);
+        return map;
+    }
+
+    //获得用户详情
     @RequestMapping("/PersonDetail")
     public @ResponseBody
-    User showPersonalInfo(HttpServletRequest request, HttpServletResponse response){
+    User showPersonalInfo(HttpServletRequest request, HttpServletResponse response) {
         int userId = (Integer) request.getSession().getAttribute("userId");
         User user = userService.getUserById(userId);
         return user;
     }
+
+    //修改用户信息
+    @RequestMapping("/EditUser")
+    public @ResponseBody
+    int EditUser(HttpServletRequest request, HttpServletResponse response,@RequestBody User user){
+        int flag = 0;
+        /* version 1
+        //重置按钮会把页面上的id给清除掉，若不点重置则不会
+        if(!user.getUserId().equals("")){
+            flag = userService.updateByPrimaryKey(user);
+            return flag;
+        }else { //如果被清空了，就从session里拿到当前用户id
+            User user1 = userService.getUserById((Integer) request.getSession().getAttribute("userId"));
+            user.setUserId(user1.getUserId());  //把传进来的丢失了id的用户设置id
+            flag = userService.updateByPrimaryKey(user);
+        }
+        */
+        //不让重置 2017-11-09 22:30:10
+        flag = userService.updateByPrimaryKey(user);
+        return flag;
+    }
+
 
     @RequestMapping(value = "/GetUser", method = RequestMethod.POST)
     public @ResponseBody
@@ -109,35 +143,34 @@ public class UserController {
         String Url = null;
         //当数据库没有数据的时候会抛出空指针异常
 
-            List<User> userList = userService.selectAll();
+        List<User> userList = userService.selectAll();
 
-            if(userList.size()>0) {
-                for (int i = 0; i < userList.size(); i++) {
+        if (userList.size() > 0) {
+            for (int i = 0; i < userList.size(); i++) {
 
-                    String userName = userList.get(i).getUserName();
-                    String userPassword = userList.get(i).getUserPassword();
+                String userName = userList.get(i).getUserName();
+                String userPassword = userList.get(i).getUserPassword();
 
 
+                if (request.getParameter("userName").equals(userName) && request.getParameter("userPassword").equals(userPassword)) {
+                    Url = "admin";
+                    request.getSession().setAttribute("userName", request.getParameter("userName"));
+                    //如果验证成功 直接跳转 否则for循环会影响最终的结果
+                    //把身份放入Session
+                    request.getSession().setAttribute("identity", request.getParameter("identity1"));
 
-                    if (request.getParameter("userName").equals(userName) && request.getParameter("userPassword").equals(userPassword)) {
-                        Url = "admin";
-                        request.getSession().setAttribute("userName", request.getParameter("userName"));
-                        //如果验证成功 直接跳转 否则for循环会影响最终的结果
-                        //把身份放入Session
-                        request.getSession().setAttribute("identity",request.getParameter("identity1"));
+                    request.getSession().setAttribute("userId", userList.get(i).getUserId());
 
-                        request.getSession().setAttribute("userId",userList.get(i).getUserId());
-
-                        return Url;
-                    } else {
-                        Url = "error";
-                        request.getSession().setAttribute("userName", request.getParameter("error"));
-                    }
+                    return Url;
+                } else {
+                    Url = "error";
+                    request.getSession().setAttribute("userName", request.getParameter("error"));
                 }
-            }else {
-                Url = "error";
             }
-            return Url;
+        } else {
+            Url = "error";
+        }
+        return Url;
 
 
     }

@@ -13,9 +13,7 @@
     <title> Car Hire System</title>
     <link rel="stylesheet" href="../../js/css/layui.css">
     <style>
-        body {
-            margin: 10px;
-        }
+
 
         .demo-carousel {
             height: 200px;
@@ -117,7 +115,7 @@
             , element = layui.element; //元素操作
 
         //向世界问个好
-        layer.msg('Hi,欢迎您来到LayStudy后台管理系统！');
+      //  layer.msg('Hi,欢迎您来到LayStudy后台管理系统！');
 
         //监听Tab切换
         element.on('tab(demo)', function (data) {
