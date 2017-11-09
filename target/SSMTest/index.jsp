@@ -14,6 +14,7 @@
     <title>登陆</title>
     <link type="text/css" rel="stylesheet" href="style/reset.css">
     <link type="text/css" rel="stylesheet" href="style/main.css">
+
     <script src="js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
@@ -54,7 +55,7 @@
                     </ul>
                 </div>
             </div>
-            <a class="reg_link" href="#"></a>
+            <a class="reg_link" href="#" onclick="doRegister()"></a>
         </div>
         <div class="mirror-wrap">
             <div class="mirror-inner">
@@ -105,5 +106,22 @@
 </div>
 
 </body>
+<script src="/js/layui.js"></script>
+<script>
+    layui.use('layer', function(){
+        var layer = layui.layer;
 
+
+    });
+
+    function doRegister() {
+        layer.open({
+            type: 2,
+            title:'用户注册',
+            area: ['900px', '600px'],
+            content: 'http://localhost:8080/html/register.html' //这里content是一个URL，如果你不想让iframe出现滚动条，你还可以content: ['http://sentsin.com', 'no']
+        });
+    }
+
+</script>
 </html>
