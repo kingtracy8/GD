@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title> Car Hire System</title>
-    <link rel="stylesheet" href="../../js/css/layui.css">
+    <link rel="stylesheet" href="/js/css/layui.css">
     <style>
         body{margin: 10px;}
         .demo-carousel{height: 200px; line-height: 200px; text-align: center;}
@@ -44,11 +44,11 @@
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
                 <a  href="javascript:;">
-                    <img src="../../images/me.jpg" class="layui-nav-img">
+                    <img src="/images/me.jpg" class="layui-nav-img">
                     <span id="user"><%=userName%></span>
                 </a>
                 <dl class="layui-nav-child">
-                    <dd><a href="../../html/PersonalInfo.html" target="ifrbody">基本资料</a></dd>
+                    <dd><a href="/html/PersonalInfo.html" target="ifrbody">基本资料</a></dd>
                     <dd><a href="#">安全设置</a></dd>
                 </dl>
             </li>
@@ -83,7 +83,7 @@
 
     <div class="layui-body">
 
-        <iframe id="ifrbody" name="ifrbody" src="../../html/welcome.html" scrolling="no" onload="changeFrameHeight()" ></iframe>
+        <iframe id="ifrbody" name="ifrbody" src="/html/welcome.html" scrolling="no" onload="changeFrameHeight()" ></iframe>
 
     </div>
 
@@ -92,8 +92,8 @@
         © layui.com - 底部固定区域
     </div>
 </div>
-<script src="../js/jquery-3.2.1.min.js"></script>
-<script src="../../js/layui.js"></script>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/layui.js"></script>
 <script>
     //JavaScript代码区域
     layui.use(['laydate', 'laypage', 'layer', 'table', 'carousel', 'upload', 'element'], function(){
@@ -182,7 +182,7 @@
 
     });
 
-    //在layui范围内定义的话会提示未定义 （应该是不是每次刷新页面都加载layui模块）
+//在layui范围内定义的话会提示未定义 （应该是不是每次刷新页面都加载layui模块）
     function iframeLoad()
     {
         var ifm= document.getElementById("ifrbody");
@@ -206,9 +206,6 @@
     $(function() {
         iframeLoad();
     })
-
-
-
 
 </script>
 

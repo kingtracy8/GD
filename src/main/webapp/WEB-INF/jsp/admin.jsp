@@ -92,6 +92,7 @@
         © layui.com - 底部固定区域
     </div>
 </div>
+<script src="../js/jquery-3.2.1.min.js"></script>
 <script src="../../js/layui.js"></script>
 <script>
     //JavaScript代码区域
@@ -179,15 +180,38 @@
             changeFrameHeight();
         }
 
-        function iframeLoad()
-        {
-            document.getElementById("ifrbody").height=0;
-            document.getElementById("ifrbody").height=document.getElementById("ifrbody").contentWindow.document.body.scrollHeight;
-        }
-
     });
+
+    //在layui范围内定义的话会提示未定义 （应该是不是每次刷新页面都加载layui模块）
+    function iframeLoad()
+    {
+        var ifm= document.getElementById("ifrbody");
+        ifm.height=document.documentElement.clientHeight;
+        ifm.width = document.documentElement.clientWidth;
+    }
+
+    function changeFrameHeight(){
+        var ifm= document.getElementById("ifrbody");
+        ifm.height=document.documentElement.clientHeight;
+        ifm.width = document.documentElement.clientWidth;
+    }
+    window.onload=function(){
+        changeFrameHeight();
+    }
+
+    window.onresize=function(){
+        changeFrameHeight();
+    }
+
+    $(function() {
+        iframeLoad();
+    })
+
+
+
+
 </script>
-<script src="../js/jquery-3.2.1.min.js"></script>
+
 
 </body>
 </html>
