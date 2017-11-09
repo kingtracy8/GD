@@ -2,93 +2,153 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.tracy.gd.IDao.AdminMapper" >
   <resultMap id="BaseResultMap" type="com.tracy.gd.domain.Admin" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <id column="admin_id" property="adminId" jdbcType="INTEGER" />
+    <result column="admin_num" property="adminNum" jdbcType="VARCHAR" />
     <result column="admin_name" property="adminName" jdbcType="VARCHAR" />
-    <result column="password" property="password" jdbcType="VARCHAR" />
-    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="admin_password" property="adminPassword" jdbcType="VARCHAR" />
+    <result column="admin_icon" property="adminIcon" jdbcType="VARCHAR" />
+    <result column="admin_gender" property="adminGender" jdbcType="VARCHAR" />
+    <result column="admin_department" property="adminDepartment" jdbcType="VARCHAR" />
+    <result column="attribute1" property="attribute1" jdbcType="VARCHAR" />
+    <result column="attribute2" property="attribute2" jdbcType="VARCHAR" />
+    <result column="attribute3" property="attribute3" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, user_id, admin_name, password, age
+    admin_id, admin_num, admin_name, admin_password, admin_icon, admin_gender, admin_department, 
+    attribute1, attribute2, attribute3
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from admin
-    where id = #{id,jdbcType=INTEGER}
+    from gd_admins
+    where admin_id = #{adminId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from admin
-    where id = #{id,jdbcType=INTEGER}
+    delete from gd_admins
+    where admin_id = #{adminId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.tracy.gd.IDao.AdminMapper" >
-    insert into admin (id, user_id, admin_name, 
-      password, age)
-    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{adminName,jdbcType=VARCHAR}, 
-      #{password,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER})
+  <insert id="insert" parameterType="com.tracy.gd.domain.Admin" >
+    insert into gd_admins (admin_id, admin_num, admin_name, 
+      admin_password, admin_icon, admin_gender, 
+      admin_department, attribute1, attribute2, 
+      attribute3)
+    values (#{adminId,jdbcType=INTEGER}, #{adminNum,jdbcType=VARCHAR}, #{adminName,jdbcType=VARCHAR}, 
+      #{adminPassword,jdbcType=VARCHAR}, #{adminIcon,jdbcType=VARCHAR}, #{adminGender,jdbcType=VARCHAR}, 
+      #{adminDepartment,jdbcType=VARCHAR}, #{attribute1,jdbcType=VARCHAR}, #{attribute2,jdbcType=VARCHAR}, 
+      #{attribute3,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.tracy.gd.IDao.AdminMapper" >
-    insert into admin
+  <insert id="insertSelective" parameterType="com.tracy.gd.domain.Admin" >
+    insert into gd_admins
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
+      <if test="adminId != null" >
+        admin_id,
       </if>
-      <if test="userId != null" >
-        user_id,
+      <if test="adminNum != null" >
+        admin_num,
       </if>
       <if test="adminName != null" >
         admin_name,
       </if>
-      <if test="password != null" >
-        password,
+      <if test="adminPassword != null" >
+        admin_password,
       </if>
-      <if test="age != null" >
-        age,
+      <if test="adminIcon != null" >
+        admin_icon,
+      </if>
+      <if test="adminGender != null" >
+        admin_gender,
+      </if>
+      <if test="adminDepartment != null" >
+        admin_department,
+      </if>
+      <if test="attribute1 != null" >
+        attribute1,
+      </if>
+      <if test="attribute2 != null" >
+        attribute2,
+      </if>
+      <if test="attribute3 != null" >
+        attribute3,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
+      <if test="adminId != null" >
+        #{adminId,jdbcType=INTEGER},
       </if>
-      <if test="userId != null" >
-        #{userId,jdbcType=INTEGER},
+      <if test="adminNum != null" >
+        #{adminNum,jdbcType=VARCHAR},
       </if>
       <if test="adminName != null" >
         #{adminName,jdbcType=VARCHAR},
       </if>
-      <if test="password != null" >
-        #{password,jdbcType=VARCHAR},
+      <if test="adminPassword != null" >
+        #{adminPassword,jdbcType=VARCHAR},
       </if>
-      <if test="age != null" >
-        #{age,jdbcType=INTEGER},
+      <if test="adminIcon != null" >
+        #{adminIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="adminGender != null" >
+        #{adminGender,jdbcType=VARCHAR},
+      </if>
+      <if test="adminDepartment != null" >
+        #{adminDepartment,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute1 != null" >
+        #{attribute1,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute2 != null" >
+        #{attribute2,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute3 != null" >
+        #{attribute3,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.tracy.gd.IDao.AdminMapper" >
-    update admin
+  <update id="updateByPrimaryKeySelective" parameterType="com.tracy.gd.domain.Admin" >
+    update gd_admins
     <set >
-      <if test="userId != null" >
-        user_id = #{userId,jdbcType=INTEGER},
+      <if test="adminNum != null" >
+        admin_num = #{adminNum,jdbcType=VARCHAR},
       </if>
       <if test="adminName != null" >
         admin_name = #{adminName,jdbcType=VARCHAR},
       </if>
-      <if test="password != null" >
-        password = #{password,jdbcType=VARCHAR},
+      <if test="adminPassword != null" >
+        admin_password = #{adminPassword,jdbcType=VARCHAR},
       </if>
-      <if test="age != null" >
-        age = #{age,jdbcType=INTEGER},
+      <if test="adminIcon != null" >
+        admin_icon = #{adminIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="adminGender != null" >
+        admin_gender = #{adminGender,jdbcType=VARCHAR},
+      </if>
+      <if test="adminDepartment != null" >
+        admin_department = #{adminDepartment,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute1 != null" >
+        attribute1 = #{attribute1,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute2 != null" >
+        attribute2 = #{attribute2,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute3 != null" >
+        attribute3 = #{attribute3,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where admin_id = #{adminId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.tracy.gd.IDao.AdminMapper" >
-    update admin
-    set user_id = #{userId,jdbcType=INTEGER},
+  <update id="updateByPrimaryKey" parameterType="com.tracy.gd.domain.Admin" >
+    update gd_admins
+    set admin_num = #{adminNum,jdbcType=VARCHAR},
       admin_name = #{adminName,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR},
-      age = #{age,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
+      admin_password = #{adminPassword,jdbcType=VARCHAR},
+      admin_icon = #{adminIcon,jdbcType=VARCHAR},
+      admin_gender = #{adminGender,jdbcType=VARCHAR},
+      admin_department = #{adminDepartment,jdbcType=VARCHAR},
+      attribute1 = #{attribute1,jdbcType=VARCHAR},
+      attribute2 = #{attribute2,jdbcType=VARCHAR},
+      attribute3 = #{attribute3,jdbcType=VARCHAR}
+    where admin_id = #{adminId,jdbcType=INTEGER}
   </update>
   <select id="selectUserAdmins" resultMap="BaseResultMap" >
     select

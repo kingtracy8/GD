@@ -1,20 +1,40 @@
 package com.tracy.gd.domain;
 
 public class User {
-    private Integer id;
+    private Integer userId;
+
+    private String userNum;
 
     private String userName;
 
-    private String password;
+    private String userPassword;
 
-    private Integer age;
+    private String userIcon;
 
-    public Integer getId() {
-        return id;
+    private String userGender;
+
+    private String userDepartment;
+
+    private String attribute1;
+
+    private String attribute2;
+
+    private String attribute3;
+
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public String getUserNum() {
+        return userNum;
+    }
+
+    public void setUserNum(String userNum) {
+        this.userNum = userNum == null ? null : userNum.trim();
     }
 
     public String getUserName() {
@@ -25,19 +45,59 @@ public class User {
         this.userName = userName == null ? null : userName.trim();
     }
 
-    public String getPassword() {
-        return password;
+    public String getUserPassword() {
+        return userPassword;
     }
 
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword == null ? null : userPassword.trim();
     }
 
-    public Integer getAge() {
-        return age;
+    public String getUserIcon() {
+        return userIcon;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setUserIcon(String userIcon) {
+        this.userIcon = userIcon == null ? null : userIcon.trim();
+    }
+
+    public String getUserGender() {
+        return userGender;
+    }
+
+    public void setUserGender(String userGender) {
+        this.userGender = userGender == null ? null : userGender.trim();
+    }
+
+    public String getUserDepartment() {
+        return userDepartment;
+    }
+
+    public void setUserDepartment(String userDepartment) {
+        this.userDepartment = userDepartment == null ? null : userDepartment.trim();
+    }
+
+    public String getAttribute1() {
+        return attribute1;
+    }
+
+    public void setAttribute1(String attribute1) {
+        this.attribute1 = attribute1 == null ? null : attribute1.trim();
+    }
+
+    public String getAttribute2() {
+        return attribute2;
+    }
+
+    public void setAttribute2(String attribute2) {
+        this.attribute2 = attribute2 == null ? null : attribute2.trim();
+    }
+
+    public String getAttribute3() {
+        return attribute3;
+    }
+
+    public void setAttribute3(String attribute3) {
+        this.attribute3 = attribute3 == null ? null : attribute3.trim();
     }
 }

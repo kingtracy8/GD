@@ -3,7 +3,9 @@ package org.zsl.testmybatis;
 import javax.annotation.Resource;
 
 import com.tracy.gd.domain.Admin;
+import com.tracy.gd.domain.Computer;
 import com.tracy.gd.service.IAdminService;
+import com.tracy.gd.service.IComputerService;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,7 +28,8 @@ public class TestMyBatis {
     private IUserService userService = null;
     @Autowired
     IAdminService adminService;
-
+    @Autowired
+    IComputerService computerService;
 
     @Test  
     public void test1() {  
@@ -38,12 +41,17 @@ public class TestMyBatis {
             logger.info(JSON.toJSONString(user));
         }
   */
+
+   /*
         List<Admin> admins = new ArrayList<Admin>();
         admins = adminService.selectUserAdmins();
         for (int i = 0; i < admins.size(); i++) {
             logger.info(JSON.toJSONString(admins.get(i)));
         }
 
+*/
 
+        Computer computer = computerService.selectByPrimaryKey(1);
+        logger.info(JSON.toJSONString(computer));
     }  
 }  

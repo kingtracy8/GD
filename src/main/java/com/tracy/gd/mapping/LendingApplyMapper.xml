@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tracy.gd.IDao.LendingApplyMapper" >
+  <resultMap id="BaseResultMap" type="com.tracy.gd.domain.LendingApply" >
+    <id column="la_id" property="laId" jdbcType="INTEGER" />
+    <result column="la_user_id" property="laUserId" jdbcType="INTEGER" />
+    <result column="la_cpt_id" property="laCptId" jdbcType="INTEGER" />
+    <result column="la_reason" property="laReason" jdbcType="VARCHAR" />
+    <result column="la_lend_time" property="laLendTime" jdbcType="TIMESTAMP" />
+    <result column="la_return_time" property="laReturnTime" jdbcType="TIMESTAMP" />
+    <result column="la_commons" property="laCommons" jdbcType="VARCHAR" />
+    <result column="la_location" property="laLocation" jdbcType="VARCHAR" />
+    <result column="la_is_check" property="laIsCheck" jdbcType="VARCHAR" />
+    <result column="attribute1" property="attribute1" jdbcType="VARCHAR" />
+    <result column="attribute2" property="attribute2" jdbcType="VARCHAR" />
+    <result column="attribute3" property="attribute3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    la_id, la_user_id, la_cpt_id, la_reason, la_lend_time, la_return_time, la_commons, 
+    la_location, la_is_check, attribute1, attribute2, attribute3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from gd_lending_apply
+    where la_id = #{laId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from gd_lending_apply
+    where la_id = #{laId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.tracy.gd.domain.LendingApply" >
+    insert into gd_lending_apply (la_id, la_user_id, la_cpt_id, 
+      la_reason, la_lend_time, la_return_time, 
+      la_commons, la_location, la_is_check, 
+      attribute1, attribute2, attribute3
+      )
+    values (#{laId,jdbcType=INTEGER}, #{laUserId,jdbcType=INTEGER}, #{laCptId,jdbcType=INTEGER}, 
+      #{laReason,jdbcType=VARCHAR}, #{laLendTime,jdbcType=TIMESTAMP}, #{laReturnTime,jdbcType=TIMESTAMP}, 
+      #{laCommons,jdbcType=VARCHAR}, #{laLocation,jdbcType=VARCHAR}, #{laIsCheck,jdbcType=VARCHAR}, 
+      #{attribute1,jdbcType=VARCHAR}, #{attribute2,jdbcType=VARCHAR}, #{attribute3,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.tracy.gd.domain.LendingApply" >
+    insert into gd_lending_apply
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="laId != null" >
+        la_id,
+      </if>
+      <if test="laUserId != null" >
+        la_user_id,
+      </if>
+      <if test="laCptId != null" >
+        la_cpt_id,
+      </if>
+      <if test="laReason != null" >
+        la_reason,
+      </if>
+      <if test="laLendTime != null" >
+        la_lend_time,
+      </if>
+      <if test="laReturnTime != null" >
+        la_return_time,
+      </if>
+      <if test="laCommons != null" >
+        la_commons,
+      </if>
+      <if test="laLocation != null" >
+        la_location,
+      </if>
+      <if test="laIsCheck != null" >
+        la_is_check,
+      </if>
+      <if test="attribute1 != null" >
+        attribute1,
+      </if>
+      <if test="attribute2 != null" >
+        attribute2,
+      </if>
+      <if test="attribute3 != null" >
+        attribute3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="laId != null" >
+        #{laId,jdbcType=INTEGER},
+      </if>
+      <if test="laUserId != null" >
+        #{laUserId,jdbcType=INTEGER},
+      </if>
+      <if test="laCptId != null" >
+        #{laCptId,jdbcType=INTEGER},
+      </if>
+      <if test="laReason != null" >
+        #{laReason,jdbcType=VARCHAR},
+      </if>
+      <if test="laLendTime != null" >
+        #{laLendTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="laReturnTime != null" >
+        #{laReturnTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="laCommons != null" >
+        #{laCommons,jdbcType=VARCHAR},
+      </if>
+      <if test="laLocation != null" >
+        #{laLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="laIsCheck != null" >
+        #{laIsCheck,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute1 != null" >
+        #{attribute1,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute2 != null" >
+        #{attribute2,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute3 != null" >
+        #{attribute3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tracy.gd.domain.LendingApply" >
+    update gd_lending_apply
+    <set >
+      <if test="laUserId != null" >
+        la_user_id = #{laUserId,jdbcType=INTEGER},
+      </if>
+      <if test="laCptId != null" >
+        la_cpt_id = #{laCptId,jdbcType=INTEGER},
+      </if>
+      <if test="laReason != null" >
+        la_reason = #{laReason,jdbcType=VARCHAR},
+      </if>
+      <if test="laLendTime != null" >
+        la_lend_time = #{laLendTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="laReturnTime != null" >
+        la_return_time = #{laReturnTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="laCommons != null" >
+        la_commons = #{laCommons,jdbcType=VARCHAR},
+      </if>
+      <if test="laLocation != null" >
+        la_location = #{laLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="laIsCheck != null" >
+        la_is_check = #{laIsCheck,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute1 != null" >
+        attribute1 = #{attribute1,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute2 != null" >
+        attribute2 = #{attribute2,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute3 != null" >
+        attribute3 = #{attribute3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where la_id = #{laId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tracy.gd.domain.LendingApply" >
+    update gd_lending_apply
+    set la_user_id = #{laUserId,jdbcType=INTEGER},
+      la_cpt_id = #{laCptId,jdbcType=INTEGER},
+      la_reason = #{laReason,jdbcType=VARCHAR},
+      la_lend_time = #{laLendTime,jdbcType=TIMESTAMP},
+      la_return_time = #{laReturnTime,jdbcType=TIMESTAMP},
+      la_commons = #{laCommons,jdbcType=VARCHAR},
+      la_location = #{laLocation,jdbcType=VARCHAR},
+      la_is_check = #{laIsCheck,jdbcType=VARCHAR},
+      attribute1 = #{attribute1,jdbcType=VARCHAR},
+      attribute2 = #{attribute2,jdbcType=VARCHAR},
+      attribute3 = #{attribute3,jdbcType=VARCHAR}
+    where la_id = #{laId,jdbcType=INTEGER}
+  </update>
+</mapper>

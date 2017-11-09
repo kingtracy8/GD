@@ -28,7 +28,7 @@ public class AdminController {
         List<Admin> admins = new ArrayList<Admin>();
         admins = adminService.selectUserAdmins();
         for (int i = 0; i < admins.size(); i++) {
-            System.out.println(admins.get(i).getId() + "," + admins.get(i).getAdminName() + "," + admins.get(i).getPassword());
+            System.out.println(admins.get(i).getAdminId() + "," + admins.get(i).getAdminName() + "," + admins.get(i).getAdminPassword());
         }
         return "error";
     }
@@ -52,7 +52,7 @@ public class AdminController {
     public @ResponseBody
     int DeleteAdmin(@RequestBody Admin admin) {
         int flag = 0;
-        int AdminId = admin.getId();
+        int AdminId = admin.getAdminId();
         try {
             //执行删除操作
             adminService.deleteByPrimaryKey(AdminId);

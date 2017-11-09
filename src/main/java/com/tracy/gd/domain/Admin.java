@@ -1,30 +1,40 @@
 package com.tracy.gd.domain;
 
 public class Admin {
-    private Integer id;
+    private Integer adminId;
 
-    private Integer userId;
+    private String adminNum;
 
     private String adminName;
 
-    private String password;
+    private String adminPassword;
 
-    private Integer age;
+    private String adminIcon;
 
-    public Integer getId() {
-        return id;
+    private String adminGender;
+
+    private String adminDepartment;
+
+    private String attribute1;
+
+    private String attribute2;
+
+    private String attribute3;
+
+    public Integer getAdminId() {
+        return adminId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setAdminId(Integer adminId) {
+        this.adminId = adminId;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public String getAdminNum() {
+        return adminNum;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setAdminNum(String adminNum) {
+        this.adminNum = adminNum == null ? null : adminNum.trim();
     }
 
     public String getAdminName() {
@@ -35,19 +45,59 @@ public class Admin {
         this.adminName = adminName == null ? null : adminName.trim();
     }
 
-    public String getPassword() {
-        return password;
+    public String getAdminPassword() {
+        return adminPassword;
     }
 
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+    public void setAdminPassword(String adminPassword) {
+        this.adminPassword = adminPassword == null ? null : adminPassword.trim();
     }
 
-    public Integer getAge() {
-        return age;
+    public String getAdminIcon() {
+        return adminIcon;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setAdminIcon(String adminIcon) {
+        this.adminIcon = adminIcon == null ? null : adminIcon.trim();
+    }
+
+    public String getAdminGender() {
+        return adminGender;
+    }
+
+    public void setAdminGender(String adminGender) {
+        this.adminGender = adminGender == null ? null : adminGender.trim();
+    }
+
+    public String getAdminDepartment() {
+        return adminDepartment;
+    }
+
+    public void setAdminDepartment(String adminDepartment) {
+        this.adminDepartment = adminDepartment == null ? null : adminDepartment.trim();
+    }
+
+    public String getAttribute1() {
+        return attribute1;
+    }
+
+    public void setAttribute1(String attribute1) {
+        this.attribute1 = attribute1 == null ? null : attribute1.trim();
+    }
+
+    public String getAttribute2() {
+        return attribute2;
+    }
+
+    public void setAttribute2(String attribute2) {
+        this.attribute2 = attribute2 == null ? null : attribute2.trim();
+    }
+
+    public String getAttribute3() {
+        return attribute3;
+    }
+
+    public void setAttribute3(String attribute3) {
+        this.attribute3 = attribute3 == null ? null : attribute3.trim();
     }
 }

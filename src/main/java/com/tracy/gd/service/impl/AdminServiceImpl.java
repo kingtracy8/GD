@@ -18,10 +18,10 @@ public class AdminServiceImpl implements IAdminService{
     @Autowired
     AdminMapper adminMapper;
 
+
     public List<Admin> selectUserAdmins() {
         return adminMapper.selectUserAdmins();
     }
-
 
     public Admin getAdminById(int adminId) {
         return this.adminMapper.selectByPrimaryKey(adminId);

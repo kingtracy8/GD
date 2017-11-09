@@ -34,5 +34,4 @@ public class UserServiceImpl implements IUserService {
 		return userMapper.selectAll();
 	}
 
-
 }

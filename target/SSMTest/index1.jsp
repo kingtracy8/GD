@@ -12,99 +12,57 @@
     <base href="<%=basePath%>">
     <meta charset="utf-8">
     <title>登陆</title>
-    <link type="text/css" rel="stylesheet" href="../style/reset.css">
-    <link type="text/css" rel="stylesheet" href="../style/main.css">
-    <script src="../js/jquery-3.2.1.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="style/reset.css">
+    <link type="text/css" rel="stylesheet" href="style/main.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
-
-<br /><br /><br /><br /><br /><br />
-
-<div class="car">
-    <div class="body">
-        <div class="loginBox" style="border:2px solid #000">
-            <div class="login_cont">
-                <form action="/user/FormLogin" method="post">
-                <ul class="login">
-                    <li class="l_tit" style="color:#000">邮箱/用户名/手机号</li>
-                    <li class="mb_10"><input type="text" id="userName" class="login_input" style="border:#000 solid 1px"></li>
-                    <li class="l_tit" style="color:#000">密码</li>
-                    <li class="mb_10"><input type="Password" class="login_input"  id="userPassword" style="border:#000 solid 1px"></li>
-                    <li class="autoLogin">
-                        <label><input name="identity" type="radio" value="user" checked/>用户</label>
-                        <label><input name="identity" type="radio" value="admin" />管理员</label>
-                    </li>
-
-                    <li><input type="submit" value="" class="login_btn"></li>
-                </ul>
-                </form>
-                <div class="login_partners">
-                    <p class="l_tit" style="color:#000">使用合作方账号登陆网站</p>
-                    <ul class="login_list clearfix">
-                        <li><a href="#" style="color:#000">QQ</a></li>
-                        <li><span style="color:#000">|</span></li>
-                        <li><a href="#" style="color:#000">新浪微博</a></li>
-                        <li><span style="color:#000">|</span></li>
-                        <li><a href="#" style="color:#000">腾讯微博</a></li>
-                        <li><span style="color:#000">|</span></li>
-                        <li><a href="#" style="color:#000">新浪微博</a></li>
-                        <li><span style="color:#000">|</span></li>
-                        <li><a href="#" style="color:#000">腾讯微博</a></li>
-                        <li><span style="color:#000">|</span></li>
-                        <li><a href="#" style="color:#000">微信</a></li>
-                    </ul>
-                </div>
-            </div>
-            <a class="reg_link" href="#"></a>
-        </div>
-        <div class="mirror-wrap">
-            <div class="mirror-inner">
-                <div class="mirror">
-                    <div class="shine"></div>
-                </div>
-            </div>
-        </div>
-        <div class="middle">
-            <div class="top">
-                <div class="line"></div>
-            </div>
-            <div class="bottom">
-                <div class="lights">
-                    <div class="line"></div>
-                </div>
-            </div>
-        </div>
-        <div class="bumper">
-            <div class="top"></div>
-            <div class="middle" data-numb="&#2348;&#2366; &#2415;&#2411; &#2330; &#2415;&#2411;&#2415;&#2411;"></div>
-            <div class="bottom"></div>
-        </div>
-    </div>
-    <div class="tyres">
-        <div class="tyre back"></div>
-        <div class="tyre front"></div>
-    </div>
-</div>
-<div class="road-wrap">
-    <div class="road">
-        <div class="lane-wrap">
-            <div class="lane">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>
+<div class="headerBar">
+    <div class="logoBar login_logo">
+        <h3 class="welcome_title"> 欢迎登录 </h3>
     </div>
 </div>
 
+<div class="loginBox">
+    <div class="login_cont">
+        <form action="/user/FormLogin" method="post">
+        <ul class="login">
+            <li class="l_tit">邮箱/用户名/手机号</li>
+            <li class="mb_10"><input type="text" name="userName" class="login_input user_icon"></li>
+            <li class="l_tit">密码</li>
+            <li class="mb_10"><input type="Password" name="userPassword" class="login_input user_icon" id="userPassword"></li>
+            <li class="autoLogin"><input type="checkbox" id="a1" class="checked"><label for="a1">自动登陆</label></li>
+            <li><input type="submit"  class="login_btn" value=""></li>
+        </ul>
+        </form>
+        <div class="login_partners">
+            <p class="l_tit">使用合作方账号登陆网站</p>
+            <ul class="login_list clearfix">
+                <li><a href="#">QQ</a></li>
+                <li><span>|</span></li>
+                <li><a href="#">网易</a></li>
+                <li><span>|</span></li>
+                <li><a href="#">新浪微博</a></li>
+                <li><span>|</span></li>
+                <li><a href="#">腾讯微博</a></li>
+                <li><span>|</span></li>
+                <li><a href="#">新浪微博</a></li>
+                <li><span>|</span></li>
+                <li><a href="#">腾讯微博</a></li>
+            </ul>
+        </div>
+    </div>
+    <a class="reg_link" href="#"></a>
+</div>
+
+<div class="hr_25"></div>
+<div class="footer">
+    <p><a href="#">网站首页</a><i>|</i><a href="#">公告信息</a><i>|</i> <a href="#">招纳贤士</a><i>|</i><a href="#">联系我们</a><i>|</i>联系电话：666-6666-66666
+    </p>
+    <p>Copyright &copy; 2016 - 2017 版权所有&nbsp;&nbsp;&nbsp;京ICP备0906664号&nbsp;&nbsp;&nbsp;京ICP证B10666-8373号&nbsp;&nbsp;&nbsp;某市公安局XX分局备案编号：167666999</p>
+    <p class="web"><a href="#"><img src="../images/webLogo.jpg" alt="logo"></a><a href="#"><img
+            src="../images/webLogo.jpg" alt="logo"></a><a href="#"><img src="../images/webLogo.jpg" alt="logo"></a><a
+            href="#"><img src="../images/webLogo.jpg" alt="logo"></a></p>
+</div>
 </body>
-
 </html>

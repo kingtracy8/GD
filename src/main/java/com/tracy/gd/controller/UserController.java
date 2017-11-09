@@ -36,8 +36,8 @@ public class UserController {
     public @ResponseBody
     User GetUser(@RequestBody User user) {
         //	user = userService.getUserById(2);
-       userService.updateByPrimaryKey(user);
-     //   userService.deleteByPrimaryKey(user.getId());
+        userService.updateByPrimaryKey(user);
+        //   userService.deleteByPrimaryKey(user.getId());
         return user;
     }
 
@@ -56,10 +56,10 @@ public class UserController {
         for (int i = 0; i < userList.size(); i++) {
 
             String userName = userList.get(i).getUserName();
-            String userPassword = userList.get(i).getPassword();
+            String userPassword = userList.get(i).getUserPassword();
 
 
-            if (user.getUserName().equals(userName) && user.getPassword().equals(userPassword)) {
+            if (user.getUserName().equals(userName) && user.getUserPassword().equals(userPassword)) {
 //                    response.sendRedirect("../../html/success.html");
                 flag = 1;
                 return flag;
@@ -96,29 +96,42 @@ public class UserController {
 
     //检查form表单提交的用户名和密码是否正确
     @RequestMapping(value = "/FormLogin", method = RequestMethod.POST)
-    public  String
+    public String
     CheckFormLogin(HttpServletRequest request, HttpServletResponse response) {
-
-        List<User> userList = userService.selectAll();
         String Url = null;
+        //当数据库没有数据的时候会抛出空指针异常
 
-        for (int i = 0; i < userList.size(); i++) {
+            List<User> userList = userService.selectAll();
 
-            String userName = userList.get(i).getUserName();
-            String userPassword = userList.get(i).getPassword();
+            if(userList.size()>0) {
+                for (int i = 0; i < userList.size(); i++) {
+
+                    String userName = userList.get(i).getUserName();
+                    String userPassword = userList.get(i).getUserPassword();
 
 
-            if (request.getParameter("userName").equals(userName) && request.getParameter("userPassword").equals(userPassword)) {
-                Url =  "admin";
-                request.getSession().setAttribute("userName",request.getParameter("userName"));
-                //如果验证成功 直接跳转 否则for循环会影响最终的结果
-                return Url;
-            } else {
-               Url =  "error";
-                request.getSession().setAttribute("userName",request.getParameter("error"));
+
+                    if (request.getParameter("userName").equals(userName) && request.getParameter("userPassword").equals(userPassword)) {
+                        Url = "admin";
+                        request.getSession().setAttribute("userName", request.getParameter("userName"));
+                        //如果验证成功 直接跳转 否则for循环会影响最终的结果
+                        //把身份放入Session
+                        request.getSession().setAttribute("identity",request.getParameter("identity1"));
+
+                        request.getSession().setAttribute("userId",userList.get(i).getUserId());
+
+                        return Url;
+                    } else {
+                        Url = "error";
+                        request.getSession().setAttribute("userName", request.getParameter("error"));
+                    }
+                }
+            }else {
+                Url = "error";
             }
-        }
-        return Url;
+            return Url;
+
+
     }
 
 }

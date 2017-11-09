@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tracy.gd.IDao.ComputerMapper" >
+  <resultMap id="BaseResultMap" type="com.tracy.gd.domain.Computer" >
+    <id column="cpt_id" property="cptId" jdbcType="INTEGER" />
+    <result column="cpt_name" property="cptName" jdbcType="VARCHAR" />
+    <result column="cpt_price" property="cptPrice" jdbcType="DECIMAL" />
+    <result column="cpt_icon" property="cptIcon" jdbcType="VARCHAR" />
+    <result column="cpt_os" property="cptOs" jdbcType="VARCHAR" />
+    <result column="cpt_cpu" property="cptCpu" jdbcType="VARCHAR" />
+    <result column="cpt_ram" property="cptRam" jdbcType="VARCHAR" />
+    <result column="cpt_rom" property="cptRom" jdbcType="VARCHAR" />
+    <result column="cpt_screensize" property="cptScreensize" jdbcType="VARCHAR" />
+    <result column="cpt_graphicscard" property="cptGraphicscard" jdbcType="VARCHAR" />
+    <result column="cpt_islending" property="cptIslending" jdbcType="VARCHAR" />
+    <result column="cpt_lendtime" property="cptLendtime" jdbcType="TIMESTAMP" />
+    <result column="cpt_returntime" property="cptReturntime" jdbcType="TIMESTAMP" />
+    <result column="cpt_who" property="cptWho" jdbcType="INTEGER" />
+    <result column="attribute1" property="attribute1" jdbcType="VARCHAR" />
+    <result column="attribute2" property="attribute2" jdbcType="VARCHAR" />
+    <result column="attribute3" property="attribute3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    cpt_id, cpt_name, cpt_price, cpt_icon, cpt_os, cpt_cpu, cpt_ram, cpt_rom, cpt_screensize, 
+    cpt_graphicscard, cpt_islending, cpt_lendtime, cpt_returntime, cpt_who, attribute1, 
+    attribute2, attribute3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from gd_computers
+    where cpt_id = #{cptId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from gd_computers
+    where cpt_id = #{cptId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.tracy.gd.domain.Computer" >
+    insert into gd_computers (cpt_id, cpt_name, cpt_price, 
+      cpt_icon, cpt_os, cpt_cpu, 
+      cpt_ram, cpt_rom, cpt_screensize, 
+      cpt_graphicscard, cpt_islending, cpt_lendtime, 
+      cpt_returntime, cpt_who, attribute1, 
+      attribute2, attribute3)
+    values (#{cptId,jdbcType=INTEGER}, #{cptName,jdbcType=VARCHAR}, #{cptPrice,jdbcType=DECIMAL}, 
+      #{cptIcon,jdbcType=VARCHAR}, #{cptOs,jdbcType=VARCHAR}, #{cptCpu,jdbcType=VARCHAR}, 
+      #{cptRam,jdbcType=VARCHAR}, #{cptRom,jdbcType=VARCHAR}, #{cptScreensize,jdbcType=VARCHAR}, 
+      #{cptGraphicscard,jdbcType=VARCHAR}, #{cptIslending,jdbcType=VARCHAR}, #{cptLendtime,jdbcType=TIMESTAMP}, 
+      #{cptReturntime,jdbcType=TIMESTAMP}, #{cptWho,jdbcType=INTEGER}, #{attribute1,jdbcType=VARCHAR}, 
+      #{attribute2,jdbcType=VARCHAR}, #{attribute3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.tracy.gd.domain.Computer" >
+    insert into gd_computers
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cptId != null" >
+        cpt_id,
+      </if>
+      <if test="cptName != null" >
+        cpt_name,
+      </if>
+      <if test="cptPrice != null" >
+        cpt_price,
+      </if>
+      <if test="cptIcon != null" >
+        cpt_icon,
+      </if>
+      <if test="cptOs != null" >
+        cpt_os,
+      </if>
+      <if test="cptCpu != null" >
+        cpt_cpu,
+      </if>
+      <if test="cptRam != null" >
+        cpt_ram,
+      </if>
+      <if test="cptRom != null" >
+        cpt_rom,
+      </if>
+      <if test="cptScreensize != null" >
+        cpt_screensize,
+      </if>
+      <if test="cptGraphicscard != null" >
+        cpt_graphicscard,
+      </if>
+      <if test="cptIslending != null" >
+        cpt_islending,
+      </if>
+      <if test="cptLendtime != null" >
+        cpt_lendtime,
+      </if>
+      <if test="cptReturntime != null" >
+        cpt_returntime,
+      </if>
+      <if test="cptWho != null" >
+        cpt_who,
+      </if>
+      <if test="attribute1 != null" >
+        attribute1,
+      </if>
+      <if test="attribute2 != null" >
+        attribute2,
+      </if>
+      <if test="attribute3 != null" >
+        attribute3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cptId != null" >
+        #{cptId,jdbcType=INTEGER},
+      </if>
+      <if test="cptName != null" >
+        #{cptName,jdbcType=VARCHAR},
+      </if>
+      <if test="cptPrice != null" >
+        #{cptPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="cptIcon != null" >
+        #{cptIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="cptOs != null" >
+        #{cptOs,jdbcType=VARCHAR},
+      </if>
+      <if test="cptCpu != null" >
+        #{cptCpu,jdbcType=VARCHAR},
+      </if>
+      <if test="cptRam != null" >
+        #{cptRam,jdbcType=VARCHAR},
+      </if>
+      <if test="cptRom != null" >
+        #{cptRom,jdbcType=VARCHAR},
+      </if>
+      <if test="cptScreensize != null" >
+        #{cptScreensize,jdbcType=VARCHAR},
+      </if>
+      <if test="cptGraphicscard != null" >
+        #{cptGraphicscard,jdbcType=VARCHAR},
+      </if>
+      <if test="cptIslending != null" >
+        #{cptIslending,jdbcType=VARCHAR},
+      </if>
+      <if test="cptLendtime != null" >
+        #{cptLendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cptReturntime != null" >
+        #{cptReturntime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cptWho != null" >
+        #{cptWho,jdbcType=INTEGER},
+      </if>
+      <if test="attribute1 != null" >
+        #{attribute1,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute2 != null" >
+        #{attribute2,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute3 != null" >
+        #{attribute3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tracy.gd.domain.Computer" >
+    update gd_computers
+    <set >
+      <if test="cptName != null" >
+        cpt_name = #{cptName,jdbcType=VARCHAR},
+      </if>
+      <if test="cptPrice != null" >
+        cpt_price = #{cptPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="cptIcon != null" >
+        cpt_icon = #{cptIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="cptOs != null" >
+        cpt_os = #{cptOs,jdbcType=VARCHAR},
+      </if>
+      <if test="cptCpu != null" >
+        cpt_cpu = #{cptCpu,jdbcType=VARCHAR},
+      </if>
+      <if test="cptRam != null" >
+        cpt_ram = #{cptRam,jdbcType=VARCHAR},
+      </if>
+      <if test="cptRom != null" >
+        cpt_rom = #{cptRom,jdbcType=VARCHAR},
+      </if>
+      <if test="cptScreensize != null" >
+        cpt_screensize = #{cptScreensize,jdbcType=VARCHAR},
+      </if>
+      <if test="cptGraphicscard != null" >
+        cpt_graphicscard = #{cptGraphicscard,jdbcType=VARCHAR},
+      </if>
+      <if test="cptIslending != null" >
+        cpt_islending = #{cptIslending,jdbcType=VARCHAR},
+      </if>
+      <if test="cptLendtime != null" >
+        cpt_lendtime = #{cptLendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cptReturntime != null" >
+        cpt_returntime = #{cptReturntime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cptWho != null" >
+        cpt_who = #{cptWho,jdbcType=INTEGER},
+      </if>
+      <if test="attribute1 != null" >
+        attribute1 = #{attribute1,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute2 != null" >
+        attribute2 = #{attribute2,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute3 != null" >
+        attribute3 = #{attribute3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where cpt_id = #{cptId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tracy.gd.domain.Computer" >
+    update gd_computers
+    set cpt_name = #{cptName,jdbcType=VARCHAR},
+      cpt_price = #{cptPrice,jdbcType=DECIMAL},
+      cpt_icon = #{cptIcon,jdbcType=VARCHAR},
+      cpt_os = #{cptOs,jdbcType=VARCHAR},
+      cpt_cpu = #{cptCpu,jdbcType=VARCHAR},
+      cpt_ram = #{cptRam,jdbcType=VARCHAR},
+      cpt_rom = #{cptRom,jdbcType=VARCHAR},
+      cpt_screensize = #{cptScreensize,jdbcType=VARCHAR},
+      cpt_graphicscard = #{cptGraphicscard,jdbcType=VARCHAR},
+      cpt_islending = #{cptIslending,jdbcType=VARCHAR},
+      cpt_lendtime = #{cptLendtime,jdbcType=TIMESTAMP},
+      cpt_returntime = #{cptReturntime,jdbcType=TIMESTAMP},
+      cpt_who = #{cptWho,jdbcType=INTEGER},
+      attribute1 = #{attribute1,jdbcType=VARCHAR},
+      attribute2 = #{attribute2,jdbcType=VARCHAR},
+      attribute3 = #{attribute3,jdbcType=VARCHAR}
+    where cpt_id = #{cptId,jdbcType=INTEGER}
+  </update>
+</mapper>

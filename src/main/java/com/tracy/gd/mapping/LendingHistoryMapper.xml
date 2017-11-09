@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tracy.gd.IDao.LendingHistoryMapper" >
+  <resultMap id="BaseResultMap" type="com.tracy.gd.domain.LendingHistory" >
+    <id column="lh_id" property="lhId" jdbcType="INTEGER" />
+    <result column="lh_user_id" property="lhUserId" jdbcType="INTEGER" />
+    <result column="lh_la_id" property="lhLaId" jdbcType="INTEGER" />
+    <result column="lh_who_checked" property="lhWhoChecked" jdbcType="INTEGER" />
+    <result column="lh_check_time" property="lhCheckTime" jdbcType="TIMESTAMP" />
+    <result column="lh_is_check" property="lhIsCheck" jdbcType="VARCHAR" />
+    <result column="la_commons" property="laCommons" jdbcType="VARCHAR" />
+    <result column="attribute1" property="attribute1" jdbcType="VARCHAR" />
+    <result column="attribute2" property="attribute2" jdbcType="VARCHAR" />
+    <result column="attribute3" property="attribute3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    lh_id, lh_user_id, lh_la_id, lh_who_checked, lh_check_time, lh_is_check, la_commons, 
+    attribute1, attribute2, attribute3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from gd_lending_history
+    where lh_id = #{lhId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from gd_lending_history
+    where lh_id = #{lhId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.tracy.gd.domain.LendingHistory" >
+    insert into gd_lending_history (lh_id, lh_user_id, lh_la_id, 
+      lh_who_checked, lh_check_time, lh_is_check, 
+      la_commons, attribute1, attribute2, 
+      attribute3)
+    values (#{lhId,jdbcType=INTEGER}, #{lhUserId,jdbcType=INTEGER}, #{lhLaId,jdbcType=INTEGER}, 
+      #{lhWhoChecked,jdbcType=INTEGER}, #{lhCheckTime,jdbcType=TIMESTAMP}, #{lhIsCheck,jdbcType=VARCHAR}, 
+      #{laCommons,jdbcType=VARCHAR}, #{attribute1,jdbcType=VARCHAR}, #{attribute2,jdbcType=VARCHAR}, 
+      #{attribute3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.tracy.gd.domain.LendingHistory" >
+    insert into gd_lending_history
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="lhId != null" >
+        lh_id,
+      </if>
+      <if test="lhUserId != null" >
+        lh_user_id,
+      </if>
+      <if test="lhLaId != null" >
+        lh_la_id,
+      </if>
+      <if test="lhWhoChecked != null" >
+        lh_who_checked,
+      </if>
+      <if test="lhCheckTime != null" >
+        lh_check_time,
+      </if>
+      <if test="lhIsCheck != null" >
+        lh_is_check,
+      </if>
+      <if test="laCommons != null" >
+        la_commons,
+      </if>
+      <if test="attribute1 != null" >
+        attribute1,
+      </if>
+      <if test="attribute2 != null" >
+        attribute2,
+      </if>
+      <if test="attribute3 != null" >
+        attribute3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="lhId != null" >
+        #{lhId,jdbcType=INTEGER},
+      </if>
+      <if test="lhUserId != null" >
+        #{lhUserId,jdbcType=INTEGER},
+      </if>
+      <if test="lhLaId != null" >
+        #{lhLaId,jdbcType=INTEGER},
+      </if>
+      <if test="lhWhoChecked != null" >
+        #{lhWhoChecked,jdbcType=INTEGER},
+      </if>
+      <if test="lhCheckTime != null" >
+        #{lhCheckTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lhIsCheck != null" >
+        #{lhIsCheck,jdbcType=VARCHAR},
+      </if>
+      <if test="laCommons != null" >
+        #{laCommons,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute1 != null" >
+        #{attribute1,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute2 != null" >
+        #{attribute2,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute3 != null" >
+        #{attribute3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tracy.gd.domain.LendingHistory" >
+    update gd_lending_history
+    <set >
+      <if test="lhUserId != null" >
+        lh_user_id = #{lhUserId,jdbcType=INTEGER},
+      </if>
+      <if test="lhLaId != null" >
+        lh_la_id = #{lhLaId,jdbcType=INTEGER},
+      </if>
+      <if test="lhWhoChecked != null" >
+        lh_who_checked = #{lhWhoChecked,jdbcType=INTEGER},
+      </if>
+      <if test="lhCheckTime != null" >
+        lh_check_time = #{lhCheckTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lhIsCheck != null" >
+        lh_is_check = #{lhIsCheck,jdbcType=VARCHAR},
+      </if>
+      <if test="laCommons != null" >
+        la_commons = #{laCommons,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute1 != null" >
+        attribute1 = #{attribute1,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute2 != null" >
+        attribute2 = #{attribute2,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute3 != null" >
+        attribute3 = #{attribute3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where lh_id = #{lhId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tracy.gd.domain.LendingHistory" >
+    update gd_lending_history
+    set lh_user_id = #{lhUserId,jdbcType=INTEGER},
+      lh_la_id = #{lhLaId,jdbcType=INTEGER},
+      lh_who_checked = #{lhWhoChecked,jdbcType=INTEGER},
+      lh_check_time = #{lhCheckTime,jdbcType=TIMESTAMP},
+      lh_is_check = #{lhIsCheck,jdbcType=VARCHAR},
+      la_commons = #{laCommons,jdbcType=VARCHAR},
+      attribute1 = #{attribute1,jdbcType=VARCHAR},
+      attribute2 = #{attribute2,jdbcType=VARCHAR},
+      attribute3 = #{attribute3,jdbcType=VARCHAR}
+    where lh_id = #{lhId,jdbcType=INTEGER}
+  </update>
+</mapper>
