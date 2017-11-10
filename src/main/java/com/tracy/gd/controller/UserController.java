@@ -169,7 +169,7 @@ public class UserController {
                     request.getSession().setAttribute("userName", request.getParameter("userName"));
                     //如果验证成功 直接跳转 否则for循环会影响最终的结果
                     //把身份放入Session
-                    request.getSession().setAttribute("identity", request.getParameter("identity1"));
+                    request.getSession().setAttribute("identity", request.getParameter("identity"));
 
                     request.getSession().setAttribute("userId", userList.get(i).getUserId());
 

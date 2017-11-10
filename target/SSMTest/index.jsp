@@ -32,8 +32,8 @@
                     <li class="l_tit" style="color:#000">密码</li>
                     <li class="mb_10"><input type="Password" name="userPassword" class="login_input"  id="userPassword" style="border:#000 solid 1px"></li>
                     <li class="autoLogin">
-                        <label><input name="identity1" type="radio" value="user" checked/>用户</label>
-                        <label><input name="identity2" type="radio" value="admin" />管理员</label>
+                        <label><input name="identity" type="radio" value="user" checked/>用户</label>
+                        <label><input name="identity" type="radio" value="admin" />管理员</label>
                     </li>
                     <li><input type="submit" value="" class="login_btn"></li>
                 </ul>

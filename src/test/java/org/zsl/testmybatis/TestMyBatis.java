@@ -51,7 +51,13 @@ public class TestMyBatis {
 
 */
 
-        Computer computer = computerService.selectByPrimaryKey(1);
-        logger.info(JSON.toJSONString(computer));
+//        Computer computer = computerService.selectByPrimaryKey(1);
+        //logger.info(JSON.toJSONString(computer));
+        Computer computer = new Computer();
+        computer.setCptOs("win7");
+       // computer.setCptName("华硕");
+       // computer.setCptIslending("N");
+        List<Computer> list = computerService.selectAllComputers(computer);
+        logger.info(JSON.toJSONString(list));
     }  
 }  

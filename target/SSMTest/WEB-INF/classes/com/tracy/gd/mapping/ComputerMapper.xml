@@ -232,4 +232,53 @@
       attribute3 = #{attribute3,jdbcType=VARCHAR}
     where cpt_id = #{cptId,jdbcType=INTEGER}
   </update>
+  <select id="selectAllComputers" resultMap="BaseResultMap" parameterType="com.tracy.gd.domain.Computer">
+    select
+    <include refid="Base_Column_List" />
+    from gd_computers
+    <where>
+      1=1
+      <if test="cptName != null" >
+        AND cpt_name like CONCAT('%','${cptName}','%')
+      </if>
+      <if test="cptRam != null" >
+        AND cpt_ram like CONCAT('%','${cptRam}','%')
+      </if>
+      <if test="cptCpu != null" >
+        AND cpt_cpu like CONCAT('%','${cptCpu}','%')
+      </if>
+      <if test="cptOs != null" >
+        AND cpt_os = #{cptOs,jdbcType=VARCHAR}
+      </if>
+      <if test="cptGraphicscard != null">
+        AND cpt_graphicscard like CONCAT('%','${cptGraphicscard}','%')
+      </if>
+      <if test="cptIslending != null" >
+        AND cpt_name = #{cptIslending,jdbcType=VARCHAR}
+      </if>
+    </where>
+
+  </select>
+  <select id="selectComputerLists" resultMap="BaseResultMap">
+    SELECT
+    cpt_id,
+    cpt_name,
+    cpt_price,
+    cpt_icon,
+    cpt_os,
+    cpt_cpu,
+    cpt_ram,
+    cpt_rom,
+    cpt_screensize,
+    cpt_graphicscard,
+    cpt_islending,
+    cpt_lendtime,
+    cpt_returntime,
+    cpt_who,
+    attribute1,
+    attribute2,
+    attribute3
+    FROM
+    gd_computers
+  </select>
 </mapper>

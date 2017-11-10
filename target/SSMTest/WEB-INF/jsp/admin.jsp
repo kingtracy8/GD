@@ -72,9 +72,9 @@
                 <li class="layui-nav-item layui-nav-itemed">
                     <a class="" href="javascript:;">用户模块</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">查看/修改个人信息</a></dd>
-                        <dd><a href="javascript:;">修改密码</a></dd>
-                        <dd><a href="javascript:;">计算机使用申请</a></dd>
+                        <dd><a href="../../html/PersonalInfo.html" target="ifrbody">查看/修改个人信息</a></dd>
+                        <dd><a href="../../html/PersonalInfo.html" target="ifrbody">修改密码</a></dd>
+                        <dd><a href="../../html/computersList.html" target="ifrbody">计算机使用申请</a></dd>
                         <dd><a href="javascript:;">申请记录</a></dd>
                         <dd><a href="javascript:;">发表评论</a></dd>
                     </dl>
@@ -96,7 +96,7 @@
 
     <div class="layui-body">
 
-        <iframe id="ifrbody" name="ifrbody" src="../../html/welcome.html" scrolling="no"
+        <iframe id="ifrbody" name="ifrbody" src="../../html/welcome.html" scrolling="yes"
                 onload="changeFrameHeight()"></iframe>
 
     </div>
