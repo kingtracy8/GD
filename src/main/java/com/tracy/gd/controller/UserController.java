@@ -15,6 +15,7 @@ import com.tracy.gd.domain.User;
 import com.tracy.gd.service.IUserService;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -33,13 +34,29 @@ public class UserController {
         return "showUser";
     }
 
+    //用户注册
+    // 2017-11-10 10:37:48 Create by linsong.wei
+    // 疑问1：@ResponseBody标签参数中有requset和response则在页面中才更方便的取json数据
+    @RequestMapping("/RegisterUser")
+    public @ResponseBody
+    HashMap doRegister(HttpServletRequest request, HttpServletResponse response, @RequestBody User user) {
+
+        HashMap map = new HashMap();
+        User inUser = user;
+        inUser.setRegisterTime(new Date());
+        int flag = userService.insertSelective(inUser);
+        map.put("flag", flag);
+        return map;
+    }
+
+
     //获取用户身份
     @RequestMapping("/GetIdentity")
     public @ResponseBody
     HashMap getIdentity(HttpServletRequest request, HttpServletResponse response) {
         String identity = (String) request.getSession().getAttribute("identity");
         HashMap map = new HashMap();
-        map.put("identity",identity);
+        map.put("identity", identity);
         return map;
     }
 
@@ -55,7 +72,7 @@ public class UserController {
     //修改用户信息
     @RequestMapping("/EditUser")
     public @ResponseBody
-    int EditUser(HttpServletRequest request, HttpServletResponse response,@RequestBody User user){
+    int EditUser(HttpServletRequest request, HttpServletResponse response, @RequestBody User user) {
         int flag = 0;
         /* version 1
         //重置按钮会把页面上的id给清除掉，若不点重置则不会
@@ -86,8 +103,6 @@ public class UserController {
     /**
      * 检查用户名和密码
      */
-
-
     @RequestMapping(value = "/checkLogin", method = RequestMethod.POST)
     public @ResponseBody
     int
@@ -100,7 +115,6 @@ public class UserController {
             String userName = userList.get(i).getUserName();
             String userPassword = userList.get(i).getUserPassword();
 
-
             if (user.getUserName().equals(userName) && user.getUserPassword().equals(userPassword)) {
 //                    response.sendRedirect("../../html/success.html");
                 flag = 1;
@@ -109,8 +123,6 @@ public class UserController {
 //                    response.sendRedirect("../../html/error.html");
                 flag = 0;
             }
-
-
         }
         return flag;
 
@@ -171,7 +183,6 @@ public class UserController {
             Url = "error";
         }
         return Url;
-
 
     }
 

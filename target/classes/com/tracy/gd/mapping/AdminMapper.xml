@@ -9,13 +9,16 @@
     <result column="admin_icon" property="adminIcon" jdbcType="VARCHAR" />
     <result column="admin_gender" property="adminGender" jdbcType="VARCHAR" />
     <result column="admin_department" property="adminDepartment" jdbcType="VARCHAR" />
+    <result column="admin_phone" property="adminPhone" jdbcType="VARCHAR" />
+    <result column="admin_email" property="adminEmail" jdbcType="VARCHAR" />
+    <result column="register_time" property="registerTime" jdbcType="TIMESTAMP" />
     <result column="attribute1" property="attribute1" jdbcType="VARCHAR" />
     <result column="attribute2" property="attribute2" jdbcType="VARCHAR" />
     <result column="attribute3" property="attribute3" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     admin_id, admin_num, admin_name, admin_password, admin_icon, admin_gender, admin_department, 
-    attribute1, attribute2, attribute3
+    admin_phone, admin_email, register_time, attribute1, attribute2, attribute3
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -30,11 +33,13 @@
   <insert id="insert" parameterType="com.tracy.gd.domain.Admin" >
     insert into gd_admins (admin_id, admin_num, admin_name, 
       admin_password, admin_icon, admin_gender, 
-      admin_department, attribute1, attribute2, 
+      admin_department, admin_phone, admin_email, 
+      register_time, attribute1, attribute2, 
       attribute3)
     values (#{adminId,jdbcType=INTEGER}, #{adminNum,jdbcType=VARCHAR}, #{adminName,jdbcType=VARCHAR}, 
       #{adminPassword,jdbcType=VARCHAR}, #{adminIcon,jdbcType=VARCHAR}, #{adminGender,jdbcType=VARCHAR}, 
-      #{adminDepartment,jdbcType=VARCHAR}, #{attribute1,jdbcType=VARCHAR}, #{attribute2,jdbcType=VARCHAR}, 
+      #{adminDepartment,jdbcType=VARCHAR}, #{adminPhone,jdbcType=VARCHAR}, #{adminEmail,jdbcType=VARCHAR}, 
+      #{registerTime,jdbcType=TIMESTAMP}, #{attribute1,jdbcType=VARCHAR}, #{attribute2,jdbcType=VARCHAR}, 
       #{attribute3,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.tracy.gd.domain.Admin" >
@@ -60,6 +65,15 @@
       </if>
       <if test="adminDepartment != null" >
         admin_department,
+      </if>
+      <if test="adminPhone != null" >
+        admin_phone,
+      </if>
+      <if test="adminEmail != null" >
+        admin_email,
+      </if>
+      <if test="registerTime != null" >
+        register_time,
       </if>
       <if test="attribute1 != null" >
         attribute1,
@@ -93,6 +107,15 @@
       <if test="adminDepartment != null" >
         #{adminDepartment,jdbcType=VARCHAR},
       </if>
+      <if test="adminPhone != null" >
+        #{adminPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="adminEmail != null" >
+        #{adminEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="registerTime != null" >
+        #{registerTime,jdbcType=TIMESTAMP},
+      </if>
       <if test="attribute1 != null" >
         #{attribute1,jdbcType=VARCHAR},
       </if>
@@ -125,6 +148,15 @@
       <if test="adminDepartment != null" >
         admin_department = #{adminDepartment,jdbcType=VARCHAR},
       </if>
+      <if test="adminPhone != null" >
+        admin_phone = #{adminPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="adminEmail != null" >
+        admin_email = #{adminEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="registerTime != null" >
+        register_time = #{registerTime,jdbcType=TIMESTAMP},
+      </if>
       <if test="attribute1 != null" >
         attribute1 = #{attribute1,jdbcType=VARCHAR},
       </if>
@@ -145,6 +177,9 @@
       admin_icon = #{adminIcon,jdbcType=VARCHAR},
       admin_gender = #{adminGender,jdbcType=VARCHAR},
       admin_department = #{adminDepartment,jdbcType=VARCHAR},
+      admin_phone = #{adminPhone,jdbcType=VARCHAR},
+      admin_email = #{adminEmail,jdbcType=VARCHAR},
+      register_time = #{registerTime,jdbcType=TIMESTAMP},
       attribute1 = #{attribute1,jdbcType=VARCHAR},
       attribute2 = #{attribute2,jdbcType=VARCHAR},
       attribute3 = #{attribute3,jdbcType=VARCHAR}
@@ -152,8 +187,8 @@
   </update>
   <select id="selectUserAdmins" resultMap="BaseResultMap" >
     select
-    a.id,a.user_id,a.admin_name,a.password,a.age
-    from admin a,user_t t
-    where a.user_id = t.id
+    <include refid="Base_Column_List"/>
+    from gd_admins a,gd_users t
+    where a.user_id = t.admin_id
   </select>
 </mapper>

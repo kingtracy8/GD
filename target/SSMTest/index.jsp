@@ -110,15 +110,13 @@
 <script>
     layui.use('layer', function(){
         var layer = layui.layer;
-
-
     });
 
     function doRegister() {
         layer.open({
             type: 2,
             title:'用户注册',
-            area: ['900px', '600px'],
+            area: ['700px', '500px'],
             content: 'http://localhost:8080/html/register.html' //这里content是一个URL，如果你不想让iframe出现滚动条，你还可以content: ['http://sentsin.com', 'no']
         });
     }

@@ -1,5 +1,7 @@
 package com.tracy.gd.domain;
 
+import java.util.Date;
+
 public class User {
     private Integer userId;
 
@@ -14,6 +16,12 @@ public class User {
     private String userGender;
 
     private String userDepartment;
+
+    private String userPhone;
+
+    private String userEmail;
+
+    private Date registerTime;
 
     private String attribute1;
 
@@ -75,6 +83,30 @@ public class User {
 
     public void setUserDepartment(String userDepartment) {
         this.userDepartment = userDepartment == null ? null : userDepartment.trim();
+    }
+
+    public String getUserPhone() {
+        return userPhone;
+    }
+
+    public void setUserPhone(String userPhone) {
+        this.userPhone = userPhone == null ? null : userPhone.trim();
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail == null ? null : userEmail.trim();
+    }
+
+    public Date getRegisterTime() {
+        return registerTime;
+    }
+
+    public void setRegisterTime(Date registerTime) {
+        this.registerTime = registerTime;
     }
 
     public String getAttribute1() {

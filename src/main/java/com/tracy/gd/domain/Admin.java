@@ -1,5 +1,7 @@
 package com.tracy.gd.domain;
 
+import java.util.Date;
+
 public class Admin {
     private Integer adminId;
 
@@ -14,6 +16,12 @@ public class Admin {
     private String adminGender;
 
     private String adminDepartment;
+
+    private String adminPhone;
+
+    private String adminEmail;
+
+    private Date registerTime;
 
     private String attribute1;
 
@@ -75,6 +83,30 @@ public class Admin {
 
     public void setAdminDepartment(String adminDepartment) {
         this.adminDepartment = adminDepartment == null ? null : adminDepartment.trim();
+    }
+
+    public String getAdminPhone() {
+        return adminPhone;
+    }
+
+    public void setAdminPhone(String adminPhone) {
+        this.adminPhone = adminPhone == null ? null : adminPhone.trim();
+    }
+
+    public String getAdminEmail() {
+        return adminEmail;
+    }
+
+    public void setAdminEmail(String adminEmail) {
+        this.adminEmail = adminEmail == null ? null : adminEmail.trim();
+    }
+
+    public Date getRegisterTime() {
+        return registerTime;
+    }
+
+    public void setRegisterTime(Date registerTime) {
+        this.registerTime = registerTime;
     }
 
     public String getAttribute1() {

@@ -17,5 +17,5 @@ public interface AdminMapper {
 
     int updateByPrimaryKey(Admin record);
 
-    List<Admin> selectUserAdmins();
+    public List<Admin> selectUserAdmins();
 }

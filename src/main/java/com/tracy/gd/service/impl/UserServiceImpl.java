@@ -34,4 +34,8 @@ public class UserServiceImpl implements IUserService {
 		return userMapper.selectAll();
 	}
 
+	public int insertSelective(User record) {
+		return userMapper.insertSelective(record);
+	}
+
 }
