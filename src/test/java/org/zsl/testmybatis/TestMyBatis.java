@@ -54,10 +54,10 @@ public class TestMyBatis {
 //        Computer computer = computerService.selectByPrimaryKey(1);
         //logger.info(JSON.toJSONString(computer));
         Computer computer = new Computer();
-        computer.setCptOs(null);
+        //computer.setCptOs(null);
       //  computer.setCptGraphicscard("GT840M");
 //        computer.setCptName("");
-       // computer.setCptIslending("N");
+        computer.setCptIslending("N");
         List<Computer> list = computerService.selectAllComputers(computer);
         logger.info(JSON.toJSONString(list));
     }  

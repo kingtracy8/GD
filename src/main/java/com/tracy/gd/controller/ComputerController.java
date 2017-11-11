@@ -57,6 +57,7 @@ public class ComputerController {
         String cptCpu = null;
         String cptOs = null;
         String cptIslending = null;
+        String cptCard = null;
         Computer computer = new Computer();
 
         try {
@@ -65,6 +66,9 @@ public class ComputerController {
             cptCpu = URLDecoder.decode(request.getParameter("cptCpu"), "utf-8");//将中文转码
             cptOs = URLDecoder.decode(request.getParameter("cptOs"), "utf-8");//将中文转码
             cptIslending = URLDecoder.decode(request.getParameter("cptIslending"), "utf-8");
+            if(!cptIslending.equals(null))
+            computer.setCptIslending(cptIslending);
+            cptCard = URLDecoder.decode(request.getParameter("cptCard"),"utf-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         } catch (NullPointerException e) {
@@ -84,7 +88,7 @@ public class ComputerController {
 
             computer.setCptIslending(null);
 
-
+            computer.setCptGraphicscard("");
         } //筛选条件
 
         // 如果没有空指针异常
@@ -103,6 +107,16 @@ public class ComputerController {
             } else {
                 computer.setCptOs(cptOs);
             }
+        }
+        if(cptIslending.equals(null)){
+            if(cptIslending.equals("")){
+                computer.setCptIslending(null);
+            }else {
+                computer.setCptIslending(cptIslending);
+            }
+        }
+        if(!cptCard.equals(null)){
+            computer.setCptGraphicscard(cptCard);
         }
         List<Computer> computerList = computerService.selectAllComputers(computer);
         map.put("code", 0);
