@@ -56,8 +56,8 @@ public class TestMyBatis {
         Computer computer = new Computer();
         //computer.setCptOs(null);
       //  computer.setCptGraphicscard("GT840M");
-//        computer.setCptName("");
-        computer.setCptIslending("N");
+        computer.setCptName("华硕A550jk4200");
+//        computer.setCptIslending("N");
         List<Computer> list = computerService.selectAllComputers(computer);
         logger.info(JSON.toJSONString(list));
     }  
