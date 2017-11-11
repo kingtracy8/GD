@@ -148,24 +148,28 @@
             //获得radio
             var cptIslending = $('input:radio:checked').val();
 
+            var cardValue = cptGraphicscard.value;
+
             console.log(cptName.value);
             console.log(cptRam);
             console.log(cptCpu.value);
-            console.log(cptGraphicscard.value);
+            console.log(cardValue);
             console.log(cptOs);
             console.log(cptIslending);
+
+
 //            if(cptName.value||$('#cptRam option:selected').val()||cptCpu.value|| $('#cptGraphicscard option:selected').val()){
 //
 //            }
 
 //            if(cptName.value||$('#cptRam option:selected').val()||cptCpu.value|| $('#cptGraphicscard option:selected').val()){   //如果输入了条件才重载表格，否则显示全部 2017-11-10 20:20:40 linsong.wei
             table.reload('computersTable', {
-                url: '/Computer/computerList',
+                url: '/Computer/computerListFilter',
                 where: { //设定异步数据接口的额外参数，任意设
                     cptName: cptName.value,
                     cptRam: $('#cptRam option:selected').val(),
                     cptCpu: cptCpu.value,
-                    cptGraphicscard: $('#cptGraphicscard option:selected').val(),
+                    cptCard:cardValue,
                     cptOs: cptOs,
                     cptIslending: $('input:radio:checked').val(),
 

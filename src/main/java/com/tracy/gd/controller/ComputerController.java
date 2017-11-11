@@ -32,71 +32,85 @@ public class ComputerController {
     @Autowired
     IComputerService computerService;
 
-//    @Autowired
-//    IUserService userService;
-
     //展示电脑列表页面
     //Create by linsong.wei 2017-11-10 14:31:44
     @RequestMapping(value = "/computerList", method = RequestMethod.GET)
     public @ResponseBody
     HashMap print(HttpServletRequest request, HttpServletResponse response) {
         HashMap map = new HashMap();
-//        int currentUserId = (Integer) request.getSession().getAttribute("userId");
-//        User currentUser =  userService.getUserById(currentUserId);
+        Computer computer = new Computer();
+        List<Computer> computerList = computerService.selectAllComputers(computer);
+        map.put("code", 0);
+        map.put("msg", "");
+        map.put("data", computerList);
+        return map;
+    }
+
+    //展示电脑列表页面(有过滤)
+    //Create by linsong.wei 2017-11-11 08:41:32
+    @RequestMapping(value = "/computerListFilter", method = RequestMethod.GET)
+    public @ResponseBody
+    HashMap computerListFilter(HttpServletRequest request, HttpServletResponse response) {
+        HashMap map = new HashMap();
         String cptName = null;
         String cptRam = null;
-        String cptCpu =null;
-        String cptGraphicscard = null;
+        String cptCpu = null;
         String cptOs = null;
         String cptIslending = null;
         Computer computer = new Computer();
+
         try {
             cptName = URLDecoder.decode(request.getParameter("cptName"), "utf-8");//将中文转码
             cptRam = URLDecoder.decode(request.getParameter("cptRam"), "utf-8");//将中文转码
             cptCpu = URLDecoder.decode(request.getParameter("cptCpu"), "utf-8");//将中文转码
-            cptGraphicscard = URLDecoder.decode(request.getParameter("cptGraphicscard"), "utf-8");//将中文转码
             cptOs = URLDecoder.decode(request.getParameter("cptOs"), "utf-8");//将中文转码
             cptIslending = URLDecoder.decode(request.getParameter("cptIslending"), "utf-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         } catch (NullPointerException e) {
             //  cptName = "";  ""也会占用字符，导致mybatis无法匹配！！  linsong.wei 2017-11-10 20:15:33
-            if (!cptName.equals(null) || !cptName.equals("")) {
-                computer.setCptName(cptName);
-            }
-            if (!cptRam.equals(null) || !cptRam.equals("")) {
-                computer.setCptRam(cptRam);
-            }
-            if (!cptCpu.equals(null) || !cptCpu.equals("")) {
-                computer.setCptCpu(cptCpu);
-            }
-            if (!cptGraphicscard.equals(null) || !cptGraphicscard.equals("")) {
-                computer.setCptGraphicscard(cptGraphicscard);
-            }
-            if(!cptOs.equals(null)||!cptOs.equals("")){
+
+            computer.setCptName("");
+
+
+            computer.setCptRam("");
+
+
+            computer.setCptCpu("");
+
+
+            computer.setCptOs(null);
+
+
+            computer.setCptIslending(null);
+
+
+        } //筛选条件
+
+        // 如果没有空指针异常
+        if (!cptName.equals(null)) {
+            computer.setCptName(cptName);
+        }
+        if (!cptRam.equals(null)) {
+            computer.setCptRam(cptRam);
+        }
+        if (!cptCpu.equals(null)) {
+            computer.setCptCpu(cptCpu);
+        }
+        if (!cptOs.equals(null)) {
+            if (cptOs.equals("")) {
+                computer.setCptOs(null);        //因为sql使用的是 = ，使用""匹配不上
+            } else {
                 computer.setCptOs(cptOs);
             }
-//            if(!cptIslending.equals(null)||!cptIslending.equals("")){
-//                computer.setCptIslending(cptIslending);
-//            }
-//            cptName = null;
-//            cptRam = null;
-//            cptCpu = null;
-//            cptOs = null;
-//            cptIslending = null;
-        } finally { //筛选条件
-
-//            computer.setCptName(cptName);
-//            computer.setCptRam(cptRam);
-//            computer.setCptCpu(cptCpu);
-//            computer.setCptOs(cptOs);
-//            computer.setCptIslending(cptIslending);
-            List<Computer> computerList = computerService.selectAllComputers(computer);
-            map.put("code", 0);
-            map.put("msg", "");
-            map.put("data", computerList);
-            return map;
         }
+        List<Computer> computerList = computerService.selectAllComputers(computer);
+        map.put("code", 0);
+        map.put("msg", "");
+        map.put("data", computerList);
+
+        return map;
     }
+
 
 }
