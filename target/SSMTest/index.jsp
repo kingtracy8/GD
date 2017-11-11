@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://"
@@ -19,24 +19,26 @@
 </head>
 <body>
 
-<br /><br /><br /><br /><br /><br />
+<br/><br/><br/><br/><br/><br/>
 
 <div class="car">
     <div class="body">
         <div class="loginBox" style="border:2px solid #000">
             <div class="login_cont">
                 <form action="/user/FormLogin" method="post">
-                <ul class="login">
-                    <li class="l_tit" style="color:#000">邮箱/用户名/手机号</li>
-                    <li class="mb_10"><input type="text" name="userName" class="login_input" style="border:#000 solid 1px"></li>
-                    <li class="l_tit" style="color:#000">密码</li>
-                    <li class="mb_10"><input type="Password" name="userPassword" class="login_input"  id="userPassword" style="border:#000 solid 1px"></li>
-                    <li class="autoLogin">
-                        <label><input name="identity" type="radio" value="user" checked/>用户</label>
-                        <label><input name="identity" type="radio" value="admin" />管理员</label>
-                    </li>
-                    <li><input type="submit" value="" class="login_btn"></li>
-                </ul>
+                    <ul class="login">
+                        <li class="l_tit" style="color:#000">邮箱/用户名/手机号</li>
+                        <li class="mb_10"><input type="text" name="userName" class="login_input"
+                                                 style="border:#000 solid 1px"></li>
+                        <li class="l_tit" style="color:#000">密码</li>
+                        <li class="mb_10"><input type="Password" name="userPassword" class="login_input"
+                                                 id="userPassword" style="border:#000 solid 1px"></li>
+                        <li class="autoLogin">
+                            <label><input name="identity" type="radio" value="user" checked/>用户</label>
+                            <label><input name="identity" type="radio" value="admin"/>管理员</label>
+                        </li>
+                        <li><input type="submit" value="" class="login_btn"></li>
+                    </ul>
                 </form>
                 <div class="login_partners">
                     <p class="l_tit" style="color:#000">使用合作方账号登陆网站</p>
@@ -108,17 +110,20 @@
 </body>
 <script src="/js/layui.js"></script>
 <script>
-    layui.use('layer', function(){
+    layui.use('layer', function () {
         var layer = layui.layer;
     });
 
     function doRegister() {
-        layer.open({
+        var index = layer.open({
             type: 2,
-            title:'用户注册',
+            title: '用户注册',
+            offset: '100px',  //水平居中
             area: ['700px', '500px'],
             content: 'http://localhost:8080/html/register.html' //这里content是一个URL，如果你不想让iframe出现滚动条，你还可以content: ['http://sentsin.com', 'no']
         });
+        layer.iframeAuto(index);    //自适应
+
     }
 
 </script>
