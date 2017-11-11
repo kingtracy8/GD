@@ -58,7 +58,7 @@
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="../../html/PersonalInfo.html" target="ifrbody">修改个人资料</a></dd>
-                    <dd><a href="#">修改个人密码</a></dd>
+                    <dd><a href="../../html/changePassword.html" target="ifrbody">修改个人密码</a></dd>
                 </dl>
             </li>
             <li class="layui-nav-item"><a href="#" onclick="logout()">退出</a></li>
@@ -73,7 +73,7 @@
                     <a class="" href="javascript:;">用户模块</a>
                     <dl class="layui-nav-child">
                         <dd><a href="../../html/PersonalInfo.html" target="ifrbody">查看/修改个人信息</a></dd>
-                        <dd><a href="../../html/PersonalInfo.html" target="ifrbody">修改密码</a></dd>
+                        <dd><a href="../../html/changePassword.html" target="ifrbody">修改密码</a></dd>
                         <dd><a href="../../html/computersList.html" target="ifrbody">计算机使用申请</a></dd>
                         <dd><a href="javascript:;">申请记录</a></dd>
                         <dd><a href="javascript:;">发表评论</a></dd>

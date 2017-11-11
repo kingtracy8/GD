@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2b63822-c6f6-48d6-965a-33b61666fa44" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tracy/gd/controller/ComputerController.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SSMTest/WEB-INF/classes/com/tracy/gd/controller/ComputerController.class" afterPath="$PROJECT_DIR$/target/SSMTest/WEB-INF/classes/com/tracy/gd/controller/ComputerController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/org/zsl/testmybatis/TestMyBatis.class" afterPath="$PROJECT_DIR$/target/test-classes/org/zsl/testmybatis/TestMyBatis.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/ssm.log" afterPath="$PROJECT_DIR$/logs/ssm.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/ComputerController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/ComputerController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/ComputerMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/ComputerMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/html/computersList.html" afterPath="$PROJECT_DIR$/src/main/webapp/html/computersList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/zsl/testmybatis/TestMyBatis.java" afterPath="$PROJECT_DIR$/src/test/java/org/zsl/testmybatis/TestMyBatis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SSMTest/WEB-INF/classes/com/tracy/gd/mapping/ComputerMapper.xml" afterPath="$PROJECT_DIR$/target/SSMTest/WEB-INF/classes/com/tracy/gd/mapping/ComputerMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SSMTest/html/computersList.html" afterPath="$PROJECT_DIR$/target/SSMTest/html/computersList.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/UserController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,69 +25,14 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ComputerController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/ComputerController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="124" column="0" lean-forward="true" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ComputerMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/ComputerMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="252" column="25" lean-forward="true" selection-start-line="252" selection-start-column="25" selection-end-line="252" selection-end-column="25" />
-              <folding>
-                <marker date="1510364705256" expanded="true" signature="1906:2021" ph="select from gd_computers" />
-                <marker date="1510364705256" expanded="true" signature="2108:2177" ph="delete from " />
-                <marker date="1510364705256" expanded="true" signature="2263:3096" ph="insert into gd_computers... " />
-                <marker date="1510364705256" expanded="true" signature="6119:7825" ph="update gd_co... " />
-                <marker date="1510364705256" expanded="true" signature="7923:8791" ph="update gd_co... " />
-                <marker date="1510364705256" expanded="true" signature="8914:8983" ph="select from gd_computers" />
-                <marker date="1510364705256" expanded="true" signature="9728:10025" ph="SELECT cpt_i... gd_computers" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="computersList.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/html/computersList.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-483">
-              <caret line="72" column="86" lean-forward="false" selection-start-line="72" selection-start-column="86" selection-end-line="72" selection-end-column="86" />
-              <folding>
-                <element signature="n#style#0;n#blockquote#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#fieldset#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#3;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestMyBatis.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/org/zsl/testmybatis/TestMyBatis.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="59" column="26" lean-forward="false" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -137,8 +74,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/impl/UserServiceImpl.java" />
         <option value="D:/JAVA_developer/jdk_install/src.zip!/java/util/AbstractCollection.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/register.html" />
         <option value="D:/JAVA_developer/jdk_install/src.zip!/java/lang/Throwable.java" />
         <option value="D:/JAVA_developer/jdk_install/src.zip!/java/lang/StringBuilder.java" />
@@ -154,6 +89,11 @@
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/ComputerMapper.xml" />
         <option value="$PROJECT_DIR$/src/test/java/org/zsl/testmybatis/TestMyBatis.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/ComputerController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/html/changPassword.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/domain/checkPass.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/html/changePassword.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp" />
       </list>
     </option>
   </component>
@@ -222,8 +162,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -444,40 +382,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="impl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GD" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GD" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="mapping" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -574,7 +478,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1177,7 +1083,8 @@
       <workItem from="1510274002676" duration="10413000" />
       <workItem from="1510293263245" duration="23790000" />
       <workItem from="1510321733175" duration="8460000" />
-      <workItem from="1510357242384" duration="8129000" />
+      <workItem from="1510357242384" duration="8208000" />
+      <workItem from="1510373787677" duration="7314000" />
     </task>
     <servers />
   </component>
@@ -1214,7 +1121,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86639000" />
+    <option name="totallyTimeSpent" value="94032000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1226,8 +1133,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1251,10 +1157,10 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32131147" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3065574" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26096824" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2397882" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -1339,21 +1245,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/ComputerController.java</url>
-          <line>70</line>
-          <properties />
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/ComputerController.java</url>
-          <line>67</line>
-          <properties />
-          <option name="timeStamp" value="47" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="48" />
+      <option name="time" value="55" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1362,21 +1254,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/admin.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="28" column="42" lean-forward="false" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/domain/LendingHistory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="27" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/domain/Admin.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
@@ -1388,13 +1265,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="265">
           <caret line="19" column="42" lean-forward="false" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/domain/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1503,32 +1373,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="98" column="88" lean-forward="false" selection-start-line="98" selection-start-column="88" selection-end-line="98" selection-end-column="88" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/html/success.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
           <caret line="13" column="33" lean-forward="false" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/PersonalInfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1064">
-          <caret line="52" column="29" lean-forward="true" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="144" column="24" lean-forward="true" selection-start-line="144" selection-start-column="24" selection-end-line="144" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -1543,14 +1391,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="11" column="35" lean-forward="false" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2024">
-          <caret line="105" column="70" lean-forward="false" selection-start-line="105" selection-start-column="42" selection-end-line="105" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1639,11 +1479,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
           <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding>
-            <element signature="e#759#760#0" expanded="false" />
-            <element signature="e#810#811#0" expanded="false" />
-            <element signature="e#869#870#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1661,21 +1496,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/UserMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="50" column="20" lean-forward="true" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
-          <folding>
-            <marker date="1510278480494" expanded="true" signature="1576:1689" ph="select from gd_users" />
-            <marker date="1510278480494" expanded="true" signature="1776:1843" ph="delete from " />
-            <marker date="1510278480494" expanded="true" signature="1925:2588" ph="insert into gd_users... " />
-            <marker date="1510278480494" expanded="true" signature="5013:6341" ph="update gd_us... " />
-            <marker date="1510278480494" expanded="true" signature="6435:7119" ph="update gd_us... " />
-            <marker date="1510278480494" expanded="true" signature="7189:7254" ph="select from gd_users" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/IDao/UserMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="129">
@@ -1687,15 +1507,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="21" column="41" lean-forward="false" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/domain/Computer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="24" column="34" lean-forward="false" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1703,7 +1514,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="106">
           <caret line="405" column="0" lean-forward="false" selection-start-line="405" selection-start-column="0" selection-end-line="405" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1711,7 +1521,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="106">
           <caret line="245" column="0" lean-forward="false" selection-start-line="245" selection-start-column="0" selection-end-line="245" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1719,7 +1528,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-64">
           <caret line="15" column="30" lean-forward="false" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1747,14 +1555,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/computersList.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/ComputerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-483">
-          <caret line="72" column="86" lean-forward="false" selection-start-line="72" selection-start-column="86" selection-end-line="72" selection-end-column="86" />
+        <state relative-caret-position="2852">
+          <caret line="124" column="0" lean-forward="false" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#blockquote#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#fieldset#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/PersonalInfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="128" column="19" lean-forward="true" selection-start-line="128" selection-start-column="19" selection-end-line="128" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/domain/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1219">
+          <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+          <folding>
+            <element signature="e#2338#2339#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/domain/Computer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-368">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1767,13 +1601,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/ComputerController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/domain/checkPass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="124" column="0" lean-forward="true" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="27" lean-forward="false" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/UserMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="50" column="20" lean-forward="true" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
+          <folding>
+            <marker date="1510278480494" expanded="true" signature="1576:1689" ph="select from gd_users" />
+            <marker date="1510278480494" expanded="true" signature="1776:1843" ph="delete from " />
+            <marker date="1510278480494" expanded="true" signature="1925:2588" ph="insert into gd_users... " />
+            <marker date="1510278480494" expanded="true" signature="5013:6341" ph="update gd_us... " />
+            <marker date="1510278480494" expanded="true" signature="6435:7119" ph="update gd_us... " />
+            <marker date="1510278480494" expanded="true" signature="7189:7254" ph="select from gd_users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1">
+          <caret line="40" column="32" lean-forward="false" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/changePassword.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="149" column="93" lean-forward="false" selection-start-line="149" selection-start-column="93" selection-end-line="149" selection-end-column="93" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#0;n#div#0;n#fieldset#0;n#blockquote#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#1;n#form#0;n#div#0;n#fieldset#0;n#blockquote#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#div#3;n#form#0;n#div#0;n#fieldset#0;n#blockquote#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#fieldset#0;n#blockquote#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#fieldset#0;n#blockquote#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/computersList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1058">
+          <caret line="146" column="53" lean-forward="false" selection-start-line="146" selection-start-column="53" selection-end-line="146" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="162" column="33" lean-forward="true" selection-start-line="160" selection-start-column="24" selection-end-line="162" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="60" column="81" lean-forward="false" selection-start-line="60" selection-start-column="81" selection-end-line="60" selection-end-column="81" />
+          <folding />
         </state>
       </provider>
     </entry>

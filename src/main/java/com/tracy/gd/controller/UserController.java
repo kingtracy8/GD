@@ -3,6 +3,7 @@ package com.tracy.gd.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.tracy.gd.domain.checkPass;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,6 +34,42 @@ public class UserController {
         // model.addAttribute("user", user);
         return "showUser";
     }
+
+
+    //修改用户密码 Create by: linsong.wei 2017-11-11 14:04:33
+    //function: ajax获得一个密码对象，更新到当前用户的密码中
+    @RequestMapping("/changePass")
+    public @ResponseBody
+    HashMap doChangePass(HttpServletRequest request, HttpServletResponse response, @RequestBody checkPass checkPass) {
+        HashMap map = new HashMap();
+        int flag = 0;
+        int curUserId = (Integer) request.getSession().getAttribute("userId");
+        User curUser = userService.getUserById(curUserId);
+        curUser.setUserPassword(checkPass.getNewPass());    //设置成为新的密码
+        flag = userService.updateByPrimaryKey(curUser);
+        map.put("flag",flag);
+        return map;
+    }
+
+
+    //验证原密码是否正确
+    // 2017-11-11 13:35:10 Create by linsong.wei
+    @RequestMapping("/CheckPassword")
+    public @ResponseBody
+    HashMap doCheckPass(HttpServletRequest request, HttpServletResponse response, @RequestBody checkPass checkPass) {
+
+        HashMap map = new HashMap();
+
+        int curUserId = (Integer) request.getSession().getAttribute("userId");
+        User curUser = userService.getUserById(curUserId);
+        if(curUser.getUserPassword().equals(checkPass.getOrgPass().trim())){
+            map.put("flag","sucess");
+        }else {
+            map.put("flag","faild");
+        }
+        return map;
+    }
+
 
     //用户注册
     // 2017-11-10 10:37:48 Create by linsong.wei
