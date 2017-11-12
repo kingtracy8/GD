@@ -25,32 +25,66 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="welcome.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/html/welcome.html">
+      <file leaf-file-name="LendingApply.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/html/LendingApply.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="129" column="27" lean-forward="false" selection-start-line="129" selection-start-column="19" selection-end-line="129" selection-end-column="27" />
+            <state relative-caret-position="110">
+              <caret line="38" column="49" lean-forward="false" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="49" />
+              <folding>
+                <element signature="n#style#0;n#fieldset#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#fieldset#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LendingApply.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/domain/LendingApply.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+      <file leaf-file-name="computersList.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/html/computersList.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="130" column="0" lean-forward="true" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+            <state relative-caret-position="458">
+              <caret line="141" column="29" lean-forward="false" selection-start-line="141" selection-start-column="29" selection-end-line="141" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/html/register.html">
+      <file leaf-file-name="ComputerController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/ComputerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="159" column="29" lean-forward="true" selection-start-line="159" selection-start-column="29" selection-end-line="159" selection-end-column="29" />
-              <folding />
+            <state relative-caret-position="311">
+              <caret line="125" column="19" lean-forward="true" selection-start-line="125" selection-start-column="19" selection-end-line="125" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ComputerMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/ComputerMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="239" column="9" lean-forward="true" selection-start-line="239" selection-start-column="9" selection-end-line="239" selection-end-column="9" />
+              <folding>
+                <marker date="1510460567167" expanded="true" signature="1906:2021" ph="select from gd_computers" />
+                <marker date="1510460567167" expanded="true" signature="2108:2177" ph="delete from " />
+                <marker date="1510460567167" expanded="true" signature="2263:3096" ph="insert into gd_computers... " />
+                <marker date="1510460567167" expanded="true" signature="6119:7825" ph="update gd_co... " />
+                <marker date="1510460567167" expanded="true" signature="7923:8791" ph="update gd_co... " />
+                <marker date="1510460567167" expanded="true" signature="9728:10025" ph="SELECT cpt_i... gd_computers" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -61,8 +95,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -73,6 +107,8 @@
       <find>demo1</find>
       <find>radio</find>
       <find>cptGraphicscard</find>
+      <find>date1</find>
+      <find>date2</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -112,19 +148,21 @@
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/IComputerService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/IDao/ComputerMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/impl/ComputerServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/ComputerController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/changPassword.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/domain/checkPass.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/changePassword.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp" />
         <option value="$PROJECT_DIR$/src/test/java/org/zsl/testmybatis/TestMyBatis.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/ComputerMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/html/computersList.html" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/src/main/resources/jdbc.properties" />
-        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/PersonalInfo.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/domain/LendingApply.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/ComputerController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/ComputerMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/html/LendingApply.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/html/computersList.html" />
       </list>
     </option>
   </component>
@@ -193,8 +231,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -512,12 +548,15 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -1118,6 +1157,7 @@
       <workItem from="1510373787677" duration="7314000" />
       <workItem from="1510385656869" duration="5858000" />
       <workItem from="1510401313448" duration="3551000" />
+      <workItem from="1510450014235" duration="10593000" />
     </task>
     <servers />
   </component>
@@ -1154,7 +1194,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103441000" />
+    <option name="totallyTimeSpent" value="114034000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1166,7 +1206,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1064" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1064" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1182,7 +1223,7 @@
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33259177" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44160178" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1190,10 +1231,10 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47830924" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24694104" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24624464" sideWeight="0.49253732" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24946351" sideWeight="0.49253732" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24302575" sideWeight="0.5074627" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -1211,37 +1252,37 @@
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925472" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25245902" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32939914" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32939914" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3327869" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44160178" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.59016395" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24694104" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26096824" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24946351" sideWeight="0.49253732" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24302575" sideWeight="0.5074627" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24302575" sideWeight="0.5074627" order="7" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1278,15 +1319,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/ComputerController.java</url>
-          <line>63</line>
-          <properties />
-          <option name="timeStamp" value="55" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="56" />
+      <option name="time" value="59" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1295,14 +1328,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.m2/repository/org/mybatis/mybatis-spring/1.2.2/mybatis-spring-1.2.2.jar!/org/mybatis/spring/SqlSessionTemplate.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="157" column="0" lean-forward="false" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/JAVA_developer/jdk_install/src.zip!/java/util/AbstractCollection.java" />
     <entry file="jar://$USER_HOME$/.m2/repository/org/mybatis/mybatis/3.2.6/mybatis-3.2.6.jar!/org/apache/ibatis/session/Configuration.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -1350,24 +1375,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/admin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1840">
-          <caret line="14" column="23" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/html/b.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-5589">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/success.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="13" column="33" lean-forward="false" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -1443,13 +1454,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/IDao/ComputerMapper.java" />
-    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-webmvc/4.0.2.RELEASE/spring-webmvc-4.0.2.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="405" column="0" lean-forward="false" selection-start-line="405" selection-start-column="0" selection-end-line="405" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-webmvc/4.0.2.RELEASE/spring-webmvc-4.0.2.RELEASE.jar!/org/springframework/web/servlet/mvc/annotation/AnnotationMethodHandlerAdapter.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="106">
@@ -1470,7 +1474,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/domain/Computer.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/domain/checkPass.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/changePassword.html" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="575">
@@ -1485,36 +1488,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
           <caret line="50" column="20" lean-forward="true" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-web/4.0.2.RELEASE/spring-web-4.0.2.RELEASE.jar!/org/springframework/web/bind/annotation/support/HandlerMethodInvoker.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="128" column="0" lean-forward="false" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/ComputerMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="249" column="32" lean-forward="true" selection-start-line="249" selection-start-column="32" selection-end-line="249" selection-end-column="32" />
-          <folding>
-            <marker date="1510390266324" expanded="true" signature="1906:2021" ph="select from gd_computers" />
-            <marker date="1510390266324" expanded="true" signature="2108:2177" ph="delete from " />
-            <marker date="1510390266324" expanded="true" signature="2263:3096" ph="insert into gd_computers... " />
-            <marker date="1510390266324" expanded="true" signature="6119:7825" ph="update gd_co... " />
-            <marker date="1510390266324" expanded="true" signature="7923:8791" ph="update gd_co... " />
-            <marker date="1510390266324" expanded="true" signature="9728:10025" ph="SELECT cpt_i... gd_computers" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/ComputerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-460">
-          <caret line="4" column="36" lean-forward="false" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
           <folding />
         </state>
       </provider>
@@ -1534,18 +1507,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/computersList.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="90" column="46" lean-forward="false" selection-start-line="90" selection-start-column="46" selection-end-line="90" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
           <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1557,45 +1522,135 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/PersonalInfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1449">
+          <caret line="165" column="7" lean-forward="true" selection-start-line="165" selection-start-column="7" selection-end-line="165" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="101" column="33" lean-forward="true" selection-start-line="101" selection-start-column="33" selection-end-line="101" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/html/a.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2599">
+        <state relative-caret-position="297">
           <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/PersonalInfo.html">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/admin.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1449">
-          <caret line="165" column="7" lean-forward="true" selection-start-line="165" selection-start-column="7" selection-end-line="165" selection-end-column="7" />
-          <folding>
-            <element signature="n#style#0;n#label#0;n#div#4;n#form#0;n#div#0;n#fieldset#0;n#blockquote#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#4;n#form#0;n#div#0;n#fieldset#0;n#blockquote#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="-569">
+          <caret line="14" column="23" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/html/welcome.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
+        <state relative-caret-position="3483">
           <caret line="129" column="27" lean-forward="false" selection-start-line="129" selection-start-column="19" selection-end-line="129" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/changePassword.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="99" column="14" lean-forward="true" selection-start-line="99" selection-start-column="14" selection-end-line="99" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-webmvc/4.0.2.RELEASE/spring-webmvc-4.0.2.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="459" column="0" lean-forward="false" selection-start-line="459" selection-start-column="0" selection-end-line="459" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-web/4.0.2.RELEASE/spring-web-4.0.2.RELEASE.jar!/org/springframework/web/bind/annotation/support/HandlerMethodInvoker.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="155" column="0" lean-forward="false" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/success.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="48" column="49" lean-forward="false" selection-start-line="48" selection-start-column="45" selection-end-line="48" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="130" column="0" lean-forward="true" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+        <state relative-caret-position="452">
+          <caret line="122" column="21" lean-forward="false" selection-start-line="122" selection-start-column="21" selection-end-line="122" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/register.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/domain/LendingApply.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="159" column="29" lean-forward="true" selection-start-line="159" selection-start-column="29" selection-end-line="159" selection-end-column="29" />
+        <state relative-caret-position="270">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/ComputerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="125" column="19" lean-forward="true" selection-start-line="125" selection-start-column="19" selection-end-line="125" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/ComputerMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="239" column="9" lean-forward="true" selection-start-line="239" selection-start-column="9" selection-end-line="239" selection-end-column="9" />
+          <folding>
+            <marker date="1510460567167" expanded="true" signature="1906:2021" ph="select from gd_computers" />
+            <marker date="1510460567167" expanded="true" signature="2108:2177" ph="delete from " />
+            <marker date="1510460567167" expanded="true" signature="2263:3096" ph="insert into gd_computers... " />
+            <marker date="1510460567167" expanded="true" signature="6119:7825" ph="update gd_co... " />
+            <marker date="1510460567167" expanded="true" signature="7923:8791" ph="update gd_co... " />
+            <marker date="1510460567167" expanded="true" signature="9728:10025" ph="SELECT cpt_i... gd_computers" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/LendingApply.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="38" column="49" lean-forward="false" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="49" />
+          <folding>
+            <element signature="n#style#0;n#fieldset#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#fieldset#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/computersList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="141" column="29" lean-forward="false" selection-start-line="141" selection-start-column="29" selection-end-line="141" selection-end-column="29" />
           <folding />
         </state>
       </provider>

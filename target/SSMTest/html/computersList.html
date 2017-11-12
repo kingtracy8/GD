@@ -67,11 +67,11 @@
         </div>
         <div class="layui-form-item">
             <div class="layui-inline">
-            <label class="layui-form-label">是否借出</label>
-            <div class="layui-input-block">
-                <input type="radio" name="cptIslending" value="Y" title="是">
-                <input type="radio" name="cptIslending" value="N" title="否" checked="">
-            </div>
+                <label class="layui-form-label">是否借出</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="cptIslending" value="Y" title="是">
+                    <input type="radio" name="cptIslending" value="N" title="否" checked="">
+                </div>
             </div>
         </div>
 
@@ -129,7 +129,21 @@
                 layer.msg('查看操作');
 
             } else if (layEvent === 'edit') {
-                layer.msg('申请');
+                // layer.msg('申请');
+//拼接url到申请界面  create by : linsong.wei 2017-11-12 11:46:16
+                //url拼接中无法识别中文和空格，只能将id传过去，在申请界面用ajax再取出电脑数据....   linsong.wei 2017-11-12 11:52:14
+                var urltest = "http://localhost:8080/html/LendingApply.html?cptId=" + data.cptId + "&cptOs=" + data.cptOs + "&cptRam=" + data.cptRam + "&cptCpu=" + data.cptCpu;
+                var url = "http://localhost:8080/html/LendingApply.html?cptId=" + data.cptId;
+                console.log(url);
+                var index = layer.open({
+                    type: 2,
+                    title: '申请使用',
+                    offset: '100px',  //水平居中
+                    area: ['700px', '600px'],
+                    content: [url,'no']
+                });
+                layer.iframeAuto(index);    //自适应
+
             }
         });
 
@@ -169,7 +183,7 @@
                     cptName: cptName.value,
                     cptRam: $('#cptRam option:selected').val(),
                     cptCpu: cptCpu.value,
-                    cptCard:cardValue,
+                    cptCard: cardValue,
                     cptOs: cptOs,
                     cptIslending: $('input:radio:checked').val(),
 
