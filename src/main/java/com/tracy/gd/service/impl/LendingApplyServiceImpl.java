@@ -7,6 +7,8 @@ import com.tracy.gd.service.ILendingApplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by trcay on 2017/11/12.
  */
@@ -18,5 +20,9 @@ public class LendingApplyServiceImpl implements ILendingApplyService{
 
     public int insertSelective(LendingApply record) {
         return lendingApplyMapper.insertSelective(record);
+    }
+
+    public List<LendingApply> selectByUser(int laUserId) {
+        return lendingApplyMapper.selectByUser(laUserId);
     }
 }

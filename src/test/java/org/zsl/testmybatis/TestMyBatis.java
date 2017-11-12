@@ -55,7 +55,8 @@ public class TestMyBatis {
         }
 
 */
-        LendingApply lendingApply = new LendingApply();
+
+     /*      LendingApply lendingApply = new LendingApply();
         lendingApply.setLaIsCheck("N");
        int id = lendingApplyService.insertSelective(lendingApply);
 
@@ -68,5 +69,14 @@ public class TestMyBatis {
       //  lendingHistory.setLhUserId(curUserId);      //仅需插入这两个字段，其余字段待管理员审核后更新,相当于在这记录一下，让管理员去审核（更新）
         int flagHis = iLendingHistoryService.insertSelective(lendingHistory);
         logger.info("flagHis"+flagHis);
+        */
+
+     //测试通过用户id查找申请记录
+
+        List<LendingApply> lendingApplies = lendingApplyService.selectByUser(1);
+
+        logger.info(JSON.toJSONString(lendingApplies));
+
+
     }  
 }  

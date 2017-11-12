@@ -174,4 +174,10 @@
       attribute3 = #{attribute3,jdbcType=VARCHAR}
     where la_id = #{laId,jdbcType=INTEGER}
   </update>
+  <select id="selectByUser" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from gd_lending_apply
+    where la_user_id = #{laUserId,jdbcType=INTEGER}
+  </select>
 </mapper>

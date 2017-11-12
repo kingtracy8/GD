@@ -1,5 +1,7 @@
 package com.tracy.gd.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class LendingApply {
@@ -59,6 +61,8 @@ public class LendingApply {
         this.laReason = laReason == null ? null : laReason.trim();
     }
 
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
+    //防止从mybatis查询出现unix long时间eg:1503912320000，而不是时间格式。 Update by :linsong.wei  2017-11-12 18:42:54
     public Date getLaLendTime() {
         return laLendTime;
     }
@@ -67,6 +71,7 @@ public class LendingApply {
         this.laLendTime = laLendTime;
     }
 
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     public Date getLaReturnTime() {
         return laReturnTime;
     }

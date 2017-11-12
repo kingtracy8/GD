@@ -75,7 +75,7 @@
                         <dd><a href="../../html/PersonalInfo.html" target="ifrbody">查看/修改个人信息</a></dd>
                         <dd><a href="../../html/changePassword.html" target="ifrbody">修改密码</a></dd>
                         <dd><a href="../../html/computersList.html" target="ifrbody">计算机使用申请</a></dd>
-                        <dd><a href="javascript:;">申请记录</a></dd>
+                        <dd><a href="../../html/ApplyHistory.html" target="ifrbody">申请记录</a></dd>
                         <dd><a href="javascript:;">发表评论</a></dd>
                     </dl>
                 </li>

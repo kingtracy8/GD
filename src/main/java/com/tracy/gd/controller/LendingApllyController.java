@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by linsong.wei on  2017-11-12 13:46:14
@@ -26,6 +27,27 @@ public class LendingApllyController {
     ILendingApplyService lendingApplyService;
     @Autowired
     ILendingHistoryService lendingHistoryService;
+
+
+    /*
+       purpose: 查看当前用户申请记录 Create by : linsong.wei  2017-11-12 18:18:52  //直接从apply表里查
+     */
+
+    @RequestMapping("/showApply")
+    public @ResponseBody
+    HashMap doQueryApply(HttpServletRequest request, HttpServletResponse response) {
+        HashMap map = new HashMap();
+
+        int curUserId = (Integer) request.getSession().getAttribute("userId");
+
+        List<LendingApply> lendingApplies = lendingApplyService.selectByUser(curUserId);
+
+        map.put("code", 0);
+        map.put("msg", "");
+        map.put("data", lendingApplies);
+        return map;
+    }
+
 
     //purpose: 提交申请
     @RequestMapping("/commitApply")
@@ -54,7 +76,7 @@ public class LendingApllyController {
 
 
         map.put("flag", flagApply);
-        map.put("flagHis",flagHis);
+        map.put("flagHis", flagHis);
         return map;
     }
 
