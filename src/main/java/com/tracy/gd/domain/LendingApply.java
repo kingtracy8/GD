@@ -2,6 +2,7 @@ package com.tracy.gd.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import javax.persistence.Transient;
 import java.util.Date;
 
 public class LendingApply {
@@ -28,6 +29,17 @@ public class LendingApply {
     private String attribute2;
 
     private String attribute3;
+
+    @Transient
+    private String cptName;
+
+    public String getCptName() {
+        return cptName;
+    }
+
+    public void setCptName(String cptName) {
+        this.cptName = cptName;
+    }
 
     public Integer getLaId() {
         return laId;

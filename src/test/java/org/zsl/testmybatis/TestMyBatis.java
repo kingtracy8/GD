@@ -74,7 +74,7 @@ public class TestMyBatis {
      //测试通过用户id查找申请记录
 
         List<LendingApply> lendingApplies = lendingApplyService.selectByUser(1);
-
+        logger.info(lendingApplies.get(0).getCptName());
         logger.info(JSON.toJSONString(lendingApplies));
 
 

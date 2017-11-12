@@ -844,3 +844,23 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 [INFO] [2017-11-12 18\:40\:44][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
 [INFO] [2017-11-12 18\:40\:45][org.zsl.testmybatis.TestMyBatis][{"laCommons":"","laCptId":1,"laId":11,"laIsCheck":"N","laLendTime":1510444800000,"laLocation":"兰州市","laReason":"查资料","laReturnTime":1511222400000,"laUserId":1}]
 [INFO] [2017-11-12 18\:40\:45][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@6276ae34: startup date [Sun Nov 12 18:40:43 CST 2017]; root of context hierarchy
+[INFO] [2017-11-12 19\:10\:41][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2017-11-12 19\:10\:41][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@6276ae34: startup date [Sun Nov 12 19:10:41 CST 2017]; root of context hierarchy
+[INFO] [2017-11-12 19\:10\:41][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-11-12 19\:10\:42][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-11-12 19\:10\:43][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+[INFO] [2017-11-12 19\:10\:43][org.springframework.jdbc.support.SQLErrorCodesFactory]SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase]
+[INFO] [2017-11-12 19\:10\:43][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@6276ae34: startup date [Sun Nov 12 19:10:41 CST 2017]; root of context hierarchy
+[INFO] [2017-11-12 19\:11\:16][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2017-11-12 19\:11\:17][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@6276ae34: startup date [Sun Nov 12 19:11:17 CST 2017]; root of context hierarchy
+[INFO] [2017-11-12 19\:11\:17][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-11-12 19\:11\:17][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-11-12 19\:11\:19][org.zsl.testmybatis.TestMyBatis][{"cptName":"华硕A550jk4200","laCommons":"","laCptId":1,"laId":11,"laIsCheck":"N","laLendTime":1510444800000,"laLocation":"兰州市","laReason":"查资料","laReturnTime":1511222400000,"laUserId":1}]
+[INFO] [2017-11-12 19\:11\:19][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@6276ae34: startup date [Sun Nov 12 19:11:17 CST 2017]; root of context hierarchy
+[INFO] [2017-11-12 19\:12\:02][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2017-11-12 19\:12\:02][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@6276ae34: startup date [Sun Nov 12 19:12:02 CST 2017]; root of context hierarchy
+[INFO] [2017-11-12 19\:12\:03][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-11-12 19\:12\:03][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-11-12 19\:12\:04][org.zsl.testmybatis.TestMyBatis]华硕A550jk4200
+[INFO] [2017-11-12 19\:12\:04][org.zsl.testmybatis.TestMyBatis][{"cptName":"华硕A550jk4200","laCommons":"","laCptId":1,"laId":11,"laIsCheck":"N","laLendTime":1510444800000,"laLocation":"兰州市","laReason":"查资料","laReturnTime":1511222400000,"laUserId":1}]
+[INFO] [2017-11-12 19\:12\:04][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@6276ae34: startup date [Sun Nov 12 19:12:02 CST 2017]; root of context hierarchy

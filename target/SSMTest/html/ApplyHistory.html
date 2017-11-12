@@ -19,12 +19,12 @@
     <thead>
     <tr>
         <!--<th lay-data="{field:'laId', width:80}">ID</th>-->
-        <!--<th lay-data="{field:'laCptId', width:80,sort: true}">电脑ID</th>-->  //不显示也能获取到值
+        <th lay-data="{field:'cptName', width:170,sort: true}">电脑</th>
         <th lay-data="{field:'laReason', width:120}">理由</th>
-        <th lay-data="{field:'laLendTime', width:177}">借用时间从</th>
-        <th lay-data="{field:'laReturnTime', width:177}">借用时间至</th>
-        <th lay-data="{field:'laCommons', width:80}">备注</th>
-        <th lay-data="{field:'laLocation', width:150}">地点</th>
+        <th lay-data="{field:'laLendTime', width:110}">借用时间从</th>
+        <th lay-data="{field:'laReturnTime', width:110}">借用时间至</th>
+        <th lay-data="{field:'laCommons', width:200}">备注</th>
+        <th lay-data="{field:'laLocation', width:100}">地点</th>
         <th lay-data="{field:'laIsCheck', width:120}">是否已经审核</th>
         <th lay-data="{fixed: 'right', width:160, align:'center', toolbar: '#Toolbar'}">
     </tr>
@@ -50,7 +50,7 @@
             var data = obj.data //获得当前行数据
                 , layEvent = obj.event; //获得 lay-event 对应的值
             if (layEvent === 'recall') {
-             
+
                 if (data.laIsCheck == 'Y') {        //已经审核，不能撤回     为了防止并发，最好是在此之前进行一次表格重载，待开发。。。 linsong.wei 2017-11-12 18:49:45
                     layer.msg("对不起，您的申请已经通过管理员审核，不能撤回。");
                 }
