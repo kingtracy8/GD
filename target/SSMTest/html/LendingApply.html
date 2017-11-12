@@ -245,7 +245,7 @@
             } else {
 
                 //ajax 提交
-                data.field.laCptId =GetQueryString("cptId");   //layui表格重置之后 cptId会被清空，在这再次从url中设置一遍 linsong.wei 2017-11-12 13:35:22
+                data.field.laCptId = GetQueryString("cptId");   //layui表格重置之后 cptId会被清空，在这再次从url中设置一遍 linsong.wei 2017-11-12 13:35:22
 
 //                layer.alert(JSON.stringify(data.field), {
 //                    title: '最终的提交信息'
@@ -259,7 +259,7 @@
                     contentType: 'application/json;charset=UTF-8',
                     success: function (result) {
                         console.log(result.flag);
-                        if (result.flag == 1) {
+                        if (result.flag >= 1 && result.flagHis >= 1) {
                             layer.msg("恭喜您，成功提交申请，待管理员审核后方可借出!");
                             //获得父控件的弹层并设置关闭时间
                             var index = parent.layer.getFrameIndex(window.name);
@@ -269,7 +269,6 @@
                         }
                     }
                 });
-
 
 
             }

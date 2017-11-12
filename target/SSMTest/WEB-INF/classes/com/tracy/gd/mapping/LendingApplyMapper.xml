@@ -41,7 +41,7 @@
       #{attribute1,jdbcType=VARCHAR}, #{attribute2,jdbcType=VARCHAR}, #{attribute3,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.tracy.gd.domain.LendingApply" >
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="laId" parameterType="com.tracy.gd.domain.LendingApply" >
     insert into gd_lending_apply
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="laId != null" >

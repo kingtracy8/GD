@@ -4,8 +4,9 @@ import javax.annotation.Resource;
 
 import com.tracy.gd.domain.Admin;
 import com.tracy.gd.domain.Computer;
-import com.tracy.gd.service.IAdminService;
-import com.tracy.gd.service.IComputerService;
+import com.tracy.gd.domain.LendingApply;
+import com.tracy.gd.domain.LendingHistory;
+import com.tracy.gd.service.*;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,7 +15,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.alibaba.fastjson.JSON;
-import com.tracy.gd.service.IUserService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +30,11 @@ public class TestMyBatis {
     IAdminService adminService;
     @Autowired
     IComputerService computerService;
+    @Autowired
+    ILendingApplyService lendingApplyService;
+    @Autowired
+    ILendingHistoryService iLendingHistoryService;
+
 
     @Test  
     public void test1() {  
@@ -50,15 +55,18 @@ public class TestMyBatis {
         }
 
 */
+        LendingApply lendingApply = new LendingApply();
+        lendingApply.setLaIsCheck("N");
+       int id = lendingApplyService.insertSelective(lendingApply);
 
-//        Computer computer = computerService.selectByPrimaryKey(1);
-        //logger.info(JSON.toJSONString(computer));
-        Computer computer = new Computer();
-        //computer.setCptOs(null);
-      //  computer.setCptGraphicscard("GT840M");
-        computer.setCptName("华硕A550jk4200");
-//        computer.setCptIslending("N");
-        List<Computer> list = computerService.selectAllComputers(computer);
-        logger.info(JSON.toJSONString(list));
+        LendingHistory lendingHistory = new LendingHistory();
+
+        //申请表id 由于mybatis使用了 useGeneratedKeys="true" keyProperty="laId" 属性，可返回插入当前记录的主键，
+        //从而可以将申请表id插入到历史表中  linsong.wei 2017-11-12 17:16:34
+        //注：若不加这个属性，默认返回插入的记录数
+        lendingHistory.setLhLaId(id);
+      //  lendingHistory.setLhUserId(curUserId);      //仅需插入这两个字段，其余字段待管理员审核后更新,相当于在这记录一下，让管理员去审核（更新）
+        int flagHis = iLendingHistoryService.insertSelective(lendingHistory);
+        logger.info("flagHis"+flagHis);
     }  
 }  

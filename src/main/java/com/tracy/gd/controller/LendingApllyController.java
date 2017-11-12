@@ -1,7 +1,9 @@
 package com.tracy.gd.controller;
 
 import com.tracy.gd.domain.LendingApply;
+import com.tracy.gd.domain.LendingHistory;
 import com.tracy.gd.service.ILendingApplyService;
+import com.tracy.gd.service.ILendingHistoryService;
 import com.tracy.gd.service.impl.LendingApplyServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +24,8 @@ import java.util.HashMap;
 public class LendingApllyController {
     @Autowired
     ILendingApplyService lendingApplyService;
+    @Autowired
+    ILendingHistoryService lendingHistoryService;
 
     //purpose: 提交申请
     @RequestMapping("/commitApply")
@@ -34,9 +38,23 @@ public class LendingApllyController {
         LendingApply InlendingApply = lendingApply; //将从页面传过来的数据塞到实体中
         InlendingApply.setLaUserId(curUserId);      //设置申请人 ：当前用户
         InlendingApply.setLaIsCheck("N");           //设置为未审核状态
-        //插入记录
-        int flag = lendingApplyService.insertSelective(InlendingApply);
-        map.put("flag",flag);
+        //插入记录 申请表
+        int flagApply = lendingApplyService.insertSelective(InlendingApply);
+
+
+        //并插入到申请历史表
+        LendingHistory lendingHistory = new LendingHistory();
+
+        //申请表id 由于mybatis使用了 useGeneratedKeys="true" keyProperty="laId" 属性，可返回插入当前记录的主键，
+        //从而可以将申请表id插入到历史表中  linsong.wei 2017-11-12 17:16:34
+        //注：若不加这个属性，默认返回插入的记录数
+        lendingHistory.setLhLaId(InlendingApply.getLaId());
+        lendingHistory.setLhUserId(curUserId);      //仅需插入这两个字段，其余字段待管理员审核后更新,相当于在这记录一下，让管理员去审核（更新）
+        int flagHis = lendingHistoryService.insertSelective(lendingHistory);
+
+
+        map.put("flag", flagApply);
+        map.put("flagHis",flagHis);
         return map;
     }
 
