@@ -32,6 +32,21 @@ public class ComputerController {
     @Autowired
     IComputerService computerService;
 
+    //purpose : 通过id找电脑信息
+    // Create by linsong.wei 2017-11-12 13:05:05
+    @RequestMapping(value = "/cptInfoById", method = RequestMethod.GET)
+    public @ResponseBody
+    Computer doFindById(HttpServletRequest request, HttpServletResponse response) {
+
+        int cptId;
+        cptId = Integer.parseInt(request.getParameter("cptId"));
+        Computer computer = computerService.selectByPrimaryKey(cptId);
+        return computer;
+    }
+
+
+
+
     //展示电脑列表页面
     //Create by linsong.wei 2017-11-10 14:31:44
     @RequestMapping(value = "/computerList", method = RequestMethod.GET)

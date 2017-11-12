@@ -36,23 +36,25 @@
             $("#cptCpu").val(GetQueryString("cptCpu"));
             $("#laCptId").val(GetQueryString("cptId"));
 
-            //由于url拼接问题  只能通过id从controller 获取电脑信息
-//            $.ajax({
-//                url: "http://localhost:8080/Computer/computerListFilter?cptId="+GetQueryString("cptId"),       //去请求有过滤的电脑列表，只传入一个id
-//                type: "POST",
-//                dataType: 'json',
-//                contentType: 'application/json;charset=UTF-8', //contentType很重要
-//                success: function (result) {
-////                    var identity = result.identity;
-////                    // layer.msg(identity);
-////                    $("#identity").text(identity);
-////                    document.getElementById("identity").text = identity;
-//                    $("#cptName").val(result.cptName);
-//                    $("#cptOs").val(result.cptOs);
-//                    $("#cptRam").val(result.cptRam);
-//                    $("#cptCpu").val(result.cptCpu);
-//                }
-//            });
+//            由于url拼接问题  只能通过id从controller 获取电脑信息
+            //注意type的类型，若controller为GET而这里type为POST则会有405错误
+            $.ajax({
+                url: "http://localhost:8080/Computer/cptInfoById?cptId=" + $("#laCptId").val(),       //去请求有过滤的电脑列表，只传入一个id
+                type: "GET",
+                dataType: 'json',
+                contentType: 'application/json;charset=UTF-8', //contentType很重要
+                success: function (result) {
+//                    var identity = result.identity;
+//                    // layer.msg(identity);
+//                    $("#identity").text(identity);
+//                    document.getElementById("identity").text = identity;
+
+                    $("#cptName").val(result.cptName);
+                    $("#cptOs").val(result.cptOs);
+                    $("#cptRam").val(result.cptRam);
+                    $("#cptCpu").val(result.cptCpu);
+                }
+            });
 
 
         });
@@ -83,7 +85,6 @@
             var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate;
             return currentdate;
         }
-
 
 
     </script>
@@ -131,9 +132,9 @@
 
     <div class="layui-form-item">
 
-        <label class="layui-form-label">电脑ID</label>
-        <div class="layui-input-inline">
-            <input type="tel" name="laCptId" id="laCptId" autocomplete="off" class="layui-input" lay-verify="required"
+        <label class="layui-form-label" style="display: none">电脑ID</label>
+        <div class="layui-input-inline" style="display: none">
+            <input type="tel" name="laCptId" id="laCptId" autocomplete="off" class="layui-input"
                    disabled>
         </div>
 
@@ -236,16 +237,39 @@
 
         //监听提交
         form.on('submit(demo1)', function (data) {
-            layer.alert(JSON.stringify(data.field), {
-                title: '最终的提交信息'
-            });
 
-            if(data.field.laReturnTime<data.field.laLendTime){  //时间验证
-              //  layer.msg("归还日期不能早于借用日期！请重新选择");
+
+            if (data.field.laReturnTime < data.field.laLendTime) {  //时间验证
+                //  layer.msg("归还日期不能早于借用日期！请重新选择");
                 layer.alert('归还日期不能早于借用日期！', {icon: 5});
-            }else {
+            } else {
 
                 //ajax 提交
+                data.field.laCptId =GetQueryString("cptId");   //layui表格重置之后 cptId会被清空，在这再次从url中设置一遍 linsong.wei 2017-11-12 13:35:22
+
+//                layer.alert(JSON.stringify(data.field), {
+//                    title: '最终的提交信息'
+//                });
+
+                $.ajax({
+                    url: "http://localhost:8080/LendingApply/commitApply",
+                    type: "POST",
+                    data: JSON.stringify(data.field), //转JSON字符串
+                    dataType: 'json',
+                    contentType: 'application/json;charset=UTF-8',
+                    success: function (result) {
+                        console.log(result.flag);
+                        if (result.flag == 1) {
+                            layer.msg("恭喜您，成功提交申请，待管理员审核后方可借出!");
+                            //获得父控件的弹层并设置关闭时间
+                            var index = parent.layer.getFrameIndex(window.name);
+                            setTimeout(function () {
+                                parent.layer.close(index)
+                            }, 2500);
+                        }
+                    }
+                });
+
 
 
             }
