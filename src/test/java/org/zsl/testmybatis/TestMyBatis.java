@@ -2,10 +2,7 @@ package org.zsl.testmybatis;
   
 import javax.annotation.Resource;
 
-import com.tracy.gd.domain.Admin;
-import com.tracy.gd.domain.Computer;
-import com.tracy.gd.domain.LendingApply;
-import com.tracy.gd.domain.LendingHistory;
+import com.tracy.gd.domain.*;
 import com.tracy.gd.service.*;
 import org.apache.log4j.Logger;
 import org.junit.Test;
@@ -72,11 +69,10 @@ public class TestMyBatis {
         */
 
      //测试通过用户id查找申请记录
-
-        List<LendingApply> lendingApplies = lendingApplyService.selectByUser(1);
-        logger.info(lendingApplies.get(0).getCptName());
+//
+        List<LendingApply> lendingApplies = lendingApplyService.selectByUser(2);
         logger.info(JSON.toJSONString(lendingApplies));
-
+//
 
     }  
 }  
