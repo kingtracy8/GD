@@ -12,4 +12,6 @@ public interface ILendingApplyService {
    int insertSelective(LendingApply record);
    //通过用户找用户申请记录 linsong.wei 2017-11-12 18:27:22
    List<LendingApply> selectByUser(int laUserId);
+
+   LendingApply selectByPrimaryKey(Integer laId);
 }

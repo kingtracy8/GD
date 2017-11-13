@@ -28,6 +28,18 @@ public class LendingApllyController {
     @Autowired
     ILendingHistoryService lendingHistoryService;
 
+       /*
+       purpose:为了防止并发操作，撤销申请的时候查看该条记录是否已经被审核
+        Create by : linsong.wei  2017-11-13 11:31:17  //直接从apply表里查
+     */
+       @RequestMapping("/isCheck")
+       public @ResponseBody LendingApply doIsCheck(HttpServletRequest request, HttpServletResponse response){
+
+           int la_id = Integer.parseInt(request.getParameter("la_id"));
+           LendingApply lendingApply = lendingApplyService.selectByPrimaryKey(la_id);
+           return lendingApply;
+       }
+
 
     /*
        purpose: 查看当前用户申请记录 Create by : linsong.wei  2017-11-12 18:18:52  //直接从apply表里查

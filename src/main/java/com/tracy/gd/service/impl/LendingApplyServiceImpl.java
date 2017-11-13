@@ -25,4 +25,8 @@ public class LendingApplyServiceImpl implements ILendingApplyService{
     public List<LendingApply> selectByUser(int laUserId) {
         return lendingApplyMapper.selectByUser(laUserId);
     }
+
+    public LendingApply selectByPrimaryKey(Integer laId) {
+        return lendingApplyMapper.selectByPrimaryKey(laId);
+    }
 }

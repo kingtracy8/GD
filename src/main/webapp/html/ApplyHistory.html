@@ -19,7 +19,7 @@
     <thead>
     <tr>
         <!--<th lay-data="{field:'laId', width:80}">ID</th>-->
-        <th lay-data="{field:'cptName', width:170,sort: true}">电脑</th>
+        <th lay-data="{field:'cptName', width:225,sort: true}">电脑</th>
         <th lay-data="{field:'laReason', width:120}">理由</th>
         <th lay-data="{field:'laLendTime', width:110}">借用时间从</th>
         <th lay-data="{field:'laReturnTime', width:110}">借用时间至</th>
@@ -45,15 +45,39 @@
             , layer = layui.layer
             , laydate = layui.laydate;
 
+
         //监听工具条
         table.on('tool(test)', function (obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+
+
             var data = obj.data //获得当前行数据
                 , layEvent = obj.event; //获得 lay-event 对应的值
             if (layEvent === 'recall') {
-
-                if (data.laIsCheck == 'Y') {        //已经审核，不能撤回     为了防止并发，最好是在此之前进行一次表格重载，待开发。。。 linsong.wei 2017-11-12 18:49:45
-                    layer.msg("对不起，您的申请已经通过管理员审核，不能撤回。");
-                }
+                // 为了防止并发，在此之前进行一次表格重载 linsong.wei 2017-11-13 10:49:38
+                //既然重载之后还是行不通，那如果打开一个询问框，确定之后在判断看行不行
+                //两个方法都行不通。。 在事件触发之也前不行 data里面的值还是会慢一步
+                // 只能在触发这个事件的时候用ajax去controller里拿吧。。
+                table.reload('computersTable', {
+                    url: '/LendingApply/showApply'
+                });
+                var index = layer.confirm('确定要撤回申请吗?', {icon: 3, title: '提示'}, function (index) {
+                    //为了防止并发，只能在乎触发这个事件的时候通过ajax去后台查询，是否已经审核
+                    $.ajax({
+                        url: 'http://localhost:8080/LendingApply/isCheck?la_id=' + data.laId,
+                        type: "GET",
+                        dataType: 'json',
+                        contentType: 'application/json;charset=UTF-8', //contentType很重要
+                        success: function (result) {
+                            if (result.laIsCheck == 'Y') {
+                                layer.msg("对不起，您的申请已经通过管理员审核，不能撤回。");
+                            } else {
+                                layer.msg("通过ajax进行撤回操作!");
+                                //只能这样了，待开发
+                                layer.close(index);
+                            }
+                        }
+                    })
+                });
             }
         });
 
