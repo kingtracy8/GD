@@ -222,9 +222,19 @@
 
     function logout() {
         layer.confirm('确定退出吗？', {
-            btn: ['确定', '取消'] //可以无限个按钮
+            btn: ['确定', '取消']
 
         }, function (index, layero) {
+            //通过ajax去清除session里的值 update by: linsong.wei 2017-11-13 17:45:17
+            $.ajax({
+                url: "http://localhost:8080/user/logout",
+                type: "POST",
+                dataType: 'json',
+                contentType: 'application/json;charset=UTF-8', //contentType很重要
+                success: function (result) {
+                    //如果为1则表示清除成功
+                }
+            });
             window.location.href = "../index.jsp"
         });
 
@@ -247,7 +257,7 @@
 
             //不能使用用户管理功能
             $("#userControl").attr('target', 'ifrbody');
-            $("#userControl").attr('href', '../../html/error.html');
+            $("#userControl").attr('href', '../../html/Jurisdiction.html');
         }
     });
 

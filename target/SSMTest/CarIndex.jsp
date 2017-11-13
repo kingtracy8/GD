@@ -927,9 +927,6 @@
         .fr{float:right;}
 
 
-
-
-
     </style>
 
     <script src="../js/prefixfree.min.js"></script>

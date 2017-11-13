@@ -35,6 +35,28 @@ public class UserController {
         return "showUser";
     }
 
+    /*
+        purpose: 退出时清除session里的值
+        author:  linsong.wei
+        when:   2017-11-13 17:46:52
+     */
+    @RequestMapping("/logout")
+    public @ResponseBody
+    HashMap doLogOut(HttpServletRequest request, HttpServletResponse response) {
+        HashMap map = new HashMap();
+        int flag = -1;
+        try {
+            request.getSession().removeAttribute("userName");
+            request.getSession().removeAttribute("identity");
+            request.getSession().removeAttribute("userId");
+            flag = 1;
+        } catch (Exception e) {
+            flag = 0;
+        }
+        map.put("flag", flag);
+        return map;
+    }
+
 
     //修改用户密码 Create by: linsong.wei 2017-11-11 14:04:33
     //function: ajax获得一个密码对象，更新到当前用户的密码中
@@ -223,7 +245,7 @@ public class UserController {
                     //把身份放入Session
                     //需求变更后，直接从attribute1中取出身份
                     String identity = userList.get(i).getAttribute1();
-                    request.getSession().setAttribute("identity",identity);
+                    request.getSession().setAttribute("identity", identity);
 //                    request.getSession().setAttribute("identity", request.getParameter("identity"));
 
                     request.getSession().setAttribute("userId", userList.get(i).getUserId());
