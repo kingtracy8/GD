@@ -127,4 +127,12 @@
     }
 
 </script>
+<script>
+    
+    $(function () {
+//        console.log($('input:radio:checked').val());
+    })
+    
+</script>
+
 </html>

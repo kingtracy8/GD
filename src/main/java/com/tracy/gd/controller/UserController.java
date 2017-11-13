@@ -47,7 +47,7 @@ public class UserController {
         User curUser = userService.getUserById(curUserId);
         curUser.setUserPassword(checkPass.getNewPass());    //设置成为新的密码
         flag = userService.updateByPrimaryKey(curUser);
-        map.put("flag",flag);
+        map.put("flag", flag);
         return map;
     }
 
@@ -62,10 +62,10 @@ public class UserController {
 
         int curUserId = (Integer) request.getSession().getAttribute("userId");
         User curUser = userService.getUserById(curUserId);
-        if(curUser.getUserPassword().equals(checkPass.getOrgPass().trim())){
-            map.put("flag","sucess");
-        }else {
-            map.put("flag","faild");
+        if (curUser.getUserPassword().equals(checkPass.getOrgPass().trim())) {
+            map.put("flag", "sucess");
+        } else {
+            map.put("flag", "faild");
         }
         return map;
     }
@@ -81,6 +81,8 @@ public class UserController {
         HashMap map = new HashMap();
         User inUser = user;
         inUser.setRegisterTime(new Date());
+        //只能注册成为user
+        inUser.setAttribute1("user");
         int flag = userService.insertSelective(inUser);
         map.put("flag", flag);
         return map;
@@ -191,6 +193,19 @@ public class UserController {
     CheckFormLogin(HttpServletRequest request, HttpServletResponse response) {
         String Url = null;
         //当数据库没有数据的时候会抛出空指针异常
+    /*
+        Update By: linsong.wei 2017-11-13 13:58:59
+        purpose:
+
+        1.获得身份，如果是用户，去查用户表，如果是管理员去查管理员表
+        2.因为管理员有可能作为用户去借用电脑，即验证成功后，为了便于之前的设计方式，把管理员id
+          存储到session的userId里，身份identity存储为"admin",即管理员此时既是用户又是管理员身份
+        3.注：2中因为表设计问题，只能用admin中的admin_num字段存储user_id，即。。
+
+        放弃上面的想法，把user表中的atrribute当作身份字段吧，这样也可以更方便的添加一个功能，升级成为管理员
+        只是admin表暂时就冗余了， linsong.wei 2017-11-13 14:16:23
+    */
+//        String identity = request.getParameter("identity");
 
         List<User> userList = userService.selectAll();
 
@@ -206,7 +221,10 @@ public class UserController {
                     request.getSession().setAttribute("userName", request.getParameter("userName"));
                     //如果验证成功 直接跳转 否则for循环会影响最终的结果
                     //把身份放入Session
-                    request.getSession().setAttribute("identity", request.getParameter("identity"));
+                    //需求变更后，直接从attribute1中取出身份
+                    String identity = userList.get(i).getAttribute1();
+                    request.getSession().setAttribute("identity",identity);
+//                    request.getSession().setAttribute("identity", request.getParameter("identity"));
 
                     request.getSession().setAttribute("userId", userList.get(i).getUserId());
 

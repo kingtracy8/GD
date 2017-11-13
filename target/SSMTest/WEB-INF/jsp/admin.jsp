@@ -82,10 +82,12 @@
                 <li class="layui-nav-item">
                     <a href="javascript:;">管理员模块</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;" data-url="error.html">用户管理</a></dd>
+                        <dd><a href="javascript:;" id="userControl">用户管理</a></dd>
                         <dd><a href="javascript:;">计算机档案管理</a></dd>
                         <dd><a href="javascript:;">审核管理</a></dd>
                         <dd><a href="javascript:;">记录管理</a></dd>
+                        <dd style="display: none"><a href="javascript:;" id="identity"><%=identity%>
+                        </a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item"><a href="#">云市场</a></li>
@@ -120,7 +122,7 @@
             , element = layui.element; //元素操作
 
         //向世界问个好
-      //  layer.msg('Hi,欢迎您来到LayStudy后台管理系统！');
+        //  layer.msg('Hi,欢迎您来到LayStudy后台管理系统！');
 
         //监听Tab切换
         element.on('tab(demo)', function (data) {
@@ -222,7 +224,7 @@
         layer.confirm('确定退出吗？', {
             btn: ['确定', '取消'] //可以无限个按钮
 
-        }, function(index, layero){
+        }, function (index, layero) {
             window.location.href = "../index.jsp"
         });
 
@@ -238,6 +240,15 @@
 
     $(function () {
         iframeLoad();
+        // var identity = $("#identity"); //获得身份
+        //权限验证  linsong.wei 2017-11-13 15:03:18  ！= admin 是不是更严谨一些？
+
+        if (jQuery.trim($("#identity").text()) == "user") {  //如果是user，没有权限使用管理员模块()
+
+            //不能使用用户管理功能
+            $("#userControl").attr('target', 'ifrbody');
+            $("#userControl").attr('href', '../../html/error.html');
+        }
     });
 
 
