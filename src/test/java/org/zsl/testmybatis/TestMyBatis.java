@@ -70,8 +70,13 @@ public class TestMyBatis {
 
      //测试通过用户id查找申请记录
 //
-        int count = lendingApplyService.selectCountCpt(1);
-        logger.info(JSON.toJSONString(count));
+//        int count = lendingApplyService.selectCountCpt(1);
+
+        LendingApply lendingApply = new LendingApply();
+        lendingApply.setLaId(2);
+        lendingApply.setLaCptId(1);
+        List<LendingApply> lendingApplies = lendingApplyService.selectAuditingFilter(lendingApply);
+        logger.info(JSON.toJSONString(lendingApplies));
 //
 
     }  

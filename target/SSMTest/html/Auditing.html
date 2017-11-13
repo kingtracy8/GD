@@ -54,23 +54,42 @@
             if (layEvent === 'pass') {
                 //审核通过时要去查询是否有多个用户同时借同一台电脑，如果有，提示是否把其他申请拒绝
                 $.ajax({
-                    url: "http://localhost:8080/LendingApply/findCptCound?laCptId="+data.laCptId,
+                    url: "http://localhost:8080/LendingApply/findCptCount?laCptId=" + data.laCptId,
                     type: "GET",
                     dataType: 'json',
                     contentType: 'application/json;charset=UTF-8', //contentType很重要
                     success: function (result) {
                         if (result.count > 1) {
-                            layer.msg("该电脑同时被多位用户申请，您的操作将会导致该条申请通过，其他记录不通过,确定继续吗？");
+
+                            var index = layer.confirm('该电脑同时被多位用户申请，您的操作将会导致该条申请通过，其他记录不通过,确定继续吗?', {
+                                icon: 3,
+                                title: '提示'
+                            }, function (index) {
+                                //通过ajax去设置审核通过，将同一台电脑的申请全部不通过,并同步history表，computer表,
+                                $.ajax({
+                                    url: 'http://localhost:8080/LendingApply/AuditingPassFilter?laId=' + data.laId + '&laCptId=' + data.laCptId,
+                                    type: "GET",
+                                    dataType: 'json',
+                                    contentType: 'application/json;charset=UTF-8', //contentType很重要
+                                    success: function (result) {
+                                        if(result.flag==1){
+                                            layer.msg("操作成功!");
+                                        }
+                                    }
+                                })
+                            });
+                        } else {
+                            //这台电脑只有一条申请记录，直接审核通过
                         }
                     }
                 });
             }
         });
     });
-        function doReset() {
-            //简单粗暴  直接刷新，得到全部的数据 。。。  linsong.wei 2017-11-10 22:47:40
-            window.location.reload();
-        }
+    function doReset() {
+        //简单粗暴  直接刷新，得到全部的数据 。。。  linsong.wei 2017-11-10 22:47:40
+        window.location.reload();
+    }
 
 </script>
 

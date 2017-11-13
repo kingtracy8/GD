@@ -2,6 +2,8 @@ package com.tracy.gd.IDao;
 
 import com.tracy.gd.domain.LendingHistory;
 
+import java.util.List;
+
 public interface LendingHistoryMapper {
     int deleteByPrimaryKey(Integer lhId);
 
@@ -14,4 +16,7 @@ public interface LendingHistoryMapper {
     int updateByPrimaryKeySelective(LendingHistory record);
 
     int updateByPrimaryKey(LendingHistory record);
+
+    LendingHistory selectByLaId(Integer laId);
+
 }

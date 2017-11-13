@@ -205,4 +205,13 @@ FROM
 WHERE
    la_cpt_id = #{laCptId,jdbcType=INTEGER}
     </select>
+    <select id="selectAuditingFilter" resultMap="BaseResultMap" parameterType="com.tracy.gd.domain.LendingApply">
+        select
+        <include refid="Base_Column_List"/>
+        from gd_lending_apply
+        where la_id != #{laId,jdbcType=INTEGER}
+        <if test="laCptId != null">
+          AND  la_cpt_id = #{laCptId,jdbcType=INTEGER}
+        </if>
+    </select>
 </mapper>

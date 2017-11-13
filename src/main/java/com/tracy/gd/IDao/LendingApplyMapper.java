@@ -22,4 +22,5 @@ public interface LendingApplyMapper {
     List<LendingApply> selectAuditing();
     //purpose: 审核记录模块，查看有几个人同时提交了同一台电脑的申请 linsong.wei 2017-11-13 19:34:48
     int selectCountCpt(int cptId);
+    List<LendingApply> selectAuditingFilter(LendingApply record);
 }

@@ -6,6 +6,8 @@ import com.tracy.gd.service.ILendingHistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by trcay on 2017/11/12.
  */
@@ -19,4 +21,13 @@ public class LendingHistoryServiceImpl implements ILendingHistoryService {
     public int insertSelective(LendingHistory record) {
         return lendingHistoryMapper.insertSelective(record);
     }
+
+    public LendingHistory selectByLaId(Integer laId) {
+        return lendingHistoryMapper.selectByLaId(laId);
+    }
+
+    public int updateByPrimaryKeySelective(LendingHistory record) {
+        return lendingHistoryMapper.updateByPrimaryKeySelective(record);
+    }
+
 }

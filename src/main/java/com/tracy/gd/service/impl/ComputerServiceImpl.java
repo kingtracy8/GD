@@ -30,6 +30,10 @@ public class ComputerServiceImpl implements IComputerService{
         return computerMapper.selectComputerLists();
     }
 
+    public int updateByPrimaryKeySelective(Computer record) {
+        return computerMapper.updateByPrimaryKeySelective(record);
+    }
+
 //    public List<Computer> selectAllComputers() {
 //        return computerMapper.selectAllComputers();
 //    }

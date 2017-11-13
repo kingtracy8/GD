@@ -1,7 +1,9 @@
 package com.tracy.gd.controller;
 
+import com.tracy.gd.domain.Computer;
 import com.tracy.gd.domain.LendingApply;
 import com.tracy.gd.domain.LendingHistory;
+import com.tracy.gd.service.IComputerService;
 import com.tracy.gd.service.ILendingApplyService;
 import com.tracy.gd.service.ILendingHistoryService;
 import com.tracy.gd.service.impl.LendingApplyServiceImpl;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -28,59 +31,133 @@ public class LendingApllyController {
     ILendingApplyService lendingApplyService;
     @Autowired
     ILendingHistoryService lendingHistoryService;
+    @Autowired
+    IComputerService computerService;
 
-
-     /*
-       purpose:查询申请表中所有记录，看看同一台电脑同时有多少人申请
-        Create by : linsong.wei  2017-11-13 20:16:35
+    /*
+        purpose:获取两个参数，一个电脑id，一个申请表id，更新传入申请表id的记录，设置为"Y"，
+                并把这等于这个电脑id的其他申请记录给设置为"N",同时更新his表，computer表
+        Create by : linsong.wei  2017-11-13 21:15:59
      */
-     @RequestMapping(value ="/findCptCound",method = RequestMethod.GET)
-     public @ResponseBody
-     HashMap doFindCptCound(HttpServletRequest request, HttpServletResponse response) {
+    //忘记 update 了 2017-11-13 22:58:08。。。  继续加上  ok
+    @RequestMapping(value = "/AuditingPassFilter", method = RequestMethod.GET)
+    public @ResponseBody
+    HashMap doAuditingPassFilter(HttpServletRequest request, HttpServletResponse response) {
 
-         HashMap map = new HashMap();
+        HashMap map = new HashMap();
+
+        int flag;
+
+        try {
+
+            int laId = Integer.parseInt(request.getParameter("laId"));
+            int laCptId = Integer.parseInt(request.getParameter("laCptId"));
+
+            //1.审核通过这条记录
+            LendingApply lendingApply = lendingApplyService.selectByPrimaryKey(laId);
+            lendingApply.setLaIsCheck("Y");
+
+            lendingApplyService.updateByPrimaryKeySelective(lendingApply);
+            //2.更新历史表里的这条记录 并设置事件，审批人，审核意见等
+            //获得与apply表同步的历史表记录
+            LendingHistory lendingHistory = lendingHistoryService.selectByLaId(laId);
+            //设置为当前用户审核的
+            lendingHistory.setLhWhoChecked((Integer) request.getSession().getAttribute("userId"));
+            lendingHistory.setLhCheckTime(new Date());
+            lendingHistory.setLhIsCheck("Y");
+            lendingHistory.setLaCommons("无审核意见");
+
+            lendingHistoryService.updateByPrimaryKeySelective(lendingHistory);
+            //3.更新电脑表中这个电脑的租用标志，设置为"Y"
+            //获得这台电脑
+            Computer computer = computerService.selectByPrimaryKey(laCptId);
+            computer.setCptIslending("Y");
+            //电脑表里的租用时间暂不考虑了。。 linsong.wei 2017-11-13 21:48:49
+
+            //update 操作
+            computerService.updateByPrimaryKeySelective(computer);
+
+            //4.把apply表里申请了这台电脑的其他的记录，除了当前记录的其他记录给设置成“N”（sql语句条件给为不等于laId即可）
+            LendingApply Apply = new LendingApply();
+            Apply.setLaId(laId);
+            Apply.setLaCptId(laCptId);
+            //有可能有多个，是个集合，需要遍历
+            //突然发现插入的时候本来就是N 。。。linsong.wei 2017-11-13 22:32:20 所以直接操作历史表，把历史表当成审核结果来存储,
+            // 这样的话用户在申请记录上可以增加一个按钮，查看审核结果，然后通过apply表的id去查历史表，就有了结果
+            List<LendingApply> lendingApplies = lendingApplyService.selectAuditingFilter(Apply);
+            for (int i = 0; i < lendingApplies.size(); i++) {
+                //因为历史表里没有电脑id 所以从不等于审核通过那条记录的记录里拿到apply集合，并同步到历史表
+                //5.把4同步到历史表，即把申请历史表中不等于laId的记录设置为“N”,并把理由设置为"借用冲突"
+                LendingHistory his = lendingHistoryService.selectByLaId(lendingApplies.get(i).getLaId());
+                //设置为当前用户审核的
+                his.setLhWhoChecked((Integer) request.getSession().getAttribute("userId"));
+                his.setLhCheckTime(new Date());
+                his.setLhIsCheck("N");      //设置不通过
+                his.setLaCommons("申请冲突");
+                lendingHistoryService.updateByPrimaryKeySelective(his);
+            }
+
+            flag = 1;
+        } catch (Exception e) {
+            flag = -1;
+        }
+
+        map.put("flag", "1");
+
+        return map;
+    }
+
+
+    /*
+      purpose:查询申请表中所有记录，看看同一台电脑同时有多少人申请
+       Create by : linsong.wei  2017-11-13 20:16:35
+    */
+    @RequestMapping(value = "/findCptCount", method = RequestMethod.GET)
+    public @ResponseBody
+    HashMap doFindCptCound(HttpServletRequest request, HttpServletResponse response) {
+
+        HashMap map = new HashMap();
 
         //通过电脑id去查询，有多少人在申请
         int count = lendingApplyService.selectCountCpt(Integer.parseInt(request.getParameter("laCptId")));
 
 
-         map.put("count", count);
+        map.put("count", count);
 
-         return map;
-     }
-
-
-     /*
-       purpose:查询申请表中所有记录，给管理员进行审核
-        Create by : linsong.wei  2017-11-13 19:36:19
-     */
-     @RequestMapping("/AuditingList")
-     public @ResponseBody
-     HashMap doShowAuditingList(HttpServletRequest request, HttpServletResponse response) {
-         HashMap map = new HashMap();
-
-         List<LendingApply> lendingApplies = lendingApplyService.selectAuditing();
-
-         map.put("code", 0);
-         map.put("msg", "");
-         map.put("data", lendingApplies);
-         return map;
-     }
+        return map;
+    }
 
 
+    /*
+      purpose:查询申请表中所有记录，给管理员进行审核
+       Create by : linsong.wei  2017-11-13 19:36:19
+    */
+    @RequestMapping("/AuditingList")
+    public @ResponseBody
+    HashMap doShowAuditingList(HttpServletRequest request, HttpServletResponse response) {
+        HashMap map = new HashMap();
+
+        List<LendingApply> lendingApplies = lendingApplyService.selectAuditing();
+
+        map.put("code", 0);
+        map.put("msg", "");
+        map.put("data", lendingApplies);
+        return map;
+    }
 
 
-       /*
-       purpose:为了防止并发操作，撤销申请的时候查看该条记录是否已经被审核
-        Create by : linsong.wei  2017-11-13 11:31:17  //直接从apply表里查
-     */
-       @RequestMapping("/isCheck")
-       public @ResponseBody LendingApply doIsCheck(HttpServletRequest request, HttpServletResponse response){
+    /*
+    purpose:为了防止并发操作，撤销申请的时候查看该条记录是否已经被审核
+     Create by : linsong.wei  2017-11-13 11:31:17  //直接从apply表里查
+  */
+    @RequestMapping("/isCheck")
+    public @ResponseBody
+    LendingApply doIsCheck(HttpServletRequest request, HttpServletResponse response) {
 
-           int la_id = Integer.parseInt(request.getParameter("la_id"));
-           LendingApply lendingApply = lendingApplyService.selectByPrimaryKey(la_id);
-           return lendingApply;
-       }
+        int la_id = Integer.parseInt(request.getParameter("la_id"));
+        LendingApply lendingApply = lendingApplyService.selectByPrimaryKey(la_id);
+        return lendingApply;
+    }
 
 
     /*

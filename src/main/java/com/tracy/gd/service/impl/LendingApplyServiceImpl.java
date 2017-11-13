@@ -37,4 +37,12 @@ public class LendingApplyServiceImpl implements ILendingApplyService{
     public int selectCountCpt(int cptId) {
         return lendingApplyMapper.selectCountCpt(cptId);
     }
+////4.把apply表里申请了这台电脑的其他的记录，除了当前记录的其他记录给设置成“N”（sql语句条件给为不等于laId即可）
+    public List<LendingApply> selectAuditingFilter(LendingApply record) {
+        return lendingApplyMapper.selectAuditingFilter(record);
+    }
+
+    public int updateByPrimaryKeySelective(LendingApply record) {
+        return lendingApplyMapper.updateByPrimaryKeySelective(record);
+    }
 }

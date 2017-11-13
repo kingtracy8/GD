@@ -17,4 +17,6 @@ public interface IComputerService {
 
     List<Computer> selectComputerLists();
 
+    int updateByPrimaryKeySelective(Computer record);
+
 }

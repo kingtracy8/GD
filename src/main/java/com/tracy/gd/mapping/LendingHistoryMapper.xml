@@ -150,4 +150,10 @@
       attribute3 = #{attribute3,jdbcType=VARCHAR}
     where lh_id = #{lhId,jdbcType=INTEGER}
   </update>
+  <select id="selectByLaId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  select
+  <include refid="Base_Column_List" />
+  from gd_lending_history
+  where lh_la_id = #{lhLaId,jdbcType=INTEGER}
+</select>
 </mapper>

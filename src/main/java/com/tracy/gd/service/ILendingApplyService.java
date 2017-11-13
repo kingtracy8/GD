@@ -18,4 +18,8 @@ public interface ILendingApplyService {
    List<LendingApply> selectAuditing();
 
    int selectCountCpt(int cptId);
+
+   List<LendingApply> selectAuditingFilter(LendingApply record);
+
+   int updateByPrimaryKeySelective(LendingApply record);
 }
