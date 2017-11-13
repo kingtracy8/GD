@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>审核管理页面</title>
+    <link rel="stylesheet" href="../js/css/layui.css">
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/layui.js"></script>
+</head>
+<body>
+<blockquote class="layui-elem-quote layui-text" style="margin-top: 10px">
+    管理员，您好，下方表格中是所有的申请记录，您有权限进行审核。
+</blockquote>
+<table class="layui-table"
+       lay-data="{id:'computersTable',width:1150,height:400,url:'/LendingApply/AuditingList', page:true}"
+       lay-filter="test">
+    <thead>
+    <tr>
+        <th lay-data="{field:'laCptId', width:225,sort: true}">电脑id</th>
+        <th lay-data="{field:'cptName', width:225,sort: true}">电脑</th>
+        <th lay-data="{field:'userName', width:120}">申请人</th>
+        <th lay-data="{field:'userIdentity', width:120}">申请人身份</th>
+        <th lay-data="{field:'laLendTime', width:110}">借用时间从</th>
+        <th lay-data="{field:'laReturnTime', width:110}">借用时间至</th>
+        <th lay-data="{field:'laCommons', width:200}">备注</th>
+        <th lay-data="{field:'laLocation', width:100}">地点</th>
+        <th lay-data="{field:'laIsCheck', width:120}">是否已经审核</th>
+        <th lay-data="{fixed: 'right', width:160, align:'center', toolbar: '#Toolbar'}">
+    </tr>
+    </thead>
+</table>
+
+<script type="text/html" id="Toolbar">
+    <a class="layui-btn layui-btn-primary layui-btn-mini layui-bg-red" lay-event="pass">审核通过</a>
+</script>
+
+
+<script>
+
+
+    layui.use(['form', 'layedit', 'laydate', 'table'], function () {
+        var table = layui.table;
+        var form = layui.form
+            , layer = layui.layer
+            , laydate = layui.laydate;
+
+
+        //监听工具条
+        table.on('tool(test)', function (obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+
+
+            var data = obj.data //获得当前行数据
+                , layEvent = obj.event; //获得 lay-event 对应的值
+            if (layEvent === 'pass') {
+                //审核通过时要去查询是否有多个用户同时借同一台电脑，如果有，提示是否把其他申请拒绝
+                $.ajax({
+                    url: "http://localhost:8080/LendingApply/findCptCound?laCptId="+data.laCptId,
+                    type: "GET",
+                    dataType: 'json',
+                    contentType: 'application/json;charset=UTF-8', //contentType很重要
+                    success: function (result) {
+                        if (result.count > 1) {
+                            layer.msg("该电脑同时被多位用户申请，您的操作将会导致该条申请通过，其他记录不通过,确定继续吗？");
+                        }
+                    }
+                });
+            }
+        });
+    });
+        function doReset() {
+            //简单粗暴  直接刷新，得到全部的数据 。。。  linsong.wei 2017-11-10 22:47:40
+            window.location.reload();
+        }
+
+</script>
+
+
+</body>
+</html>

@@ -29,4 +29,12 @@ public class LendingApplyServiceImpl implements ILendingApplyService{
     public LendingApply selectByPrimaryKey(Integer laId) {
         return lendingApplyMapper.selectByPrimaryKey(laId);
     }
+
+    public List<LendingApply> selectAuditing() {
+        return lendingApplyMapper.selectAuditing();
+    }
+
+    public int selectCountCpt(int cptId) {
+        return lendingApplyMapper.selectCountCpt(cptId);
+    }
 }

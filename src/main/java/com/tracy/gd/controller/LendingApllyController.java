@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -27,6 +28,47 @@ public class LendingApllyController {
     ILendingApplyService lendingApplyService;
     @Autowired
     ILendingHistoryService lendingHistoryService;
+
+
+     /*
+       purpose:查询申请表中所有记录，看看同一台电脑同时有多少人申请
+        Create by : linsong.wei  2017-11-13 20:16:35
+     */
+     @RequestMapping(value ="/findCptCound",method = RequestMethod.GET)
+     public @ResponseBody
+     HashMap doFindCptCound(HttpServletRequest request, HttpServletResponse response) {
+
+         HashMap map = new HashMap();
+
+        //通过电脑id去查询，有多少人在申请
+        int count = lendingApplyService.selectCountCpt(Integer.parseInt(request.getParameter("laCptId")));
+
+
+         map.put("count", count);
+
+         return map;
+     }
+
+
+     /*
+       purpose:查询申请表中所有记录，给管理员进行审核
+        Create by : linsong.wei  2017-11-13 19:36:19
+     */
+     @RequestMapping("/AuditingList")
+     public @ResponseBody
+     HashMap doShowAuditingList(HttpServletRequest request, HttpServletResponse response) {
+         HashMap map = new HashMap();
+
+         List<LendingApply> lendingApplies = lendingApplyService.selectAuditing();
+
+         map.put("code", 0);
+         map.put("msg", "");
+         map.put("data", lendingApplies);
+         return map;
+     }
+
+
+
 
        /*
        purpose:为了防止并发操作，撤销申请的时候查看该条记录是否已经被审核

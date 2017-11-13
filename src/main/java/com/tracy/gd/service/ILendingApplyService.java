@@ -14,4 +14,8 @@ public interface ILendingApplyService {
    List<LendingApply> selectByUser(int laUserId);
 
    LendingApply selectByPrimaryKey(Integer laId);
+
+   List<LendingApply> selectAuditing();
+
+   int selectCountCpt(int cptId);
 }

@@ -83,9 +83,9 @@
                     <a href="javascript:;">管理员模块</a>
                     <dl class="layui-nav-child">
                         <dd><a href="javascript:;" id="userControl">用户管理</a></dd>
-                        <dd><a href="javascript:;">计算机档案管理</a></dd>
-                        <dd><a href="javascript:;">审核管理</a></dd>
-                        <dd><a href="javascript:;">记录管理</a></dd>
+                        <dd><a href="javascript:;" id="computerControl">计算机档案管理</a></dd>
+                        <dd><a href="../../html/Auditing.html" target="ifrbody" id="auditingControl">审核管理</a></dd>
+                        <dd><a href="javascript:;" id="recordControl">记录管理</a></dd>
                         <dd style="display: none"><a href="javascript:;" id="identity"><%=identity%>
                         </a></dd>
                     </dl>
@@ -258,6 +258,17 @@
             //不能使用用户管理功能
             $("#userControl").attr('target', 'ifrbody');
             $("#userControl").attr('href', '../../html/Jurisdiction.html');
+
+            $("#computerControl").attr('target', 'ifrbody');
+            $("#computerControl").attr('href', '../../html/Jurisdiction.html');
+
+            $("#auditingControl").attr('target', 'ifrbody');
+            $("#auditingControl").attr('href', '../../html/Jurisdiction.html');
+
+            $("#recordControl").attr('target', 'ifrbody');
+            $("#recordControl").attr('href', '../../html/Jurisdiction.html');
+
+
         }
     });
 

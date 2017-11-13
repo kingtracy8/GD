@@ -33,6 +33,15 @@ public class LendingApply {
     @Transient
     private String cptName;
 
+    @Transient
+    private String userName;
+
+
+    //尝试是否能查 用户身份，因为名字字段一样(attribute1)
+    //成功，方法：在数据库查询的时候使用别名 2017-11-13 19:58:50
+    @Transient
+    private String userIdentity;
+
     public String getCptName() {
         return cptName;
     }
@@ -139,4 +148,21 @@ public class LendingApply {
     public void setAttribute3(String attribute3) {
         this.attribute3 = attribute3 == null ? null : attribute3.trim();
     }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserIdentity() {
+        return userIdentity;
+    }
+
+    public void setUserIdentity(String userIdentity) {
+        this.userIdentity = userIdentity;
+    }
+
 }

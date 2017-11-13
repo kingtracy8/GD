@@ -11,10 +11,12 @@
         <result column="la_commons" property="laCommons" jdbcType="VARCHAR"/>
         <result column="la_location" property="laLocation" jdbcType="VARCHAR"/>
         <result column="la_is_check" property="laIsCheck" jdbcType="VARCHAR"/>
-        <result column="attribute1" property="attribute1" jdbcType="VARCHAR"/>
+        <result column="C" property="attribute1" jdbcType="VARCHAR"/>
         <result column="attribute2" property="attribute2" jdbcType="VARCHAR"/>
         <result column="attribute3" property="attribute3" jdbcType="VARCHAR"/>
         <result column="cpt_name" property="cptName" jdbcType="VARCHAR"/>
+        <result column="user_name" property="userName" jdbcType="VARCHAR"/>
+        <result column="user_identity" property="userIdentity" jdbcType="VARCHAR"/>
     </resultMap>
     <sql id="Base_Column_List">
     la_id, la_user_id, la_cpt_id, la_reason, la_lend_time, la_return_time, la_commons, 
@@ -185,4 +187,22 @@ FROM
 WHERE a.la_cpt_id = c.cpt_id
     AND a.la_user_id  = #{laUserId,jdbcType=INTEGER}
   </select>
+    <select id="selectAuditing" resultMap="BaseResultMap">
+ SELECT
+    a.*,c.cpt_name,u.user_name,u.attribute1 user_identity
+FROM
+    gd_lending_apply a,
+    gd_computers c,
+    gd_users u
+WHERE a.la_user_id = u.user_id
+        AND a.la_cpt_id = c.cpt_id;
+    </select>
+    <select id="selectCountCpt" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+SELECT
+    COUNT(*)
+FROM
+    gd_lending_apply a
+WHERE
+   la_cpt_id = #{laCptId,jdbcType=INTEGER}
+    </select>
 </mapper>
