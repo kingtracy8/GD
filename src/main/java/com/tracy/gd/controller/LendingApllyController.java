@@ -55,7 +55,10 @@ public class LendingApllyController {
 
             //1.审核通过这条记录
             LendingApply lendingApply = lendingApplyService.selectByPrimaryKey(laId);
+            //设置审核通过标志
             lendingApply.setLaIsCheck("Y");
+            //设置为已审核状态
+            lendingApply.setAttribute1("Y");
 
             lendingApplyService.updateByPrimaryKeySelective(lendingApply);
             //2.更新历史表里的这条记录 并设置事件，审批人，审核意见等
@@ -65,6 +68,8 @@ public class LendingApllyController {
             lendingHistory.setLhWhoChecked((Integer) request.getSession().getAttribute("userId"));
             lendingHistory.setLhCheckTime(new Date());
             lendingHistory.setLhIsCheck("Y");
+            //设置为已审核状态
+            lendingHistory.setAttribute1("Y");
             lendingHistory.setLaCommons("无审核意见");
 
             lendingHistoryService.updateByPrimaryKeySelective(lendingHistory);
@@ -81,6 +86,7 @@ public class LendingApllyController {
             LendingApply Apply = new LendingApply();
             Apply.setLaId(laId);
             Apply.setLaCptId(laCptId);
+
             //有可能有多个，是个集合，需要遍历
             //突然发现插入的时候本来就是N 。。。linsong.wei 2017-11-13 22:32:20 所以直接操作历史表，把历史表当成审核结果来存储,
 
@@ -90,6 +96,8 @@ public class LendingApllyController {
                 //因为历史表里没有电脑id 所以从不等于审核通过那条记录的记录里拿到apply集合，并同步到历史表
                 //虽然本来是N，但是防止又审核了其他同一条记录的情况，还得设置一下 linsong.wei 2017-11-14 12:35:12
                 lendingApplies.get(i).setLaIsCheck("N");
+                //设置为已审核状态
+                lendingApplies.get(i).setAttribute1("Y");
                 lendingApplyService.updateByPrimaryKeySelective(lendingApplies.get(i));
                 //5.把4同步到历史表，即把申请历史表中不等于laId的记录设置为“N”,并把理由设置为"借用冲突"
                 LendingHistory his = lendingHistoryService.selectByLaId(lendingApplies.get(i).getLaId());
@@ -97,6 +105,8 @@ public class LendingApllyController {
                 his.setLhWhoChecked((Integer) request.getSession().getAttribute("userId"));
                 his.setLhCheckTime(new Date());
                 his.setLhIsCheck("N");      //设置不通过
+                //设置为已审核
+                his.setAttribute1("Y");
                 his.setLaCommons("申请冲突");
                 lendingHistoryService.updateByPrimaryKeySelective(his);
             }

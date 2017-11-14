@@ -23,9 +23,10 @@
         <th lay-data="{field:'laReason', width:120}">理由</th>
         <th lay-data="{field:'laLendTime', width:110}">借用时间从</th>
         <th lay-data="{field:'laReturnTime', width:110}">借用时间至</th>
+        <th lay-data="{field:'laIsCheck', width:120}">是否审核通过</th>
+        <th lay-data="{field:'attribute1', width:120}">是否已经审核</th>
         <th lay-data="{field:'laCommons', width:200}">备注</th>
         <th lay-data="{field:'laLocation', width:100}">地点</th>
-        <th lay-data="{field:'laIsCheck', width:120}">是否审核通过</th>
         <th lay-data="{fixed: 'right', width:160, align:'center', toolbar: '#Toolbar'}">
     </tr>
     </thead>
@@ -68,8 +69,8 @@
                         dataType: 'json',
                         contentType: 'application/json;charset=UTF-8', //contentType很重要
                         success: function (result) {
-                            if (result.laIsCheck == 'Y') {
-                                layer.msg("对不起，您的申请已经通过管理员审核，不能撤回。");
+                            if (result.attribute1 == 'Y') {
+                                layer.msg("对不起，您的申请已经经过管理员审核，不能撤回。");
                             } else {
                                 layer.msg("通过ajax进行撤回操作!");
                                 //只能这样了，待开发

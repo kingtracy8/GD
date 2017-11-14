@@ -24,7 +24,7 @@ public class LendingApply {
 
     private String laIsCheck;
 
-    private String attribute1;
+    private String attribute1;  //用来存储是否已经处理 linsong.wei 2017-11-14 13:03:21
 
     private String attribute2;
 

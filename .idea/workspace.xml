@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2b63822-c6f6-48d6-965a-33b61666fa44" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/LendingApllyController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/LendingApllyController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tracy/gd/domain/LendingApply.java" afterPath="$PROJECT_DIR$/src/main/java/com/tracy/gd/domain/LendingApply.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/html/ApplyHistory.html" afterPath="$PROJECT_DIR$/src/main/webapp/html/ApplyHistory.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/html/Auditing.html" afterPath="$PROJECT_DIR$/src/main/webapp/html/Auditing.html" />
     </list>
@@ -30,21 +30,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LendingApllyController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/LendingApllyController.java">
+      <file leaf-file-name="Auditing.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/html/Auditing.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-46">
-              <caret line="87" column="92" lean-forward="false" selection-start-line="87" selection-start-column="92" selection-end-line="87" selection-end-column="92" />
+            <state relative-caret-position="282">
+              <caret line="110" column="47" lean-forward="false" selection-start-line="110" selection-start-column="47" selection-end-line="110" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Auditing.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/html/Auditing.html">
+      <file leaf-file-name="ApplyHistory.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/html/ApplyHistory.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="65">
-              <caret line="18" column="47" lean-forward="false" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
+            <state relative-caret-position="281">
+              <caret line="72" column="55" lean-forward="false" selection-start-line="72" selection-start-column="55" selection-end-line="72" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -60,20 +60,32 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="LendingApply.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/domain/LendingApply.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="115">
+              <caret line="26" column="29" lean-forward="false" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ComputerServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/service/impl/ComputerServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
+            <state relative-caret-position="51">
               <caret line="33" column="64" lean-forward="false" selection-start-line="33" selection-start-column="64" selection-end-line="33" selection-end-column="64" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#567#568#0" expanded="false" />
-                <element signature="e#630#631#0" expanded="false" />
-                <element signature="e#695#696#0" expanded="false" />
-                <element signature="e#759#760#0" expanded="false" />
-                <element signature="e#810#811#0" expanded="false" />
-                <element signature="e#869#870#0" expanded="false" />
-              </folding>
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LendingApllyController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/LendingApllyController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-253">
+              <caret line="99" column="49" lean-forward="false" selection-start-line="99" selection-start-column="49" selection-end-line="99" selection-end-column="49" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -149,7 +161,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/html/Jurisdiction.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/domain/LendingApply.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/IDao/LendingHistoryMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/IDao/LendingApplyMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/LendingApplyMapper.xml" />
@@ -161,9 +172,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/impl/LendingHistoryServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/IComputerService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/impl/ComputerServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/html/ApplyHistory.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/LendingApllyController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/domain/LendingApply.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/Auditing.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/LendingApllyController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/html/ApplyHistory.html" />
       </list>
     </option>
   </component>
@@ -1226,7 +1238,7 @@
       <workItem from="1510551814349" duration="7261000" />
       <workItem from="1510561072492" duration="2561000" />
       <workItem from="1510565606195" duration="18409000" />
-      <workItem from="1510633262683" duration="1452000" />
+      <workItem from="1510633262683" duration="4046000" />
     </task>
     <servers />
   </component>
@@ -1263,7 +1275,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163992000" />
+    <option name="totallyTimeSpent" value="166586000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1568,6 +1580,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1717">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1582,6 +1595,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2269">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1589,6 +1603,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-460">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1596,6 +1611,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1564">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1610,13 +1626,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="17" column="27" lean-forward="false" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/domain/LendingApply.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="8" column="24" lean-forward="false" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -1752,22 +1761,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/service/impl/ComputerServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="33" column="64" lean-forward="false" selection-start-line="33" selection-start-column="64" selection-end-line="33" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#567#568#0" expanded="false" />
-            <element signature="e#630#631#0" expanded="false" />
-            <element signature="e#695#696#0" expanded="false" />
-            <element signature="e#759#760#0" expanded="false" />
-            <element signature="e#810#811#0" expanded="false" />
-            <element signature="e#869#870#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/html/Jurisdiction.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
@@ -1775,18 +1768,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/LendingApllyController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/service/impl/ComputerServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-46">
-          <caret line="87" column="92" lean-forward="false" selection-start-line="87" selection-start-column="92" selection-end-line="87" selection-end-column="92" />
+        <state relative-caret-position="51">
+          <caret line="33" column="64" lean-forward="false" selection-start-line="33" selection-start-column="64" selection-end-line="33" selection-end-column="64" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/ApplyHistory.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/LendingApllyController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1656">
-          <caret line="72" column="36" lean-forward="true" selection-start-line="72" selection-start-column="36" selection-end-line="72" selection-end-column="36" />
+        <state relative-caret-position="-253">
+          <caret line="99" column="49" lean-forward="false" selection-start-line="99" selection-start-column="49" selection-end-line="99" selection-end-column="49" />
           <folding />
         </state>
       </provider>
@@ -1799,10 +1792,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/domain/LendingApply.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="26" column="29" lean-forward="false" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/html/Auditing.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="18" column="47" lean-forward="false" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
+        <state relative-caret-position="282">
+          <caret line="110" column="47" lean-forward="false" selection-start-line="110" selection-start-column="47" selection-end-line="110" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/ApplyHistory.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="72" column="55" lean-forward="false" selection-start-line="72" selection-start-column="55" selection-end-line="72" selection-end-column="55" />
           <folding />
         </state>
       </provider>
