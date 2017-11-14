@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2b63822-c6f6-48d6-965a-33b61666fa44" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/ssm.log" afterPath="$PROJECT_DIR$/logs/ssm.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tracy/gd/IDao/LendingApplyMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/tracy/gd/IDao/LendingApplyMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/LendingApllyController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/LendingApllyController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/LendingApplyMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/LendingApplyMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/ILendingApplyService.java" afterPath="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/ILendingApplyService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/impl/LendingApplyServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/impl/LendingApplyServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/html/ApplyHistory.html" afterPath="$PROJECT_DIR$/src/main/webapp/html/ApplyHistory.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/html/computersList.html" afterPath="$PROJECT_DIR$/src/main/webapp/html/computersList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/zsl/testmybatis/TestMyBatis.java" afterPath="$PROJECT_DIR$/src/test/java/org/zsl/testmybatis/TestMyBatis.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/html/changePassword.html" afterPath="$PROJECT_DIR$/src/main/webapp/html/changePassword.html" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,7 +29,38 @@
     <favorites_list name="GD" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file leaf-file-name="web.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="535">
+              <caret line="100" column="31" lean-forward="false" selection-start-line="100" selection-start-column="31" selection-end-line="100" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="changePassword.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/html/changePassword.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-782">
+              <caret line="122" column="66" lean-forward="true" selection-start-line="122" selection-start-column="26" selection-end-line="122" selection-end-column="66" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="369">
+              <caret line="237" column="52" lean-forward="true" selection-start-line="237" selection-start-column="52" selection-end-line="237" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -69,7 +95,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/UserMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/IDao/UserMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/AdminMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/IAdminService.java" />
@@ -89,7 +114,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/IDao/ComputerMapper.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/changPassword.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/domain/checkPass.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/html/changePassword.html" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/src/main/resources/jdbc.properties" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/PersonalInfo.html" />
@@ -103,7 +127,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/CarIndex.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/Jurisdiction.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/IDao/LendingHistoryMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/LendingHistoryMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/ILendingHistoryService.java" />
@@ -120,6 +143,9 @@
         <option value="$PROJECT_DIR$/src/test/java/org/zsl/testmybatis/TestMyBatis.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/LendingApllyController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/computersList.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/html/changePassword.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp" />
       </list>
     </option>
   </component>
@@ -189,7 +215,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -562,7 +588,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1182,7 +1208,8 @@
       <workItem from="1510551814349" duration="7261000" />
       <workItem from="1510561072492" duration="2561000" />
       <workItem from="1510565606195" duration="18409000" />
-      <workItem from="1510633262683" duration="9792000" />
+      <workItem from="1510633262683" duration="9863000" />
+      <workItem from="1510661797089" duration="620000" />
     </task>
     <servers />
   </component>
@@ -1219,7 +1246,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="172332000" />
+    <option name="totallyTimeSpent" value="173023000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1231,7 +1258,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1255,10 +1283,10 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32786885" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32786885" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12131148" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12131148" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32786885" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32786885" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2934947" sideWeight="0.49253732" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2980333" sideWeight="0.49253732" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24302575" sideWeight="0.5074627" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -1434,7 +1462,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-69">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1476,7 +1503,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-924">
           <caret line="59" column="60" lean-forward="false" selection-start-line="59" selection-start-column="50" selection-end-line="59" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1484,22 +1510,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-828">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="39" column="4" lean-forward="false" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1482">
-          <caret line="86" column="61" lean-forward="false" selection-start-line="86" selection-start-column="61" selection-end-line="86" selection-end-column="61" />
           <folding />
         </state>
       </provider>
@@ -1523,7 +1533,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1717">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1538,7 +1547,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2269">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1546,7 +1554,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-460">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1554,14 +1561,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1564">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/changePassword.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3220">
-          <caret line="140" column="69" lean-forward="false" selection-start-line="140" selection-start-column="36" selection-end-line="140" selection-end-column="69" />
         </state>
       </provider>
     </entry>
@@ -1640,14 +1639,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4462">
           <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="22" />
-          <folding>
-            <marker date="1510364705256" expanded="true" signature="1906:2021" ph="select from gd_computers" />
-            <marker date="1510364705256" expanded="true" signature="2108:2177" ph="delete from " />
-            <marker date="1510364705256" expanded="true" signature="2263:3096" ph="insert into gd_computers... " />
-            <marker date="1510364705256" expanded="true" signature="6119:7825" ph="update gd_co... " />
-            <marker date="1510364705256" expanded="true" signature="7923:8791" ph="update gd_co... " />
-            <marker date="1510364705256" expanded="true" signature="9728:10025" ph="SELECT cpt_i... gd_computers" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1669,7 +1660,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="33" column="64" lean-forward="false" selection-start-line="33" selection-start-column="64" selection-end-line="33" selection-end-column="64" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1677,7 +1667,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
           <caret line="26" column="29" lean-forward="false" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1685,7 +1674,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1869">
           <caret line="110" column="47" lean-forward="false" selection-start-line="110" selection-start-column="47" selection-end-line="110" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1693,7 +1681,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="411">
           <caret line="25" column="44" lean-forward="false" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1701,18 +1688,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
           <caret line="227" column="28" lean-forward="false" selection-start-line="227" selection-start-column="28" selection-end-line="227" selection-end-column="28" />
-          <folding>
-            <marker date="1510641715083" expanded="true" signature="1759:1886" ph="select from gd_lending_apply" />
-            <marker date="1510641715083" expanded="true" signature="1976:2047" ph="delete from " />
-            <marker date="1510641715083" expanded="true" signature="2138:2755" ph="insert into gd_lending_apply... " />
-            <marker date="1510641715083" expanded="true" signature="5555:6992" ph="update gd_le... " />
-            <marker date="1510641715083" expanded="true" signature="7097:7728" ph="update gd_le... " />
-            <marker date="1510641715083" expanded="true" signature="7833:7980" ph="SELECT a.*, gd_lending_apply" />
-            <marker date="1510641715083" expanded="true" signature="8053:8247" ph="SELECT a.*,c... gd_lending_apply" />
-            <marker date="1510641715083" expanded="true" signature="8361:8457" ph="SELECT COUNT... gd_lending_apply" />
-            <marker date="1510641715083" expanded="true" signature="8964:9143" ph="select from gd_lending_apply" />
-            <marker date="1510641715083" expanded="true" signature="8964:9282" ph="select COUNT... gd_lending_apply" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1720,10 +1695,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="668">
           <caret line="50" column="5" lean-forward="true" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
-          <folding>
-            <element signature="e#1541#1542#0" expanded="true" />
-            <element signature="e#1606#1607#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1731,7 +1702,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
           <caret line="31" column="23" lean-forward="false" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1739,7 +1709,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="80" column="22" lean-forward="true" selection-start-line="66" selection-start-column="20" selection-end-line="80" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1747,7 +1716,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="83" column="70" lean-forward="true" selection-start-line="81" selection-start-column="7" selection-end-line="83" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1763,6 +1731,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="457">
           <caret line="170" column="11" lean-forward="true" selection-start-line="170" selection-start-column="11" selection-end-line="170" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="100" column="31" lean-forward="false" selection-start-line="100" selection-start-column="31" selection-end-line="100" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/changePassword.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-782">
+          <caret line="122" column="66" lean-forward="true" selection-start-line="122" selection-start-column="26" selection-end-line="122" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="237" column="52" lean-forward="true" selection-start-line="237" selection-start-column="52" selection-end-line="237" selection-end-column="52" />
           <folding />
         </state>
       </provider>

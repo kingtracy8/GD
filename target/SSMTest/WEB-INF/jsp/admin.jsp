@@ -235,7 +235,7 @@
                     //如果为1则表示清除成功
                 }
             });
-            window.location.href = "../index.jsp"
+            window.location.href = "../CarIndex.jsp"
         });
 
         //此处无法使用jsp代码块清理session的值并重定向，否则一登陆又直接返回登陆界面，
