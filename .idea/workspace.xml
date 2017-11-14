@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b2b63822-c6f6-48d6-965a-33b61666fa44" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/html/changePassword.html" afterPath="$PROJECT_DIR$/src/main/webapp/html/changePassword.html" />
-    </list>
+    <list default="true" id="b2b63822-c6f6-48d6-965a-33b61666fa44" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,21 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="changePassword.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="changePassword.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/html/changePassword.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-782">
               <caret line="122" column="66" lean-forward="true" selection-start-line="122" selection-start-column="26" selection-end-line="122" selection-end-column="66" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="237" column="52" lean-forward="true" selection-start-line="237" selection-start-column="52" selection-end-line="237" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -1209,7 +1194,7 @@
       <workItem from="1510561072492" duration="2561000" />
       <workItem from="1510565606195" duration="18409000" />
       <workItem from="1510633262683" duration="9863000" />
-      <workItem from="1510661797089" duration="620000" />
+      <workItem from="1510661797089" duration="689000" />
     </task>
     <servers />
   </component>
@@ -1246,7 +1231,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="173023000" />
+    <option name="totallyTimeSpent" value="173092000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1742,18 +1727,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/changePassword.html">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-782">
-          <caret line="122" column="66" lean-forward="true" selection-start-line="122" selection-start-column="26" selection-end-line="122" selection-end-column="66" />
+        <state relative-caret-position="185">
+          <caret line="229" column="57" lean-forward="true" selection-start-line="229" selection-start-column="57" selection-end-line="229" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/changePassword.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="237" column="52" lean-forward="true" selection-start-line="237" selection-start-column="52" selection-end-line="237" selection-end-column="52" />
+        <state relative-caret-position="-782">
+          <caret line="122" column="66" lean-forward="true" selection-start-line="122" selection-start-column="26" selection-end-line="122" selection-end-column="66" />
           <folding />
         </state>
       </provider>
