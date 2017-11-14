@@ -35,6 +35,33 @@ public class LendingApllyController {
     IComputerService computerService;
 
     /*
+        purpose:防止重复提交，获取一个电脑id，再获取当前用户id，
+        查出申请表中该用户申请了同一台电脑，且未审核的记录的数量，
+        若大于0，则表示未审核之前重复申请同一台电脑，拒绝操作
+        Create by : linsong.wei  2017-11-14 14:47:24
+     */
+    @RequestMapping(value = "/findDuplicate", method = RequestMethod.GET)
+    public @ResponseBody
+    HashMap doiFndDuplicate(HttpServletRequest request, HttpServletResponse response) {
+
+        HashMap map = new HashMap();
+
+        int curUserId = (Integer) request.getSession().getAttribute("userId");
+        int cptId = Integer.parseInt(request.getParameter("cptId"));
+
+        LendingApply lendingApply = new LendingApply();
+        lendingApply.setLaCptId(cptId);
+        lendingApply.setLaUserId(curUserId);
+        int count = lendingApplyService.selectDuplicate(lendingApply);
+
+        map.put("count", count);
+
+        return map;
+    }
+
+
+
+    /*
         purpose:获取两个参数，一个电脑id，一个申请表id，更新传入申请表id的记录，设置为"Y"，
                 并把这等于这个电脑id的其他申请记录给设置为"N",同时更新his表，computer表
         Create by : linsong.wei  2017-11-13 21:15:59
@@ -205,6 +232,7 @@ public class LendingApllyController {
         LendingApply InlendingApply = lendingApply; //将从页面传过来的数据塞到实体中
         InlendingApply.setLaUserId(curUserId);      //设置申请人 ：当前用户
         InlendingApply.setLaIsCheck("N");           //设置为未审核状态
+        InlendingApply.setAttribute1("N");
         //插入记录 申请表
         int flagApply = lendingApplyService.insertSelective(InlendingApply);
 
@@ -217,6 +245,8 @@ public class LendingApllyController {
         //注：若不加这个属性，默认返回插入的记录数
         lendingHistory.setLhLaId(InlendingApply.getLaId());
         lendingHistory.setLhUserId(curUserId);      //仅需插入这两个字段，其余字段待管理员审核后更新,相当于在这记录一下，让管理员去审核（更新）
+        //设置成管理员未审核状态 linsong.wei 2017-11-14 14:21:18
+        lendingHistory.setAttribute1("N");
         int flagHis = lendingHistoryService.insertSelective(lendingHistory);
 
 

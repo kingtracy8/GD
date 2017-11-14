@@ -22,4 +22,6 @@ public interface ILendingApplyService {
    List<LendingApply> selectAuditingFilter(LendingApply record);
 
    int updateByPrimaryKeySelective(LendingApply record);
+
+   int selectDuplicate(LendingApply record);
 }

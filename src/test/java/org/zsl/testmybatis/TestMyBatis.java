@@ -72,12 +72,16 @@ public class TestMyBatis {
 //
 //        int count = lendingApplyService.selectCountCpt(1);
 
-        LendingApply lendingApply = new LendingApply();
-        lendingApply.setLaId(2);
-        lendingApply.setLaCptId(1);
-        List<LendingApply> lendingApplies = lendingApplyService.selectAuditingFilter(lendingApply);
-        logger.info(JSON.toJSONString(lendingApplies));
+//        LendingApply lendingApply = new LendingApply();
+//        lendingApply.setLaId(2);
+//        lendingApply.setLaCptId(1);
+//        List<LendingApply> lendingApplies = lendingApplyService.selectAuditingFilter(lendingApply);
+//        logger.info(JSON.toJSONString(lendingApplies));
 //
-
+        LendingApply lendingApply = new LendingApply();
+        lendingApply.setLaCptId(1);
+        lendingApply.setLaUserId(2);
+        int count = lendingApplyService.selectDuplicate(lendingApply);
+        logger.info(JSON.toJSONString(count));
     }  
 }  

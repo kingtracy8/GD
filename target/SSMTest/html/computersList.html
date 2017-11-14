@@ -132,20 +132,40 @@
 //拼接url到申请界面  create by : linsong.wei 2017-11-12 11:46:16
                 //url拼接中无法识别中文和空格，只能将id传过去，在申请界面用ajax再取出电脑数据....   linsong.wei 2017-11-12 11:52:14
 //                var urltest = "http://localhost:8080/html/LendingApply.html?cptId=" + data.cptId + "&cptOs=" + data.cptOs + "&cptRam=" + data.cptRam + "&cptCpu=" + data.cptCpu;
-                //如果已经申请，不让申请   （为了防止并发，最好是通过ajax查询一次  --待开发 linsong.wei2017-11-13 14:34:33）
+
                 if (data.cptIslending === 'Y') {
                     layer.msg("对不起，这台电脑已经借出，无法申请！");
                 } else {
-                    var url = "http://localhost:8080/html/LendingApply.html?cptId=" + data.cptId;
-                    console.log(url);
-                    var index = layer.open({
-                        type: 2,
-                        title: '申请使用',
-                        offset: '100px',  //水平居中
-                        area: ['700px', '600px'],
-                        content: [url, 'no']
+
+                    //防止同一个用户在管理员未审核之前重复申请同一台电脑   （为了防止并发，最好是通过ajax查询一次  --待开发 linsong.wei2017-11-13 14:34:33）
+                    //如果当前用户已经申请了这台电脑，又重复申请，拒绝操作！
+                    // 传入电脑id，去后端controller里查询，用当前用户id和电脑id去查，
+                    // 如果存在该电脑该用户且未经过管理员审核的记录，则不允许重复申请 （attribute1=“N”）如果不加这个条件会影响下一次借电脑
+                    console.log("去校验重复");
+                    $.ajax({
+                        url: 'http://localhost:8080/LendingApply/findDuplicate?cptId=' + data.cptId,
+                        type: "GET",
+                        dataType: 'json',
+                        contentType: 'application/json;charset=UTF-8', //contentType很重要
+                        success: function (result) {
+                            if (result.count == 0) {
+                                //如果记录表里没有已经申请同一台电脑的记录，
+                                var url = "http://localhost:8080/html/LendingApply.html?cptId=" + data.cptId;
+                                console.log(url);
+                                var index = layer.open({
+                                    type: 2,
+                                    title: '申请使用',
+                                    offset: '100px',  //水平居中
+                                    area: ['700px', '600px'],
+                                    content: [url, 'no']
+                                });
+                                layer.iframeAuto(index);    //自适应
+
+                            } else {
+                                layer.msg("您已经提交了这台电脑的申请记录，管理员尚未审核，不能重复提交！，您可移步申请记录，在管理员审核之前进行撤回操作！");
+                            }
+                        }
                     });
-                    layer.iframeAuto(index);    //自适应
                 }
             }
         });

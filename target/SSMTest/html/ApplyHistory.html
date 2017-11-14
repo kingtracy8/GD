@@ -33,7 +33,8 @@
 </table>
 
 <script type="text/html" id="Toolbar">
-    <a class="layui-btn layui-btn-primary layui-btn-mini layui-bg-red" lay-event="recall">撤回申请</a>
+    <a class="layui-btn layui-btn-primary layui-btn-mini layui-bg-red" lay-event="recall">撤回</a>
+    <a class="layui-btn layui-btn-primary layui-btn-mini layui-bg-red" lay-event="detail">审核结果</a>
 </script>
 
 
@@ -79,6 +80,8 @@
                         }
                     })
                 });
+            }else if (layEvent === 'detail'){
+                layer.msg("通过申请表id去查，谁审核的，意见，审核时间等，待开发");
             }
         });
 

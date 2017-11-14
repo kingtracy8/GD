@@ -214,4 +214,17 @@ WHERE
           AND  la_cpt_id = #{laCptId,jdbcType=INTEGER}
         </if>
     </select>
+    <select id="selectDuplicate" resultType="java.lang.Integer" parameterType="com.tracy.gd.domain.LendingApply">
+        select
+        COUNT(*)
+        from gd_lending_apply
+         WHERE 1=1
+        <if test="laCptId != null">
+            AND  la_cpt_id = #{laCptId,jdbcType=INTEGER}
+        </if>
+        <if test="laUserId != null">
+            AND  la_user_id = #{laUserId,jdbcType=INTEGER}
+        </if>
+        AND attribute1 = 'N'
+    </select>
 </mapper>

@@ -45,4 +45,8 @@ public class LendingApplyServiceImpl implements ILendingApplyService{
     public int updateByPrimaryKeySelective(LendingApply record) {
         return lendingApplyMapper.updateByPrimaryKeySelective(record);
     }
+
+    public int selectDuplicate(LendingApply record) {
+        return lendingApplyMapper.selectDuplicate(record);
+    }
 }
