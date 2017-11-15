@@ -103,13 +103,28 @@
                                             });
                                         }
                                     }
-                                })
+                                });
                             }
                         }
                     });
                 } else if (layEvent === 'reject') {
                     //通过ajax进行审核不通过操作
-                    layer.msg("通过ajax进行审核不通过操作");
+                    $.ajax({
+                        url: 'http://localhost:8080/LendingApply/AuditingReject?laId=' + data.laId + '&laCptId=' + data.laCptId,
+                        type: "GET",
+                        dataType: 'json',
+                        contentType: 'application/json;charset=UTF-8', //contentType很重要
+                        success: function (result) {
+                            if (result.flag == 1) {
+                                layer.msg("操作成功!");
+                                //重载表格
+                                table.reload('computersTable', {
+                                    url: '/LendingApply/AuditingList'
+                                });
+                            }
+                        }
+                    });
+
                 }
             } else {
                 layer.msg("很抱歉，该条记录已经被审核过了，不能操作！");

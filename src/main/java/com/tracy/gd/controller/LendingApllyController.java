@@ -36,6 +36,61 @@ public class LendingApllyController {
 
 
     /*
+        purpose:获取一个参数，申请表id，更新传入申请表id的记录，审核不通过，设置为"N"，
+                把是否已经审核标志设置成“Y”,同时更新his表，computer表
+        Create by : linsong.wei  2017-11-15 20:08:03
+     */
+    @RequestMapping(value = "/AuditingReject", method = RequestMethod.GET)
+    public @ResponseBody
+    HashMap doAuditingReject(HttpServletRequest request, HttpServletResponse response) {
+
+        HashMap map = new HashMap();
+
+        int flag;
+
+        try {
+
+            int laId = Integer.parseInt(request.getParameter("laId"));
+            int laCptId = Integer.parseInt(request.getParameter("laCptId"));
+
+            //1.对该记录进行设置 审核  不通过  标志
+            LendingApply lendingApply = lendingApplyService.selectByPrimaryKey(laId);
+
+            lendingApply.setLaIsCheck("N");
+            //设置为已审核状态
+            lendingApply.setAttribute1("Y");
+
+            lendingApplyService.updateByPrimaryKeySelective(lendingApply);
+            //2.更新历史表里的这条记录 并设置事件，审批人，审核意见等
+            //获得与apply表同步的历史表记录
+            LendingHistory lendingHistory = lendingHistoryService.selectByLaId(laId);
+            //设置为当前用户审核的
+            lendingHistory.setLhWhoChecked((Integer) request.getSession().getAttribute("userId"));
+            lendingHistory.setLhCheckTime(new Date());
+            lendingHistory.setLhIsCheck("N");
+            //设置为已审核状态
+            lendingHistory.setAttribute1("Y");
+            lendingHistory.setLaCommons("审核不通过");
+
+            lendingHistoryService.updateByPrimaryKeySelective(lendingHistory);
+            //3.更新电脑表中这个电脑的租用标志，设置为"Y"
+            //获得这台电脑
+            Computer computer = computerService.selectByPrimaryKey(laCptId);
+            computer.setCptIslending("N");
+            computerService.updateByPrimaryKeySelective(computer);
+
+            flag = 1;
+        } catch (Exception e) {
+            flag = -1;
+        }
+
+        map.put("flag", "1");
+
+        return map;
+    }
+
+
+    /*
       purpose: 用户在管理员未审核之前撤回自己的申请记录
       author:  linsong.wei
       when:   2017-11-15 19:07:38
