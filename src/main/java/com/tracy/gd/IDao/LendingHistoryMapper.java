@@ -19,4 +19,6 @@ public interface LendingHistoryMapper {
 
     LendingHistory selectByLaId(Integer laId);
 
+    int deleteByPkAndUser(LendingHistory record);
+
 }

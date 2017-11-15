@@ -73,9 +73,24 @@
                             if (result.attribute1 == 'Y') {
                                 layer.msg("对不起，您的申请已经经过管理员审核，不能撤回。");
                             } else {
-                                layer.msg("通过ajax进行撤回操作!");
-                                //只能这样了，待开发
-                                layer.close(index);
+                                //  通过ajax进行撤回操作
+                                $.ajax({
+                                    url: "http://localhost:8080/LendingApply/recallApply?laId="+data.laId,
+                                    type: "GET",
+                                    dataType: 'json',
+                                    contentType: 'application/json;charset=UTF-8', //contentType很重要
+                                    success: function (result) {
+                                       if(result.flag==1){
+                                           layer.msg("撤回成功!");
+                                           table.reload('computersTable', {
+                                               url: '/LendingApply/showApply'
+                                           });
+                                           layer.close(index);
+
+                                       }
+                                    }
+                                });
+                         //       layer.close(index);
                             }
                         }
                     })

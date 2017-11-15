@@ -24,4 +24,6 @@ public interface ILendingApplyService {
    int updateByPrimaryKeySelective(LendingApply record);
 
    int selectDuplicate(LendingApply record);
+//用户撤回操作  2017-11-15 19:22:31  linsong.wei
+   int deleteByPkAndUser(LendingApply record);
 }

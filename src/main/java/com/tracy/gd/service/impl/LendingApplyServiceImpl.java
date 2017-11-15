@@ -49,4 +49,8 @@ public class LendingApplyServiceImpl implements ILendingApplyService{
     public int selectDuplicate(LendingApply record) {
         return lendingApplyMapper.selectDuplicate(record);
     }
+
+    public int deleteByPkAndUser(LendingApply record) {
+        return lendingApplyMapper.deleteByPkAndUser(record);
+    }
 }

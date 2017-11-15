@@ -30,4 +30,8 @@ public class LendingHistoryServiceImpl implements ILendingHistoryService {
         return lendingHistoryMapper.updateByPrimaryKeySelective(record);
     }
 
+    public int deleteByPkAndUser(LendingHistory record) {
+        return lendingHistoryMapper.deleteByPkAndUser(record);
+    }
+
 }

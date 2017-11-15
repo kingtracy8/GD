@@ -97,6 +97,10 @@
                                     success: function (result) {
                                         if (result.flag == 1) {
                                             layer.msg("操作成功!");
+                                            //重载表格
+                                            table.reload('computersTable', {
+                                                url: '/LendingApply/AuditingList'
+                                            });
                                         }
                                     }
                                 })

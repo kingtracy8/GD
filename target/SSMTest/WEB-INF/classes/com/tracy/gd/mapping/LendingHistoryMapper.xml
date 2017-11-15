@@ -156,4 +156,11 @@
   from gd_lending_history
   where lh_la_id = #{lhLaId,jdbcType=INTEGER}
 </select>
+  <delete id="deleteByPkAndUser" parameterType="com.tracy.gd.domain.LendingHistory" >
+    delete from gd_lending_history
+    where lh_id = #{lhId,jdbcType=INTEGER}
+    <if test="lhUserId != null" >
+      AND lh_user_id = #{lhUserId,jdbcType=INTEGER}
+    </if>
+  </delete>
 </mapper>

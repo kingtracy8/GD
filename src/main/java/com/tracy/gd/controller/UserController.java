@@ -35,6 +35,8 @@ public class UserController {
         return "showUser";
     }
 
+
+
     /*
         purpose: 退出时清除session里的值
         author:  linsong.wei

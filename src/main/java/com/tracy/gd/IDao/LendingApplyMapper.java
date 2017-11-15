@@ -31,4 +31,6 @@ public interface LendingApplyMapper {
 
     int selectDuplicate(LendingApply record);
 
+    int deleteByPkAndUser(LendingApply record);
+
 }

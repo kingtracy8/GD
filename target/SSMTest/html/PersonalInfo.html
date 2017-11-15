@@ -32,9 +32,9 @@
                     $("#userPassword").val(result.userPassword);
                     $("#userGender").val(result.userGender);
                     $("#userDepartment").attr("value", result.userDepartment);
+                    $("#userDepartment").attr("text", result.userDepartment);
                     $("#userDepartment").get(0).value = result.userDepartment;
                     $("#userDepartment").val(result.userDepartment);
-
                 }
             })
         });
@@ -102,7 +102,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label" style="margin-left: 26%">部门:</label>
                     <div class="layui-input-block" style="width: 190px;margin-left: 34.5%">
-                        <select id="userDepartment" name="userDepartment"  lay-verify="required">
+                        <select id="userDepartment" name="userDepartment" class="userDepartment"  lay-verify="required">
                             <option value=""></option>
                             <option value="数学与计算机科学学院">数学与计算机科学学院</option>
                             <option value="外国语学院">外国语学院</option>
@@ -146,7 +146,7 @@
         form.on('submit(formDemo)',function (data) {
 
 
-            if (document.getElementById("identity").innerHTML == "user") {
+      //      if (document.getElementById("identity").innerHTML == "user") {
                 //layer.msg("当前用户身份:"+document.getElementById("identity").innerHTML);
                 //传入后端并更新
                // layer.msg(JSON.stringify(data.field));
@@ -160,7 +160,7 @@
                         layer.msg("用户信息更改成功!");
                     }
                 })
-            }
+         //   }
             return false;
         });
     });

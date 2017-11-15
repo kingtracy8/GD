@@ -34,6 +34,40 @@ public class LendingApllyController {
     @Autowired
     IComputerService computerService;
 
+
+    /*
+      purpose: 用户在管理员未审核之前撤回自己的申请记录
+      author:  linsong.wei
+      when:   2017-11-15 19:07:38
+   */
+    @RequestMapping(value = "/recallApply", method = RequestMethod.GET)
+    public @ResponseBody
+    HashMap doRecallApply(HttpServletRequest request, HttpServletResponse response) {
+
+        HashMap map = new HashMap();
+
+        int laId = Integer.parseInt(request.getParameter("laId"));
+        LendingApply lendingApply = lendingApplyService.selectByPrimaryKey(laId);
+        int flag = -1;
+
+        try {
+            //删除申请表里的本记录 且 user_id = 当前用户
+            lendingApplyService.deleteByPkAndUser(lendingApply);
+            //同时删除历史表的lhlaid=laid and lh_user_id=当前用户的纪录
+            LendingHistory lendingHistory = lendingHistoryService.selectByLaId(laId);//找到对应的历史纪录
+            lendingHistoryService.deleteByPkAndUser(lendingHistory);
+            flag = 1;
+        } catch (Exception e) {
+            flag = -1;
+        }
+
+
+        map.put("flag", flag);
+
+        return map;
+    }
+
+
     /*
         purpose:防止重复提交，获取一个电脑id，再获取当前用户id，
         查出申请表中该用户申请了同一台电脑，且未审核的记录的数量，
@@ -58,7 +92,6 @@ public class LendingApllyController {
 
         return map;
     }
-
 
 
     /*

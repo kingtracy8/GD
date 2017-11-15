@@ -227,4 +227,11 @@ WHERE
         </if>
         AND attribute1 = 'N'
     </select>
+    <delete id="deleteByPkAndUser" parameterType="com.tracy.gd.domain.LendingApply">
+        delete from gd_lending_apply
+        where la_id = #{laId,jdbcType=INTEGER}
+        <if test="laUserId != null">
+            AND la_user_id = #{laUserId,jdbcType=INTEGER}
+        </if>
+    </delete>
 </mapper>

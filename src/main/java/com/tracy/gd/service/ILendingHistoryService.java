@@ -11,4 +11,5 @@ public interface ILendingHistoryService {
     int insertSelective(LendingHistory record);
     LendingHistory selectByLaId(Integer laId);
     int updateByPrimaryKeySelective(LendingHistory record);
+    int deleteByPkAndUser(LendingHistory record);
 }

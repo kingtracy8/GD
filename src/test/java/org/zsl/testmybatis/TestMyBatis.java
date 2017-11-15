@@ -30,11 +30,11 @@ public class TestMyBatis {
     @Autowired
     ILendingApplyService lendingApplyService;
     @Autowired
-    ILendingHistoryService iLendingHistoryService;
+    ILendingHistoryService lendingHistoryService;
 
 
     @Test  
-    public void test1() {  
+    public void test1() {
 //        User user = userService.getUserById(1);
 //        logger.info(JSON.toJSONString(user));
    /*     List<User> userList = userService.selectAll();
@@ -68,7 +68,7 @@ public class TestMyBatis {
         logger.info("flagHis"+flagHis);
         */
 
-     //测试通过用户id查找申请记录
+        //测试通过用户id查找申请记录
 //
 //        int count = lendingApplyService.selectCountCpt(1);
 
@@ -78,10 +78,21 @@ public class TestMyBatis {
 //        List<LendingApply> lendingApplies = lendingApplyService.selectAuditingFilter(lendingApply);
 //        logger.info(JSON.toJSONString(lendingApplies));
 //
-        LendingApply lendingApply = new LendingApply();
-        lendingApply.setLaCptId(1);
-        lendingApply.setLaUserId(2);
-        int count = lendingApplyService.selectDuplicate(lendingApply);
-        logger.info(JSON.toJSONString(count));
-    }  
+//        LendingApply lendingApply = new LendingApply();
+//        lendingApply.setLaCptId(1);
+//        lendingApply.setLaUserId(2);
+//        int count = lendingApplyService.selectDuplicate(lendingApply);
+//        logger.info(JSON.toJSONString(count));
+
+
+        int laId = 7;
+        LendingApply lendingApply = lendingApplyService.selectByPrimaryKey(laId);
+
+
+        //删除申请表里的本记录 且 user_id = 当前用户
+        lendingApplyService.deleteByPkAndUser(lendingApply);
+        //同时删除历史表的lhlaid=laid and lh_user_id=当前用户的纪录
+        LendingHistory lendingHistory = lendingHistoryService.selectByLaId(laId);//找到对应的历史纪录
+        lendingHistoryService.deleteByPkAndUser(lendingHistory);
+    }
 }  
