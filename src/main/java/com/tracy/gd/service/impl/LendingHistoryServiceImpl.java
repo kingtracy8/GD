@@ -34,4 +34,8 @@ public class LendingHistoryServiceImpl implements ILendingHistoryService {
         return lendingHistoryMapper.deleteByPkAndUser(record);
     }
 
+    public LendingHistory selectDetailByLaId(Integer laId) {
+        return lendingHistoryMapper.selectDetailByLaId(laId);
+    }
+
 }

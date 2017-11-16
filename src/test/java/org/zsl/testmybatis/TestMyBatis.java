@@ -84,7 +84,7 @@ public class TestMyBatis {
 //        int count = lendingApplyService.selectDuplicate(lendingApply);
 //        logger.info(JSON.toJSONString(count));
 
-
+/*
         int laId = 7;
         LendingApply lendingApply = lendingApplyService.selectByPrimaryKey(laId);
 
@@ -94,5 +94,9 @@ public class TestMyBatis {
         //同时删除历史表的lhlaid=laid and lh_user_id=当前用户的纪录
         LendingHistory lendingHistory = lendingHistoryService.selectByLaId(laId);//找到对应的历史纪录
         lendingHistoryService.deleteByPkAndUser(lendingHistory);
+        */
+
+        LendingHistory lendingHistory = lendingHistoryService.selectDetailByLaId(10);
+        logger.info(JSON.toJSONString(lendingHistory));
     }
 }  

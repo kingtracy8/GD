@@ -1,5 +1,6 @@
 package com.tracy.gd.domain;
 
+import javax.persistence.Transient;
 import java.util.Date;
 
 public class LendingHistory {
@@ -22,6 +23,14 @@ public class LendingHistory {
     private String attribute2;
 
     private String attribute3;
+
+
+    @Transient      //谁审核的
+    private String userName;
+
+
+    @Transient       //审核人的身份
+    private String userIdentity;
 
     public Integer getLhId() {
         return lhId;
@@ -102,4 +111,21 @@ public class LendingHistory {
     public void setAttribute3(String attribute3) {
         this.attribute3 = attribute3 == null ? null : attribute3.trim();
     }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserIdentity() {
+        return userIdentity;
+    }
+
+    public void setUserIdentity(String userIdentity) {
+        this.userIdentity = userIdentity;
+    }
+
 }

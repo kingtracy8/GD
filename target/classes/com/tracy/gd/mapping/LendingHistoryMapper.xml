@@ -12,6 +12,8 @@
     <result column="attribute1" property="attribute1" jdbcType="VARCHAR" />
     <result column="attribute2" property="attribute2" jdbcType="VARCHAR" />
     <result column="attribute3" property="attribute3" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="user_identity" property="userIdentity" jdbcType="VARCHAR"/>
   </resultMap>
   <sql id="Base_Column_List" >
     lh_id, lh_user_id, lh_la_id, lh_who_checked, lh_check_time, lh_is_check, la_commons, 
@@ -163,4 +165,21 @@
       AND lh_user_id = #{lhUserId,jdbcType=INTEGER}
     </if>
   </delete>
+  <select id="selectDetailByLaId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+   SELECT
+    u.user_name,
+    u.attribute1 user_identity,
+    h.lh_check_time,
+    h.attribute1,
+    h.la_commons,
+    h.lh_is_check
+FROM
+    gd_lending_apply a,
+    gd_lending_history h,
+    gd_users u
+WHERE
+    a.la_id = h.lh_la_id
+        AND h.lh_who_checked = u.user_id
+    AND lh_la_id = #{lhLaId,jdbcType=INTEGER}
+  </select>
 </mapper>
