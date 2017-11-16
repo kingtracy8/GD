@@ -3,7 +3,9 @@ package com.tracy.gd.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.tracy.gd.domain.LendingHistory;
 import com.tracy.gd.domain.checkPass;
+import com.tracy.gd.service.ILendingHistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,12 +29,29 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
+    @Autowired
+    private ILendingHistoryService lendingHistoryService;
+
     @RequestMapping("/showUser")
     public String toIndex(HttpServletRequest request, Model model) {
         // int userId = Integer.parseInt(request.getParameter("id"));
         // User user = this.userService.getUserById(userId);
         // model.addAttribute("user", user);
         return "showUser";
+    }
+
+
+    //purpose : 通过laid找审核详情
+    // Create by linsong.wei 2017-11-16 15:44:05
+    @RequestMapping(value = "/AuditingDetailBylhLaId", method = RequestMethod.GET)
+    public @ResponseBody
+    LendingHistory doFindById(HttpServletRequest request, HttpServletResponse response) {
+
+        int lhLaId;
+        lhLaId = Integer.parseInt(request.getParameter("lhLaId"));
+        LendingHistory lendingHistory = lendingHistoryService.selectDetailByLaId(lhLaId);
+
+        return lendingHistory;
     }
 
 

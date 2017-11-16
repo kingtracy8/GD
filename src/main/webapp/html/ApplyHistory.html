@@ -96,7 +96,21 @@
                     })
                 });
             }else if (layEvent === 'detail'){
-                layer.msg("通过申请表id去查，谁审核的，意见，审核时间等，待开发");
+               // layer.msg("通过申请表id去查，谁审核的，意见，审核时间等，待开发");
+                if(data.attribute1=="N"){
+                    layer.msg("管理员尚未审核");
+                }else {
+                    //展示审核详情
+                    var url = "http://localhost:8080/html/SeeAuditingDetail.html?laId=" + data.laId;
+                    var index = layer.open({
+                        type: 2,
+                        title: '审核详情',
+                        offset: '100px',  //水平居中
+                        area: ['700px', '400px'],
+                        content: [url, 'no']
+                    });
+                    layer.iframeAuto(index);    //自适应
+                }
             }
         });
 

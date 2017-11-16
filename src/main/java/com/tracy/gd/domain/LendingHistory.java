@@ -1,5 +1,7 @@
 package com.tracy.gd.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.Transient;
 import java.util.Date;
 
@@ -63,7 +65,7 @@ public class LendingHistory {
     public void setLhWhoChecked(Integer lhWhoChecked) {
         this.lhWhoChecked = lhWhoChecked;
     }
-
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     public Date getLhCheckTime() {
         return lhCheckTime;
     }
