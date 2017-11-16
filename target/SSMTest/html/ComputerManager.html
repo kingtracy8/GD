@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>电脑管理</title>
+    <!--Create By: linsong.wei 2017-11-16 19:04:38-->
+    <link rel="stylesheet" href="../js/css/layui.css"  media="all">
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/layui.js"></script>
+</head>
+<body>
+
+<blockquote class="layui-elem-quote layui-text" style="margin-top: 10px">
+    您好，管理员，您可以对电脑数据进行操作。
+</blockquote>
+
+<div class="layui-btn-group demoTable">
+    <button class="layui-btn" data-type="getCheckData">获取选中行数据</button>
+    <button class="layui-btn" data-type="getCheckLength">获取选中数目</button>
+    <button class="layui-btn" data-type="isAll">验证是否全选</button>
+</div>
+<table class="layui-table" lay-data="{url:'/Computer/computerList', id:'idTest'}" lay-filter="test3">
+    <thead>
+    <tr>
+        <th lay-data="{type:'checkbox', fixed: 'left'}"></th>
+        <th lay-data="{field:'cptId', width:80}">ID</th>
+        <th lay-data="{field:'cptName',edit:'text', width:220,sort: true}">名称</th>
+        <th lay-data="{field:'cptPrice', width:120}">原价</th>
+        <th lay-data="{field:'cptOs', width:130}">操作系统</th>
+        <th lay-data="{field:'cptCpu', width:177}">CPU</th>
+        <th lay-data="{field:'cptRam', width:80}">RAM</th>
+        <th lay-data="{field:'cptRom', width:150}">ROM</th>
+        <th lay-data="{field:'cptScreensize', width:120}">屏幕尺寸</th>
+        <th lay-data="{field:'cptGraphicscard', width:250}">显卡</th>
+        <th lay-data="{field:'cptIslending', width:130}">是否被借用</th>
+    </tr>
+    </thead>
+</table>
+
+<script>
+    layui.use('table', function(){
+        var table = layui.table;
+
+
+        //监听单元格编辑
+        table.on('edit(test3)', function(obj){
+            var value = obj.value //得到修改后的值
+                ,data = obj.data //得到所在行所有键值
+                ,field = obj.field; //得到字段
+            layer.msg('[ID: '+ data.cptId +'] ' + field + ' 字段更改为：'+ value);
+        });
+
+        //监听表格复选框选择
+        table.on('checkbox(demo)', function(obj){
+            console.log(obj)
+        });
+        var $ = layui.$, active = {
+            getCheckData: function(){ //获取选中数据
+                var checkStatus = table.checkStatus('idTest')
+                    ,data = checkStatus.data;
+                layer.alert(JSON.stringify(data));
+            }
+            ,getCheckLength: function(){ //获取选中数目
+                var checkStatus = table.checkStatus('idTest')
+                    ,data = checkStatus.data;
+                layer.msg('选中了：'+ data.length + ' 个');
+            }
+            ,isAll: function(){ //验证是否全选
+                var checkStatus = table.checkStatus('idTest');
+                layer.msg(checkStatus.isAll ? '全选': '未全选')
+            }
+        };
+
+        $('.demoTable .layui-btn').on('click', function(){
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+
+    });
+</script>
+
+
+</body>
+</html>
