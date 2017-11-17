@@ -96,7 +96,10 @@ public class TestMyBatis {
         lendingHistoryService.deleteByPkAndUser(lendingHistory);
         */
 
-        LendingHistory lendingHistory = lendingHistoryService.selectDetailByLaId(10);
-        logger.info(JSON.toJSONString(lendingHistory));
+//        LendingHistory lendingHistory = lendingHistoryService.selectDetailByLaId(10);
+//        logger.info(JSON.toJSONString(lendingHistory));
+
+
+
     }
 }  

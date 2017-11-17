@@ -1,5 +1,8 @@
 package com.tracy.gd.controller;
 
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.deploy.net.HttpResponse;
 import com.tracy.gd.domain.Admin;
 import com.tracy.gd.domain.Computer;
@@ -16,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.ArrayList;
@@ -32,6 +36,31 @@ public class ComputerController {
     @Autowired
     IComputerService computerService;
 
+
+    /*
+       purpose:获取一个电脑实体的集合，对页面上选中的电脑进行更新操作
+       Create by : linsong.wei  2017-11-17 09:00:01
+    */
+    @RequestMapping("/UpdateComputer")
+    public @ResponseBody
+    HashMap doUpdateComputer(HttpServletRequest request, HttpServletResponse response, @RequestBody Computer[] computers) {
+
+        HashMap map = new HashMap();
+        //用数组接收，用List<Computer>会报java.util.LinkedHashMap cannot be cast to com.xxx  linsong.wei 2017-11-17 10:28:23
+        int flag = -1;
+        try {
+            for (int i = 0; i < computers.length; i++) {
+                computerService.updateByPrimaryKeySelective(computers[i]);
+            }
+            flag = 1;
+        } catch (Exception e) {
+            flag = -1;
+        }
+        map.put("flag", flag);
+        return map;
+    }
+
+
     //purpose : 通过id找电脑信息
     // Create by linsong.wei 2017-11-12 13:05:05
     @RequestMapping(value = "/cptInfoById", method = RequestMethod.GET)
@@ -43,8 +72,6 @@ public class ComputerController {
         Computer computer = computerService.selectByPrimaryKey(cptId);
         return computer;
     }
-
-
 
 
     //展示电脑列表页面
@@ -81,9 +108,9 @@ public class ComputerController {
             cptCpu = URLDecoder.decode(request.getParameter("cptCpu"), "utf-8");//将中文转码
             cptOs = URLDecoder.decode(request.getParameter("cptOs"), "utf-8");//将中文转码
             cptIslending = URLDecoder.decode(request.getParameter("cptIslending"), "utf-8");
-            if(!cptIslending.equals(null))
-            computer.setCptIslending(cptIslending);
-            cptCard = URLDecoder.decode(request.getParameter("cptCard"),"utf-8");
+            if (!cptIslending.equals(null))
+                computer.setCptIslending(cptIslending);
+            cptCard = URLDecoder.decode(request.getParameter("cptCard"), "utf-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         } catch (NullPointerException e) {
@@ -123,14 +150,14 @@ public class ComputerController {
                 computer.setCptOs(cptOs);
             }
         }
-        if(cptIslending.equals(null)){
-            if(cptIslending.equals("")){
+        if (cptIslending.equals(null)) {
+            if (cptIslending.equals("")) {
                 computer.setCptIslending(null);
-            }else {
+            } else {
                 computer.setCptIslending(cptIslending);
             }
         }
-        if(!cptCard.equals(null)){
+        if (!cptCard.equals(null)) {
             computer.setCptGraphicscard(cptCard);
         }
         List<Computer> computerList = computerService.selectAllComputers(computer);
