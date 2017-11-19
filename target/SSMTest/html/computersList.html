@@ -141,7 +141,7 @@
                     //如果当前用户已经申请了这台电脑，又重复申请，拒绝操作！
                     // 传入电脑id，去后端controller里查询，用当前用户id和电脑id去查，
                     // 如果存在该电脑该用户且未经过管理员审核的记录，则不允许重复申请 （attribute1=“N”）如果不加这个条件会影响下一次借电脑
-                    console.log("去校验重复");
+                    //  console.log("去校验重复");
                     $.ajax({
                         url: 'http://localhost:8080/LendingApply/findDuplicate?cptId=' + data.cptId,
                         type: "GET",
@@ -173,10 +173,7 @@
 
         //监听提交
         form.on('submit(RegForm)', function (data) {
-//            layer.alert(JSON.stringify(data.field), {
-//                title: '最终的提交信息'
-//
-//            });
+
             var cptName = document.getElementById('cptName');
             var cptRam = $('#cptRam option:selected').val();   //获得下拉框的值
             var cptCpu = document.getElementById('cptCpu');
@@ -187,14 +184,14 @@
 
             var cardValue = cptGraphicscard.value;
 
-            console.log(cptName.value);
-            console.log(cptRam);
-            console.log(cptCpu.value);
-            console.log(cardValue);
-            console.log(cptOs);
-            console.log(cptIslending);
+            /*            console.log(cptName.value);
+             console.log(cptRam);
+             console.log(cptCpu.value);
+             console.log(cardValue);
+             console.log(cptOs);
+             console.log(cptIslending);
 
-
+             */
 //            if(cptName.value||$('#cptRam option:selected').val()||cptCpu.value|| $('#cptGraphicscard option:selected').val()){
 //
 //            }
@@ -209,7 +206,6 @@
                     cptCard: cardValue,
                     cptOs: cptOs,
                     cptIslending: $('input:radio:checked').val(),
-
                 }
             });
 //            }else{  //否则加载全部

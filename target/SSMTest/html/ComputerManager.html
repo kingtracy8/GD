@@ -9,16 +9,84 @@
     <script src="../js/layui.js"></script>
 </head>
 <body>
-
+<div>
 <blockquote class="layui-elem-quote layui-text" style="margin-top: 10px">
     您好，管理员，您可以对电脑数据进行操作。
 </blockquote>
 
-<div class="layui-btn-group demoTable">
-    <button class="layui-btn" data-type="getCheckData">提交修改</button>
-    <button class="layui-btn" data-type="delete">删除</button>
-    <button class="layui-btn" data-type="add">新增</button>
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+        <legend>如果您有需要，下方搜索框可以进行筛选</legend>
+    </fieldset>
+
+    <form class="layui-form" action="">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">名称</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="cptName" id="cptName" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">RAM</label>
+                <div class="layui-input-inline">
+                    <select name="cptRam" lay-search="" id="cptRam">
+                        <option value="">运行内存</option>
+                        <option value="4G">4G</option>
+                        <option value="8G">8G</option>
+                        <option value="8G">16G</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">CPU</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="cptCpu" id="cptCpu" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">显卡</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="cptGraphicscard" id="cptGraphicscard" autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">操作系统</label>
+                <div class="layui-input-inline">
+                    <select name="cptOs" lay-search="" id="cptOs">
+                        <option value="">直接选择或搜索选择</option>
+                        <option value="win7">win7</option>
+                        <option value="win8">win8</option>
+                        <option value="win10">win10</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">是否借出</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="cptIslending" value="Y" title="是">
+                    <input type="radio" name="cptIslending" value="N" title="否" checked="">
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block" style="margin-left: 28%">
+                <button class="layui-btn" lay-submit="" lay-filter="RegForm">查询</button>
+                <button type="reset" class="layui-btn layui-btn-primary" lay-filter="ReSet" onclick="doReset()">重置
+                </button>
+            </div>
+        </div>
+    </form>
+
 </div>
+
 <table class="layui-table" lay-data="{url:'/Computer/computerList', id:'idTest',width:1150,height:400, page:true}"
        lay-filter="test3">
     <thead>
@@ -38,10 +106,16 @@
     </thead>
 </table>
 
-<script>
-    layui.use('table', function () {
-        var table = layui.table;
+<div class="layui-btn-group demoTable" style="margin-bottom: 20px;margin-left: 28%">
+    <button class="layui-btn" data-type="getCheckData">提交修改</button>
+    <button class="layui-btn" data-type="delete">删除</button>
+    <button class="layui-btn" data-type="add">新增</button>
+</div>
 
+<script>
+    layui.use(['form', 'table'], function () {
+        var table = layui.table;
+        var form = layui.form;
 
         /*监听单元格编辑
         table.on('edit(test3)', function (obj) {
@@ -84,7 +158,43 @@
             active[type] ? active[type].call(this) : '';
         });
 
+
+
+        //监听提交
+        form.on('submit(RegForm)', function (data) {
+            console.log("submit");
+            var cptName = document.getElementById('cptName');
+            var cptRam = $('#cptRam option:selected').val();   //获得下拉框的值
+            var cptCpu = document.getElementById('cptCpu');
+            var cptGraphicscard = document.getElementById('cptGraphicscard');
+            var cptOs = $('#cptOs option:selected').val();   //获得下拉框的值
+            //获得radio
+            var cptIslending = $('input:radio:checked').val();
+
+            var cardValue = cptGraphicscard.value;
+
+            table.reload('idTest', {
+                url: '/Computer/computerListFilter',
+                where: { //设定异步数据接口的额外参数，任意设
+                    cptName: cptName.value,
+                    cptRam: $('#cptRam option:selected').val(),
+                    cptCpu: cptCpu.value,
+                    cptCard: cardValue,
+                    cptOs: cptOs,
+                    cptIslending: $('input:radio:checked').val(),
+                }
+            });
+            return false;
+        });
+
+
     });
+
+
+    function doReset() {
+        //简单粗暴  直接刷新，得到全部的数据 。。。  linsong.wei 2017-11-10 22:47:40
+        window.location.reload();
+    }
 </script>
 
 
