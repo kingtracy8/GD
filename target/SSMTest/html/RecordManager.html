@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>审核纪录管理页面</title>
+    <!--Create By: linsong.wei 2017-11-20 16:47:27-->
+    <link rel="stylesheet" href="../js/css/layui.css" media="all">
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/layui.js"></script>
+</head>
+<body>
+
+<blockquote class="layui-elem-quote layui-text" style="margin-top: 10px">
+    您好，管理员，您可以对申请纪录进行操作。
+</blockquote>
+
+<table class="layui-table" lay-filter="test3" lay-data="{url:'/LendingHistory/ShowHisList', id:'idTest',width:1150,height:400, page:true}">
+    <thead>
+    <tr>
+        <th lay-data="{type:'checkbox', fixed: 'left'}"></th>
+        <th lay-data="{field:'lhId', width:80}">ID</th>
+        <th lay-data="{field:'userName',width:130,sort: true}">申请用户</th>
+        <th lay-data="{field:'userIdentity',width:120}">身份</th>
+        <th lay-data="{field:'attribute1',width:120}">是否已审核</th>
+        <th lay-data="{field:'lhWhoChecked',edit:'text', width:100}">由谁审核</th>
+        <th lay-data="{field:'lhCheckTime', width:180}">审核时间</th>
+        <th lay-data="{field:'lhIsCheck',width:250}">是否审核通过</th>
+        <th lay-data="{field:'laCommons',edit:'text', width:130}">审核意见</th>
+    </tr>
+    </thead>
+</table>
+
+<script>
+    layui.use(['form', 'table'], function () {
+        var table = layui.table;
+        var form = layui.form;
+
+
+
+
+
+    });
+
+
+    function doReset() {
+        //简单粗暴  直接刷新，得到全部的数据 。。。  linsong.wei 2017-11-10 22:47:40
+        window.location.reload();
+    }
+</script>
+
+
+
+</body>
+</html>

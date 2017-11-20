@@ -85,7 +85,7 @@
                         <dd><a href="../../html/UserManager.html" target="ifrbody" id="userControl">用户管理</a></dd>
                         <dd><a href="../../html/ComputerManager.html" id="computerControl" target="ifrbody">计算机档案管理</a></dd>
                         <dd><a href="../../html/Auditing.html" target="ifrbody" id="auditingControl">审核管理</a></dd>
-                        <dd><a href="javascript:;" id="recordControl">记录管理</a></dd>
+                        <dd><a href="../../html/RecordManager.html" target="ifrbody" id="recordControl">记录管理</a></dd>
                         <dd style="display: none"><a href="javascript:;" id="identity"><%=identity%>
                         </a></dd>
                     </dl>

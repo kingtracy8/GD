@@ -182,4 +182,26 @@ WHERE
         AND h.lh_who_checked = u.user_id
     AND lh_la_id = #{lhLaId,jdbcType=INTEGER}
   </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    SELECT
+    u.user_name,
+    u.attribute1 user_identity,
+    h.lh_id,
+    h.lh_user_id,
+    h.lh_la_id,
+    h.lh_who_checked,
+    h.lh_check_time,
+    h.lh_is_check,
+    h.la_commons,
+    h.attribute1,
+    h.attribute2,
+    h.attribute3
+FROM
+    gd_lending_apply a,
+    gd_lending_history h,
+    gd_users u
+WHERE
+    a.la_id = h.lh_la_id
+        AND h.lh_user_id = u.user_id
+  </select>
 </mapper>

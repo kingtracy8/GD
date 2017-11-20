@@ -99,7 +99,7 @@ public class TestMyBatis {
 //        LendingHistory lendingHistory = lendingHistoryService.selectDetailByLaId(10);
 //        logger.info(JSON.toJSONString(lendingHistory));
 
-
-
+        List<LendingHistory> lendingHistories = lendingHistoryService.selectAll();
+        logger.info(JSON.toJSONString(lendingHistories));
     }
 }  

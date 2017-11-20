@@ -38,4 +38,8 @@ public class LendingHistoryServiceImpl implements ILendingHistoryService {
         return lendingHistoryMapper.selectDetailByLaId(laId);
     }
 
+    public List<LendingHistory> selectAll() {
+        return lendingHistoryMapper.selectAll();
+    }
+
 }

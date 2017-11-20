@@ -24,4 +24,6 @@ public interface LendingHistoryMapper {
     //通过la_id去查看审核详情  2017-11-16 14:58:10  linsong.wei
     LendingHistory selectDetailByLaId(Integer laId);
 
+    List<LendingHistory> selectAll();
+
 }
