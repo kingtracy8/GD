@@ -41,6 +41,45 @@ public class UserController {
     }
 
 
+    /*
+       purpose:获得界面上选中的用户纪录并更新
+       Create by : linsong.wei  2017-11-20 13:47:57
+    */
+    @RequestMapping("/UpdateUser")
+    public @ResponseBody
+    HashMap doUpdateUser(HttpServletRequest request, HttpServletResponse response, @RequestBody User[] users) {
+
+        HashMap map = new HashMap();
+
+        int flag = 0;
+        try {
+            for (int i = 0; i < users.length; i++) {
+                userService.updateByPrimaryKeySelective(users[i]);
+            }
+            flag = 1;
+        } catch (Exception e) {
+            flag = -1;
+        }
+        map.put("flag", flag);
+        return map;
+    }
+
+
+    //用户管理页面
+    //Create by linsong.wei 2017-11-20 13:16:00
+    @RequestMapping(value = "/UserManager", method = RequestMethod.GET)
+    public @ResponseBody
+    HashMap print(HttpServletRequest request, HttpServletResponse response) {
+        HashMap map = new HashMap();
+        List<User> userList = userService.selectAll();
+        map.put("code", 0);
+        map.put("msg", "");
+        map.put("data", userList);
+        return map;
+    }
+
+
+
     //purpose : 通过laid找审核详情
     // Create by linsong.wei 2017-11-16 15:44:05
     @RequestMapping(value = "/AuditingDetailBylhLaId", method = RequestMethod.GET)

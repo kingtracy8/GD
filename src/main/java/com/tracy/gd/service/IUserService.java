@@ -10,4 +10,5 @@ public interface IUserService {
 	public int deleteByPrimaryKey(Integer id);
 	public List<User> selectAll();
 	int insertSelective(User record);
+	int updateByPrimaryKeySelective(User record);
 }

@@ -13,29 +13,33 @@ import java.util.List;
 @Service("userService")
 public class UserServiceImpl implements IUserService {
 
-	@Resource
-	private UserMapper userMapper;
+    @Resource
+    private UserMapper userMapper;
 
 
-	public User getUserById(int userId) {
-		// TODO Auto-generated method stub
-		return this.userMapper.selectByPrimaryKey(userId);
-	}
+    public User getUserById(int userId) {
+        // TODO Auto-generated method stub
+        return this.userMapper.selectByPrimaryKey(userId);
+    }
 
-	public int updateByPrimaryKey(User record) {
-		return userMapper.updateByPrimaryKey(record);
-	}
+    public int updateByPrimaryKey(User record) {
+        return userMapper.updateByPrimaryKey(record);
+    }
 
     public int deleteByPrimaryKey(Integer id) {
         return userMapper.deleteByPrimaryKey(id);
     }
 
-	public List<User> selectAll() {
-		return userMapper.selectAll();
-	}
+    public List<User> selectAll() {
+        return userMapper.selectAll();
+    }
 
-	public int insertSelective(User record) {
-		return userMapper.insertSelective(record);
-	}
+    public int insertSelective(User record) {
+        return userMapper.insertSelective(record);
+    }
+
+    public int updateByPrimaryKeySelective(User record) {
+        return userMapper.updateByPrimaryKeySelective(record);
+    }
 
 }

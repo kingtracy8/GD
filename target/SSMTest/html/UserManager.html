@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户管理界面</title>
+    <!--Create By: linsong.wei 2017-11-20 13:20:11-->
+    <link rel="stylesheet" href="../js/css/layui.css" media="all">
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/layui.js"></script>
+</head>
+<body>
+
+<blockquote class="layui-elem-quote layui-text" style="margin-top: 10px">
+    您好，管理员，您可以对用户数据进行操作。
+</blockquote>
+
+
+<table class="layui-table" lay-data="{url:'/user/UserManager', id:'idTest',width:1150,height:400, page:true}"
+       lay-filter="test3">
+    <thead>
+    <tr>
+        <th lay-data="{type:'checkbox', fixed: 'left'}"></th>
+        <th lay-data="{field:'userId', width:80}">ID</th>
+        <th lay-data="{field:'userNum',edit:'text', width:130,sort: true}">用户编号</th>
+        <th lay-data="{field:'userName',edit:'text',width:120}">用户名</th>
+        <th lay-data="{field:'userPassword',width:120}">密码</th>
+        <th lay-data="{field:'userGender',edit:'text', width:80}">性别</th>
+        <th lay-data="{field:'userDepartment',edit:'text', width:180}">部门</th>
+        <th lay-data="{field:'registerTime',width:250}">注册时间</th>
+        <th lay-data="{field:'attribute1',edit:'text', width:130}">身份</th>
+        <th lay-data="{field:'userPhone',edit:'text', width:150}">电话</th>
+        <th lay-data="{field:'userEmail',edit:'text', width:120}">Email</th>
+    </tr>
+    </thead>
+</table>
+
+<div class="layui-btn-group demoTable" style="margin-bottom: 20px;margin-left: 28%">
+    <button class="layui-btn" data-type="getCheckData">提交修改</button>
+    <button class="layui-btn" data-type="delete">删除</button>
+    <button class="layui-btn" data-type="add">新增</button>
+</div>
+
+<script>
+    layui.use(['form', 'table'], function () {
+        var table = layui.table;
+        var form = layui.form;
+
+
+        var $ = layui.$, active = {
+            getCheckData: function () { //获取选中数据
+                var checkStatus = table.checkStatus('idTest')
+                    , data = checkStatus.data;
+                //通过ajax提交选中的数据更新到后台
+                if (data.length == 0) {
+                    layer.alert("对不起，您未选中任何记录");
+                } else {
+                    $.ajax({
+                        url: "http://localhost:8080/user/UpdateUser",
+                        type: "POST",
+                        data: JSON.stringify(data), //转JSON字符串
+                        dataType: 'json',
+                        contentType: 'application/json;charset=UTF-8',
+                        success: function (result) {
+                            if (result.flag == 1) {
+                                layer.alert("操作成功!");
+                                //重载表格
+                                table.reload('idTest', {
+                                    url: '/user/UserManager'
+                                });
+                            }
+                        }
+                    });
+                }
+            }
+        };
+
+        $('.demoTable .layui-btn').on('click', function () {
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+
+    });
+
+
+    function doReset() {
+        //简单粗暴  直接刷新，得到全部的数据 。。。  linsong.wei 2017-11-10 22:47:40
+        window.location.reload();
+    }
+</script>
+
+
+</body>
+</html>
