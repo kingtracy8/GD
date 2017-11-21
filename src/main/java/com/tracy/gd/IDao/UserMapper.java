@@ -20,4 +20,6 @@ public interface UserMapper {
     List<User> selectAll();
     //防止用户在更新自己信息的时候把身份标识去掉 2017-11-21 10:02:53
     int ChangePersonalMsg(User record);
+
+    List<User> selectUserFilter(User record);
 }

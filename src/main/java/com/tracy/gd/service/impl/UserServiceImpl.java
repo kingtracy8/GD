@@ -46,4 +46,8 @@ public class UserServiceImpl implements IUserService {
         return userMapper.ChangePersonalMsg(record);
     }
 
+    public List<User> selectUserFilter(User record) {
+        return userMapper.selectUserFilter(record);
+    }
+
 }

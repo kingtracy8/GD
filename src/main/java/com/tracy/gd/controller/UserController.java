@@ -3,6 +3,7 @@ package com.tracy.gd.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.tracy.gd.domain.Computer;
 import com.tracy.gd.domain.LendingHistory;
 import com.tracy.gd.domain.checkPass;
 import com.tracy.gd.service.ILendingHistoryService;
@@ -18,6 +19,8 @@ import com.tracy.gd.domain.User;
 import com.tracy.gd.service.IUserService;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -39,6 +42,72 @@ public class UserController {
         // model.addAttribute("user", user);
         return "showUser";
     }
+
+
+    //筛选用户
+    //Create by linsong.wei 2017-11-21 15:12:31
+    @RequestMapping(value = "/userListFilter", method = RequestMethod.GET)
+    public @ResponseBody
+    HashMap computerListFilter(HttpServletRequest request, HttpServletResponse response) {
+        HashMap map = new HashMap();
+        String userName = null;
+        String userNum = null;
+        String userPhone = null;
+        String userDepartment = null;
+        String userGender = null;
+        String attribute1 = null;
+        User user = new User();
+
+        try {
+            userName = URLDecoder.decode(request.getParameter("userName"), "utf-8");//将中文转码
+            userNum = URLDecoder.decode(request.getParameter("userNum"), "utf-8");//将中文转码
+            userPhone = URLDecoder.decode(request.getParameter("userPhone"), "utf-8");//将中文转码
+            userDepartment = URLDecoder.decode(request.getParameter("userDepartment"), "utf-8");//将中文转码
+            userGender = URLDecoder.decode(request.getParameter("userGender"), "utf-8");
+            if (!userGender.equals(null))
+                user.setUserGender(userGender);
+            attribute1 = URLDecoder.decode(request.getParameter("attribute1"), "utf-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (NullPointerException e) {
+
+        } //筛选条件
+
+
+        if (!userName.equals("")) {
+            user.setUserName(userName);
+        }
+        if (!userNum.equals("")) {
+            user.setUserNum(userNum);
+        }
+        if (!userPhone.equals("")) {
+            user.setUserPhone(userPhone);
+        }
+        if (!attribute1.equals(null)) {
+            if (attribute1.equals("")) {
+                user.setAttribute1(null);        //因为sql使用的是 = ，使用""匹配不上
+            } else {
+                user.setAttribute1(attribute1);
+            }
+        }
+        if (userGender.equals(null)) {
+            if (userGender.equals("")) {
+                user.setUserGender(null);
+            } else {
+                user.setUserGender(userGender);
+            }
+        }
+        if (!userDepartment.equals("")) {
+            user.setUserDepartment(userDepartment);
+        }
+        List<User> users = userService.selectUserFilter(user);
+        map.put("code", 0);
+        map.put("msg", "");
+        map.put("data", users);
+
+        return map;
+    }
+
 
     /*
    purpose:获得界面上选中的用户并删除
