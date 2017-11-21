@@ -1,5 +1,7 @@
 package com.tracy.gd.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class User {
@@ -100,7 +102,7 @@ public class User {
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail == null ? null : userEmail.trim();
     }
-
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     public Date getRegisterTime() {
         return registerTime;
     }

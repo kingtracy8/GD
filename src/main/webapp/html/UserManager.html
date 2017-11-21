@@ -16,7 +16,7 @@
 
 
 <table class="layui-table" lay-data="{url:'/user/UserManager', id:'idTest',width:1150,height:400, page:true}"
-               lay-filter="test3">
+       lay-filter="test3">
     <thead>
     <tr>
         <th lay-data="{type:'checkbox', fixed: 'left'}"></th>
@@ -26,7 +26,7 @@
         <th lay-data="{field:'userPassword',width:120}">密码</th>
         <th lay-data="{field:'userGender',edit:'text', width:80}">性别</th>
         <th lay-data="{field:'userDepartment',edit:'text', width:180}">部门</th>
-        <th lay-data="{field:'registerTime',width:250}">注册时间</th>
+        <th lay-data="{field:'registerTime',width:200}">注册时间</th>
         <th lay-data="{field:'attribute1',edit:'text', width:130}">身份</th>
         <th lay-data="{field:'userPhone',edit:'text', width:150}">电话</th>
         <th lay-data="{field:'userEmail',edit:'text', width:120}">Email</th>
@@ -37,7 +37,7 @@
 <div class="layui-btn-group demoTable" style="margin-bottom: 20px;margin-left: 28%">
     <button class="layui-btn" data-type="getCheckData">提交修改</button>
     <button class="layui-btn" data-type="delete">删除</button>
-    <button class="layui-btn" data-type="add" onclick="doRegister()">新增</button>
+    <button class="layui-btn" data-type="add" onclick="doAdd()">新增</button>
 </div>
 
 <script>
@@ -67,11 +67,13 @@
                                 table.reload('idTest', {
                                     url: '/user/UserManager'
                                 });
+                            }else {
+                                layer.alert("操作失败，请重试！");
                             }
                         }
                     });
                 }
-            },delete:function () {
+            }, delete: function () {
                 var checkStatus = table.checkStatus('idTest')
                     , data = checkStatus.data;
                 //通过ajax提交选中的数据到后台进行删除
@@ -95,11 +97,8 @@
                         }
                     });
                 }
-            },add:function () {
-                //重载表格
-                table.reload('idTest', {
-                    url: '/user/UserManager'
-                });
+            }, add: function () {
+
             }
         };
 
@@ -117,7 +116,7 @@
     }
 
 
-    function doRegister() {
+    function doAdd() {
         var index = layer.open({
             type: 2,
             title: '新增用户',
@@ -126,7 +125,6 @@
             content: 'http://localhost:8080/html/AddUser.html' //这里content是一个URL，如果你不想让iframe出现滚动条，你还可以content: ['http://sentsin.com', 'no']
         });
         layer.iframeAuto(index);    //自适应
-
     }
 
 
