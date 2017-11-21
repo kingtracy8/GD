@@ -42,4 +42,8 @@ public class UserServiceImpl implements IUserService {
         return userMapper.updateByPrimaryKeySelective(record);
     }
 
+    public int ChangePersonalMsg(User record) {
+        return userMapper.ChangePersonalMsg(record);
+    }
+
 }

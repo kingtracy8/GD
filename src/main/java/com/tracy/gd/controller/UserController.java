@@ -40,6 +40,29 @@ public class UserController {
         return "showUser";
     }
 
+    /*
+   purpose:获得界面上选中的用户并删除
+   Create by : linsong.wei  2017-11-21 09:48:58
+*/
+    @RequestMapping("/DeleteUser")
+    public @ResponseBody
+    HashMap doDeleteUser(HttpServletRequest request, HttpServletResponse response, @RequestBody User[] users) {
+
+        HashMap map = new HashMap();
+
+        int flag = 0;
+        try {
+            for (int i = 0; i < users.length; i++) {
+                userService.deleteByPrimaryKey(users[i].getUserId());
+            }
+            flag = 1;
+        } catch (Exception e) {
+            flag = -1;
+        }
+        map.put("flag", flag);
+        return map;
+    }
+
 
     /*
        purpose:获得界面上选中的用户纪录并更新
@@ -79,7 +102,6 @@ public class UserController {
     }
 
 
-
     //purpose : 通过laid找审核详情
     // Create by linsong.wei 2017-11-16 15:44:05
     @RequestMapping(value = "/AuditingDetailBylhLaId", method = RequestMethod.GET)
@@ -92,7 +114,6 @@ public class UserController {
 
         return lendingHistory;
     }
-
 
 
     /*
@@ -207,7 +228,9 @@ public class UserController {
         }
         */
         //不让重置 2017-11-09 22:30:10
-        flag = userService.updateByPrimaryKey(user);
+        //flag = userService.updateByPrimaryKey(user);
+        //防止更新个人信息的时候把用户身份给更新成null
+        flag = userService.ChangePersonalMsg(user);
         return flag;
     }
 
