@@ -43,6 +43,7 @@ public class UserController {
         return "showUser";
     }
 
+    //离职，更换机器开发
 
     //筛选用户
     //Create by linsong.wei 2017-11-21 15:12:31
