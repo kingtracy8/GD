@@ -37,4 +37,16 @@ public class ExpenseServiceImpl implements IExpenseService{
     public int updateByPrimaryKey(Expense record) {
         return expenseMapper.updateByPrimaryKey(record);
     }
+
+    public Expense FindRecToReturn(Expense record) {
+        return expenseMapper.FindRecToReturn(record);
+    }
+
+    public int selectDays(int eId) {
+        return expenseMapper.selectDays(eId);
+    }
+
+    public int deleteByLaId(int LaId) {
+        return expenseMapper.deleteByLaId(LaId);
+    }
 }

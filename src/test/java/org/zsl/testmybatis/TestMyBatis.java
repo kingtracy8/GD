@@ -31,7 +31,8 @@ public class TestMyBatis {
     ILendingApplyService lendingApplyService;
     @Autowired
     ILendingHistoryService lendingHistoryService;
-
+    @Autowired
+    IExpenseService expenseService;
 
     @Test  
     public void test1() {
@@ -108,8 +109,19 @@ public class TestMyBatis {
 //        List<User> users = userService.selectUserFilter(user);
 //        logger.info(JSON.toJSONString(users));
 
-        List<LendingApply> lendingApplies = lendingApplyService.FindPassByUser(1);
-        logger.info(JSON.toJSONString(lendingApplies));
+      //  List<LendingApply> lendingApplies = lendingApplyService.FindPassByUser(1);
 
+//        Expense expense = new Expense();
+//
+//        expense.seteLaId(15);
+//        expense.seteLaCptId(2);
+//        expense.seteLaUserId(2);
+//
+//        Expense e = expenseService.FindRecToReturn(expense);
+
+//        int days = expenseService.selectDays(1);
+//        List<LendingApply> lendingApplies = lendingApplyService.FindPassByUser(2);
+//        logger.info(JSON.toJSONString(lendingApplies.get(0).geteIsReturned()));
+        expenseService.deleteByLaId(16);
     }
 }  

@@ -134,6 +134,8 @@ public class LendingApllyController {
             //同时删除历史表的lhlaid=laid and lh_user_id=当前用户的纪录
             LendingHistory lendingHistory = lendingHistoryService.selectByLaId(laId);//找到对应的历史纪录
             lendingHistoryService.deleteByPkAndUser(lendingHistory);
+            //删除费用记录表里的记录
+            expenseService.deleteByLaId(laId);
             flag = 1;
         } catch (Exception e) {
             flag = -1;

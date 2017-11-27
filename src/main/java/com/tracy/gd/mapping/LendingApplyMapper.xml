@@ -11,12 +11,17 @@
         <result column="la_commons" property="laCommons" jdbcType="VARCHAR"/>
         <result column="la_location" property="laLocation" jdbcType="VARCHAR"/>
         <result column="la_is_check" property="laIsCheck" jdbcType="VARCHAR"/>
-        <result column="C" property="attribute1" jdbcType="VARCHAR"/>
+        <!--<result column="C" property="attribute1" jdbcType="VARCHAR"/>-->
+        <result column="attribute1" property="attribute1" jdbcType="VARCHAR"/>
         <result column="attribute2" property="attribute2" jdbcType="VARCHAR"/>
         <result column="attribute3" property="attribute3" jdbcType="VARCHAR"/>
         <result column="cpt_name" property="cptName" jdbcType="VARCHAR"/>
         <result column="user_name" property="userName" jdbcType="VARCHAR"/>
         <result column="user_identity" property="userIdentity" jdbcType="VARCHAR"/>
+        <result column="e_is_returned" property="eIsReturned" jdbcType="VARCHAR"/>
+        <result column="e_expense" property="eExpense" jdbcType="VARCHAR"/>
+        <result column="e_areturn_time" property="eAreturnTime" jdbcType="VARCHAR"/>
+        <result column="e_days" property="eDays" jdbcType="VARCHAR"/>
     </resultMap>
     <sql id="Base_Column_List">
     la_id, la_user_id, la_cpt_id, la_reason, la_lend_time, la_return_time, la_commons, 
@@ -204,6 +209,7 @@ FROM
     gd_lending_apply a
 WHERE
    la_cpt_id = #{laCptId,jdbcType=INTEGER}
+   AND attribute1 = 'N'
     </select>
     <select id="selectAuditingFilter" resultMap="BaseResultMap" parameterType="com.tracy.gd.domain.LendingApply">
         select
@@ -211,19 +217,19 @@ WHERE
         from gd_lending_apply
         where la_id != #{laId,jdbcType=INTEGER}
         <if test="laCptId != null">
-          AND  la_cpt_id = #{laCptId,jdbcType=INTEGER}
+            AND la_cpt_id = #{laCptId,jdbcType=INTEGER}
         </if>
     </select>
     <select id="selectDuplicate" resultType="java.lang.Integer" parameterType="com.tracy.gd.domain.LendingApply">
         select
         COUNT(*)
         from gd_lending_apply
-         WHERE 1=1
+        WHERE 1=1
         <if test="laCptId != null">
-            AND  la_cpt_id = #{laCptId,jdbcType=INTEGER}
+            AND la_cpt_id = #{laCptId,jdbcType=INTEGER}
         </if>
         <if test="laUserId != null">
-            AND  la_user_id = #{laUserId,jdbcType=INTEGER}
+            AND la_user_id = #{laUserId,jdbcType=INTEGER}
         </if>
         AND attribute1 = 'N'
     </select>
@@ -235,14 +241,21 @@ WHERE
         </if>
     </delete>
     <select id="FindPassByUser" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-        SELECT
-        a.*, c.cpt_name
-        FROM
-        gd_lending_apply a,
-        gd_computers c
-        WHERE a.la_cpt_id = c.cpt_id
-        AND a.attribute1 = 'Y'
-        AND a.la_is_check = 'Y'
+       SELECT
+	a.*, c.cpt_name,
+	e.e_is_returned,
+	e.e_days,
+	e.e_expense,
+	e.e_areturn_time
+FROM
+	gd_lending_apply a,
+	gd_computers c,
+	gd_expense e
+WHERE
+	a.la_cpt_id = c.cpt_id
+AND a.la_id = e.e_la_id
+AND a.attribute1 = 'Y'
+AND a.la_is_check = 'Y'
         AND a.la_user_id  = #{laUserId,jdbcType=INTEGER}
     </select>
 </mapper>

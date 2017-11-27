@@ -42,6 +42,54 @@ public class LendingApply {
     @Transient
     private String userIdentity;
 
+
+    @Transient
+    private String eIsReturned;
+
+    @Transient
+    private int eDays;
+
+    //费用
+    @Transient
+    private int eExpense;
+
+    //实际归还时间
+    @Transient
+    private Date eAreturnTime;
+
+    public int geteExpense() {
+        return eExpense;
+    }
+
+    public void seteExpense(int eExpense) {
+        this.eExpense = eExpense;
+    }
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
+    public Date geteAreturnTime() {
+        return eAreturnTime;
+    }
+
+    public void seteAreturnTime(Date eAreturnTime) {
+        this.eAreturnTime = eAreturnTime;
+    }
+
+
+    public int geteDays() {
+        return eDays;
+    }
+
+    public void seteDays(int eDays) {
+        this.eDays = eDays;
+    }
+
+    public String geteIsReturned() {
+        return eIsReturned;
+    }
+
+    public void seteIsReturned(String eIsReturned) {
+        this.eIsReturned = eIsReturned;
+    }
+
     public String getCptName() {
         return cptName;
     }

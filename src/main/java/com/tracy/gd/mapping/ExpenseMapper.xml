@@ -185,4 +185,35 @@
       attribute3 = #{attribute3,jdbcType=VARCHAR}
     where e_id = #{eId,jdbcType=INTEGER}
   </update>
+  <select id="FindRecToReturn" resultMap="BaseResultMap" parameterType="com.tracy.gd.domain.Expense" >
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM
+    gd_expense
+    WHERE 1=1
+    <if test="eLaId != null" >
+    AND e_la_id = #{eLaId,jdbcType=INTEGER}
+    </if>
+    <if test="eLaCptId != null" >
+    AND e_la_cpt_id = #{eLaCptId,jdbcType=INTEGER}
+    </if>
+    <if test="eLaUserId != null" >
+    AND  e_la_user_id = #{eLaUserId,jdbcType=INTEGER}
+    </if>
+  </select>
+  <select id="selectDays" resultType="java.lang.Integer" parameterType="java.lang.Integer" >
+    SELECT
+    TIMESTAMPDIFF(
+    DAY,
+    date_format(e_lend_time, '%Y-%c-%d'),
+    date_format(e_areturn_time, '%Y-%c-%d')
+    )
+    FROM
+    gd_expense where 1 = 1
+    AND e_id = #{eId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByLaId" parameterType="java.lang.Integer" >
+    delete from gd_expense WHERE
+     e_la_id = #{eLaId,jdbcType=INTEGER}
+  </delete>
 </mapper>

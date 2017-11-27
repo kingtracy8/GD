@@ -20,4 +20,10 @@ public interface IExpenseService {
 
     int updateByPrimaryKey(Expense record);
 
+    Expense FindRecToReturn(Expense record);
+
+    int selectDays(int eId);
+
+    int deleteByLaId(int LaId);
+
 }
