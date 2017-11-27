@@ -29,7 +29,10 @@
                     $("#Id").val(result.userId);
                     $("#userName").val(result.userName);
                     $("#userNum").val(result.userNum);
-                    $("#userPassword").val(result.userPassword);
+                    $("#userPhone").val(result.userPhone);
+                    $("#userEmail").val(result.userEmail);
+                    $("#registerTime").val(result.registerTime);
+                    $("#attribute1").val(result.attribute1);
                     $("#userGender").val(result.userGender);
                     $("#userDepartment").attr("value", result.userDepartment);
                     $("#userDepartment").attr("text", result.userDepartment);
@@ -67,7 +70,7 @@
 <blockquote class="layui-elem-quote layui-quote-nm ">
 
     <fieldset class="layui-elem-field layui-field-title ">
-        <legend style="margin-bottom: 20px; margin-left: 450px">个人信息修改</legend>
+        <legend style="margin-bottom: 20px; margin-left: 490px">个人信息修改</legend>
 
         <div class="layui-field-box">
             <form class="layui-form" action="">
@@ -85,6 +88,24 @@
                                lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
                     </div>
                 </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label " style="margin-left: 26%" >注册时间:</label>
+                    <div class="layui-input-block">
+                        <input type="text" style="width: 190px;background: rgba(121,145,58,0.53)" name="registerTime"
+                               id="registerTime" disabled autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label " style="margin-left: 26%" >身份:</label>
+                    <div class="layui-input-block">
+                        <input type="text" style="width: 190px;background: rgba(121,145,58,0.53)" name="attribute1"
+                               id="attribute1" disabled autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+
                 <div class="layui-form-item">
                     <label class="layui-form-label" style="margin-left: 26%">用户编号:</label>
                     <div class="layui-input-block">
@@ -93,12 +114,21 @@
                     </div>
                 </div>
                 <div class="layui-form-item">
-                    <label class="layui-form-label" style="margin-left: 26%">密码:</label>
+                    <label class="layui-form-label" style="margin-left: 26%">联系电话:</label>
                     <div class="layui-input-inline">
-                        <input type="password" name="userPassword" id="userPassword" required lay-verify="required"
-                               placeholder="请输入密码" autocomplete="off" class="layui-input">
+                        <input type="text" name="userPhone" id="userPhone" required lay-verify="phone"
+                               autocomplete="off" class="layui-input">
                     </div>
                 </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label" style="margin-left: 26%">电子邮箱:</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="userEmail" id="userEmail" required lay-verify="email"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+
                 <div class="layui-form-item">
                     <label class="layui-form-label" style="margin-left: 26%">部门:</label>
                     <div class="layui-input-block" style="width: 190px;margin-left: 33.5%">
