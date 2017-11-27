@@ -33,4 +33,6 @@ public interface LendingApplyMapper {
 
     int deleteByPkAndUser(LendingApply record);
 
+    List<LendingApply> FindPassByUser(int laUserId);
+
 }

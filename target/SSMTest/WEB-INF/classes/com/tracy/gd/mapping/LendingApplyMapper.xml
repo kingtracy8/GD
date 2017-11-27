@@ -234,4 +234,15 @@ WHERE
             AND la_user_id = #{laUserId,jdbcType=INTEGER}
         </if>
     </delete>
+    <select id="FindPassByUser" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        SELECT
+        a.*, c.cpt_name
+        FROM
+        gd_lending_apply a,
+        gd_computers c
+        WHERE a.la_cpt_id = c.cpt_id
+        AND a.attribute1 = 'Y'
+        AND a.la_is_check = 'Y'
+        AND a.la_user_id  = #{laUserId,jdbcType=INTEGER}
+    </select>
 </mapper>

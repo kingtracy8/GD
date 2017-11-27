@@ -53,4 +53,10 @@ public class LendingApplyServiceImpl implements ILendingApplyService{
     public int deleteByPkAndUser(LendingApply record) {
         return lendingApplyMapper.deleteByPkAndUser(record);
     }
+
+    public List<LendingApply> FindPassByUser(int laUserId) {
+        return lendingApplyMapper.FindPassByUser(laUserId);
+    }
+
+
 }

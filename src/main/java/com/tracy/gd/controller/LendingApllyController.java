@@ -1,9 +1,11 @@
 package com.tracy.gd.controller;
 
 import com.tracy.gd.domain.Computer;
+import com.tracy.gd.domain.Expense;
 import com.tracy.gd.domain.LendingApply;
 import com.tracy.gd.domain.LendingHistory;
 import com.tracy.gd.service.IComputerService;
+import com.tracy.gd.service.IExpenseService;
 import com.tracy.gd.service.ILendingApplyService;
 import com.tracy.gd.service.ILendingHistoryService;
 import com.tracy.gd.service.impl.LendingApplyServiceImpl;
@@ -33,6 +35,27 @@ public class LendingApllyController {
     ILendingHistoryService lendingHistoryService;
     @Autowired
     IComputerService computerService;
+    @Autowired
+    IExpenseService expenseService;
+
+    /*
+        purpose: 获得当前用户已经被审核了的记录    （已经被审核才能被归还）
+        Create by : linsong.wei  2017-11-27 15:37:46
+     */
+    @RequestMapping("/findPassRecord")
+    public @ResponseBody
+    HashMap doFindPassRecord(HttpServletRequest request, HttpServletResponse response) {
+        HashMap map = new HashMap();
+
+        int curUserId = (Integer) request.getSession().getAttribute("userId");
+
+        List<LendingApply> lendingApplies = lendingApplyService.FindPassByUser(curUserId);
+
+        map.put("code", 0);
+        map.put("msg", "");
+        map.put("data", lendingApplies);
+        return map;
+    }
 
 
     /*
@@ -337,6 +360,20 @@ public class LendingApllyController {
         lendingHistory.setAttribute1("N");
         int flagHis = lendingHistoryService.insertSelective(lendingHistory);
 
+        // Update By: linsong.wei  需求变更，添加归还功能
+        //1.申请的时候插入到费用记录表里
+        Expense expense = new Expense();
+
+        expense.seteLaId(InlendingApply.getLaId());
+        expense.seteLaCptId(lendingApply.getLaCptId());
+        expense.seteLaUserId(curUserId);
+        expense.seteLendTime(lendingApply.getLaLendTime());
+        expense.seteSreturnTime(lendingApply.getLaReturnTime());
+        //设置为未归还状态，当归还的时候再更改成Y
+        expense.seteIsReturned("N");
+
+        //更新记录
+        expenseService.insertSelective(expense);
 
         map.put("flag", flagApply);
         map.put("flagHis", flagHis);

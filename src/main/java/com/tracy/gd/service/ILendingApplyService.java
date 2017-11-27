@@ -9,21 +9,26 @@ import java.util.List;
  */
 public interface ILendingApplyService {
 
-   int insertSelective(LendingApply record);
-   //通过用户找用户申请记录 linsong.wei 2017-11-12 18:27:22
-   List<LendingApply> selectByUser(int laUserId);
+    int insertSelective(LendingApply record);
 
-   LendingApply selectByPrimaryKey(Integer laId);
+    //通过用户找用户申请记录 linsong.wei 2017-11-12 18:27:22
+    List<LendingApply> selectByUser(int laUserId);
 
-   List<LendingApply> selectAuditing();
+    LendingApply selectByPrimaryKey(Integer laId);
 
-   int selectCountCpt(int cptId);
+    List<LendingApply> selectAuditing();
 
-   List<LendingApply> selectAuditingFilter(LendingApply record);
+    int selectCountCpt(int cptId);
 
-   int updateByPrimaryKeySelective(LendingApply record);
+    List<LendingApply> selectAuditingFilter(LendingApply record);
 
-   int selectDuplicate(LendingApply record);
-//用户撤回操作  2017-11-15 19:22:31  linsong.wei
-   int deleteByPkAndUser(LendingApply record);
+    int updateByPrimaryKeySelective(LendingApply record);
+
+    int selectDuplicate(LendingApply record);
+
+    //用户撤回操作  2017-11-15 19:22:31  linsong.wei
+    int deleteByPkAndUser(LendingApply record);
+
+    //找到当前用户通过审核的记录 linsong.wei 2017-11-27 15:33:25
+    List<LendingApply> FindPassByUser(int laUserId);
 }
