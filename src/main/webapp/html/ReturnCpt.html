@@ -57,23 +57,32 @@
                 , layEvent = obj.event; //获得 lay-event 对应的值
             if (layEvent === 'return') {
 
-                var index = layer.confirm('确定要归还电脑吗?', {icon: 3, title: '提示'}, function (index) {
+                //如果已经归还，不允许重复归还
 
-                    $.ajax({
-                        url: 'http://localhost:8080/Expense/ReturnCpt?laId=' + data.laId+'&laCptId='+data.laCptId,
-                        type: "GET",
-                        dataType: 'json',
-                        contentType: 'application/json;charset=UTF-8', //contentType很重要
-                        success: function (result) {
-                                if (result.flag!=-1){
-                                    layer.alert("归还成功，您需要支付"+result.cost+"元，谢谢您的使用!");
+                if (data.eIsReturned == 'Y') {
+                        layer.msg("您已经归还这台电脑，请勿重复操作！");
+                } else {
+
+                    var index = layer.confirm('确定要归还电脑吗?', {icon: 3, title: '提示'}, function (index) {
+
+                        $.ajax({
+                            url: 'http://localhost:8080/Expense/ReturnCpt?laId=' + data.laId + '&laCptId=' + data.laCptId,
+                            type: "GET",
+                            dataType: 'json',
+                            contentType: 'application/json;charset=UTF-8', //contentType很重要
+                            success: function (result) {
+                                if (result.flag != -1) {
+                                    layer.alert("归还成功，您需要支付" + result.cost + "元，谢谢您的使用!");
+                                    table.reload('computersTable', {
+                                        url: '/LendingApply/findPassRecord'
+                                    });
                                 }
 
-                        }
-                    })
-                });
+                            }
+                        })
+                    });
 
-
+                }
 
             }
         });

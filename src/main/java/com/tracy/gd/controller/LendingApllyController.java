@@ -240,6 +240,7 @@ public class LendingApllyController {
                 lendingApplies.get(i).setAttribute1("Y");
                 lendingApplyService.updateByPrimaryKeySelective(lendingApplies.get(i));
                 //5.把4同步到历史表，即把申请历史表中不等于laId的记录设置为“N”,并把理由设置为"借用冲突"
+                //修改，不能仅仅判断不等于laid的都设置成为N，要添加一个条件，那就是未经审核的才设置为N，否则会破坏原有记录  update By linsong.wei 2017-11-27 19:45:07
                 LendingHistory his = lendingHistoryService.selectByLaId(lendingApplies.get(i).getLaId());
                 //设置为当前用户审核的
                 his.setLhWhoChecked((Integer) request.getSession().getAttribute("userId"));
