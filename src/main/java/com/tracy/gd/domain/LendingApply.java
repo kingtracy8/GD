@@ -47,23 +47,27 @@ public class LendingApply {
     private String eIsReturned;
 
     @Transient
-    private int eDays;
+    private Integer eDays;
 
     //费用
     @Transient
-    private int eExpense;
+    private Integer eExpense;
 
+    /*Update By: linsong.wei   2017-11-28 21:24:50
+    把基本类型int换成Integer，否则会有默认值 0
+*/
     //实际归还时间
     @Transient
     private Date eAreturnTime;
 
-    public int geteExpense() {
+    public Integer geteExpense() {
         return eExpense;
     }
 
     public void seteExpense(int eExpense) {
         this.eExpense = eExpense;
     }
+
     @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     public Date geteAreturnTime() {
         return eAreturnTime;
@@ -74,7 +78,7 @@ public class LendingApply {
     }
 
 
-    public int geteDays() {
+    public Integer geteDays() {
         return eDays;
     }
 
