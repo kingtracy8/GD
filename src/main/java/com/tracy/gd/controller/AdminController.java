@@ -1,9 +1,14 @@
 package com.tracy.gd.controller;
 
 import com.tracy.gd.domain.Admin;
+import com.tracy.gd.domain.User;
 import com.tracy.gd.service.IAdminService;
+import com.tracy.gd.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,10 +23,13 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/Admin")
+@Transactional(propagation = Propagation.REQUIRED)
 public class AdminController {
 
     @Autowired
     IAdminService adminService;
+    @Autowired
+    IUserService userService;
 
     @RequestMapping(value = "/printAdmin")
     public String print() {
@@ -61,6 +69,31 @@ public class AdminController {
             flag = 0;
         }
         return flag;
+    }
+
+    //测试事物回滚 2017-11-29 10:16:58  linsong.wei
+    @RequestMapping("/test")
+    public @ResponseBody int addAdmin(Admin admin) {
+        int flag = 0;
+        try {
+            Admin ad = new Admin();
+            ad.setAdminName("test");
+            adminService.insertSelective(ad);
+            User user = new User();
+            user.setUserName("aaa");
+            user.setUserNum("sfs");
+            userService.insertSelective(user);
+            String str = null;
+            if (str.equals("")) {
+                int i = 0;
+            }
+        }catch (Exception e){
+
+            throw new RuntimeException();
+
+        }
+        return flag;
+
     }
 
 }

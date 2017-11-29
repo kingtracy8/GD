@@ -9,6 +9,8 @@ import com.tracy.gd.domain.checkPass;
 import com.tracy.gd.service.ILendingHistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -139,6 +141,7 @@ public class UserController {
        Create by : linsong.wei  2017-11-20 13:47:57
     */
     @RequestMapping("/UpdateUser")
+    @Transactional(propagation = Propagation.REQUIRED)   //使用Try catch时，需要手动抛异常，否则不能回滚  linsong.wei 2017-11-29 16:21:31
     public @ResponseBody
     HashMap doUpdateUser(HttpServletRequest request, HttpServletResponse response, @RequestBody User[] users) {
 
@@ -152,6 +155,7 @@ public class UserController {
             flag = 1;
         } catch (Exception e) {
             flag = -1;
+            throw new RuntimeException();
         }
         map.put("flag", flag);
         return map;
@@ -212,6 +216,7 @@ public class UserController {
     //修改用户密码 Create by: linsong.wei 2017-11-11 14:04:33
     //function: ajax获得一个密码对象，更新到当前用户的密码中
     @RequestMapping("/changePass")
+    @Transactional(propagation = Propagation.REQUIRED)
     public @ResponseBody
     HashMap doChangePass(HttpServletRequest request, HttpServletResponse response, @RequestBody checkPass checkPass) {
         HashMap map = new HashMap();
@@ -248,6 +253,7 @@ public class UserController {
     // 2017-11-10 10:37:48 Create by linsong.wei
     // 疑问1：@ResponseBody标签参数中有requset和response则在页面中才更方便的取json数据
     @RequestMapping("/RegisterUser")
+    @Transactional(propagation = Propagation.REQUIRED)      //出异常的时候事务控制，回滚操作 Create by:linsong.wei 2017-11-29 16:15:45
     public @ResponseBody
     HashMap doRegister(HttpServletRequest request, HttpServletResponse response, @RequestBody User user) {
 
@@ -283,6 +289,7 @@ public class UserController {
 
     //修改用户信息
     @RequestMapping("/EditUser")
+    @Transactional(propagation = Propagation.REQUIRED)
     public @ResponseBody
     int EditUser(HttpServletRequest request, HttpServletResponse response, @RequestBody User user) {
         int flag = 0;

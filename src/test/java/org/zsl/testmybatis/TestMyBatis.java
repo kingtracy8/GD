@@ -122,6 +122,6 @@ public class TestMyBatis {
 //        int days = expenseService.selectDays(1);
 //        List<LendingApply> lendingApplies = lendingApplyService.FindPassByUser(2);
 //        logger.info(JSON.toJSONString(lendingApplies.get(0).geteIsReturned()));
-        expenseService.deleteByLaId(16);
+
     }
 }  
