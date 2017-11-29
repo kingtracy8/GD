@@ -10,9 +10,9 @@
 </head>
 <body>
 <div>
-<blockquote class="layui-elem-quote layui-text" style="margin-top: 10px">
-    您好，管理员，您可以对电脑数据进行操作。
-</blockquote>
+    <blockquote class="layui-elem-quote layui-text" style="margin-top: 10px">
+        您好，管理员，您可以对电脑数据进行操作。
+    </blockquote>
 
     <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
         <legend>如果您有需要，下方搜索框可以进行筛选</legend>
@@ -118,13 +118,13 @@
         var form = layui.form;
 
         /*监听单元格编辑
-        table.on('edit(test3)', function (obj) {
-            var value = obj.value //得到修改后的值
-                , data = obj.data //得到所在行所有键值
-                , field = obj.field; //得到字段
-            layer.msg('[ID: ' + data.cptId + '] ' + field + ' 字段更改为：' + value);
-        });
-        */
+         table.on('edit(test3)', function (obj) {
+         var value = obj.value //得到修改后的值
+         , data = obj.data //得到所在行所有键值
+         , field = obj.field; //得到字段
+         layer.msg('[ID: ' + data.cptId + '] ' + field + ' 字段更改为：' + value);
+         });
+         */
         var $ = layui.$, active = {
             getCheckData: function () { //获取选中数据
                 var checkStatus = table.checkStatus('idTest')
@@ -147,6 +147,9 @@
                                     url: '/Computer/computerList'
                                 });
                             }
+                        }, error: function (XMLHttpRequest, textStatus) {
+                            //如果后台发生错误，进行回滚，前台给出相应的提示 update by: linsong.wei 2017年11月29日
+                            layer.alert("操作失败!请重试！");
                         }
                     });
                 }
@@ -157,7 +160,6 @@
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : '';
         });
-
 
 
         //监听提交

@@ -11,6 +11,8 @@ import com.tracy.gd.service.ILendingHistoryService;
 import com.tracy.gd.service.impl.LendingApplyServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -64,6 +66,7 @@ public class LendingApllyController {
         Create by : linsong.wei  2017-11-15 20:08:03
      */
     @RequestMapping(value = "/AuditingReject", method = RequestMethod.GET)
+    @Transactional(propagation = Propagation.REQUIRED)
     public @ResponseBody
     HashMap doAuditingReject(HttpServletRequest request, HttpServletResponse response) {
 
@@ -105,6 +108,7 @@ public class LendingApllyController {
             flag = 1;
         } catch (Exception e) {
             flag = -1;
+            throw new RuntimeException();
         }
 
         map.put("flag", "1");
@@ -119,6 +123,7 @@ public class LendingApllyController {
       when:   2017-11-15 19:07:38
    */
     @RequestMapping(value = "/recallApply", method = RequestMethod.GET)
+    @Transactional(propagation = Propagation.REQUIRED)
     public @ResponseBody
     HashMap doRecallApply(HttpServletRequest request, HttpServletResponse response) {
 
@@ -139,6 +144,7 @@ public class LendingApllyController {
             flag = 1;
         } catch (Exception e) {
             flag = -1;
+            throw new RuntimeException();
         }
 
 
@@ -181,6 +187,7 @@ public class LendingApllyController {
      */
     //忘记 update 了 2017-11-13 22:58:08。。。  继续加上  ok
     @RequestMapping(value = "/AuditingPassFilter", method = RequestMethod.GET)
+    @Transactional(propagation = Propagation.REQUIRED)
     public @ResponseBody
     HashMap doAuditingPassFilter(HttpServletRequest request, HttpServletResponse response) {
 
@@ -255,9 +262,10 @@ public class LendingApllyController {
             flag = 1;
         } catch (Exception e) {
             flag = -1;
+            throw new RuntimeException();
         }
 
-        map.put("flag", "1");
+        map.put("flag", flag);
 
         return map;
     }
@@ -337,6 +345,7 @@ public class LendingApllyController {
 
     //purpose: 提交申请
     @RequestMapping("/commitApply")
+    @Transactional(propagation = Propagation.REQUIRED)
     public @ResponseBody
     HashMap doCommitApply(HttpServletRequest request, HttpServletResponse response, @RequestBody LendingApply lendingApply) {
 

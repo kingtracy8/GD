@@ -6,6 +6,8 @@ import com.tracy.gd.service.IComputerService;
 import com.tracy.gd.service.IExpenseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -33,6 +35,7 @@ public class ExpenseController {
         Create by : linsong.wei  2017-11-27 16:56:26
      */
     @RequestMapping("/ReturnCpt")
+    @Transactional(propagation = Propagation.REQUIRED)  //update by: linsong.wei 2017年11月29日
     public @ResponseBody
     HashMap doReturnCpt(HttpServletRequest request, HttpServletResponse response) {
 
@@ -81,6 +84,7 @@ public class ExpenseController {
         } catch (Exception e) {
 
             flag = -1;
+            throw new RuntimeException();
         }
 
         map.put("flag", flag);

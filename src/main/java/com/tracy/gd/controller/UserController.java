@@ -117,6 +117,7 @@ public class UserController {
    Create by : linsong.wei  2017-11-21 09:48:58
 */
     @RequestMapping("/DeleteUser")
+    @Transactional(propagation = Propagation.REQUIRED)   //使用Try catch时，需要手动抛异常，否则不能回滚  linsong.wei 2017-11-29
     public @ResponseBody
     HashMap doDeleteUser(HttpServletRequest request, HttpServletResponse response, @RequestBody User[] users) {
 
@@ -129,7 +130,8 @@ public class UserController {
             }
             flag = 1;
         } catch (Exception e) {
-            flag = -1;
+            flag = 0;
+            throw new RuntimeException();
         }
         map.put("flag", flag);
         return map;

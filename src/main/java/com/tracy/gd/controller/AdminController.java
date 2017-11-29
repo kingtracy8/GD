@@ -79,21 +79,18 @@ public class AdminController {
             Admin ad = new Admin();
             ad.setAdminName("test");
             adminService.insertSelective(ad);
-            User user = new User();
-            user.setUserName("aaa");
-            user.setUserNum("sfs");
-            userService.insertSelective(user);
+//            User user = new User();
+//            user.setUserName("aaa");
+//            user.setUserNum("sfs");
+//            userService.insertSelective(user);
             String str = null;
             if (str.equals("")) {
                 int i = 0;
             }
-        }catch (Exception e){
-
+        } catch (Exception e) {
+            flag = -1;
             throw new RuntimeException();
-
         }
         return flag;
-
     }
-
 }

@@ -12,6 +12,8 @@ import com.tracy.gd.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -42,6 +44,7 @@ public class ComputerController {
        Create by : linsong.wei  2017-11-17 09:00:01
     */
     @RequestMapping("/UpdateComputer")
+    @Transactional(propagation = Propagation.REQUIRED)  //update by: linsong.wei 2017年11月29日17:59:20
     public @ResponseBody
     HashMap doUpdateComputer(HttpServletRequest request, HttpServletResponse response, @RequestBody Computer[] computers) {
 
@@ -55,6 +58,7 @@ public class ComputerController {
             flag = 1;
         } catch (Exception e) {
             flag = -1;
+            throw new RuntimeException();
         }
         map.put("flag", flag);
         return map;

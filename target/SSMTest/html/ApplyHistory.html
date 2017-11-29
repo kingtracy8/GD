@@ -88,6 +88,9 @@
                                            layer.close(index);
 
                                        }
+                                    }, error: function (XMLHttpRequest, textStatus) {
+                                        //如果后台发生错误，进行回滚，前台给出相应的提示 update by: linsong.wei 2017年11月29日
+                                        layer.alert("操作失败!请重试！");
                                     }
                                 });
                          //       layer.close(index);
