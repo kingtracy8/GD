@@ -40,6 +40,82 @@ public class ComputerController {
 
 
     /*
+        purpose:获取一个电脑实体进行更新操作 (单个)
+        Create by : linsong.wei  2017-12-03 21:50:37
+*/
+    @RequestMapping("/DeleteComputerSingle")
+    @Transactional(propagation = Propagation.REQUIRED)  //update by: linsong.wei 2017年11月29日17:59:20
+    public @ResponseBody
+    HashMap doDeleteComputerSingle(HttpServletRequest request, HttpServletResponse response, @RequestBody Computer computer) {
+
+        HashMap map = new HashMap();
+        int flag = -1;
+        try {
+
+            computerService.deleteByPrimaryKey(computer.getCptId());
+
+            flag = 1;
+        } catch (Exception e) {
+            flag = -1;
+            throw new RuntimeException();
+        }
+        map.put("flag", flag);
+        return map;
+    }
+
+
+    /*
+     purpose:获取一个电脑实体的集合，对页面上选中的电脑进行更新操作
+     Create by : linsong.wei  2017-11-17 09:00:01
+  */
+    @RequestMapping("/DeleteComputer")
+    @Transactional(propagation = Propagation.REQUIRED)  //update by: linsong.wei 2017年11月29日17:59:20
+    public @ResponseBody
+    HashMap doDeleteComputer(HttpServletRequest request, HttpServletResponse response, @RequestBody Computer[] computers) {
+
+        HashMap map = new HashMap();
+        int flag = -1;
+        try {
+            for (int i = 0; i < computers.length; i++) {
+                computerService.deleteByPrimaryKey(computers[i].getCptId());
+            }
+            flag = 1;
+        } catch (Exception e) {
+            flag = -1;
+            throw new RuntimeException();
+        }
+        map.put("flag", flag);
+        return map;
+    }
+
+
+    /*
+   purpose:获取一个电脑实体 进行更新操作 （单个）
+   Create by : linsong.wei  2017-11-17 09:00:01
+*/
+    @RequestMapping("/UpdateComputerSingle")
+    @Transactional(propagation = Propagation.REQUIRED)  //update by: linsong.wei 2017年11月29日17:59:20
+    public @ResponseBody
+    HashMap doUpdateComputerSingle(HttpServletRequest request, HttpServletResponse response, @RequestBody Computer computer) {
+
+        HashMap map = new HashMap();
+        //用数组接收，用List<Computer>会报java.util.LinkedHashMap cannot be cast to com.xxx  linsong.wei 2017-11-17 10:28:23
+        int flag = -1;
+        try {
+
+            computerService.updateByPrimaryKeySelective(computer);
+
+            flag = 1;
+        } catch (Exception e) {
+            flag = -1;
+            throw new RuntimeException();
+        }
+        map.put("flag", flag);
+        return map;
+    }
+
+
+    /*
        purpose:获取一个电脑实体的集合，对页面上选中的电脑进行更新操作
        Create by : linsong.wei  2017-11-17 09:00:01
     */

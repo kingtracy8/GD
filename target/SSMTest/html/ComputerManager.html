@@ -102,9 +102,15 @@
         <th lay-data="{field:'cptScreensize',edit:'text', width:120}">屏幕尺寸</th>
         <th lay-data="{field:'cptGraphicscard',edit:'text', width:250}">显卡</th>
         <th lay-data="{field:'cptIslending',edit:'text', width:130}">是否被借用</th>
+        <th lay-data="{fixed: 'right', width:160, align:'center', toolbar: '#Toolbar'}">
     </tr>
     </thead>
 </table>
+
+<script type="text/html" id="Toolbar">
+    <a class="layui-btn layui-btn-xs layui-bg-red" lay-event="save">保存</a>
+    <a class="layui-btn layui-btn-xs layui-btn-mini layui-bg-red" lay-event="delete">删除</a>
+</script>
 
 <div class="layui-btn-group demoTable" style="margin-bottom: 20px;margin-left: 28%">
     <button class="layui-btn" data-type="getCheckData">提交修改</button>
@@ -153,6 +159,34 @@
                         }
                     });
                 }
+            }, delete: function () {
+                var checkStatus = table.checkStatus('idTest')
+                    , data = checkStatus.data;
+                //通过ajax提交选中的数据到后台进行删除
+                if (data.length == 0) {
+                    layer.alert("对不起，您未选中任何记录");
+                } else {
+                    $.ajax({
+                        url: "http://localhost:8080/Computer/DeleteComputer",
+                        type: "POST",
+                        data: JSON.stringify(data), //转JSON字符串
+                        dataType: 'json',
+                        contentType: 'application/json;charset=UTF-8',
+                        success: function (result) {
+                            if (result.flag == 1) {
+                                layer.alert("操作成功!");
+                                //重载表格
+                                table.reload('idTest', {
+                                    url: '/Computer/computerList'
+                                });
+                            }
+                        }, error: function (XMLHttpRequest, textStatus) {
+                            layer.alert("操作失败!请重试！");
+                        }
+                    });
+                }
+            }, add: function () {
+
             }
         };
 
@@ -187,6 +221,67 @@
                 }
             });
             return false;
+        });
+
+        //每一行上对电脑进行更新和删除操作   linsong.wei 2017-12-03 21:47:21
+        table.on('tool(test3)', function (obj) {
+
+
+            var data = obj.data //获得当前行数据
+                , layEvent = obj.event; //获得 lay-event 对应的值
+
+            if (layEvent === 'save') {
+
+                //Author：linsong.wei 2017-12-03 21:10:56
+                $.ajax({
+                    url: "http://localhost:8080/Computer/UpdateComputerSingle",
+                    type: "POST",
+                    data: JSON.stringify(data), //转JSON字符串
+                    dataType: 'json',
+                    contentType: 'application/json;charset=UTF-8',
+                    success: function (result) {
+                        if (result.flag == 1) {
+                            layer.alert("操作成功!");
+                            //重载表格
+                            table.reload('idTest', {
+                                url: '/Computer/computerList'
+                            });
+                        } else {
+                            layer.alert("操作失败，请重试！");
+                        }
+                    }, error: function (XMLHttpRequest, textStatus) {
+                        //如果后台发生错误，进行回滚，前台给出相应的提示 update by: linsong.wei 2017年11月29日
+                        layer.alert("操作失败!请重试！");
+                    }
+                });
+
+
+            } else if (layEvent === 'delete') {
+
+                $.ajax({
+                    url: "http://localhost:8080/Computer/DeleteComputerSingle",
+                    type: "POST",
+                    data: JSON.stringify(data), //转JSON字符串
+                    dataType: 'json',
+                    contentType: 'application/json;charset=UTF-8',
+                    success: function (result) {
+                        if (result.flag == 1) {
+                            layer.alert("操作成功!");
+                            //重载表格
+                            table.reload('idTest', {
+                                url: '/Computer/computerList'
+                            });
+                        } else {
+                            layer.alert("操作失败，请重试！");
+                        }
+                    }, error: function (XMLHttpRequest, textStatus) {
+                        //如果后台发生错误，进行回滚，前台给出相应的提示 update by: linsong.wei 2017年11月29日
+                        layer.alert("操作失败!请重试！");
+                    }
+                });
+
+            }
+
         });
 
 

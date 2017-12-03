@@ -19,4 +19,6 @@ public interface IComputerService {
 
     int updateByPrimaryKeySelective(Computer record);
 
+    int deleteByPrimaryKey(Integer cptId);
+
 }

@@ -111,6 +111,32 @@ public class UserController {
         return map;
     }
 
+    /*
+        purpose:获得界面上选中的用户并删除（单个）
+        Create by : linsong.wei  2017-12-03 21:26:21
+        因为Json数组和单个@RequestBody对象的Json格式不同({}与[]),所以分开
+*/
+    @RequestMapping("/DeleteUserSingle")
+    @Transactional(propagation = Propagation.REQUIRED)   //使用Try catch时，需要手动抛异常，否则不能回滚  linsong.wei 2017-11-29
+    public @ResponseBody
+    HashMap doDeleteUserSingle(HttpServletRequest request, HttpServletResponse response, @RequestBody User user) {
+
+        HashMap map = new HashMap();
+
+        int flag = 0;
+        try {
+
+            userService.deleteByPrimaryKey(user.getUserId());
+
+            flag = 1;
+        } catch (Exception e) {
+            flag = 0;
+            throw new RuntimeException();
+        }
+        map.put("flag", flag);
+        return map;
+    }
+
 
     /*
    purpose:获得界面上选中的用户并删除
@@ -131,6 +157,30 @@ public class UserController {
             flag = 1;
         } catch (Exception e) {
             flag = 0;
+            throw new RuntimeException();
+        }
+        map.put("flag", flag);
+        return map;
+    }
+
+
+    /*
+       purpose:获得界面上选中的用户纪录并更新 （单个）
+       Create by : linsong.wei  2017-12-03 21:22:18
+    */
+    @RequestMapping("/UpdateUserSingle")
+    @Transactional(propagation = Propagation.REQUIRED)   //使用Try catch时，需要手动抛异常，否则不能回滚  linsong.wei 2017-11-29 16:21:31
+    public @ResponseBody
+    HashMap doUpdateUserSingle(HttpServletRequest request, HttpServletResponse response, @RequestBody User user) {
+
+        HashMap map = new HashMap();
+
+        int flag = 0;
+        try {
+            userService.updateByPrimaryKeySelective(user);
+            flag = 1;
+        } catch (Exception e) {
+            flag = -1;
             throw new RuntimeException();
         }
         map.put("flag", flag);

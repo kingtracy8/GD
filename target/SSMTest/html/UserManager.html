@@ -117,9 +117,16 @@
         <th lay-data="{field:'attribute1',edit:'text', width:130}">身份</th>
         <th lay-data="{field:'userPhone',edit:'text', width:150}">电话</th>
         <th lay-data="{field:'userEmail',edit:'text', width:180}">Email</th>
+
+        <th lay-data="{fixed: 'right', width:160, align:'center', toolbar: '#Toolbar'}">
     </tr>
     </thead>
 </table>
+
+<script type="text/html" id="Toolbar">
+    <a class="layui-btn layui-btn-xs layui-bg-red" lay-event="save">保存</a>
+    <a class="layui-btn layui-btn-xs layui-btn-mini layui-bg-red" lay-event="delete">删除</a>
+</script>
 
 <div class="layui-btn-group demoTable" style="margin-bottom: 20px;margin-left: 28%">
     <button class="layui-btn" data-type="getCheckData">提交修改</button>
@@ -170,27 +177,7 @@
                 if (data.length == 0) {
                     layer.alert("对不起，您未选中任何记录");
                 } else {
-                    $.ajax({
-                        url: "http://localhost:8080/user/DeleteUser",
-                        type: "POST",
-                        data: JSON.stringify(data), //转JSON字符串
-                        dataType: 'json',
-                        contentType: 'application/json;charset=UTF-8',
-                        success: function (result) {
-                            if (result.flag == 1) {
-                                layer.alert("操作成功!");
-                                //重载表格
-                                table.reload('idTest', {
-                                    url: '/user/UserManager'
-                                });
-                            } else {
-                                layer.alert("操作失败，请重试！");
-                            }
-                        }, error: function (XMLHttpRequest, textStatus) {
-                            //如果后台发生错误，进行回滚，前台给出相应的提示 update by: linsong.wei 2017年11月29日
-                            layer.alert("操作失败!请重试！");
-                        }
-                    });
+
                 }
             }, add: function () {
 
@@ -234,6 +221,68 @@
 
             return false;
         });
+
+        //每一行上对用户进行更新和删除操作   linsong.wei 2017-12-03 21:05:01
+        table.on('tool(test3)', function (obj) {
+
+
+            var data = obj.data //获得当前行数据
+                , layEvent = obj.event; //获得 lay-event 对应的值
+
+                if (layEvent === 'save') {
+
+                    //Author：linsong.wei 2017-12-03 21:10:56
+                    $.ajax({
+                        url: "http://localhost:8080/user/UpdateUserSingle",
+                        type: "POST",
+                        data: JSON.stringify(data), //转JSON字符串
+                        dataType: 'json',
+                        contentType: 'application/json;charset=UTF-8',
+                        success: function (result) {
+                            if (result.flag == 1) {
+                                layer.alert("操作成功!");
+                                //重载表格
+                                table.reload('idTest', {
+                                    url: '/user/UserManager'
+                                });
+                            } else {
+                                layer.alert("操作失败，请重试！");
+                            }
+                        }, error: function (XMLHttpRequest, textStatus) {
+                            //如果后台发生错误，进行回滚，前台给出相应的提示 update by: linsong.wei 2017年11月29日
+                            layer.alert("操作失败!请重试！");
+                        }
+                    });
+
+
+                } else if (layEvent === 'delete') {
+
+                    $.ajax({
+                        url: "http://localhost:8080/user/DeleteUserSingle",
+                        type: "POST",
+                        data: JSON.stringify(data), //转JSON字符串
+                        dataType: 'json',
+                        contentType: 'application/json;charset=UTF-8',
+                        success: function (result) {
+                            if (result.flag == 1) {
+                                layer.alert("操作成功!");
+                                //重载表格
+                                table.reload('idTest', {
+                                    url: '/user/UserManager'
+                                });
+                            } else {
+                                layer.alert("操作失败，请重试！");
+                            }
+                        }, error: function (XMLHttpRequest, textStatus) {
+                            //如果后台发生错误，进行回滚，前台给出相应的提示 update by: linsong.wei 2017年11月29日
+                            layer.alert("操作失败!请重试！");
+                        }
+                    });
+
+                }
+
+        });
+
 
 
     });
