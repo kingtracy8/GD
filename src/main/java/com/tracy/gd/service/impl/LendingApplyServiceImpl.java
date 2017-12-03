@@ -13,7 +13,7 @@ import java.util.List;
  * Created by trcay on 2017/11/12.
  */
 @Service("lendingApplyService")
-public class LendingApplyServiceImpl implements ILendingApplyService{
+public class LendingApplyServiceImpl implements ILendingApplyService {
 
     @Autowired
     LendingApplyMapper lendingApplyMapper;
@@ -37,7 +37,8 @@ public class LendingApplyServiceImpl implements ILendingApplyService{
     public int selectCountCpt(int cptId) {
         return lendingApplyMapper.selectCountCpt(cptId);
     }
-////4.把apply表里申请了这台电脑的其他的记录，除了当前记录的其他记录给设置成“N”（sql语句条件给为不等于laId即可）
+
+    ////4.把apply表里申请了这台电脑的其他的记录，除了当前记录的其他记录给设置成“N”（sql语句条件给为不等于laId即可）
     public List<LendingApply> selectAuditingFilter(LendingApply record) {
         return lendingApplyMapper.selectAuditingFilter(record);
     }
@@ -56,6 +57,19 @@ public class LendingApplyServiceImpl implements ILendingApplyService{
 
     public List<LendingApply> FindPassByUser(int laUserId) {
         return lendingApplyMapper.FindPassByUser(laUserId);
+    }
+
+    public List<LendingApply> FindPassByUserFilter(String cptName, String dateFrom, String dateTo, String cptIsReturned, Integer laUserId) {
+        return lendingApplyMapper.FindPassByUserFilter(cptName, dateFrom, dateTo, cptIsReturned, laUserId);
+    }
+
+    /*
+           purpose: 获得当前用户已经被审核了的记录    （添加查询条件）
+           Author: linsong.wei  2017-12-03 16:41:40
+        */
+    public List<LendingApply> doFindPassByUserFilter(String cptName, String dateFrom, String dateTo, String cptIsReturned, Integer laUserId) {
+        //此处没有特殊逻辑处理，直接调用FindPassByUserFilter方法
+        return lendingApplyMapper.FindPassByUserFilter(cptName, dateFrom, dateTo, cptIsReturned, laUserId);
     }
 
 

@@ -1,8 +1,9 @@
 package com.tracy.gd.IDao;
 
-import com.tracy.gd.domain.LendingApply;
+        import com.tracy.gd.domain.LendingApply;
+        import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
+        import java.util.List;
 
 public interface LendingApplyMapper {
     int deleteByPrimaryKey(Integer laId);
@@ -18,8 +19,10 @@ public interface LendingApplyMapper {
     int updateByPrimaryKey(LendingApply record);
 
     List<LendingApply> selectByUser(int laUserId);
+
     //purpose: 审核记录模块，查出申请表中所有申请记录 linsong.wei 2017-11-13 19:34:48
     List<LendingApply> selectAuditing();
+
     //purpose: 审核记录模块，查看有几个人同时提交了同一台电脑的申请 linsong.wei 2017-11-13 19:34:48
     int selectCountCpt(int cptId);
 
@@ -34,5 +37,8 @@ public interface LendingApplyMapper {
     int deleteByPkAndUser(LendingApply record);
 
     List<LendingApply> FindPassByUser(int laUserId);
+
+    //与上面的方法一样，加上了过滤条件  linsong.wei 2017-12-03 16:14:19
+    List<LendingApply> FindPassByUserFilter(@Param("cptName") String cptName,@Param("dateFrom") String dateFrom,@Param("dateTo") String dateTo,@Param("cptIsReturned") String cptIsReturned,@Param("laUserId") Integer laUserId);
 
 }

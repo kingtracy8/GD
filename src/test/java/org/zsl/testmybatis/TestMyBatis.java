@@ -123,5 +123,8 @@ public class TestMyBatis {
 //        List<LendingApply> lendingApplies = lendingApplyService.FindPassByUser(2);
 //        logger.info(JSON.toJSONString(lendingApplies.get(0).geteIsReturned()));
 
+        List<LendingApply> lendingApplies = lendingApplyService.FindPassByUserFilter
+                ("戴尔","2008-08-08","2018-08-08","Y",1);
+        logger.info(JSON.toJSONString(lendingApplies));
     }
 }  

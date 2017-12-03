@@ -13,10 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -39,6 +36,31 @@ public class LendingApllyController {
     IComputerService computerService;
     @Autowired
     IExpenseService expenseService;
+
+
+
+    /*
+        purpose: 获得当前用户已经被审核了的记录    （添加查询条件）
+        Author: linsong.wei  2017-12-03 15:36:56
+     */
+
+    @RequestMapping("/findPassRecordFilter")
+    public @ResponseBody
+    HashMap doFindPassRecordFilter(HttpServletRequest request, HttpServletResponse response, @RequestParam("cptName") String cptName, @RequestParam("dateFrom") String dateFrom, @RequestParam("dateTo") String dateTo, @RequestParam("cptIsReturned") String cptIsReturned) {
+        HashMap map = new HashMap();
+
+        int curUserId = (Integer) request.getSession().getAttribute("userId");
+
+        //已经把业务逻辑封装到Service层
+
+        List<LendingApply> lendingApplies = lendingApplyService.doFindPassByUserFilter(cptName,dateFrom,dateTo,cptIsReturned,curUserId);
+
+        map.put("code", 0);
+        map.put("msg", "");
+        map.put("data", lendingApplies);
+        return map;
+    }
+
 
     /*
         purpose: 获得当前用户已经被审核了的记录    （已经被审核才能被归还）

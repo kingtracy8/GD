@@ -31,4 +31,9 @@ public interface ILendingApplyService {
 
     //找到当前用户通过审核的记录 linsong.wei 2017-11-27 15:33:25
     List<LendingApply> FindPassByUser(int laUserId);
+
+    List<LendingApply> FindPassByUserFilter(String cptName, String dateFrom, String dateTo, String cptIsReturned, Integer laUserId);
+
+    //Service层调用FindPassByUserFilter方法进行业务逻辑处理，将结果返回到Controller
+    List<LendingApply> doFindPassByUserFilter(String cptName, String dateFrom, String dateTo, String cptIsReturned, Integer laUserId);
 }

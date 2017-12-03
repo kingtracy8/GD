@@ -259,4 +259,34 @@ AND a.attribute1 = 'Y'
 AND a.la_is_check = 'Y'
         AND a.la_user_id  = #{laUserId,jdbcType=INTEGER}
     </select>
+    <select id="FindPassByUserFilter" resultMap="BaseResultMap">
+        SELECT
+        a.*, c.cpt_name,
+        e.e_is_returned,
+        e.e_days,
+        e.e_expense,
+        e.e_areturn_time
+        FROM
+        gd_lending_apply a,
+        gd_computers c,
+        gd_expense e
+        WHERE
+        a.la_cpt_id = c.cpt_id
+        AND a.la_id = e.e_la_id
+        AND a.attribute1 = 'Y'
+        AND a.la_is_check = 'Y'
+        <if test="cptName != null and cptName != ''" >
+            AND c.cpt_name like CONCAT('%',#{param1},'%')
+        </if>
+        <if test="dateFrom != null and dateFrom != ''" >
+        AND a.la_lend_time &gt;= date_format(#{param2}, '%Y-%m-%d')
+        </if>
+        <if test="dateTo != null and dateTo != ''" >
+            AND a.la_return_time &lt;= date_format(#{param3}, '%Y-%m-%d')
+        </if>
+        <if test="cptIsReturned != null and cptIsReturned != ''" >
+            AND e.e_is_returned = #{param4}
+        </if>
+        AND a.la_user_id  = #{laUserId,jdbcType=INTEGER}
+    </select>
 </mapper>
