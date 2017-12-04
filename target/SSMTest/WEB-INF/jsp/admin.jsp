@@ -87,7 +87,7 @@
                         <dd><a href="../../html/ComputerManager.html" id="computerControl" target="ifrbody">计算机档案管理</a></dd>
                         <dd><a href="../../html/Auditing.html" target="ifrbody" id="auditingControl">审核管理</a></dd>
                         <dd><a href="../../html/RecordManager.html" target="ifrbody" id="recordControl">记录管理</a></dd>
-                        <dd><a href="javascript:;" target="ifrbody" id="expenseControl">计费管理</a></dd>
+                        <dd><a href="../../html/ExpenseRatio.html" target="ifrbody" id="expenseControl">计费管理</a></dd>
                         <dd style="display: none"><a href="javascript:;" id="identity"><%=identity%>
                         </a></dd>
                     </dl>
@@ -269,6 +269,9 @@
 
             $("#recordControl").attr('target', 'ifrbody');
             $("#recordControl").attr('href', '../../html/Jurisdiction.html');
+
+            $("#expenseControl").attr('target', 'ifrbody');
+            $("#expenseControl").attr('href', '../../html/Jurisdiction.html');
 
 
         }

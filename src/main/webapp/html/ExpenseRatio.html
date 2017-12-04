@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计费管理页面</title>
+    <!--Author: linsong.wei 2017-12-04 13:28:23-->
+    <style>
+        body {
+            margin: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="../js/css/layui.css">
+    <script src="../js/jquery-3.2.1.min.js"></script>
+
+    <script>
+
+        //ajax获取个人信息
+        $(function () {
+            $.ajax({
+                url: "http://localhost:8080/ExpenseRatio/showExpenseRatio",
+                type: "GET",
+                dataType: 'json',
+                contentType: 'application/json;charset=UTF-8', //contentType很重要
+                success: function (result) {
+
+                    $("#freeDays").val(result.rFreeDays);
+                    $("#baseNum").val(result.rBaseNum);
+                    $("#expense").val(result.rExpense);
+                }
+            })
+        });
+
+    </script>
+
+
+</head>
+<body>
+
+<blockquote class="layui-elem-quote layui-quote-nm ">
+
+    <fieldset class="layui-elem-field layui-field-title ">
+        <legend style="margin-bottom: 20px; margin-left: 520px">计费管理</legend>
+
+        <div class="layui-field-box">
+            <form class="layui-form" action="">
+                <div class="layui-form-item">
+                    <label class="layui-form-label" style="margin-left: 26%">前</label>
+                    <div class="layui-input-inline">
+                        <input type="text" style="width: 200px;" name="freeDays" id="freeDays" required
+                               lay-verify="required|number" class="layui-input" oninput="checkfreeDays(this.value)">
+                    </div>
+                    <label class="layui-form-label" style="text-align:left">天免费</label>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label" style="margin-left: 26%">超过后</label>
+                    <div class="layui-input-inline">
+                        <input type="text" style="width: 200px;" name="baseNum" id="baseNum"
+                               lay-verify="required|number" class="layui-input" oninput="checkbaseNum(this.value)">
+                    </div>
+                    <div>n-1</div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label" style="margin-left: 26%">每天</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="expense" id="expense" required lay-verify="required|number"
+                               style="width: 200px;"
+                               class="layui-input" oninput="checkexpense(this.value)">
+                    </div>
+                    <div class="layui-form-mid layui-word-aux" id="tips" style="margin-left: 10px">元</div>
+                </div>
+
+                <div style="margin-left: 25%">注：n为超过的天数 （例如前7天免费，此后按2n-1*0.1元收费，n为计费天数）</div>
+                <div class="layui-form-item" style="margin-top: 10px">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="expenseForm" style="margin-left: 29%"
+                                id="submit">
+                            提交
+                        </button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+            </form>
+            <div id="identity" style="display: none"></div>
+            <div id="Id" style="display: none"></div>
+        </div>
+
+    </fieldset>
+</blockquote>
+
+<script src="../../js/layui.js"></script>
+<script>
+    //Demo
+    layui.use('form', function () {
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(expenseForm)', function (data) {
+
+            console.log(data);
+
+            $.ajax({
+                url: "http://localhost:8080/ExpenseRatio/updateExpenseRatio?freeDays=" + data.field.freeDays + "&baseNum=" + data.field.baseNum
+                + "&expense=" + data.field.expense,
+                type: "GET",
+                dataType: 'json',
+                contentType: 'application/json;charset=UTF-8', //contentType很重要
+                success: function (result) {
+                    layer.msg("费用比例更改成功!");
+                }, error: function (XMLHttpRequest, textStatus) {
+                    layer.alert("操作失败!请重试！");
+                }
+            });
+
+
+            return false;
+        });
+    });
+    //输入不为有效数字时候直接清空
+    function checkfreeDays(val) {
+        document.getElementById('freeDays').value = val >= 0 ? val : '';
+    }
+    function checkbaseNum(val) {
+        document.getElementById('baseNum').value = val >= 0 ? val : '';
+    }
+    function checkexpense(val) {
+        document.getElementById('expense').value = val >= 0 ? val : '';
+    }
+
+</script>
+
+</body>
+</html>
