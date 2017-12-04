@@ -3,6 +3,7 @@ package com.tracy.gd.controller;
 import com.tracy.gd.domain.Computer;
 import com.tracy.gd.domain.Expense;
 import com.tracy.gd.service.IComputerService;
+import com.tracy.gd.service.IExpenseRatioService;
 import com.tracy.gd.service.IExpenseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,6 +30,8 @@ public class ExpenseController {
     IExpenseService expenseService;
     @Autowired
     IComputerService computerService;
+    @Autowired
+    IExpenseRatioService expenseRatioService;
 
     /*
         purpose:将已经审核的电脑归还
@@ -42,7 +45,7 @@ public class ExpenseController {
         HashMap map = new HashMap();
 
         int flag = 0;
-        int cost = 0;
+        float cost = 0;
         int laId = Integer.parseInt(request.getParameter("laId"));
         int laCptId = Integer.parseInt(request.getParameter("laCptId"));
         int curUserId = (Integer) request.getSession().getAttribute("userId");
@@ -65,13 +68,18 @@ public class ExpenseController {
             int days = expenseService.selectDays(expense.geteId());
             expense.seteDays(days);
             //计算费用      前七天免费，后面一天10元
-            if (days > 7) {
-                cost = 10 * days;
-            } else {
-                cost = 0;
-            }
-            expense.seteExpense(BigDecimal.valueOf(cost));
-
+//            if (days > 7) {
+//                cost = 10 * days;
+//            } else {
+//                cost = 0;
+//            }
+//            expense.seteExpense(BigDecimal.valueOf(cost));
+            //通过费用比例service计算价格
+            //update by : linsong.wei  2017-12-04 12:23:31
+            cost = expenseRatioService.Checkout(days);
+            BigDecimal bCost = new BigDecimal(cost);
+            float Fcost = bCost.setScale(2, BigDecimal.ROUND_HALF_UP).floatValue();
+            expense.seteExpense(BigDecimal.valueOf(Fcost));
             expenseService.updateByPrimaryKeySelective(expense);
             //把电脑租借状态设置成“N”
 

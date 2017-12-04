@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.alibaba.fastjson.JSON;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -123,8 +124,11 @@ public class TestMyBatis {
 //        List<LendingApply> lendingApplies = lendingApplyService.FindPassByUser(2);
 //        logger.info(JSON.toJSONString(lendingApplies.get(0).geteIsReturned()));
 
-        List<LendingApply> lendingApplies = lendingApplyService.FindPassByUserFilter
-                ("戴尔","2008-08-08","2018-08-08","Y",1);
-        logger.info(JSON.toJSONString(lendingApplies));
+//        List<LendingApply> lendingApplies = lendingApplyService.FindPassByUserFilter
+//                ("戴尔","2008-08-08","2018-08-08","Y",1);
+        float price= (float) 2.14748365E9;
+        DecimalFormat decimalFormat=new DecimalFormat(".00");//构造方法的字符格式这里如果小数不足2位,会以0补足.
+        String p=decimalFormat.format(price);
+        logger.info(JSON.toJSONString(p));
     }
 }  
