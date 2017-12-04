@@ -40,6 +40,22 @@ public class ComputerController {
 
 
     /*
+         purpose:添加电脑
+         Author : linsong.wei  2017-12-04 22:14:02
+ */
+    @RequestMapping("/addComputer")
+    @Transactional(propagation = Propagation.REQUIRED)      //出异常的时候事务控制，回滚操作 Create by:linsong.wei 2017-11-29 16:15:45
+    public @ResponseBody
+    HashMap doRegister(HttpServletRequest request, HttpServletResponse response, @RequestBody Computer computer) {
+
+        HashMap map = new HashMap();
+        int flag = computerService.insertSelective(computer);
+        map.put("flag", flag);
+        return map;
+    }
+
+
+    /*
         purpose:获取一个电脑实体进行更新操作 (单个)
         Create by : linsong.wei  2017-12-03 21:50:37
 */

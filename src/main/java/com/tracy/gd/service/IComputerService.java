@@ -21,4 +21,6 @@ public interface IComputerService {
 
     int deleteByPrimaryKey(Integer cptId);
 
+    int insertSelective(Computer record);
+
 }

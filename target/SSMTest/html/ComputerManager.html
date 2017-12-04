@@ -115,7 +115,7 @@
 <div class="layui-btn-group demoTable" style="margin-bottom: 20px;margin-left: 28%">
     <button class="layui-btn" data-type="getCheckData">提交修改</button>
     <button class="layui-btn" data-type="delete">删除</button>
-    <button class="layui-btn" data-type="add">新增</button>
+    <button class="layui-btn" data-type="add" onclick="doAdd()">新增</button>
 </div>
 
 <script>
@@ -292,6 +292,19 @@
         //简单粗暴  直接刷新，得到全部的数据 。。。  linsong.wei 2017-11-10 22:47:40
         window.location.reload();
     }
+
+    function doAdd() {
+        var index = layer.open({
+            type: 2,
+            title: '录入电脑',
+            offset: '100px',  //水平居中
+            area: ['700px', '500px'],
+            content: 'http://localhost:8080/html/AddComputer.html' //这里content是一个URL，如果你不想让iframe出现滚动条，你还可以content: ['http://sentsin.com', 'no']
+        });
+        layer.iframeAuto(index);    //自适应
+    }
+
+
 </script>
 
 

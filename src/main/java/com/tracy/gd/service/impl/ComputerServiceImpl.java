@@ -38,6 +38,10 @@ public class ComputerServiceImpl implements IComputerService{
         return computerMapper.deleteByPrimaryKey(cptId);
     }
 
+    public int insertSelective(Computer record) {
+        return computerMapper.insertSelective(record);
+    }
+
 //    public List<Computer> selectAllComputers() {
 //        return computerMapper.selectAllComputers();
 //    }
