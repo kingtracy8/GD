@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title> welcome</title>
     <link rel="stylesheet" href="../js/css/layui.css">
+    <script src="../js/layui.js"></script>
+    <script src="../js/jquery-3.2.1.min.js"></script>
     <style>
         body {
             margin: 10px;
@@ -18,42 +20,208 @@
     </style>
 
 
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/jsapi.js"></script>
+    <script type="text/javascript" src="../js/corechart.js"></script>
+    <script type="text/javascript" src="../js/jquery.gvChart-1.0.1.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.ba-resize.min.js"></script>
+
+    <script type="text/javascript">
+        gvChartInit();
+        $(document).ready(function(){
+            $('#myTable5').gvChart({
+                chartType: 'PieChart',
+                gvSettings: {
+                    vAxis: {title: 'No of players'},
+                    hAxis: {title: 'Month'},
+                    width: 600,
+                    height: 350
+                }
+            });
+        });
+    </script>
+
+
+
 </head>
 <body class="layui-layout-body">
-<div class="layui-tab layui-tab-brief" lay-filter="demo">
-    <ul class="layui-tab-title">
-        <li class="layui-this">欢迎</li>
-        <li>日期</li>
-        <li>分页</li>
-        <li>上传</li>
-    </ul>
-    <div class="layui-tab-content">
-        <div class="layui-tab-item layui-show">
 
-            <div class="layui-carousel" id="test1">
-                <div carousel-item>
-                    <div><p class="layui-bg-green demo-carousel">在这里，你将以最直观的形式体验 layui！</p></div>
-                    <div><p class="layui-bg-red demo-carousel">在编辑器中可以执行 layui 相关的一切代码</p></div>
-                    <div><p class="layui-bg-blue demo-carousel">你也可以点击左侧导航针对性地试验我们提供的示例</p></div>
-                    <div><p class="layui-bg-orange demo-carousel">如果最左侧的导航的高度超出了你的屏幕</p></div>
-                    <div><p class="layui-bg-cyan demo-carousel">你可以将鼠标移入导航区域，然后滑动鼠标滚轮即可</p></div>
-                </div>
-            </div>
-        </div>
-        <div class="layui-tab-item">
-            <div id="laydateDemo"></div>
-        </div>
-        <div class="layui-tab-item">
-            <div id="pageDemo"></div>
-        </div>
-        <div class="layui-tab-item">
-            <div class="layui-upload-drag" id="uploadDemo">
-                <i class="layui-icon"></i>
-                <p>点击上传，或将文件拖拽到此处</p>
-            </div>
-        </div>
-    </div>
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+    <legend>系统信息</legend>
+</fieldset>
+
+<div class="layui-form">
+    <table class="layui-table">
+        <colgroup>
+            <col width="150">
+            <col width="150">
+            <col width="200">
+            <col>
+        </colgroup>
+        <thead>
+        <tr>
+            <th>版本信息：</th>
+            <th>charlesCus</th>
+            <th>版本号：</th>
+            <th>V1.0_B</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>开发作者：</td>
+            <td>linsong.wei</td>
+            <td>github：</td>
+            <td>https://github.com/kingtracy8/GD</td>
+        </tr>
+        <tr>
+            <td>数据库版本：</td>
+            <td>MySQL 5.6</td>
+            <td>服务器版本：</td>
+            <td>Tomcat 8.0</td>
+        </tr>
+        <tr>
+            <td>操作系统</td>
+            <td id="os"></td>
+            <td>浏览器</td>
+            <td id="browser"></td>
+        </tr>
+        </tbody>
+    </table>
 </div>
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+    <legend>技术分布</legend>
+</fieldset>
+
+<div style="width:600px;margin-left: 200px;">
+
+    <table id='myTable5'>
+        <caption>技术分布</caption>
+        <thead>
+        <tr>
+            <th></th>
+            <th>HTML</th>
+            <th>Java</th>
+            <th>JavaScript</th>
+            <th>CSS</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>1000</th>
+            <td>640</td>
+            <td>300</td>
+            <td>150</td>
+            <td>90</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+<script>
+
+    function GetOSInfo()
+    {
+        var _pf=navigator.platform;
+        var appVer=navigator.userAgent;
+        if(_pf=="Win32" || _pf == "Windows")
+        {
+            if(appVer.indexOf("WOW64")>-1)
+            {
+                _bit = "64位";
+            }
+            else
+            {
+                _bit = "32位";
+            }
+            if(appVer.indexOf("Windows NT 6.0") > -1 || appVer.indexOf("Windows Vista") > -1)
+            {
+                if(_bit=='64位' || appVer.indexOf("Windows Vista") > -1)
+                {
+                    return 'Windows_vista '+_bit;
+                }
+                else
+                {
+                    return "Unknow1";
+                }
+            }
+            else if(appVer.indexOf("Windows NT 6.1") > -1 || appVer.indexOf("Windows 7") > -1)
+            {
+                if(_bit=='32位' || appVer.indexOf("Windows 7") > -1)
+                {
+                    return 'Windows_7 '+_bit;
+                }
+                else
+                {
+                    return "Unknow";
+                }
+            }
+            else
+            {
+                try
+                {
+                    var _winName = Array('2000','XP','2003');
+                    var _ntNum = appVer.match(/Windows NT 5.\d/i).toString();
+                    return 'Windows_' + _winName[_ntNum.replace(/Windows NT 5.(\d)/i,"$1")]+" "+_bit;
+                }
+                catch(e)
+                {
+                    return 'Windows';
+                }
+            }
+        }
+        else if(_pf == "Mac68K" || _pf == "MacPPC" || _pf == "Macintosh")
+        {
+            return "Mac";
+        }
+        else if(_pf == "X11")
+        {
+            return "Unix";
+        }
+        else if(String(_pf).indexOf("Linux") > -1)
+        {
+            return "Linux";
+        }
+        else
+        {
+            return "Unknow";
+        }
+    }
+
+
+
+    function myBrowser(){
+        var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+        var isOpera = userAgent.indexOf("Opera") > -1;
+        if (isOpera) {
+            return "Opera"
+        }; //判断是否Opera浏览器
+        if (userAgent.indexOf("Firefox") > -1) {
+            return "FF";
+        } //判断是否Firefox浏览器
+        if (userAgent.indexOf("Chrome") > -1){
+            return "Chrome";
+        }
+        if (userAgent.indexOf("Safari") > -1) {
+            return "Safari";
+        } //判断是否Safari浏览器
+        if (userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isOpera) {
+            return "IE";
+        }; //判断是否IE浏览器
+    }
+
+
+    $(function () {
+        $("#os").html(GetOSInfo());
+        $("#browser").html(myBrowser());
+    });
+
+
+</script>
+
+
 </div>
 
 
@@ -79,9 +247,6 @@
         });
 
     });
-</script>
-<script src="https://cdn.staticfile.org/jquery/3.1.1/jquery.min.js">
-    //alert($('#user'));
 </script>
 </body>
 </html>
