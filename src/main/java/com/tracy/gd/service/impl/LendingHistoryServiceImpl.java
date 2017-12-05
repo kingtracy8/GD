@@ -42,4 +42,8 @@ public class LendingHistoryServiceImpl implements ILendingHistoryService {
         return lendingHistoryMapper.selectAll();
     }
 
+    public List<LendingHistory> selectAddFilter(String cptName, String dateFrom, String dateTo, String eIsReturned) {
+        return lendingHistoryMapper.selectAddFilter(cptName,dateFrom,dateTo,eIsReturned);
+    }
+
 }

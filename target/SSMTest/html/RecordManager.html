@@ -9,19 +9,67 @@
     <script src="../js/layui.js"></script>
 </head>
 <body>
+<div>
+    <blockquote class="layui-elem-quote layui-text" style="margin-top: 10px">
+        您好，管理员，您可以对申请纪录的审核意见进行更改。
+    </blockquote>
 
-<blockquote class="layui-elem-quote layui-text" style="margin-top: 10px">
-    您好，管理员，您可以对申请纪录的审核意见进行更改。
-</blockquote>
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+        <legend>如果您有需要，下方搜索框可以进行筛选</legend>
+    </fieldset>
 
+    <form class="layui-form" action="">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">电脑名称</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="cptName" id="cptName" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">审核时间从</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="dateFrom" id="dateFrom" lay-verify="date" placeholder="yyyy-MM-dd"
+                           autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-mid">至</div>
+                <div class="layui-input-inline">
+                    <input type="text" name="dateTo" id="dateTo" lay-verify="date" placeholder="yyyy-MM-dd"
+                           autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">已归还</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="eIsReturned" value="Y" title="是">
+                    <input type="radio" name="eIsReturned" value="N" title="否" checked="">
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block" style="margin-left: 28%">
+                <button class="layui-btn" lay-submit="" lay-filter="FilterForm">查询</button>
+                <button type="reset" class="layui-btn layui-btn-primary" lay-filter="ReSet" onclick="doReset()">重置
+                </button>
+            </div>
+        </div>
+    </form>
+
+</div>
 <table class="layui-table" lay-filter="test3"
-       lay-data="{url:'/LendingHistory/ShowHisList', id:'idTest',width:1320,height:400, page:true}">
+       lay-data="{url:'/LendingHistory/ShowHisList', id:'HisTable',width:1320,height:400, page:true}">
     <thead>
     <tr>
         <th lay-data="{type:'checkbox', fixed: 'left'}"></th>
         <!--<th lay-data="{field:'lhId', width:80}">ID</th>-->
         <th lay-data="{field:'userName',width:130,sort: true}">申请用户</th>
         <th lay-data="{field:'userIdentity',width:120}">身份</th>
+        <th lay-data="{field:'cptName',width:220}">电脑名称</th>
         <th lay-data="{field:'attribute1',width:120}">是否已审核</th>
         <!--<th lay-data="{field:'lhWhoChecked', width:100}">由谁审核</th>-->
         <!--由于设计缺陷，admin和user表是同一张，所以这里只能获得审核人的id，而且上面有了申请用户的id，所以只能通过在service中利用
@@ -44,10 +92,10 @@
 
 
 <script>
-    layui.use(['form', 'table'], function () {
+    layui.use(['form', 'table', 'laydate'], function () {
         var table = layui.table;
-        var form = layui.form;
-
+        var form = layui.form,
+            laydate = layui.laydate;
 
         var $ = layui.$, active = {
             submitUpdate: function () { //获取选中数据
@@ -92,6 +140,42 @@
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : '';
         });
+
+
+        //日期
+        laydate.render({
+            elem: '#dateFrom'
+        });
+        laydate.render({
+            elem: '#dateTo'
+        });
+
+        form.on('submit(FilterForm)', function (data) {
+
+            var cptName = document.getElementById('cptName');
+            var dateFrom = document.getElementById('dateFrom');
+            var dateTo = document.getElementById('dateTo');
+            var eIsReturned = $('input:radio:checked').val();
+
+            if (data.field.dateFrom > (data.field.dateTo == "" ? data.field.dateTo = data.field.dateFrom + 7 : data.field.dateTo)) {
+                layer.alert('借用日期不能早于归还日期！', {icon: 5});
+            } else {
+
+                table.reload('HisTable', {
+                    url: '/LendingHistory/ShowHisListFilter',
+                    where: {
+                        cptName: cptName.value,
+                        dateFrom: dateFrom.value,
+                        dateTo: dateTo.value,
+                        eIsReturned : eIsReturned,
+                    }
+                });
+
+            }
+            //false: 不刷新页面，不提交
+            return false;
+        });
+
 
     });
 

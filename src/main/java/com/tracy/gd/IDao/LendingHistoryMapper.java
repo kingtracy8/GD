@@ -1,6 +1,7 @@
 package com.tracy.gd.IDao;
 
 import com.tracy.gd.domain.LendingHistory;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -25,5 +26,7 @@ public interface LendingHistoryMapper {
     LendingHistory selectDetailByLaId(Integer laId);
 
     List<LendingHistory> selectAll();
+
+    List<LendingHistory> selectAddFilter(@Param("cptName") String cptName, @Param("dateFrom") String dateFrom, @Param("dateTo") String dateTo, @Param("eIsReturned") String eIsReturned);
 
 }

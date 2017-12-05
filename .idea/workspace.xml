@@ -28,43 +28,9 @@
       <file leaf-file-name="RecordManager.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/html/RecordManager.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="616">
-              <caret line="32" column="67" lean-forward="false" selection-start-line="32" selection-start-column="67" selection-end-line="32" selection-end-column="67" />
+            <state relative-caret-position="722">
+              <caret line="164" column="59" lean-forward="false" selection-start-line="164" selection-start-column="59" selection-end-line="164" selection-end-column="59" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LendingHistory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/domain/LendingHistory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="37" column="30" lean-forward="false" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="30" />
-              <folding>
-                <element signature="e#727#728#0" expanded="true" />
-                <element signature="e#761#762#0" expanded="true" />
-                <element signature="e#815#816#0" expanded="true" />
-                <element signature="e#861#862#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LendingHistoryMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/LendingHistoryMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="662">
-              <caret line="208" column="23" lean-forward="false" selection-start-line="208" selection-start-column="23" selection-end-line="208" selection-end-column="23" />
-              <folding>
-                <marker date="1512467744374" expanded="true" signature="1550:1669" ph="select from gd_lending_history" />
-                <marker date="1512467744374" expanded="true" signature="1756:1829" ph="delete from " />
-                <marker date="1512467744374" expanded="true" signature="1921:2438" ph="insert into gd_lending_history... " />
-                <marker date="1512467744374" expanded="true" signature="4391:5406" ph="update gd_le... " />
-                <marker date="1512467744374" expanded="true" signature="5510:6041" ph="update gd_le... " />
-                <marker date="1512467744374" expanded="true" signature="6146:6263" ph="select from gd_lending_history" />
-                <marker date="1512467744374" expanded="true" signature="6645:6963" ph="SELECT u.use... gd_lending_apply" />
-                <marker date="1512467744374" expanded="true" signature="7028:7416" ph="SELECT u.use... gd_lending_apply" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -72,8 +38,18 @@
       <file leaf-file-name="LendingHistoryController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/LendingHistoryController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-59">
-              <caret line="50" column="17" lean-forward="false" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
+            <state relative-caret-position="128">
+              <caret line="80" column="39" lean-forward="false" selection-start-line="80" selection-start-column="22" selection-end-line="80" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LendingApllyController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/LendingApllyController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="590">
+              <caret line="329" column="5" lean-forward="true" selection-start-line="314" selection-start-column="3" selection-end-line="329" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -126,9 +102,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/html/Car.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/CarIndex.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/Jurisdiction.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/IDao/LendingHistoryMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/ILendingHistoryService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/impl/LendingHistoryServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/changePassword.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/IDao/ExpenseMapper.java" />
@@ -162,7 +135,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/html/ComputerManager.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/AddComputer.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/ApplyHistory.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/LendingHistoryController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/IDao/LendingApplyMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/ILendingApplyService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/impl/LendingApplyServiceImpl.java" />
@@ -172,6 +144,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/LendingApllyController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/domain/LendingHistory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/LendingHistoryMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/IDao/LendingHistoryMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/ILendingHistoryService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/impl/LendingHistoryServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/LendingHistoryController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/RecordManager.html" />
       </list>
     </option>
@@ -1236,7 +1212,7 @@
       <workItem from="1512393813629" duration="3546000" />
       <workItem from="1512449249275" duration="3508000" />
       <workItem from="1512457660565" duration="6259000" />
-      <workItem from="1512466705142" duration="1090000" />
+      <workItem from="1512466705142" duration="3886000" />
     </task>
     <servers />
   </component>
@@ -1273,7 +1249,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="264583000" />
+    <option name="totallyTimeSpent" value="267379000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1309,10 +1285,10 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32703003" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32703003" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6696329" sideWeight="0.49356222" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.46496108" sideWeight="0.49356222" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32703003" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32703003" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2306867" sideWeight="0.4781145" order="8" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2306867" sideWeight="0.4781145" order="8" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2607296" sideWeight="0.5218855" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -1343,19 +1319,19 @@
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49499443" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.49499443" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32703003" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30812013" sideWeight="0.49785408" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30812013" sideWeight="0.49785408" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32703003" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32703003" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39377084" sideWeight="0.49356222" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46496108" sideWeight="0.49356222" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32703003" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32703003" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29935622" sideWeight="0.4781145" order="8" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2306867" sideWeight="0.4781145" order="8" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2607296" sideWeight="0.5218855" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1397,7 +1373,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="93" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/LendingHistoryController.java</url>
+          <line>85</line>
+          <properties />
+          <option name="timeStamp" value="96" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="97" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1406,13 +1390,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/IDao/UserMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -1634,21 +1611,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/service/impl/LendingHistoryServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/service/impl/ComputerServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="41" column="52" lean-forward="false" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="52" />
           <folding>
-            <element signature="e#1171#1172#0" expanded="true" />
-            <element signature="e#1232#1233#0" expanded="true" />
+            <element signature="e#1171#1172#0" expanded="false" />
+            <element signature="e#1232#1233#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1684,29 +1653,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/domain/LendingApply.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-27">
-          <caret line="41" column="14" lean-forward="true" selection-start-line="41" selection-start-column="14" selection-end-line="41" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/ComputerManager.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="215" column="63" lean-forward="true" selection-start-line="215" selection-start-column="19" selection-end-line="215" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/IDao/LendingApplyMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="46" column="177" lean-forward="false" selection-start-line="46" selection-start-column="177" selection-end-line="46" selection-end-column="177" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/service/impl/LendingApplyServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1534">
@@ -1723,44 +1669,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/LendingApplyMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="722">
-          <caret line="336" column="13" lean-forward="true" selection-start-line="336" selection-start-column="13" selection-end-line="336" selection-end-column="13" />
-          <folding>
-            <marker date="1512463285007" expanded="true" signature="2159:2286" ph="select from gd_lending_apply" />
-            <marker date="1512463285007" expanded="true" signature="2376:2447" ph="delete from " />
-            <marker date="1512463285007" expanded="true" signature="2538:3155" ph="insert into gd_lending_apply... " />
-            <marker date="1512463285007" expanded="true" signature="5955:7392" ph="update gd_le... " />
-            <marker date="1512463285007" expanded="true" signature="7497:8128" ph="update gd_le... " />
-            <marker date="1512463285007" expanded="true" signature="8233:8380" ph="SELECT a.*, gd_lending_apply" />
-            <marker date="1512463285007" expanded="true" signature="8453:8647" ph="SELECT a.*,c... gd_lending_apply" />
-            <marker date="1512463285007" expanded="true" signature="8761:8857" ph="SELECT COUNT... gd_lending_apply" />
-            <marker date="1512463285007" expanded="true" signature="8761:8881" ph="SELECT COUNT... gd_lending_apply" />
-            <marker date="1512463285007" expanded="true" signature="9018:9281" ph="select from gd_lending_apply" />
-            <marker date="1512463285007" expanded="true" signature="9418:9733" ph="select COUNT... gd_lending_apply" />
-            <marker date="1512463285007" expanded="true" signature="10139:10440" ph="SELECT a.*, gd_lending_apply" />
-            <marker date="1512463285007" expanded="true" signature="10140:10440" ph="SELECT a.*, gd_lending_apply" />
-            <marker date="1512463285007" expanded="true" signature="10383:10440" ph="SELECT a.*, gd_lending_apply" />
-            <marker date="1512463285007" expanded="true" signature="10528:11463" ph="SELECT a.*, gd_lending_apply" />
-            <marker date="1512463285007" expanded="true" signature="11583:12298" ph="SELECT a.*, gd_lending_apply" />
-            <marker date="1512463285007" expanded="true" signature="12389:12615" ph="SELECT a.*,c... gd_lending_apply" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/org/zsl/testmybatis/TestMyBatis.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="353">
           <caret line="130" column="47" lean-forward="true" selection-start-line="130" selection-start-column="47" selection-end-line="130" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/LendingApllyController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="327" column="40" lean-forward="true" selection-start-line="327" selection-start-column="40" selection-end-line="327" selection-end-column="40" />
           <folding />
         </state>
       </provider>
@@ -1785,70 +1697,143 @@
         <state relative-caret-position="2801">
           <caret line="165" column="11" lean-forward="false" selection-start-line="165" selection-start-column="11" selection-end-line="165" selection-end-column="11" />
           <folding>
-            <element signature="n#style#0;n#fieldset#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#fieldset#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/IDao/LendingHistoryMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/domain/LendingApply.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        <state relative-caret-position="216">
+          <caret line="33" column="27" lean-forward="true" selection-start-line="32" selection-start-column="4" selection-end-line="33" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/ComputerManager.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="95" column="82" lean-forward="true" selection-start-line="95" selection-start-column="8" selection-end-line="95" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/ReturnCpt.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-49">
+          <caret line="208" column="11" lean-forward="true" selection-start-line="179" selection-start-column="8" selection-end-line="208" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/domain/LendingHistory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="37" column="30" lean-forward="false" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="30" />
+        <state relative-caret-position="-378">
+          <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="28" />
           <folding>
-            <element signature="e#727#728#0" expanded="true" />
-            <element signature="e#761#762#0" expanded="true" />
-            <element signature="e#815#816#0" expanded="true" />
-            <element signature="e#861#862#0" expanded="true" />
+            <element signature="e#843#844#0" expanded="true" />
+            <element signature="e#881#882#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/LendingApplyMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="288" column="13" lean-forward="true" selection-start-line="277" selection-start-column="8" selection-end-line="288" selection-end-column="13" />
+          <folding>
+            <marker date="1512463285007" expanded="true" signature="2159:2286" ph="select from gd_lending_apply" />
+            <marker date="1512463285007" expanded="true" signature="2376:2447" ph="delete from " />
+            <marker date="1512463285007" expanded="true" signature="2538:3155" ph="insert into gd_lending_apply... " />
+            <marker date="1512463285007" expanded="true" signature="5955:7392" ph="update gd_le... " />
+            <marker date="1512463285007" expanded="true" signature="7497:8128" ph="update gd_le... " />
+            <marker date="1512463285007" expanded="true" signature="8233:8380" ph="SELECT a.*, gd_lending_apply" />
+            <marker date="1512463285007" expanded="true" signature="8453:8647" ph="SELECT a.*,c... gd_lending_apply" />
+            <marker date="1512463285007" expanded="true" signature="8761:8857" ph="SELECT COUNT... gd_lending_apply" />
+            <marker date="1512463285007" expanded="true" signature="8761:8881" ph="SELECT COUNT... gd_lending_apply" />
+            <marker date="1512463285007" expanded="true" signature="9018:9281" ph="select from gd_lending_apply" />
+            <marker date="1512463285007" expanded="true" signature="9418:9733" ph="select COUNT... gd_lending_apply" />
+            <marker date="1512463285007" expanded="true" signature="10139:10440" ph="SELECT a.*, gd_lending_apply" />
+            <marker date="1512463285007" expanded="true" signature="10140:10440" ph="SELECT a.*, gd_lending_apply" />
+            <marker date="1512463285007" expanded="true" signature="10383:10440" ph="SELECT a.*, gd_lending_apply" />
+            <marker date="1512463285007" expanded="true" signature="10528:11463" ph="SELECT a.*, gd_lending_apply" />
+            <marker date="1512463285007" expanded="true" signature="11583:12298" ph="SELECT a.*, gd_lending_apply" />
+            <marker date="1512463285007" expanded="true" signature="12389:12615" ph="SELECT a.*,c... gd_lending_apply" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/IDao/LendingApplyMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="41" column="190" lean-forward="true" selection-start-line="41" selection-start-column="44" selection-end-line="41" selection-end-column="190" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/service/impl/LendingHistoryServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="715">
+          <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/service/ILendingHistoryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/IDao/LendingHistoryMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="29" selection-start-column="3" selection-end-line="30" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/LendingHistoryMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="662">
-          <caret line="208" column="23" lean-forward="false" selection-start-line="208" selection-start-column="23" selection-end-line="208" selection-end-column="23" />
+        <state relative-caret-position="108">
+          <caret line="16" column="56" lean-forward="false" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="56" />
           <folding>
-            <marker date="1512467744374" expanded="true" signature="1550:1669" ph="select from gd_lending_history" />
-            <marker date="1512467744374" expanded="true" signature="1756:1829" ph="delete from " />
-            <marker date="1512467744374" expanded="true" signature="1921:2438" ph="insert into gd_lending_history... " />
-            <marker date="1512467744374" expanded="true" signature="4391:5406" ph="update gd_le... " />
-            <marker date="1512467744374" expanded="true" signature="5510:6041" ph="update gd_le... " />
-            <marker date="1512467744374" expanded="true" signature="6146:6263" ph="select from gd_lending_history" />
-            <marker date="1512467744374" expanded="true" signature="6645:6963" ph="SELECT u.use... gd_lending_apply" />
-            <marker date="1512467744374" expanded="true" signature="7028:7416" ph="SELECT u.use... gd_lending_apply" />
+            <marker date="1512469821928" expanded="true" signature="1620:1739" ph="select from gd_lending_history" />
+            <marker date="1512469821928" expanded="true" signature="1826:1899" ph="delete from " />
+            <marker date="1512469821928" expanded="true" signature="1991:2508" ph="insert into gd_lending_history... " />
+            <marker date="1512469821928" expanded="true" signature="4461:5476" ph="update gd_le... " />
+            <marker date="1512469821928" expanded="true" signature="5580:6111" ph="update gd_le... " />
+            <marker date="1512469821928" expanded="true" signature="6216:6333" ph="select from gd_lending_history" />
+            <marker date="1512469821928" expanded="true" signature="6715:7033" ph="SELECT u.use... gd_lending_apply" />
+            <marker date="1512469821928" expanded="true" signature="7098:7552" ph="SELECT u.use... gd_lending_apply" />
+            <marker date="1512469821928" expanded="true" signature="7627:8161" ph="SELECT u.use... gd_lending_apply" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/ReturnCpt.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/LendingApllyController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="104" column="67" lean-forward="true" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="67" />
+        <state relative-caret-position="590">
+          <caret line="329" column="5" lean-forward="true" selection-start-line="314" selection-start-column="3" selection-end-line="329" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/LendingHistoryController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-59">
-          <caret line="50" column="17" lean-forward="false" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
+        <state relative-caret-position="128">
+          <caret line="80" column="39" lean-forward="false" selection-start-line="80" selection-start-column="22" selection-end-line="80" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/html/RecordManager.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="32" column="67" lean-forward="false" selection-start-line="32" selection-start-column="67" selection-end-line="32" selection-end-column="67" />
+        <state relative-caret-position="722">
+          <caret line="164" column="59" lean-forward="false" selection-start-line="164" selection-start-column="59" selection-end-line="164" selection-end-column="59" />
           <folding />
         </state>
       </provider>

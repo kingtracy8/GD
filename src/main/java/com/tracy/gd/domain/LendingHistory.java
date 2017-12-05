@@ -37,6 +37,17 @@ public class LendingHistory {
     @Transient  //关联费用表查看是否已经归还 2017-12-05 17:53:17
     private String eIsReturned;
 
+    @Transient
+    private String cptName;
+
+    public String getCptName() {
+        return cptName;
+    }
+
+    public void setCptName(String cptName) {
+        this.cptName = cptName;
+    }
+
     public String geteIsReturned() {
         return eIsReturned;
     }

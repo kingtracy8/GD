@@ -1,5 +1,6 @@
 package com.tracy.gd.controller;
 
+import com.tracy.gd.domain.LendingApply;
 import com.tracy.gd.domain.LendingHistory;
 import com.tracy.gd.domain.User;
 import com.tracy.gd.service.ILendingHistoryService;
@@ -8,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -69,6 +67,23 @@ public class LendingHistoryController {
             User user = userService.getUserById(who);
             lendingHistories.get(i).setAttribute2(user.getUserName());
         }
+
+        map.put("code", 0);
+        map.put("msg", "");
+        map.put("data", lendingHistories);
+        return map;
+    }
+
+    /*
+     purpose:查询所有记录  （有过滤条件）
+      Create by : linsong.wei  2017-12-05 18:31:47
+   */
+    @RequestMapping("/ShowHisListFilter")
+    public @ResponseBody
+    HashMap doShowHisListFilter(HttpServletRequest request, HttpServletResponse response, @RequestParam("cptName") String cptName, @RequestParam("dateFrom") String dateFrom, @RequestParam("dateTo") String dateTo, @RequestParam("eIsReturned") String eIsReturned) {
+        HashMap map = new HashMap();
+
+        List<LendingHistory> lendingHistories = lendingHistoryService.selectAddFilter(cptName,dateFrom,dateTo,eIsReturned);
 
         map.put("code", 0);
         map.put("msg", "");
