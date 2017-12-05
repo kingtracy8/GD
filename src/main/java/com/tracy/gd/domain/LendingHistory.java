@@ -34,6 +34,18 @@ public class LendingHistory {
     @Transient       //审核人的身份
     private String userIdentity;
 
+    @Transient  //关联费用表查看是否已经归还 2017-12-05 17:53:17
+    private String eIsReturned;
+
+    public String geteIsReturned() {
+        return eIsReturned;
+    }
+
+    public void seteIsReturned(String eIsReturned) {
+        this.eIsReturned = eIsReturned;
+    }
+
+
     public Integer getLhId() {
         return lhId;
     }

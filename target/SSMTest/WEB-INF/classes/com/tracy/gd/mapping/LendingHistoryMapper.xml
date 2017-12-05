@@ -14,6 +14,7 @@
     <result column="attribute3" property="attribute3" jdbcType="VARCHAR" />
     <result column="user_name" property="userName" jdbcType="VARCHAR" />
     <result column="user_identity" property="userIdentity" jdbcType="VARCHAR"/>
+    <result column="e_is_returned" property="eIsReturned" jdbcType="VARCHAR"/>
   </resultMap>
   <sql id="Base_Column_List" >
     lh_id, lh_user_id, lh_la_id, lh_who_checked, lh_check_time, lh_is_check, la_commons, 
@@ -183,25 +184,28 @@ WHERE
     AND lh_la_id = #{lhLaId,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    SELECT
-    u.user_name,
-    u.attribute1 user_identity,
-    h.lh_id,
-    h.lh_user_id,
-    h.lh_la_id,
-    h.lh_who_checked,
-    h.lh_check_time,
-    h.lh_is_check,
-    h.la_commons,
-    h.attribute1,
-    h.attribute2,
-    h.attribute3
+SELECT
+	u.user_name,
+	u.attribute1 user_identity,
+	e.e_is_returned e_is_returned,
+	h.lh_id,
+	h.lh_user_id,
+	h.lh_la_id,
+	h.lh_who_checked,
+	h.lh_check_time,
+	h.lh_is_check,
+	h.la_commons,
+	h.attribute1,
+	h.attribute2,
+	h.attribute3
 FROM
-    gd_lending_apply a,
-    gd_lending_history h,
-    gd_users u
+	gd_lending_apply a,
+	gd_lending_history h,
+	gd_users u,
+	gd_expense e
 WHERE
-    a.la_id = h.lh_la_id
-        AND h.lh_user_id = u.user_id
+	a.la_id = h.lh_la_id
+AND h.lh_user_id = u.user_id
+AND e.e_la_id = a.la_id
   </select>
 </mapper>
