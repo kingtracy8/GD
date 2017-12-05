@@ -1,9 +1,9 @@
 package com.tracy.gd.IDao;
 
-        import com.tracy.gd.domain.LendingApply;
-        import org.apache.ibatis.annotations.Param;
+import com.tracy.gd.domain.LendingApply;
+import org.apache.ibatis.annotations.Param;
 
-        import java.util.List;
+import java.util.List;
 
 public interface LendingApplyMapper {
     int deleteByPrimaryKey(Integer laId);
@@ -39,6 +39,9 @@ public interface LendingApplyMapper {
     List<LendingApply> FindPassByUser(int laUserId);
 
     //与上面的方法一样，加上了过滤条件  linsong.wei 2017-12-03 16:14:19
-    List<LendingApply> FindPassByUserFilter(@Param("cptName") String cptName,@Param("dateFrom") String dateFrom,@Param("dateTo") String dateTo,@Param("cptIsReturned") String cptIsReturned,@Param("laUserId") Integer laUserId);
+    List<LendingApply> FindPassByUserFilter(@Param("cptName") String cptName, @Param("dateFrom") String dateFrom, @Param("dateTo") String dateTo, @Param("cptIsReturned") String cptIsReturned, @Param("laUserId") Integer laUserId);
+
+    //过滤申请记录  2017-12-05 13:24:22
+    List<LendingApply> selectByUserFilter(@Param("cptName") String cptName, @Param("dateFrom") String dateFrom, @Param("dateTo") String dateTo, @Param("attribute1") String attribute1, @Param("laUserId") Integer laUserId);
 
 }

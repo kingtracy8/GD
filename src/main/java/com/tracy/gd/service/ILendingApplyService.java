@@ -1,6 +1,7 @@
 package com.tracy.gd.service;
 
 import com.tracy.gd.domain.LendingApply;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -36,4 +37,9 @@ public interface ILendingApplyService {
 
     //Service层调用FindPassByUserFilter方法进行业务逻辑处理，将结果返回到Controller
     List<LendingApply> doFindPassByUserFilter(String cptName, String dateFrom, String dateTo, String cptIsReturned, Integer laUserId);
+
+    List<LendingApply> selectByUserFilter(String cptName,String dateFrom,String dateTo,String attribute1,Integer laUserId);
+
+    List<LendingApply> doSelectByUserFilter(String cptName,String dateFrom,String dateTo,String attribute1,Integer laUserId);
+
 }

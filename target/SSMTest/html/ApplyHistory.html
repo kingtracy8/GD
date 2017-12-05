@@ -8,11 +8,59 @@
     <script src="../js/layui.js"></script>
 </head>
 <body>
+<div>
+    <blockquote class="layui-elem-quote layui-text" style="margin-top: 10px">
+        您好，下方表格中是您的申请记录，您可以在管理员未审核的时候撤回申请。
+    </blockquote>
 
-<blockquote class="layui-elem-quote layui-text" style="margin-top: 10px">
-    您好，下方表格中是您的申请记录，您可以在管理员未审核的时候撤回申请。
-</blockquote>
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+        <legend>如果您有需要，下方搜索框可以进行筛选</legend>
+    </fieldset>
 
+    <form class="layui-form" action="">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">电脑名称</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="cptName" id="cptName" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">借用日期从</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="dateFrom" id="dateFrom" lay-verify="date" placeholder="yyyy-MM-dd"
+                           autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-mid">至</div>
+                <div class="layui-input-inline">
+                    <input type="text" name="dateTo" id="dateTo" lay-verify="date" placeholder="yyyy-MM-dd"
+                           autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">审核通过</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="attribute1" value="Y" title="是">
+                    <input type="radio" name="attribute1" value="N" title="否" checked="">
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block" style="margin-left: 28%">
+                <button class="layui-btn" lay-submit="" lay-filter="FilterForm">查询</button>
+                <button type="reset" class="layui-btn layui-btn-primary" lay-filter="ReSet" onclick="doReset()">重置
+                </button>
+            </div>
+        </div>
+    </form>
+
+
+</div>
 <table class="layui-table"
        lay-data="{id:'computersTable',width:1320,height:400,url:'/LendingApply/showApply', page:true}"
        lay-filter="test">
@@ -75,34 +123,34 @@
                             } else {
                                 //  通过ajax进行撤回操作
                                 $.ajax({
-                                    url: "http://localhost:8080/LendingApply/recallApply?laId="+data.laId,
+                                    url: "http://localhost:8080/LendingApply/recallApply?laId=" + data.laId,
                                     type: "GET",
                                     dataType: 'json',
                                     contentType: 'application/json;charset=UTF-8', //contentType很重要
                                     success: function (result) {
-                                       if(result.flag==1){
-                                           layer.msg("撤回成功!");
-                                           table.reload('computersTable', {
-                                               url: '/LendingApply/showApply'
-                                           });
-                                           layer.close(index);
+                                        if (result.flag == 1) {
+                                            layer.msg("撤回成功!");
+                                            table.reload('computersTable', {
+                                                url: '/LendingApply/showApply'
+                                            });
+                                            layer.close(index);
 
-                                       }
+                                        }
                                     }, error: function (XMLHttpRequest, textStatus) {
                                         //如果后台发生错误，进行回滚，前台给出相应的提示 update by: linsong.wei 2017年11月29日
                                         layer.alert("操作失败!请重试！");
                                     }
                                 });
-                         //       layer.close(index);
+                                //       layer.close(index);
                             }
                         }
                     })
                 });
-            }else if (layEvent === 'detail'){
-               // layer.msg("通过申请表id去查，谁审核的，意见，审核时间等，待开发");
-                if(data.attribute1=="N"){
+            } else if (layEvent === 'detail') {
+                // layer.msg("通过申请表id去查，谁审核的，意见，审核时间等，待开发");
+                if (data.attribute1 == "N") {
                     layer.msg("管理员尚未审核");
-                }else {
+                } else {
                     //展示审核详情
                     var url = "http://localhost:8080/html/SeeAuditingDetail.html?laId=" + data.laId;
                     var index = layer.open({
@@ -116,6 +164,42 @@
                 }
             }
         });
+
+
+        //日期
+        laydate.render({
+            elem: '#dateFrom'
+        });
+        laydate.render({
+            elem: '#dateTo'
+        });
+
+
+        form.on('submit(FilterForm)', function (data) {
+
+            var cptName = document.getElementById('cptName');
+            var dateFrom = document.getElementById('dateFrom');
+            var dateTo = document.getElementById('dateTo');
+            var attribute1 = $('input:radio:checked').val();
+
+
+            //如果只选择了第一日期，没选第二个，默认选择归还日期在7天内   linsong.wei 2017-12-03 15:31:48
+            if (data.field.dateFrom > (data.field.dateTo == "" ? data.field.dateTo = data.field.dateFrom + 7 : data.field.dateTo)) {
+                layer.alert('借用日期不能早于归还日期！', {icon: 5});
+            } else {
+                table.reload('computersTable', {
+                    url: '/LendingApply/showApplyFilter',
+                    where: {
+                        cptName: cptName.value,
+                        dateFrom: dateFrom.value,
+                        dateTo: dateTo.value,
+                        attribute1: attribute1,
+                    }
+                });
+            }
+            return false;
+        });
+
 
     });
 

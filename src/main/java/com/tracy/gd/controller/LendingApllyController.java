@@ -344,6 +344,26 @@ public class LendingApllyController {
         return lendingApply;
     }
 
+    /*
+       purpose: 查看当前用户申请记录 (有过滤条件)
+       Author: linsong.wei
+     */
+
+    @RequestMapping("/showApplyFilter")
+    public @ResponseBody
+    HashMap doshowApplyFilter(HttpServletRequest request, HttpServletResponse response, @RequestParam("cptName") String cptName, @RequestParam("dateFrom") String dateFrom, @RequestParam("dateTo") String dateTo, @RequestParam("attribute1") String attribute1) {
+        HashMap map = new HashMap();
+
+        int curUserId = (Integer) request.getSession().getAttribute("userId");
+
+        List<LendingApply> lendingApplies = lendingApplyService.doSelectByUserFilter(cptName,dateFrom,dateTo,attribute1,curUserId);
+
+        map.put("code", 0);
+        map.put("msg", "");
+        map.put("data", lendingApplies);
+        return map;
+    }
+
 
     /*
        purpose: 查看当前用户申请记录 Create by : linsong.wei  2017-11-12 18:18:52  //直接从apply表里查

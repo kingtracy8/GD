@@ -72,5 +72,18 @@ public class LendingApplyServiceImpl implements ILendingApplyService {
         return lendingApplyMapper.FindPassByUserFilter(cptName, dateFrom, dateTo, cptIsReturned, laUserId);
     }
 
+    /*
+               purpose: 获得当前用户全部记录    （添加查询条件）
+               Author: linsong.wei  2017-12-05 13:27:27
+            */
+    public List<LendingApply> selectByUserFilter(String cptName, String dateFrom, String dateTo, String attribute1, Integer laUserId) {
+        return lendingApplyMapper.selectByUserFilter(cptName, dateFrom, dateTo, attribute1, laUserId);
+    }
+
+    //与上一样，供Controller层调用
+    public List<LendingApply> doSelectByUserFilter(String cptName, String dateFrom, String dateTo, String attribute1, Integer laUserId) {
+        return lendingApplyMapper.selectByUserFilter(cptName, dateFrom, dateTo, attribute1, laUserId);
+    }
+
 
 }

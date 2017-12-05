@@ -289,4 +289,25 @@ AND a.la_is_check = 'Y'
         </if>
         AND a.la_user_id  = #{laUserId,jdbcType=INTEGER}
     </select>
+    <select id="selectByUserFilter" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        SELECT
+        a.*, c.cpt_name
+        FROM
+        gd_lending_apply a,
+        gd_computers c
+        WHERE a.la_cpt_id = c.cpt_id
+        <if test="cptName != null and cptName != ''" >
+            AND c.cpt_name like CONCAT('%',#{param1},'%')
+        </if>
+        <if test="dateFrom != null and dateFrom != ''" >
+            AND a.la_lend_time &gt;= date_format(#{param2}, '%Y-%m-%d')
+        </if>
+        <if test="dateTo != null and dateTo != ''" >
+            AND a.la_return_time &lt;= date_format(#{param3}, '%Y-%m-%d')
+        </if>
+        <if test="attribute1 != null and attribute1 != ''" >
+            AND a.attribute1 = #{param4}
+        </if>
+        AND a.la_user_id  = #{laUserId,jdbcType=INTEGER}
+    </select>
 </mapper>
