@@ -11,20 +11,24 @@
 <body>
 
 <blockquote class="layui-elem-quote layui-text" style="margin-top: 10px">
-    您好，管理员，您可以对申请纪录进行操作。
+    您好，管理员，您可以对申请纪录的审核意见进行更改。
 </blockquote>
 
-<table class="layui-table" lay-filter="test3" lay-data="{url:'/LendingHistory/ShowHisList', id:'idTest',width:1320,height:400, page:true}">
+<table class="layui-table" lay-filter="test3"
+       lay-data="{url:'/LendingHistory/ShowHisList', id:'idTest',width:1320,height:400, page:true}">
     <thead>
     <tr>
         <th lay-data="{type:'checkbox', fixed: 'left'}"></th>
-        <th lay-data="{field:'lhId', width:80}">ID</th>
+        <!--<th lay-data="{field:'lhId', width:80}">ID</th>-->
         <th lay-data="{field:'userName',width:130,sort: true}">申请用户</th>
         <th lay-data="{field:'userIdentity',width:120}">身份</th>
         <th lay-data="{field:'attribute1',width:120}">是否已审核</th>
-        <th lay-data="{field:'lhWhoChecked', width:100}">由谁审核</th>
+        <!--<th lay-data="{field:'lhWhoChecked', width:100}">由谁审核</th>-->
+        <!--由于设计缺陷，admin和user表是同一张，所以这里只能获得审核人的id，而且上面有了申请用户的id，所以只能通过在service中利用
+        审核人id去查询出是哪个用户，然后把其用户名放到备用字段2上，展示出来，linsong.wei 2017-12-05 15:35:40-->
+        <th lay-data="{field:'attribute2', width:100}">由谁审核</th>
         <th lay-data="{field:'lhCheckTime', width:180}">审核时间</th>
-        <th lay-data="{field:'lhIsCheck',width:200}">是否审核通过</th>
+        <th lay-data="{field:'lhIsCheck',width:180}">是否审核通过</th>
         <th lay-data="{field:'laCommons',edit:'text', width:130}">审核意见</th>
     </tr>
     </thead>
@@ -32,8 +36,9 @@
 
 <div class="layui-btn-group demoTable" style="margin-bottom: 20px;margin-left: 28%">
     <button class="layui-btn" data-type="submitUpdate">提交修改</button>
-    <button class="layui-btn" data-type="delete">删除</button>
-    <button class="layui-btn" data-type="add">新增</button>
+    <!--原始记录不能被删除和新增  linsong.wei 2017-12-05 15:13:02-->
+    <!--<button class="layui-btn" data-type="delete">删除</button>-->
+    <!--<button class="layui-btn" data-type="add">新增</button>-->
 </div>
 
 
@@ -50,17 +55,36 @@
                 if (data.length == 0) {
                     layer.alert("对不起，您未选中任何记录");
                 } else {
-                    layer.msg("通过ajax进行更新数据");
-                }
-            },delete:function () {
-                var checkStatus = table.checkStatus('idTest')
-                    , data = checkStatus.data;
-                if (data.length == 0) {
-                    layer.alert("对不起，您未选中任何记录");
-                } else {
-                    layer.alert(JSON.stringify(data));
+                    // 更新审核意见
+                    $.ajax({
+                        url: "http://localhost:8080/LendingHistory/UpdateHis",
+                        type: "POST",
+                        data: JSON.stringify(data), //转JSON字符串
+                        dataType: 'json',
+                        contentType: 'application/json;charset=UTF-8',
+                        success: function (result) {
+                            if (result.flag == 1) {
+                                layer.alert("操作成功!");
+                                table.reload('idTest', {
+                                    url: '/LendingHistory/ShowHisList'
+                                });
+                            }
+                        }, error: function (XMLHttpRequest, textStatus) {
+                            layer.alert("操作失败!请重试！");
+                        }
+                    });
                 }
             }
+            //原始记录不能被删除和新增  linsong.wei 2017-12-05 15:13:02
+// ,delete:function () {
+//                var checkStatus = table.checkStatus('idTest')
+//                    , data = checkStatus.data;
+//                if (data.length == 0) {
+//                    layer.alert("对不起，您未选中任何记录");
+//                } else {
+//                    layer.alert(JSON.stringify(data));
+//                }
+//            }
         };
 
         $('.demoTable .layui-btn').on('click', function () {
@@ -76,7 +100,6 @@
         window.location.reload();
     }
 </script>
-
 
 
 </body>
