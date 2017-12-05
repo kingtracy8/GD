@@ -43,5 +43,6 @@ public interface LendingApplyMapper {
 
     //过滤申请记录  2017-12-05 13:24:22
     List<LendingApply> selectByUserFilter(@Param("cptName") String cptName, @Param("dateFrom") String dateFrom, @Param("dateTo") String dateTo, @Param("attribute1") String attribute1, @Param("laUserId") Integer laUserId);
-
+    //过滤审核记录  2017-12-05 16:35:09
+    List<LendingApply> selectAuditingAddFilter(@Param("cptName") String cptName, @Param("dateFrom") String dateFrom, @Param("dateTo") String dateTo,@Param("userIdentity") String userIdentity, @Param("attribute1") String attribute1);
 }

@@ -126,9 +126,10 @@ public class TestMyBatis {
 
 //        List<LendingApply> lendingApplies = lendingApplyService.FindPassByUserFilter
 //                ("戴尔","2008-08-08","2018-08-08","Y",1);
-        float price= (float) 2.14748365E9;
-        DecimalFormat decimalFormat=new DecimalFormat(".00");//构造方法的字符格式这里如果小数不足2位,会以0补足.
-        String p=decimalFormat.format(price);
-        logger.info(JSON.toJSONString(p));
+//        float price= (float) 2.14748365E9;
+//        DecimalFormat decimalFormat=new DecimalFormat(".00");//构造方法的字符格式这里如果小数不足2位,会以0补足.
+//        String p=decimalFormat.format(price);
+        List<LendingApply> lendingApplies = lendingApplyService.selectAuditingAddFilter(null,null,null,null,"Y");
+        logger.info(JSON.toJSONString(lendingApplies));
     }
 }  

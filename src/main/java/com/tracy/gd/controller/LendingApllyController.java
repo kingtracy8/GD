@@ -53,7 +53,7 @@ public class LendingApllyController {
 
         //已经把业务逻辑封装到Service层
 
-        List<LendingApply> lendingApplies = lendingApplyService.doFindPassByUserFilter(cptName,dateFrom,dateTo,cptIsReturned,curUserId);
+        List<LendingApply> lendingApplies = lendingApplyService.doFindPassByUserFilter(cptName, dateFrom, dateTo, cptIsReturned, curUserId);
 
         map.put("code", 0);
         map.put("msg", "");
@@ -312,6 +312,23 @@ public class LendingApllyController {
         return map;
     }
 
+    /*
+      purpose:查询申请表中记录，给管理员进行审核  （有过滤条件）
+       Create by : linsong.wei  2017-12-05 16:44:47
+    */
+    @RequestMapping("/AuditingListAddFilter")
+    public @ResponseBody
+    HashMap doAuditingListAddFilter(HttpServletRequest request, HttpServletResponse response, @RequestParam("cptName") String cptName, @RequestParam("dateFrom") String dateFrom, @RequestParam("dateTo") String dateTo, @RequestParam("userIdentity") String userIdentity, @RequestParam("attribute1") String attribute1) {
+        HashMap map = new HashMap();
+
+        List<LendingApply> lendingApplies = lendingApplyService.selectAuditingAddFilter(cptName, dateFrom, dateTo, userIdentity, attribute1);
+
+        map.put("code", 0);
+        map.put("msg", "");
+        map.put("data", lendingApplies);
+        return map;
+    }
+
 
     /*
       purpose:查询申请表中所有记录，给管理员进行审核
@@ -356,7 +373,7 @@ public class LendingApllyController {
 
         int curUserId = (Integer) request.getSession().getAttribute("userId");
 
-        List<LendingApply> lendingApplies = lendingApplyService.doSelectByUserFilter(cptName,dateFrom,dateTo,attribute1,curUserId);
+        List<LendingApply> lendingApplies = lendingApplyService.doSelectByUserFilter(cptName, dateFrom, dateTo, attribute1, curUserId);
 
         map.put("code", 0);
         map.put("msg", "");

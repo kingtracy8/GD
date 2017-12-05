@@ -85,5 +85,9 @@ public class LendingApplyServiceImpl implements ILendingApplyService {
         return lendingApplyMapper.selectByUserFilter(cptName, dateFrom, dateTo, attribute1, laUserId);
     }
 
+    public List<LendingApply> selectAuditingAddFilter(String cptName, String dateFrom, String dateTo, String userIdentity, String attribute1) {
+        return lendingApplyMapper.selectAuditingAddFilter(cptName,dateFrom,dateTo,userIdentity,attribute1);
+    }
+
 
 }

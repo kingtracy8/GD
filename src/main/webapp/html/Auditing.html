@@ -8,15 +8,76 @@
     <script src="../js/layui.js"></script>
 </head>
 <body>
-<blockquote class="layui-elem-quote layui-text" style="margin-top: 10px">
-    管理员，您好，下方表格中是所有的申请记录，您有权限进行审核。
-</blockquote>
+<div>
+    <blockquote class="layui-elem-quote layui-text" style="margin-top: 10px">
+        管理员，您好，下方表格中是所有的申请记录，您有权限进行审核。
+    </blockquote>
+
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+        <legend>如果您有需要，下方搜索框可以进行筛选</legend>
+    </fieldset>
+
+    <form class="layui-form" action="">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">电脑名称</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="cptName" id="cptName" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">借用日期从</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="dateFrom" id="dateFrom" lay-verify="date" placeholder="yyyy-MM-dd"
+                           autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-mid">至</div>
+                <div class="layui-input-inline">
+                    <input type="text" name="dateTo" id="dateTo" lay-verify="date" placeholder="yyyy-MM-dd"
+                           autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">申请人身份</label>
+                <div class="layui-input-inline">
+                    <select name="userIdentity" lay-search="" id="userIdentity">
+                        <option value=""></option>
+                        <option value="admin">admin</option>
+                        <option value="user">user</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">已经审核</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="attribute1" value="Y" title="是">
+                    <input type="radio" name="attribute1" value="N" title="否" checked="">
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="layui-form-item">
+            <div class="layui-input-block" style="margin-left: 28%">
+                <button class="layui-btn" lay-submit="" lay-filter="FilterForm">查询</button>
+                <button type="reset" class="layui-btn layui-btn-primary" lay-filter="ReSet" onclick="doReset()">重置
+                </button>
+            </div>
+        </div>
+    </form>
+
+</div>
 <table class="layui-table"
        lay-data="{id:'computersTable',width:1320,height:400,url:'/LendingApply/AuditingList', page:true}"
        lay-filter="test">
     <thead>
     <tr>
-        <th lay-data="{field:'laCptId', width:80,sort: true}">电脑id</th>
+        <!--<th lay-data="{field:'laCptId', width:80,sort: true}">电脑id</th>-->
         <th lay-data="{field:'cptName', width:225,sort: true}">电脑</th>
         <th lay-data="{field:'userName', width:120}">申请人</th>
         <th lay-data="{field:'userIdentity', width:120}">申请人身份</th>
@@ -139,6 +200,45 @@
                 layer.msg("很抱歉，该条记录已经被审核过了，不能操作！");
             }
         });
+
+
+        //日期
+        laydate.render({
+            elem: '#dateFrom'
+        });
+        laydate.render({
+            elem: '#dateTo'
+        });
+
+
+        form.on('submit(FilterForm)', function (data) {
+
+            var cptName = document.getElementById('cptName');
+            var dateFrom = document.getElementById('dateFrom');
+            var dateTo = document.getElementById('dateTo');
+            var userIdentity = $('#userIdentity option:selected').val();
+            var attribute1 = $('input:radio:checked').val();
+
+
+            //如果只选择了第一日期，没选第二个，默认选择归还日期在7天内   linsong.wei 2017-12-03 15:31:48
+            if (data.field.dateFrom > (data.field.dateTo == "" ? data.field.dateTo = data.field.dateFrom + 7 : data.field.dateTo)) {
+                layer.alert('借用日期不能早于归还日期！', {icon: 5});
+            } else {
+                table.reload('computersTable', {
+                    url: '/LendingApply/AuditingListAddFilter',
+                    where: {
+                        cptName: cptName.value,
+                        dateFrom: dateFrom.value,
+                        dateTo: dateTo.value,
+                        userIdentity: $('#userIdentity option:selected').val(),
+                        attribute1: attribute1,
+                    }
+                });
+            }
+            return false;
+        });
+
+
     });
     function doReset() {
         //简单粗暴  直接刷新，得到全部的数据 。。。  linsong.wei 2017-11-10 22:47:40

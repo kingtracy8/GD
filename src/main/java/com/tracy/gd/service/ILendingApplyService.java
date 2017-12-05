@@ -42,4 +42,6 @@ public interface ILendingApplyService {
 
     List<LendingApply> doSelectByUserFilter(String cptName,String dateFrom,String dateTo,String attribute1,Integer laUserId);
 
+    List<LendingApply> selectAuditingAddFilter(String cptName, String dateFrom, String dateTo, String userIdentity, String attribute1);
+
 }
