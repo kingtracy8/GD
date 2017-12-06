@@ -25,29 +25,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="computersList.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/html/computersList.html">
+      <file leaf-file-name="Auditing.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/html/Auditing.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1431">
-              <caret line="199" column="13" lean-forward="false" selection-start-line="199" selection-start-column="13" selection-end-line="199" selection-end-column="13" />
+            <state relative-caret-position="596">
+              <caret line="57" column="77" lean-forward="false" selection-start-line="57" selection-start-column="77" selection-end-line="57" selection-end-column="77" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ComputerMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/ComputerMapper.xml">
+      <file leaf-file-name="RecordManager.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/html/RecordManager.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="256" column="60" lean-forward="true" selection-start-line="256" selection-start-column="60" selection-end-line="256" selection-end-column="60" />
-              <folding>
-                <marker date="1512534292766" expanded="true" signature="1906:2021" ph="select from gd_computers" />
-                <marker date="1512534292766" expanded="true" signature="2108:2177" ph="delete from " />
-                <marker date="1512534292766" expanded="true" signature="2263:3096" ph="insert into gd_computers... " />
-                <marker date="1512534292766" expanded="true" signature="6119:7825" ph="update gd_co... " />
-                <marker date="1512534292766" expanded="true" signature="7923:8791" ph="update gd_co... " />
-                <marker date="1512534292766" expanded="true" signature="9752:10049" ph="SELECT cpt_i... gd_computers" />
-              </folding>
+            <state relative-caret-position="344">
+              <caret line="48" column="78" lean-forward="false" selection-start-line="48" selection-start-column="78" selection-end-line="48" selection-end-column="78" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApplyHistory.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/html/ApplyHistory.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="479">
+              <caret line="185" column="13" lean-forward="true" selection-start-line="183" selection-start-column="12" selection-end-line="185" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -113,10 +116,8 @@
         <option value="$PROJECT_DIR$/src/main/webapp/html/LendingApply.html" />
         <option value="$PROJECT_DIR$/src/main/resources/spring-mybatis.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
-        <option value="$PROJECT_DIR$/src/main/webapp/html/ReturnCpt.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/UserMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/html/UserManager.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/IExpenseRatioService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/ExpenseController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/impl/ExpenseRatioServiceImpl.java" />
@@ -125,9 +126,7 @@
         <option value="$PROJECT_DIR$/src/main/webapp/html/ExpenseRatio.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/IComputerService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/impl/ComputerServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/html/ComputerManager.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/AddComputer.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/html/ApplyHistory.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/IDao/LendingApplyMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/ILendingApplyService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/impl/LendingApplyServiceImpl.java" />
@@ -140,13 +139,17 @@
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/ILendingHistoryService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/impl/LendingHistoryServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/LendingHistoryController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/html/RecordManager.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/welcome.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/ComputerController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/html/Auditing.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/computersList.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/ComputerMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/html/ReturnCpt.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/html/ApplyHistory.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/html/UserManager.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/html/ComputerManager.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/html/Auditing.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/html/RecordManager.html" />
       </list>
     </option>
   </component>
@@ -1238,7 +1241,7 @@
       <workItem from="1512457660565" duration="6259000" />
       <workItem from="1512466705142" duration="4011000" />
       <workItem from="1512479696331" duration="5494000" />
-      <workItem from="1512526811491" duration="7403000" />
+      <workItem from="1512526811491" duration="8182000" />
     </task>
     <servers />
   </component>
@@ -1275,7 +1278,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="280401000" />
+    <option name="totallyTimeSpent" value="281180000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1312,7 +1315,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32703003" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32703003" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.48053393" sideWeight="0.49356222" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48053393" sideWeight="0.49356222" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32703003" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32703003" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23712446" sideWeight="0.4781145" order="8" side_tool="false" content_ui="combo" />
@@ -1582,13 +1585,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/ApplyHistory.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2801">
-          <caret line="165" column="11" lean-forward="false" selection-start-line="165" selection-start-column="11" selection-end-line="165" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/domain/LendingApply.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -1666,13 +1662,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/RecordManager.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="722">
-          <caret line="164" column="59" lean-forward="false" selection-start-line="164" selection-start-column="59" selection-end-line="164" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/html/AddUser.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3699">
@@ -1684,13 +1673,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-706">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/ReturnCpt.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4293">
-          <caret line="174" column="0" lean-forward="true" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1738,14 +1720,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/ComputerManager.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-core/4.0.2.RELEASE/spring-core-4.0.2.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
@@ -1782,22 +1756,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/UserManager.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-324">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/Auditing.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="219" column="60" lean-forward="true" selection-start-line="219" selection-start-column="60" selection-end-line="219" selection-end-column="60" />
           <folding />
         </state>
       </provider>
@@ -1877,8 +1835,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/html/computersList.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1431">
-          <caret line="199" column="13" lean-forward="false" selection-start-line="199" selection-start-column="13" selection-end-line="199" selection-end-column="13" />
+        <state relative-caret-position="216">
+          <caret line="199" column="13" lean-forward="true" selection-start-line="197" selection-start-column="12" selection-end-line="199" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/UserManager.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="86" column="77" lean-forward="false" selection-start-line="86" selection-start-column="77" selection-end-line="86" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/ReturnCpt.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="187" column="13" lean-forward="true" selection-start-line="185" selection-start-column="12" selection-end-line="187" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/ComputerManager.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="222" column="46" lean-forward="false" selection-start-line="222" selection-start-column="46" selection-end-line="222" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/Auditing.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="596">
+          <caret line="57" column="77" lean-forward="false" selection-start-line="57" selection-start-column="77" selection-end-line="57" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/ApplyHistory.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="185" column="13" lean-forward="true" selection-start-line="183" selection-start-column="12" selection-end-line="185" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/RecordManager.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="48" column="78" lean-forward="false" selection-start-line="48" selection-start-column="78" selection-end-line="48" selection-end-column="78" />
           <folding />
         </state>
       </provider>

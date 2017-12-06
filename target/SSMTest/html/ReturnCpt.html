@@ -74,7 +74,7 @@
                 <label class="layui-form-label">已归还</label>
                 <div class="layui-input-block">
                     <input type="radio" name="cptIsReturned" value="Y" title="是">
-                    <input type="radio" name="cptIsReturned" value="N" title="否" checked="">
+                    <input type="radio" name="cptIsReturned" value="N" title="否">
                 </div>
             </div>
         </div>
@@ -183,7 +183,9 @@
             var dateFrom = document.getElementById('dateFrom');
             var dateTo = document.getElementById('dateTo');
             var cptIsReturned = $('input:radio:checked').val();
-
+            if (typeof(cptIsReturned) == "undefined") {
+                cptIsReturned = '';
+            }
 //            console.log(cptName.value);
 //            console.log(dateFrom.value);
 //            console.log(cptIsReturned);

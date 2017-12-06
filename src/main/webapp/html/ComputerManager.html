@@ -71,7 +71,7 @@
                 <label class="layui-form-label">是否借出</label>
                 <div class="layui-input-block">
                     <input type="radio" name="cptIslending" value="Y" title="是">
-                    <input type="radio" name="cptIslending" value="N" title="否" checked="">
+                    <input type="radio" name="cptIslending" value="N" title="否">
                 </div>
             </div>
         </div>
@@ -206,6 +206,9 @@
             var cptOs = $('#cptOs option:selected').val();   //获得下拉框的值
             //获得radio
             var cptIslending = $('input:radio:checked').val();
+            if (typeof(cptIslending) == "undefined") {
+                cptIslending = '';
+            }
 
             var cardValue = cptGraphicscard.value;
 
@@ -217,7 +220,7 @@
                     cptCpu: cptCpu.value,
                     cptCard: cardValue,
                     cptOs: cptOs,
-                    cptIslending: $('input:radio:checked').val(),
+                    cptIslending: cptIslending,
                 }
             });
             return false;

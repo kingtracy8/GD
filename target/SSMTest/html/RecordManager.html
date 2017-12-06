@@ -46,7 +46,7 @@
                 <label class="layui-form-label">已归还</label>
                 <div class="layui-input-block">
                     <input type="radio" name="eIsReturned" value="Y" title="是">
-                    <input type="radio" name="eIsReturned" value="N" title="否" checked="">
+                    <input type="radio" name="eIsReturned" value="N" title="否">
                 </div>
             </div>
         </div>
@@ -156,7 +156,9 @@
             var dateFrom = document.getElementById('dateFrom');
             var dateTo = document.getElementById('dateTo');
             var eIsReturned = $('input:radio:checked').val();
-
+            if (typeof(eIsReturned) == "undefined") {
+                eIsReturned = '';
+            }
             if (data.field.dateFrom > (data.field.dateTo == "" ? data.field.dateTo = data.field.dateFrom + 7 : data.field.dateTo)) {
                 layer.alert('借用日期不能早于归还日期！', {icon: 5});
             } else {

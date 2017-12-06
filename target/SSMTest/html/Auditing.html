@@ -55,7 +55,7 @@
                 <label class="layui-form-label">已经审核</label>
                 <div class="layui-input-block">
                     <input type="radio" name="attribute1" value="Y" title="是">
-                    <input type="radio" name="attribute1" value="N" title="否" checked="">
+                    <input type="radio" name="attribute1" value="N" title="否">
                 </div>
             </div>
 
@@ -218,7 +218,9 @@
             var dateTo = document.getElementById('dateTo');
             var userIdentity = $('#userIdentity option:selected').val();
             var attribute1 = $('input:radio:checked').val();
-
+            if (typeof(attribute1) == "undefined") {
+                attribute1 = '';
+            }
 
             //如果只选择了第一日期，没选第二个，默认选择归还日期在7天内   linsong.wei 2017-12-03 15:31:48
             if (data.field.dateFrom > (data.field.dateTo == "" ? data.field.dateTo = data.field.dateFrom + 7 : data.field.dateTo)) {
