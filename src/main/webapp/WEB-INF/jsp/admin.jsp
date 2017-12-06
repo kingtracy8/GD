@@ -36,7 +36,7 @@
         <div class="layui-logo">csu system</div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-left ">
-            <li class="layui-nav-item"><a href="#">控制台</a></li>
+            <li class="layui-nav-item"><a href="../../html/welcome.html" target="ifrbody">控制台</a></li>
             <li class="layui-nav-item"><a href="#">系统管理</a></li>
             <li class="layui-nav-item"><a href="#">
                 <%--<%=identity%>--%>用户
