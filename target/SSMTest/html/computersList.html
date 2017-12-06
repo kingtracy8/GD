@@ -70,7 +70,7 @@
                 <label class="layui-form-label">是否借出</label>
                 <div class="layui-input-block">
                     <input type="radio" name="cptIslending" value="Y" title="是">
-                    <input type="radio" name="cptIslending" value="N" title="否" checked="">
+                    <input type="radio" name="cptIslending" value="N" title="否">
                 </div>
             </div>
         </div>
@@ -192,6 +192,12 @@
              console.log(cptIslending);
 
              */
+            //用jq这种方式去去获取单选按钮的时候，如果没有选中，则$('input:radio:checked').val();的值为undefined
+            //这就导致了数据接口异常（后台中空指针异常，所以先判断它的类型，如果是没选中，就赋值为空，而后端中已经给''做了处理）
+            //update by: linsong.wei  2017-12-06 12:19:53
+            if (typeof(cptIslending) == "undefined") {
+                cptIslending = '';
+            }
 //            if(cptName.value||$('#cptRam option:selected').val()||cptCpu.value|| $('#cptGraphicscard option:selected').val()){
 //
 //            }
@@ -205,7 +211,8 @@
                     cptCpu: cptCpu.value,
                     cptCard: cardValue,
                     cptOs: cptOs,
-                    cptIslending: $('input:radio:checked').val(),
+//                    cptIslending: $('input:radio:checked').val(),
+                    cptIslending: cptIslending,
                 }
             });
 //            }else{  //否则加载全部

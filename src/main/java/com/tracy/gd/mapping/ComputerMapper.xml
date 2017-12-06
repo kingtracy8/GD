@@ -253,7 +253,7 @@
       <if test="cptGraphicscard != null">
         AND cpt_graphicscard like CONCAT('%','${cptGraphicscard}','%')
       </if>
-      <if test="cptIslending != null" >
+      <if test="cptIslending != null  and cptIslending != ''" >
         AND cpt_islending = #{cptIslending,jdbcType=VARCHAR}
       </if>
     </where>
