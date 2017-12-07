@@ -91,8 +91,8 @@
        lay-data="{id:'computersTable',width:1320,height:400,url:'/Computer/computerList', page:true}" lay-filter="test">
     <thead>
     <tr>
-        <th lay-data="{field:'cptId', width:80}">ID</th>
-        <th lay-data="{field:'cptName', width:220,sort: true}">名称</th>
+        <!--<th lay-data="{field:'cptId', width:80}">ID</th>-->
+        <th lay-data="{field:'cptName', width:220,sort: true,fixed: 'left'}">名称</th>
         <th lay-data="{field:'cptPrice', width:120}">原价</th>
         <th lay-data="{field:'cptOs', width:130}">操作系统</th>
         <th lay-data="{field:'cptCpu', width:177}">CPU</th>
@@ -152,13 +152,36 @@
                                 //如果记录表里没有已经申请同一台电脑的记录，
                                 var url = "http://localhost:8080/html/LendingApply.html?cptId=" + data.cptId;
                                 console.log(url);
-                                var index = layer.open({
-                                    type: 2,
-                                    title: '申请使用',
-                                    offset: '100px',  //水平居中
-                                    area: ['700px', '600px'],
-                                    content: [url, 'no']
+//                                var index = layer.open({
+//                                    type: 2,
+//                                    title: '申请使用',
+//                                    offset: ['50px', '350px'],
+//                                    area: ['700px', '600px'],
+//                                    content: [url, 'no']
+//                                });
+                                var index =  layer.open({
+                                    type: 2
+                                    ,title: '申请使用'
+                                    ,offset: ['50px', '350px']
+                                    ,area: ['700px', '600px']
+                                    ,shade: 0.4
+                                    ,maxmin: true
+                                    ,content: [url, 'no']
+                                    ,btn: ['关闭', '全部关闭'] //只是为了演示
+                                    ,yes: function(){
+                                        layer.close(this);
+                                    }
+                                    ,btn2: function(){
+                                        layer.closeAll();
+                                    }
+                                    ,zIndex: layer.zIndex //重点1
+                                    ,success: function(layero){
+                                        layer.setTop(layero); //重点2
+                                    }
                                 });
+
+
+
                                 layer.iframeAuto(index);    //自适应
 
                             } else {

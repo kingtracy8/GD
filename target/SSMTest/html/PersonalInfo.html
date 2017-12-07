@@ -187,7 +187,11 @@
                     dataType: 'json',
                     contentType: 'application/json;charset=UTF-8', //contentType很重要
                     success: function (result) {
-                        layer.msg("用户信息更改成功!");
+                        layer.open({
+                            title: '提示'
+                            ,content: '用户信息更改成功!'
+                            ,offset: ['250px', '500px']
+                        });
                     }
                 })
          //   }
