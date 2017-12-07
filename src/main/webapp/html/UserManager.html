@@ -59,7 +59,7 @@
             <div class="layui-inline">
                 <label class="layui-form-label">部门</label>
                 <div class="layui-input-inline">
-                    <select name="userDepartment"  lay-search="" id="userDepartment">
+                    <select name="userDepartment" lay-search="" id="userDepartment">
                         <option value="">直接选择或搜索选择</option>
                         <option value="数学与计算机科学学院">数学与计算机科学学院</option>
                         <option value="外国语学院">外国语学院</option>
@@ -218,7 +218,7 @@
                     userNum: userNum.value,
                     userPhone: userPhone.value,
                     userDepartment: $('#userDepartment option:selected').val(),
-                    userGender : userGender,
+                    userGender: userGender,
                 }
             });
 
@@ -232,8 +232,10 @@
             var data = obj.data //获得当前行数据
                 , layEvent = obj.event; //获得 lay-event 对应的值
 
-                if (layEvent === 'save') {
+            if (layEvent === 'save') {
 
+
+                var index = layer.confirm('确定要修改该用户信息吗?', {icon: 3, title: '提示',offset: ['350px', '450px']}, function (index) {
                     //Author：linsong.wei 2017-12-03 21:10:56
                     $.ajax({
                         url: "http://localhost:8080/user/UpdateUserSingle",
@@ -256,10 +258,11 @@
                             layer.alert("操作失败!请重试！");
                         }
                     });
+                });
 
+            } else if (layEvent === 'delete') {
 
-                } else if (layEvent === 'delete') {
-
+                var indexDel = layer.confirm('确定要删除该用户信息吗?', {icon: 3, title: '提示',offset: ['350px', '450px']}, function (index) {
                     $.ajax({
                         url: "http://localhost:8080/user/DeleteUserSingle",
                         type: "POST",
@@ -281,11 +284,10 @@
                             layer.alert("操作失败!请重试！");
                         }
                     });
-
-                }
+                });
+            }
 
         });
-
 
 
     });
@@ -301,7 +303,7 @@
         var index = layer.open({
             type: 2,
             title: '新增用户',
-            offset: '100px',  //水平居中
+            offset: ['130px', '250px'],
             area: ['700px', '500px'],
             content: 'http://localhost:8080/html/AddUser.html' //这里content是一个URL，如果你不想让iframe出现滚动条，你还可以content: ['http://sentsin.com', 'no']
         });

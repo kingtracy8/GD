@@ -153,46 +153,56 @@
                                 });
                             } else {
                                 //这台电脑只有一条申请记录，直接审核通过
-                                $.ajax({
-                                    url: 'http://localhost:8080/LendingApply/AuditingPassFilter?laId=' + data.laId + '&laCptId=' + data.laCptId,
-                                    type: "GET",
-                                    dataType: 'json',
-                                    contentType: 'application/json;charset=UTF-8', //contentType很重要
-                                    success: function (result) {
-                                        if (result.flag == 1) {
-                                            layer.msg("操作成功!");
-                                            //重载表格
-                                            table.reload('computersTable', {
-                                                url: '/LendingApply/AuditingList'
-                                            });
+
+                                var indexPass = layer.confirm('确定通过此用户的申请吗?', {
+                                    icon: 3,
+                                    title: '提示',
+                                    offset: ['350px', '450px']
+                                }, function (index) {
+                                    $.ajax({
+                                        url: 'http://localhost:8080/LendingApply/AuditingPassFilter?laId=' + data.laId + '&laCptId=' + data.laCptId,
+                                        type: "GET",
+                                        dataType: 'json',
+                                        contentType: 'application/json;charset=UTF-8', //contentType很重要
+                                        success: function (result) {
+                                            if (result.flag == 1) {
+                                                layer.msg("操作成功!");
+                                                //重载表格
+                                                table.reload('computersTable', {
+                                                    url: '/LendingApply/AuditingList'
+                                                });
+                                            }
+                                        }, error: function (XMLHttpRequest, textStatus) {
+                                            //如果后台发生错误，进行回滚，前台给出相应的提示 update by: linsong.wei 2017年11月29日
+                                            layer.alert("操作失败!请重试！");
                                         }
-                                    }, error: function (XMLHttpRequest, textStatus) {
-                                        //如果后台发生错误，进行回滚，前台给出相应的提示 update by: linsong.wei 2017年11月29日
-                                        layer.alert("操作失败!请重试！");
-                                    }
+                                    });
                                 });
                             }
                         }
                     });
                 } else if (layEvent === 'reject') {
                     //通过ajax进行审核不通过操作
-                    $.ajax({
-                        url: 'http://localhost:8080/LendingApply/AuditingReject?laId=' + data.laId + '&laCptId=' + data.laCptId,
-                        type: "GET",
-                        dataType: 'json',
-                        contentType: 'application/json;charset=UTF-8', //contentType很重要
-                        success: function (result) {
-                            if (result.flag == 1) {
-                                layer.msg("操作成功!");
-                                //重载表格
-                                table.reload('computersTable', {
-                                    url: '/LendingApply/AuditingList'
-                                });
+
+                    var indexRej = layer.confirm('确定要拒绝该用户的申请吗?', {icon: 3, title: '提示',offset: ['350px', '450px']}, function (index) {
+                        $.ajax({
+                            url: 'http://localhost:8080/LendingApply/AuditingReject?laId=' + data.laId + '&laCptId=' + data.laCptId,
+                            type: "GET",
+                            dataType: 'json',
+                            contentType: 'application/json;charset=UTF-8', //contentType很重要
+                            success: function (result) {
+                                if (result.flag == 1) {
+                                    layer.msg("操作成功!");
+                                    //重载表格
+                                    table.reload('computersTable', {
+                                        url: '/LendingApply/AuditingList'
+                                    });
+                                }
+                            }, error: function (XMLHttpRequest, textStatus) {
+                                //如果后台发生错误，进行回滚，前台给出相应的提示 update by: linsong.wei 2017年11月29日
+                                layer.alert("操作失败!请重试！");
                             }
-                        }, error: function (XMLHttpRequest, textStatus) {
-                            //如果后台发生错误，进行回滚，前台给出相应的提示 update by: linsong.wei 2017年11月29日
-                            layer.alert("操作失败!请重试！");
-                        }
+                        });
                     });
 
                 }
