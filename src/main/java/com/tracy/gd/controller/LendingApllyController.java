@@ -56,7 +56,7 @@ public class LendingApllyController {
 
         //已经把业务逻辑封装到Service层
 
-        List<LendingApply> lendingApplies = lendingApplyService.doFindPassByUserFilter(cptName, dateFrom, dateTo, cptIsReturned, curUserId,start,offset);
+        List<LendingApply> lendingApplies = lendingApplyService.doFindPassByUserFilter(cptName, dateFrom, dateTo, cptIsReturned, curUserId, start, offset);
 
         map.put("code", 0);
         map.put("msg", "");
@@ -81,7 +81,7 @@ public class LendingApllyController {
         int start = (Integer.valueOf(page) - 1) * Integer.valueOf(limit);
         int offset = Integer.valueOf(limit);
 
-        List<LendingApply> lendingApplies = lendingApplyService.FindPassByUser(curUserId,start,offset);
+        List<LendingApply> lendingApplies = lendingApplyService.FindPassByUser(curUserId, start, offset);
 
         map.put("code", 0);
         map.put("msg", "");
@@ -378,12 +378,14 @@ public class LendingApllyController {
 
     @RequestMapping("/showApplyFilter")
     public @ResponseBody
-    HashMap doshowApplyFilter(HttpServletRequest request, HttpServletResponse response, @RequestParam("cptName") String cptName, @RequestParam("dateFrom") String dateFrom, @RequestParam("dateTo") String dateTo, @RequestParam("attribute1") String attribute1) {
+    HashMap doshowApplyFilter(HttpServletRequest request, HttpServletResponse response, @RequestParam("cptName") String cptName, @RequestParam("dateFrom") String dateFrom, @RequestParam("dateTo") String dateTo, @RequestParam("attribute1") String attribute1, @RequestParam("page") String page, @RequestParam("limit") String limit) {
         HashMap map = new HashMap();
 
         int curUserId = (Integer) request.getSession().getAttribute("userId");
-
-        List<LendingApply> lendingApplies = lendingApplyService.doSelectByUserFilter(cptName, dateFrom, dateTo, attribute1, curUserId);
+        //添加分页 2017-12-08
+        int start = (Integer.valueOf(page) - 1) * Integer.valueOf(limit);
+        int offset = Integer.valueOf(limit);
+        List<LendingApply> lendingApplies = lendingApplyService.doSelectByUserFilter(cptName, dateFrom, dateTo, attribute1, curUserId,start,offset);
 
         map.put("code", 0);
         map.put("msg", "");
@@ -398,15 +400,20 @@ public class LendingApllyController {
 
     @RequestMapping("/showApply")
     public @ResponseBody
-    HashMap doQueryApply(HttpServletRequest request, HttpServletResponse response) {
+    HashMap doQueryApply(HttpServletRequest request, HttpServletResponse response, @RequestParam("page") String page, @RequestParam("limit") String limit) {
         HashMap map = new HashMap();
 
         int curUserId = (Integer) request.getSession().getAttribute("userId");
+        //添加分页 2017-12-08
+        int start = (Integer.valueOf(page) - 1) * Integer.valueOf(limit);
+        int offset = Integer.valueOf(limit);
 
-        List<LendingApply> lendingApplies = lendingApplyService.selectByUser(curUserId);
+        List<LendingApply> lendingApplies = lendingApplyService.selectByUser(curUserId, start, offset);
 
         map.put("code", 0);
         map.put("msg", "");
+        int count = lendingApplyService.selectByUserCount(curUserId);
+        map.put("count", count);
         map.put("data", lendingApplies);
         return map;
     }

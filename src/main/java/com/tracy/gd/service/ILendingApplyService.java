@@ -13,7 +13,8 @@ public interface ILendingApplyService {
     int insertSelective(LendingApply record);
 
     //通过用户找用户申请记录 linsong.wei 2017-11-12 18:27:22
-    List<LendingApply> selectByUser(int laUserId);
+    //update by linsong.wei 2017-12-08 22:30:59
+    List<LendingApply> selectByUser(int laUserId, Integer start, Integer offset);
 
     LendingApply selectByPrimaryKey(Integer laId);
 
@@ -39,12 +40,14 @@ public interface ILendingApplyService {
     //Service层调用FindPassByUserFilter方法进行业务逻辑处理，将结果返回到Controller
     List<LendingApply> doFindPassByUserFilter(String cptName, String dateFrom, String dateTo, String cptIsReturned, Integer laUserId,Integer start, Integer offset);
 
-    List<LendingApply> selectByUserFilter(String cptName, String dateFrom, String dateTo, String attribute1, Integer laUserId);
+    List<LendingApply> selectByUserFilter(String cptName, String dateFrom, String dateTo, String attribute1, Integer laUserId,Integer start, Integer offset);
 
-    List<LendingApply> doSelectByUserFilter(String cptName, String dateFrom, String dateTo, String attribute1, Integer laUserId);
+    List<LendingApply> doSelectByUserFilter(String cptName, String dateFrom, String dateTo, String attribute1, Integer laUserId,Integer start, Integer offset);
 
     List<LendingApply> selectAuditingAddFilter(String cptName, String dateFrom, String dateTo, String userIdentity, String attribute1);
 
     int FindPassByUserCount(Integer laUserId);
+
+    int selectByUserCount(Integer laUserId);
 
 }
