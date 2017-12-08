@@ -31,17 +31,20 @@ public interface ILendingApplyService {
     int deleteByPkAndUser(LendingApply record);
 
     //找到当前用户通过审核的记录 linsong.wei 2017-11-27 15:33:25
-    List<LendingApply> FindPassByUser(int laUserId);
+    //update by : linsong.wei 添加两个参数，用来实现分页
+    List<LendingApply> FindPassByUser(int laUserId, Integer start, Integer offset);
 
-    List<LendingApply> FindPassByUserFilter(String cptName, String dateFrom, String dateTo, String cptIsReturned, Integer laUserId);
+    List<LendingApply> FindPassByUserFilter(String cptName, String dateFrom, String dateTo, String cptIsReturned, Integer laUserId,Integer start, Integer offset);
 
     //Service层调用FindPassByUserFilter方法进行业务逻辑处理，将结果返回到Controller
-    List<LendingApply> doFindPassByUserFilter(String cptName, String dateFrom, String dateTo, String cptIsReturned, Integer laUserId);
+    List<LendingApply> doFindPassByUserFilter(String cptName, String dateFrom, String dateTo, String cptIsReturned, Integer laUserId,Integer start, Integer offset);
 
-    List<LendingApply> selectByUserFilter(String cptName,String dateFrom,String dateTo,String attribute1,Integer laUserId);
+    List<LendingApply> selectByUserFilter(String cptName, String dateFrom, String dateTo, String attribute1, Integer laUserId);
 
-    List<LendingApply> doSelectByUserFilter(String cptName,String dateFrom,String dateTo,String attribute1,Integer laUserId);
+    List<LendingApply> doSelectByUserFilter(String cptName, String dateFrom, String dateTo, String attribute1, Integer laUserId);
 
     List<LendingApply> selectAuditingAddFilter(String cptName, String dateFrom, String dateTo, String userIdentity, String attribute1);
+
+    int FindPassByUserCount(Integer laUserId);
 
 }

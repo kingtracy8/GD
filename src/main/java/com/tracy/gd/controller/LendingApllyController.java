@@ -46,14 +46,17 @@ public class LendingApllyController {
 
     @RequestMapping("/findPassRecordFilter")
     public @ResponseBody
-    HashMap doFindPassRecordFilter(HttpServletRequest request, HttpServletResponse response, @RequestParam("cptName") String cptName, @RequestParam("dateFrom") String dateFrom, @RequestParam("dateTo") String dateTo, @RequestParam("cptIsReturned") String cptIsReturned) {
+    HashMap doFindPassRecordFilter(HttpServletRequest request, HttpServletResponse response, @RequestParam("cptName") String cptName, @RequestParam("dateFrom") String dateFrom, @RequestParam("dateTo") String dateTo, @RequestParam("cptIsReturned") String cptIsReturned, @RequestParam("page") String page, @RequestParam("limit") String limit) {
         HashMap map = new HashMap();
 
         int curUserId = (Integer) request.getSession().getAttribute("userId");
+        //添加分页 2017-12-08
+        int start = (Integer.valueOf(page) - 1) * Integer.valueOf(limit);
+        int offset = Integer.valueOf(limit);
 
         //已经把业务逻辑封装到Service层
 
-        List<LendingApply> lendingApplies = lendingApplyService.doFindPassByUserFilter(cptName, dateFrom, dateTo, cptIsReturned, curUserId);
+        List<LendingApply> lendingApplies = lendingApplyService.doFindPassByUserFilter(cptName, dateFrom, dateTo, cptIsReturned, curUserId,start,offset);
 
         map.put("code", 0);
         map.put("msg", "");
@@ -65,18 +68,25 @@ public class LendingApllyController {
     /*
         purpose: 获得当前用户已经被审核了的记录    （已经被审核才能被归还）
         Create by : linsong.wei  2017-11-27 15:37:46
+        update by : linsong.wei 2017-12-08 21:45:53 purpose; 修复分页功能
      */
     @RequestMapping("/findPassRecord")
     public @ResponseBody
-    HashMap doFindPassRecord(HttpServletRequest request, HttpServletResponse response) {
+    HashMap doFindPassRecord(HttpServletRequest request, HttpServletResponse response, @RequestParam("page") String page, @RequestParam("limit") String limit) {
         HashMap map = new HashMap();
 
         int curUserId = (Integer) request.getSession().getAttribute("userId");
 
-        List<LendingApply> lendingApplies = lendingApplyService.FindPassByUser(curUserId);
+        //添加分页 2017-12-08
+        int start = (Integer.valueOf(page) - 1) * Integer.valueOf(limit);
+        int offset = Integer.valueOf(limit);
+
+        List<LendingApply> lendingApplies = lendingApplyService.FindPassByUser(curUserId,start,offset);
 
         map.put("code", 0);
         map.put("msg", "");
+        int count = lendingApplyService.FindPassByUserCount(curUserId);
+        map.put("count", count);
         map.put("data", lendingApplies);
         return map;
     }

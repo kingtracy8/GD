@@ -55,21 +55,21 @@ public class LendingApplyServiceImpl implements ILendingApplyService {
         return lendingApplyMapper.deleteByPkAndUser(record);
     }
 
-    public List<LendingApply> FindPassByUser(int laUserId) {
-        return lendingApplyMapper.FindPassByUser(laUserId);
+    public List<LendingApply> FindPassByUser(int laUserId, Integer start, Integer offset) {
+        return lendingApplyMapper.FindPassByUser(laUserId,start,offset);
     }
 
-    public List<LendingApply> FindPassByUserFilter(String cptName, String dateFrom, String dateTo, String cptIsReturned, Integer laUserId) {
-        return lendingApplyMapper.FindPassByUserFilter(cptName, dateFrom, dateTo, cptIsReturned, laUserId);
+    public List<LendingApply> FindPassByUserFilter(String cptName, String dateFrom, String dateTo, String cptIsReturned, Integer laUserId,Integer start, Integer offset) {
+        return lendingApplyMapper.FindPassByUserFilter(cptName, dateFrom, dateTo, cptIsReturned, laUserId,start,offset);
     }
 
     /*
            purpose: 获得当前用户已经被审核了的记录    （添加查询条件）
            Author: linsong.wei  2017-12-03 16:41:40
         */
-    public List<LendingApply> doFindPassByUserFilter(String cptName, String dateFrom, String dateTo, String cptIsReturned, Integer laUserId) {
+    public List<LendingApply> doFindPassByUserFilter(String cptName, String dateFrom, String dateTo, String cptIsReturned, Integer laUserId,Integer start, Integer offset) {
         //此处没有特殊逻辑处理，直接调用FindPassByUserFilter方法
-        return lendingApplyMapper.FindPassByUserFilter(cptName, dateFrom, dateTo, cptIsReturned, laUserId);
+        return lendingApplyMapper.FindPassByUserFilter(cptName, dateFrom, dateTo, cptIsReturned, laUserId,start,offset);
     }
 
     /*
@@ -87,6 +87,10 @@ public class LendingApplyServiceImpl implements ILendingApplyService {
 
     public List<LendingApply> selectAuditingAddFilter(String cptName, String dateFrom, String dateTo, String userIdentity, String attribute1) {
         return lendingApplyMapper.selectAuditingAddFilter(cptName,dateFrom,dateTo,userIdentity,attribute1);
+    }
+
+    public int FindPassByUserCount(Integer laUserId) {
+        return lendingApplyMapper.FindPassByUserCount(laUserId);
     }
 
 

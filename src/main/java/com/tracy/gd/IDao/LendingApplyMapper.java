@@ -36,13 +36,17 @@ public interface LendingApplyMapper {
 
     int deleteByPkAndUser(LendingApply record);
 
-    List<LendingApply> FindPassByUser(int laUserId);
+    List<LendingApply> FindPassByUser(@Param("laUserId")int laUserId,@Param("start") Integer start,@Param("offset") Integer offset);
 
     //与上面的方法一样，加上了过滤条件  linsong.wei 2017-12-03 16:14:19
-    List<LendingApply> FindPassByUserFilter(@Param("cptName") String cptName, @Param("dateFrom") String dateFrom, @Param("dateTo") String dateTo, @Param("cptIsReturned") String cptIsReturned, @Param("laUserId") Integer laUserId);
+    List<LendingApply> FindPassByUserFilter(@Param("cptName") String cptName, @Param("dateFrom") String dateFrom, @Param("dateTo") String dateTo, @Param("cptIsReturned") String cptIsReturned, @Param("laUserId") Integer laUserId,@Param("start") Integer start,@Param("offset") Integer offset);
 
     //过滤申请记录  2017-12-05 13:24:22
     List<LendingApply> selectByUserFilter(@Param("cptName") String cptName, @Param("dateFrom") String dateFrom, @Param("dateTo") String dateTo, @Param("attribute1") String attribute1, @Param("laUserId") Integer laUserId);
+
     //过滤审核记录  2017-12-05 16:35:09
-    List<LendingApply> selectAuditingAddFilter(@Param("cptName") String cptName, @Param("dateFrom") String dateFrom, @Param("dateTo") String dateTo,@Param("userIdentity") String userIdentity, @Param("attribute1") String attribute1);
+    List<LendingApply> selectAuditingAddFilter(@Param("cptName") String cptName, @Param("dateFrom") String dateFrom, @Param("dateTo") String dateTo, @Param("userIdentity") String userIdentity, @Param("attribute1") String attribute1);
+
+    //2017-12-08 21:48:57 查询该用户总共有几条通过了的记录 purpose: 用于table组件的count
+    int FindPassByUserCount(@Param("laUserId") Integer laUserId);
 }

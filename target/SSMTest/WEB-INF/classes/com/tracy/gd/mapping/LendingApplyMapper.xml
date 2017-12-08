@@ -258,6 +258,7 @@ AND a.la_id = e.e_la_id
 AND a.attribute1 = 'Y'
 AND a.la_is_check = 'Y'
         AND a.la_user_id  = #{laUserId,jdbcType=INTEGER}
+        LIMIT #{start},#{offset}
     </select>
     <select id="FindPassByUserFilter" resultMap="BaseResultMap">
         SELECT
@@ -288,6 +289,7 @@ AND a.la_is_check = 'Y'
             AND e.e_is_returned = #{param4}
         </if>
         AND a.la_user_id  = #{laUserId,jdbcType=INTEGER}
+        LIMIT #{start},#{offset}
     </select>
     <select id="selectByUserFilter" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         SELECT
@@ -334,5 +336,19 @@ AND a.la_is_check = 'Y'
         <if test="attribute1 != null and attribute1 != ''" >
             AND a.attribute1 = #{param5}
         </if>
+    </select>
+    <select id="FindPassByUserCount" resultType="java.lang.Integer">
+        SELECT
+          COUNT(a.la_id)
+        FROM
+        gd_lending_apply a,
+        gd_computers c,
+        gd_expense e
+        WHERE
+        a.la_cpt_id = c.cpt_id
+        AND a.la_id = e.e_la_id
+        AND a.attribute1 = 'Y'
+        AND a.la_is_check = 'Y'
+        AND a.la_user_id  = #{laUserId,jdbcType=INTEGER}
     </select>
 </mapper>
