@@ -12,10 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import com.tracy.gd.domain.User;
 import com.tracy.gd.service.IUserService;
@@ -218,11 +215,19 @@ public class UserController {
     //Create by linsong.wei 2017-11-20 13:16:00
     @RequestMapping(value = "/UserManager", method = RequestMethod.GET)
     public @ResponseBody
-    HashMap print(HttpServletRequest request, HttpServletResponse response) {
+    HashMap print(HttpServletRequest request, HttpServletResponse response, @RequestParam("page") String page,@RequestParam("limit") String limit) {
         HashMap map = new HashMap();
-        List<User> userList = userService.selectAll();
+        int start = (Integer.valueOf(page)-1)*Integer.valueOf(limit);
+        int offset = Integer.valueOf(limit);
+        //添加分页
+        List<User> userList = userService.selectAllToTable(start,offset);
         map.put("code", 0);
         map.put("msg", "");
+        //测试添加表格总数
+//        map.put("count","30");
+        //author linsong.wei 2017-12-08 19:08:16
+        int count = userService.selectCountUser();
+        map.put("count",count);
         map.put("data", userList);
         return map;
     }

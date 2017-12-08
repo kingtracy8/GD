@@ -30,9 +30,14 @@ public class UserServiceImpl implements IUserService {
         return userMapper.deleteByPrimaryKey(id);
     }
 
+    public List<User> selectAllToTable(Integer page, Integer limit) {
+        return userMapper.selectAllToTable(page,limit);
+    }
+
     public List<User> selectAll() {
         return userMapper.selectAll();
     }
+
 
     public int insertSelective(User record) {
         return userMapper.insertSelective(record);
@@ -48,6 +53,10 @@ public class UserServiceImpl implements IUserService {
 
     public List<User> selectUserFilter(User record) {
         return userMapper.selectUserFilter(record);
+    }
+
+    public int selectCountUser() {
+        return userMapper.selectCountUser();
     }
 
 }

@@ -185,6 +185,12 @@
       attribute3 = #{attribute3,jdbcType=VARCHAR}
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
+  <select id="selectAllToTable" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from gd_users
+    LIMIT #{param1},#{param2}
+  </select>
   <select id="selectAll" resultMap="BaseResultMap" >
     select
     <include refid="Base_Column_List" />
@@ -255,5 +261,11 @@
       </if>
     </where>
 
+  </select>
+  <select id="selectCountUser" resultType="java.lang.Integer">
+    SELECT
+    count(user_id)
+    FROM
+    gd_users
   </select>
 </mapper>

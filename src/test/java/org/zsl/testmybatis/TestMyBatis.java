@@ -129,7 +129,12 @@ public class TestMyBatis {
 //        float price= (float) 2.14748365E9;
 //        DecimalFormat decimalFormat=new DecimalFormat(".00");//构造方法的字符格式这里如果小数不足2位,会以0补足.
 //        String p=decimalFormat.format(price);
-        List<LendingApply> lendingApplies = lendingApplyService.selectAuditingAddFilter(null,null,null,null,"Y");
-        logger.info(JSON.toJSONString(lendingApplies));
+//        List<LendingApply> lendingApplies = lendingApplyService.selectAuditingAddFilter(null,null,null,null,"Y");
+        User user = new User();
+//        user.setUserNum("P101");
+//        user.setUserGender("男");
+        user.setUserName("test");
+//         List<User> users = userService.selectUserFilter(user,0,10);
+//        logger.info(JSON.toJSONString(users));
     }
 }  
