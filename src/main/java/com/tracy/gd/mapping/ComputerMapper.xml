@@ -232,30 +232,31 @@
       attribute3 = #{attribute3,jdbcType=VARCHAR}
     where cpt_id = #{cptId,jdbcType=INTEGER}
   </update>
-  <select id="selectAllComputers" resultMap="BaseResultMap" parameterType="com.tracy.gd.domain.Computer">
+  <select id="selectAllComputers" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from gd_computers
     <where>
       1=1
-      <if test="cptName != null" >
-        AND cpt_name like CONCAT('%','${cptName}','%')
+      <if test="cptName != null and cptName !=''" >
+        AND cpt_name like CONCAT('%',#{cptName},'%')
       </if>
-      <if test="cptRam != null" >
-        AND cpt_ram like CONCAT('%','${cptRam}','%')
+      <if test="cptRam != null and cptRam !=''" >
+        AND cpt_ram like CONCAT('%',#{cptRam},'%')
       </if>
-      <if test="cptCpu != null" >
-        AND cpt_cpu like CONCAT('%','${cptCpu}','%')
+      <if test="cptCpu != null and cptCpu !=''" >
+        AND cpt_cpu like CONCAT('%',#{cptCpu},'%')
       </if>
-      <if test="cptOs != null" >
+      <if test="cptOs != null and cptOs !=''" >
         AND cpt_os = #{cptOs,jdbcType=VARCHAR}
       </if>
-      <if test="cptGraphicscard != null">
-        AND cpt_graphicscard like CONCAT('%','${cptGraphicscard}','%')
+      <if test="cptGraphicscard != null and cptGraphicscard !=''">
+        AND cpt_graphicscard like CONCAT('%',#{cptGraphicscard},'%')
       </if>
       <if test="cptIslending != null  and cptIslending != ''" >
         AND cpt_islending = #{cptIslending,jdbcType=VARCHAR}
       </if>
+      LIMIT #{start},#{offset}
     </where>
 
   </select>

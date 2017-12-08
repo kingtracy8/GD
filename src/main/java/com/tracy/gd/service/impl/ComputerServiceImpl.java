@@ -22,8 +22,8 @@ public class ComputerServiceImpl implements IComputerService{
         return computerMapper.selectByPrimaryKey(cptId);
     }
 
-    public List<Computer> selectAllComputers(Computer record) {
-        return computerMapper.selectAllComputers(record);
+    public List<Computer> selectAllComputers(String cptName, String cptRam, String cptCpu, String cptOs, String cptGraphicscard, String cptIslending, Integer start, Integer offset) {
+        return computerMapper.selectAllComputers(cptName,cptRam,cptCpu,cptOs,cptGraphicscard,cptIslending,start,offset);
     }
 
     public List<Computer> selectComputerLists(Integer page,Integer limit) {

@@ -191,7 +191,7 @@ public class ComputerController {
     //Create by linsong.wei 2017-11-11 08:41:32
     @RequestMapping(value = "/computerListFilter", method = RequestMethod.GET)
     public @ResponseBody
-    HashMap computerListFilter(HttpServletRequest request, HttpServletResponse response) {
+    HashMap computerListFilter(HttpServletRequest request, HttpServletResponse response, @RequestParam("page") String page, @RequestParam("limit") String limit) {
         HashMap map = new HashMap();
         String cptName = null;
         String cptRam = null;
@@ -200,7 +200,8 @@ public class ComputerController {
         String cptIslending = null;
         String cptCard = null;
         Computer computer = new Computer();
-
+        int start = (Integer.valueOf(page)-1)*Integer.valueOf(limit);
+        int offset = Integer.valueOf(limit);
         try {
             cptName = URLDecoder.decode(request.getParameter("cptName"), "utf-8");//将中文转码
             cptRam = URLDecoder.decode(request.getParameter("cptRam"), "utf-8");//将中文转码
@@ -259,7 +260,7 @@ public class ComputerController {
         if (!cptCard.equals(null)) {
             computer.setCptGraphicscard(cptCard);
         }
-        List<Computer> computerList = computerService.selectAllComputers(computer);
+        List<Computer> computerList = computerService.selectAllComputers(computer.getCptName(),computer.getCptRam(),computer.getCptCpu(),computer.getCptOs(),computer.getCptGraphicscard(),computer.getCptIslending(),start,offset);
         map.put("code", 0);
         map.put("msg", "");
         map.put("data", computerList);

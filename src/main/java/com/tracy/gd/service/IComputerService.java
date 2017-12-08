@@ -13,9 +13,9 @@ public interface IComputerService {
 
     Computer selectByPrimaryKey(Integer cptId);
 
-    List<Computer> selectAllComputers(Computer record);
+    List<Computer> selectAllComputers(String cptName, String cptRam, String cptCpu, String cptOs, String cptGraphicscard, String cptIslending, Integer start, Integer offset);
 
-    List<Computer> selectComputerLists(Integer page,Integer limit);
+    List<Computer> selectComputerLists(Integer page, Integer limit);
 
     int updateByPrimaryKeySelective(Computer record);
 
