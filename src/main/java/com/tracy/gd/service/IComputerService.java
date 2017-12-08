@@ -15,12 +15,14 @@ public interface IComputerService {
 
     List<Computer> selectAllComputers(Computer record);
 
-    List<Computer> selectComputerLists();
+    List<Computer> selectComputerLists(Integer page,Integer limit);
 
     int updateByPrimaryKeySelective(Computer record);
 
     int deleteByPrimaryKey(Integer cptId);
 
     int insertSelective(Computer record);
+
+    int selectCountCpt();
 
 }

@@ -280,5 +280,12 @@
     attribute3
     FROM
     gd_computers
+    LIMIT #{param1},#{param2}
+  </select>
+  <select id="selectCountCpt" resultType="java.lang.Integer">
+    SELECT
+    count(cpt_id)
+    FROM
+    gd_computers
   </select>
 </mapper>

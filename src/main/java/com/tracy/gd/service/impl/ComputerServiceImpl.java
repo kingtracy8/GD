@@ -26,8 +26,8 @@ public class ComputerServiceImpl implements IComputerService{
         return computerMapper.selectAllComputers(record);
     }
 
-    public List<Computer> selectComputerLists() {
-        return computerMapper.selectComputerLists();
+    public List<Computer> selectComputerLists(Integer page,Integer limit) {
+        return computerMapper.selectComputerLists(page,limit);
     }
 
     public int updateByPrimaryKeySelective(Computer record) {
@@ -40,6 +40,10 @@ public class ComputerServiceImpl implements IComputerService{
 
     public int insertSelective(Computer record) {
         return computerMapper.insertSelective(record);
+    }
+
+    public int selectCountCpt() {
+        return computerMapper.selectCountCpt();
     }
 
 //    public List<Computer> selectAllComputers() {

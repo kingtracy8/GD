@@ -19,5 +19,7 @@ public interface ComputerMapper {
 
     List<Computer> selectAllComputers(Computer record);
 
-    List<Computer> selectComputerLists();
+    List<Computer> selectComputerLists(Integer page,Integer limit);
+
+    int selectCountCpt();
 }

@@ -14,10 +14,7 @@ import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -174,12 +171,18 @@ public class ComputerController {
     //Create by linsong.wei 2017-11-10 14:31:44
     @RequestMapping(value = "/computerList", method = RequestMethod.GET)
     public @ResponseBody
-    HashMap print(HttpServletRequest request, HttpServletResponse response) {
+    HashMap print(HttpServletRequest request, HttpServletResponse response, @RequestParam("page") String page, @RequestParam("limit") String limit) {
         HashMap map = new HashMap();
         Computer computer = new Computer();
-        List<Computer> computerList = computerService.selectAllComputers(computer);
+//        List<Computer> computerList = computerService.selectAllComputers(computer);
+        //添加分页 2017-12-08 20:16:10
+        int start = (Integer.valueOf(page)-1)*Integer.valueOf(limit);
+        int offset = Integer.valueOf(limit);
+        List<Computer> computerList = computerService.selectComputerLists(start,offset);
         map.put("code", 0);
         map.put("msg", "");
+        int count = computerService.selectCountCpt();
+        map.put("count",count);
         map.put("data", computerList);
         return map;
     }

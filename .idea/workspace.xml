@@ -24,68 +24,7 @@
     <favorites_list name="GD" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/UserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1022">
-              <caret line="107" column="19" lean-forward="true" selection-start-line="107" selection-start-column="19" selection-end-line="107" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestMyBatis.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/org/zsl/testmybatis/TestMyBatis.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="120" column="59" lean-forward="false" selection-start-line="120" selection-start-column="59" selection-end-line="120" selection-end-column="59" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/IDao/UserMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="27" column="43" lean-forward="true" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IUserService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/service/IUserService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="17" column="43" lean-forward="true" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserMapper.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/UserMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="258" column="37" lean-forward="true" selection-start-line="258" selection-start-column="37" selection-end-line="258" selection-end-column="37" />
-              <folding>
-                <marker date="1512734114864" expanded="true" signature="1576:1689" ph="select from gd_users" />
-                <marker date="1512734114864" expanded="true" signature="1776:1843" ph="delete from " />
-                <marker date="1512734114864" expanded="true" signature="1925:2588" ph="insert into gd_users... " />
-                <marker date="1512734114864" expanded="true" signature="5013:6341" ph="update gd_us... " />
-                <marker date="1512734114864" expanded="true" signature="6435:7119" ph="update gd_us... " />
-                <marker date="1512734114864" expanded="true" signature="7196:7291" ph="select from gd_users" />
-                <marker date="1512734114864" expanded="true" signature="7361:7426" ph="select from gd_users" />
-                <marker date="1512734114864" expanded="true" signature="7519:8744" ph="update gd_us... " />
-                <marker date="1512734114864" expanded="true" signature="9692:9739" ph="SELECT count... gd_users" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -119,6 +58,7 @@
       <find>idTest</find>
       <find>userM</find>
       <find>userListFi</find>
+      <find>selectComputerLists</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -132,7 +72,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/IDao/ExpenseMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/IExpenseService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/impl/ExpenseServiceImpl.java" />
@@ -150,8 +89,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/impl/ExpenseRatioServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/ExpenseRatioController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/ExpenseRatio.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/IComputerService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/impl/ComputerServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/AddComputer.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/IDao/LendingApplyMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/ILendingApplyService.java" />
@@ -165,8 +102,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/impl/LendingHistoryServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/LendingHistoryController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/ComputerController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/ComputerMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/ReturnCpt.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/ApplyHistory.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/welcome.html" />
@@ -178,11 +113,16 @@
         <option value="$PROJECT_DIR$/src/main/webapp/html/RecordManager.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/Auditing.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/impl/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/IUserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/IDao/UserMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/test/java/org/zsl/testmybatis/TestMyBatis.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/UserMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/IUserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/IDao/ComputerMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/IComputerService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/service/impl/ComputerServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/ComputerMapper.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/org/zsl/testmybatis/TestMyBatis.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/ComputerController.java" />
       </list>
     </option>
   </component>
@@ -1278,17 +1218,11 @@
       <workItem from="1512612476232" duration="5845000" />
       <workItem from="1512658471537" duration="210000" />
       <workItem from="1512713830221" duration="1302000" />
-      <workItem from="1512729573951" duration="4669000" />
+      <workItem from="1512729573951" duration="6285000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestMyBatis_test1 - 2017.12.05 at 16h 41m 30s.xml">
-      <configuration name="TestMyBatis.test1" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestMyBatis_test1 - 2017.12.05 at 16h 42m 45s.xml">
-      <configuration name="TestMyBatis.test1" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="TestMyBatis_test1 - 2017.12.05 at 16h 43m 26s.xml">
       <configuration name="TestMyBatis.test1" configurationId="JUnit" />
     </history-entry>
@@ -1313,9 +1247,15 @@
     <history-entry file="TestMyBatis_test1 - 2017.12.08 at 19h 50m 44s.xml">
       <configuration name="TestMyBatis.test1" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="TestMyBatis_test1 - 2017.12.08 at 20h 10m 53s.xml">
+      <configuration name="TestMyBatis.test1" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestMyBatis_test1 - 2017.12.08 at 20h 20m 32s.xml">
+      <configuration name="TestMyBatis.test1" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="293305000" />
+    <option name="totallyTimeSpent" value="294921000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1328,7 +1268,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1064" extended-state="7" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1352,7 +1291,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32703003" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32703003" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42157954" sideWeight="0.49570817" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37041157" sideWeight="0.49570817" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32703003" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32703003" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.4781145" order="8" side_tool="false" content_ui="combo" />
@@ -1409,18 +1348,6 @@
           <properties />
           <option name="timeStamp" value="96" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/ComputerController.java</url>
-          <line>202</line>
-          <properties />
-          <option name="timeStamp" value="98" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/ComputerController.java</url>
-          <line>204</line>
-          <properties />
-          <option name="timeStamp" value="99" />
-        </line-breakpoint>
       </breakpoints>
       <option name="time" value="101" />
     </breakpoint-manager>
@@ -1449,31 +1376,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/service/IComputerService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="23" column="41" lean-forward="false" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/IDao/ComputerMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="11" column="41" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/html/AddComputer.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
           <caret line="148" column="25" lean-forward="true" selection-start-line="148" selection-start-column="25" selection-end-line="148" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/service/impl/ComputerServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="41" column="52" lean-forward="false" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -1641,29 +1547,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/ComputerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="258" column="72" lean-forward="false" selection-start-line="258" selection-start-column="54" selection-end-line="258" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/ComputerMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="256" column="60" lean-forward="true" selection-start-line="256" selection-start-column="60" selection-end-line="256" selection-end-column="60" />
-          <folding>
-            <marker date="1512534292766" expanded="true" signature="1906:2021" ph="select from gd_computers" />
-            <marker date="1512534292766" expanded="true" signature="2108:2177" ph="delete from " />
-            <marker date="1512534292766" expanded="true" signature="2263:3096" ph="insert into gd_computers... " />
-            <marker date="1512534292766" expanded="true" signature="6119:7825" ph="update gd_co... " />
-            <marker date="1512534292766" expanded="true" signature="7923:8791" ph="update gd_co... " />
-            <marker date="1512534292766" expanded="true" signature="9752:10049" ph="SELECT cpt_i... gd_computers" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/html/ReturnCpt.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -1713,13 +1596,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/ComputerManager.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1354">
-          <caret line="162" column="26" lean-forward="false" selection-start-line="162" selection-start-column="26" selection-end-line="162" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/html/Auditing.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1534">
@@ -1740,32 +1616,6 @@
         <state relative-caret-position="27">
           <caret line="101" column="28" lean-forward="false" selection-start-line="101" selection-start-column="28" selection-end-line="101" selection-end-column="28" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/LendingApplyMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="291" column="94" lean-forward="false" selection-start-line="291" selection-start-column="77" selection-end-line="291" selection-end-column="94" />
-          <folding>
-            <marker date="1512463285007" expanded="true" signature="2159:2286" ph="select from gd_lending_apply" />
-            <marker date="1512463285007" expanded="true" signature="2376:2447" ph="delete from " />
-            <marker date="1512463285007" expanded="true" signature="2538:3155" ph="insert into gd_lending_apply... " />
-            <marker date="1512463285007" expanded="true" signature="5955:7392" ph="update gd_le... " />
-            <marker date="1512463285007" expanded="true" signature="7497:8128" ph="update gd_le... " />
-            <marker date="1512463285007" expanded="true" signature="8233:8380" ph="SELECT a.*, gd_lending_apply" />
-            <marker date="1512463285007" expanded="true" signature="8453:8647" ph="SELECT a.*,c... gd_lending_apply" />
-            <marker date="1512463285007" expanded="true" signature="8761:8857" ph="SELECT COUNT... gd_lending_apply" />
-            <marker date="1512463285007" expanded="true" signature="8761:8881" ph="SELECT COUNT... gd_lending_apply" />
-            <marker date="1512463285007" expanded="true" signature="9018:9281" ph="select from gd_lending_apply" />
-            <marker date="1512463285007" expanded="true" signature="9418:9733" ph="select COUNT... gd_lending_apply" />
-            <marker date="1512463285007" expanded="true" signature="10139:10440" ph="SELECT a.*, gd_lending_apply" />
-            <marker date="1512463285007" expanded="true" signature="10140:10440" ph="SELECT a.*, gd_lending_apply" />
-            <marker date="1512463285007" expanded="true" signature="10383:10440" ph="SELECT a.*, gd_lending_apply" />
-            <marker date="1512463285007" expanded="true" signature="10528:11463" ph="SELECT a.*, gd_lending_apply" />
-            <marker date="1512463285007" expanded="true" signature="11583:12298" ph="SELECT a.*, gd_lending_apply" />
-            <marker date="1512463285007" expanded="true" signature="12389:12615" ph="SELECT a.*,c... gd_lending_apply" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1816,42 +1666,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/IDao/UserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="27" column="43" lean-forward="true" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1022">
-          <caret line="107" column="19" lean-forward="true" selection-start-line="107" selection-start-column="19" selection-end-line="107" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/service/IUserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="17" column="43" lean-forward="true" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+        <state relative-caret-position="270">
+          <caret line="18" column="26" lean-forward="true" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/org/zsl/testmybatis/TestMyBatis.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/LendingApplyMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="120" column="59" lean-forward="false" selection-start-line="120" selection-start-column="59" selection-end-line="120" selection-end-column="59" />
+        <state relative-caret-position="2549">
+          <caret line="299" column="57" lean-forward="true" selection-start-line="299" selection-start-column="57" selection-end-line="299" selection-end-column="57" />
+          <folding>
+            <marker date="1512463285007" expanded="true" signature="2159:2286" ph="select from gd_lending_apply" />
+            <marker date="1512463285007" expanded="true" signature="2376:2447" ph="delete from " />
+            <marker date="1512463285007" expanded="true" signature="2538:3155" ph="insert into gd_lending_apply... " />
+            <marker date="1512463285007" expanded="true" signature="5955:7392" ph="update gd_le... " />
+            <marker date="1512463285007" expanded="true" signature="7497:8128" ph="update gd_le... " />
+            <marker date="1512463285007" expanded="true" signature="8233:8380" ph="SELECT a.*, gd_lending_apply" />
+            <marker date="1512463285007" expanded="true" signature="8453:8647" ph="SELECT a.*,c... gd_lending_apply" />
+            <marker date="1512463285007" expanded="true" signature="8761:8857" ph="SELECT COUNT... gd_lending_apply" />
+            <marker date="1512463285007" expanded="true" signature="8761:8881" ph="SELECT COUNT... gd_lending_apply" />
+            <marker date="1512463285007" expanded="true" signature="9018:9281" ph="select from gd_lending_apply" />
+            <marker date="1512463285007" expanded="true" signature="9418:9733" ph="select COUNT... gd_lending_apply" />
+            <marker date="1512463285007" expanded="true" signature="10139:10440" ph="SELECT a.*, gd_lending_apply" />
+            <marker date="1512463285007" expanded="true" signature="10140:10440" ph="SELECT a.*, gd_lending_apply" />
+            <marker date="1512463285007" expanded="true" signature="10383:10440" ph="SELECT a.*, gd_lending_apply" />
+            <marker date="1512463285007" expanded="true" signature="10528:11463" ph="SELECT a.*, gd_lending_apply" />
+            <marker date="1512463285007" expanded="true" signature="11583:12298" ph="SELECT a.*, gd_lending_apply" />
+            <marker date="1512463285007" expanded="true" signature="12389:12615" ph="SELECT a.*,c... gd_lending_apply" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/ComputerManager.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3936">
+          <caret line="221" column="33" lean-forward="true" selection-start-line="221" selection-start-column="33" selection-end-line="221" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/service/impl/ComputerServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="29" column="60" lean-forward="false" selection-start-line="29" selection-start-column="60" selection-end-line="29" selection-end-column="60" />
+          <folding>
+            <element signature="e#1303#1304#0" expanded="true" />
+            <element signature="e#1357#1358#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/service/IComputerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="17" column="65" lean-forward="false" selection-start-line="17" selection-start-column="65" selection-end-line="17" selection-end-column="65" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/UserMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="258" column="37" lean-forward="true" selection-start-line="258" selection-start-column="37" selection-end-line="258" selection-end-column="37" />
+        <state relative-caret-position="435">
+          <caret line="191" column="4" lean-forward="true" selection-start-line="191" selection-start-column="4" selection-end-line="191" selection-end-column="29" />
           <folding>
             <marker date="1512734114864" expanded="true" signature="1576:1689" ph="select from gd_users" />
             <marker date="1512734114864" expanded="true" signature="1776:1843" ph="delete from " />
@@ -1863,6 +1742,63 @@
             <marker date="1512734114864" expanded="true" signature="7519:8744" ph="update gd_us... " />
             <marker date="1512734114864" expanded="true" signature="9692:9739" ph="SELECT count... gd_users" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/ComputerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2234">
+          <caret line="267" column="5" lean-forward="true" selection-start-line="267" selection-start-column="5" selection-end-line="267" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="220" column="44" lean-forward="true" selection-start-line="219" selection-start-column="7" selection-end-line="220" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/mapping/ComputerMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="282" column="29" lean-forward="true" selection-start-line="282" selection-start-column="29" selection-end-line="282" selection-end-column="29" />
+          <folding>
+            <marker date="1512735598566" expanded="true" signature="1906:2021" ph="select from gd_computers" />
+            <marker date="1512735598566" expanded="true" signature="2108:2177" ph="delete from " />
+            <marker date="1512735598566" expanded="true" signature="2263:3096" ph="insert into gd_computers... " />
+            <marker date="1512735598566" expanded="true" signature="6119:7825" ph="update gd_co... " />
+            <marker date="1512735598566" expanded="true" signature="7923:8791" ph="update gd_co... " />
+            <marker date="1512735598566" expanded="true" signature="9752:10049" ph="SELECT cpt_i... gd_computers" />
+            <marker date="1512735598566" expanded="true" signature="9752:10079" ph="SELECT cpt_i... gd_computers" />
+            <marker date="1512735598566" expanded="true" signature="10158:10208" ph="SELECT count... gd_computers" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/IDao/ComputerMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="21" column="65" lean-forward="false" selection-start-line="21" selection-start-column="65" selection-end-line="21" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tracy/gd/IDao/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="20" column="58" lean-forward="false" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/zsl/testmybatis/TestMyBatis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="136" column="42" lean-forward="false" selection-start-line="136" selection-start-column="42" selection-end-line="136" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
