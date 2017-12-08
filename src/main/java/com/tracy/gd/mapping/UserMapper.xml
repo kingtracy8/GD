@@ -235,30 +235,31 @@
     </set>
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
-  <select id="selectUserFilter" resultMap="BaseResultMap" parameterType="com.tracy.gd.domain.User">
+  <select id="selectUserFilter" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from gd_users
     <where>
       1=1
       <if test="userName != null" >
-        AND user_name like CONCAT('%','${userName}','%')
+          AND user_name like CONCAT('%',#{userName},'%')
       </if>
       <if test="userNum != null" >
-        AND user_num like CONCAT('%','${userNum}','%')
+          AND user_num like CONCAT('%',#{userNum},'%')
       </if>
       <if test="userPhone != null" >
-        AND user_phone like CONCAT('%','${userPhone}','%')
+          AND user_phone like CONCAT('%',#{userPhone},'%')
       </if>
       <if test="userDepartment != null" >
         AND user_department = #{userDepartment,jdbcType=VARCHAR}
       </if>
-      <if test="userGender != null">
-        AND user_gender like CONCAT('%','${userGender}','%')
+      <if test="userGender != null and userGender != ''">
+        AND user_gender like CONCAT('%',#{userGender},'%')
       </if>
       <if test="attribute1 != null" >
         AND attribute1 = #{attribute1,jdbcType=VARCHAR}
       </if>
+      LIMIT #{start},#{offset}
     </where>
 
   </select>
@@ -267,5 +268,30 @@
     count(user_id)
     FROM
     gd_users
+  </select>
+  <select id="selectCountUserFilter" resultType="java.lang.Integer">
+    SELECT
+    count(user_id)
+    from gd_users
+    <where>
+      <if test="userName != null" >
+        AND user_name like CONCAT('%',#{userName},'%')
+      </if>
+      <if test="userNum != null" >
+        AND user_num like CONCAT('%',#{userNum},'%')
+      </if>
+      <if test="userPhone != null" >
+        AND user_phone like CONCAT('%',#{userPhone},'%')
+      </if>
+      <if test="userDepartment != null" >
+        AND user_department = #{userDepartment,jdbcType=VARCHAR}
+      </if>
+      <if test="userGender != null and userGender != ''">
+        AND user_gender like CONCAT('%',#{userGender},'%')
+      </if>
+      <if test="attribute1 != null" >
+        AND attribute1 = #{attribute1,jdbcType=VARCHAR}
+      </if>
+    </where>
   </select>
 </mapper>

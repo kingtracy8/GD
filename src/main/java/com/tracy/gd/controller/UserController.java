@@ -48,7 +48,7 @@ public class UserController {
     //Create by linsong.wei 2017-11-21 15:12:31
     @RequestMapping(value = "/userListFilter", method = RequestMethod.GET)
     public @ResponseBody
-    HashMap computerListFilter(HttpServletRequest request, HttpServletResponse response) {
+    HashMap computerListFilter(HttpServletRequest request, HttpServletResponse response ,@RequestParam("page") String page,@RequestParam("limit") String limit) {
         HashMap map = new HashMap();
         String userName = null;
         String userNum = null;
@@ -57,7 +57,8 @@ public class UserController {
         String userGender = null;
         String attribute1 = null;
         User user = new User();
-
+        int start = (Integer.valueOf(page)-1)*Integer.valueOf(limit);
+        int offset = Integer.valueOf(limit);
         try {
             userName = URLDecoder.decode(request.getParameter("userName"), "utf-8");//将中文转码
             userNum = URLDecoder.decode(request.getParameter("userNum"), "utf-8");//将中文转码
@@ -100,11 +101,12 @@ public class UserController {
         if (!userDepartment.equals("")) {
             user.setUserDepartment(userDepartment);
         }
-        List<User> users = userService.selectUserFilter(user);
+        List<User> users = userService.selectUserFilter(user.getUserName(),user.getUserNum(),user.getUserPhone(),user.getUserDepartment(),user.getUserGender(),user.getAttribute1(),start,offset);
         map.put("code", 0);
         map.put("msg", "");
+        int count = userService.selectCountUserFilter(user.getUserName(),user.getUserNum(),user.getUserPhone(),user.getUserDepartment(),user.getUserGender(),user.getAttribute1());
+        map.put("count",count);
         map.put("data", users);
-
         return map;
     }
 

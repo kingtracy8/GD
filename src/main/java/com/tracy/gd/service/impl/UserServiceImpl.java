@@ -51,12 +51,17 @@ public class UserServiceImpl implements IUserService {
         return userMapper.ChangePersonalMsg(record);
     }
 
-    public List<User> selectUserFilter(User record) {
-        return userMapper.selectUserFilter(record);
-    }
 
     public int selectCountUser() {
         return userMapper.selectCountUser();
+    }
+
+    public List<User> selectUserFilter(String userName, String userNum, String userPhone, String userDepartment, String userGender, String attribute1, Integer start, Integer offset) {
+        return userMapper.selectUserFilter(userName,userNum,userPhone,userDepartment,userGender,attribute1,start,offset);
+    }
+
+    public int selectCountUserFilter(String userName, String userNum, String userPhone, String userDepartment, String userGender, String attribute1) {
+        return userMapper.selectCountUserFilter(userName,userNum,userPhone,userDepartment,userGender,attribute1);
     }
 
 }
