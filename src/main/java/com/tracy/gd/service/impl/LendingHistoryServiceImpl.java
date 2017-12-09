@@ -38,12 +38,16 @@ public class LendingHistoryServiceImpl implements ILendingHistoryService {
         return lendingHistoryMapper.selectDetailByLaId(laId);
     }
 
-    public List<LendingHistory> selectAll() {
-        return lendingHistoryMapper.selectAll();
+    public List<LendingHistory> selectAll( Integer start, Integer offset) {
+        return lendingHistoryMapper.selectAll(start,offset);
     }
 
-    public List<LendingHistory> selectAddFilter(String cptName, String dateFrom, String dateTo, String eIsReturned) {
-        return lendingHistoryMapper.selectAddFilter(cptName,dateFrom,dateTo,eIsReturned);
+    public List<LendingHistory> selectAddFilter(String cptName, String dateFrom, String dateTo, String eIsReturned,Integer start, Integer offset) {
+        return lendingHistoryMapper.selectAddFilter(cptName,dateFrom,dateTo,eIsReturned,start,offset);
+    }
+
+    public int selectAllCount() {
+        return lendingHistoryMapper.selectAllCount();
     }
 
 }

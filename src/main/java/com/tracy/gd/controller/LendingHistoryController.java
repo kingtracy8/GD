@@ -54,10 +54,14 @@ public class LendingHistoryController {
 
     @RequestMapping(value = "/ShowHisList", method = RequestMethod.GET)
     public @ResponseBody
-    HashMap doShowHisList(HttpServletRequest request, HttpServletResponse response) {
+    HashMap doShowHisList(HttpServletRequest request, HttpServletResponse response, @RequestParam("page") String page, @RequestParam("limit") String limit) {
         HashMap map = new HashMap();
 
-        List<LendingHistory> lendingHistories = lendingHistoryService.selectAll();
+        //添加分页 2017-12-08
+        int start = (Integer.valueOf(page) - 1) * Integer.valueOf(limit);
+        int offset = Integer.valueOf(limit);
+
+        List<LendingHistory> lendingHistories = lendingHistoryService.selectAll(start, offset);
 
         //通过审核人的id去找名字，并将其设置到his对象的备用字段2上（不保存） 传送到前端  以方便获得审核人的名字 
         //update by: linsong.wei 2017-12-05 15:29:15
@@ -70,6 +74,8 @@ public class LendingHistoryController {
 
         map.put("code", 0);
         map.put("msg", "");
+        int count = lendingHistoryService.selectAllCount();
+        map.put("count", count);
         map.put("data", lendingHistories);
         return map;
     }
@@ -80,10 +86,14 @@ public class LendingHistoryController {
    */
     @RequestMapping("/ShowHisListFilter")
     public @ResponseBody
-    HashMap doShowHisListFilter(HttpServletRequest request, HttpServletResponse response, @RequestParam("cptName") String cptName, @RequestParam("dateFrom") String dateFrom, @RequestParam("dateTo") String dateTo, @RequestParam("eIsReturned") String eIsReturned) {
+    HashMap doShowHisListFilter(HttpServletRequest request, HttpServletResponse response, @RequestParam("cptName") String cptName, @RequestParam("dateFrom") String dateFrom, @RequestParam("dateTo") String dateTo, @RequestParam("eIsReturned") String eIsReturned, @RequestParam("page") String page, @RequestParam("limit") String limit) {
         HashMap map = new HashMap();
 
-        List<LendingHistory> lendingHistories = lendingHistoryService.selectAddFilter(cptName,dateFrom,dateTo,eIsReturned);
+        //添加分页 2017-12-08
+        int start = (Integer.valueOf(page) - 1) * Integer.valueOf(limit);
+        int offset = Integer.valueOf(limit);
+
+        List<LendingHistory> lendingHistories = lendingHistoryService.selectAddFilter(cptName, dateFrom, dateTo, eIsReturned,start,offset);
 
         map.put("code", 0);
         map.put("msg", "");

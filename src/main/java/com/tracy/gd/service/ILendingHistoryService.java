@@ -19,8 +19,10 @@ public interface ILendingHistoryService {
 
     LendingHistory selectDetailByLaId(Integer laId);
 
-    List<LendingHistory> selectAll();
+    List<LendingHistory> selectAll(Integer start, Integer offset);
 
-    List<LendingHistory> selectAddFilter(String cptName, String dateFrom, String dateTo, String eIsReturned);
+    List<LendingHistory> selectAddFilter(String cptName, String dateFrom, String dateTo, String eIsReturned,Integer start, Integer offset);
+
+    int selectAllCount();
 
 }

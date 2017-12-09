@@ -211,6 +211,7 @@ WHERE
 AND h.lh_user_id = u.user_id
 AND e.e_la_id = a.la_id
 AND c.cpt_id = a.la_cpt_id
+LIMIT #{start},#{offset}
   </select>
   <select id="selectAddFilter" resultMap="BaseResultMap">
     SELECT
@@ -251,5 +252,21 @@ AND c.cpt_id = a.la_cpt_id
     <if test="eIsReturned != null and eIsReturned != ''" >
       AND e.e_is_returned = #{param4}
     </if>
+    LIMIT #{start},#{offset}
+  </select>
+  <select id="selectAllCount" resultType="java.lang.Integer">
+ SELECT
+	count(h.lh_id)
+FROM
+	gd_lending_apply a,
+	gd_lending_history h,
+	gd_users u,
+	gd_expense e,
+	gd_computers c
+WHERE
+	a.la_id = h.lh_la_id
+AND h.lh_user_id = u.user_id
+AND e.e_la_id = a.la_id
+AND c.cpt_id = a.la_cpt_id
   </select>
 </mapper>
