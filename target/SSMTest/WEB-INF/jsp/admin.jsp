@@ -92,7 +92,7 @@
                         </a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item"><a href="#">云市场</a></li>
+                <li class="layui-nav-item"><a href="../../html/AdminPlantform.html" target="ifrbody" id="adminPlantform">管理员平台</a></li>
                 <li class="layui-nav-item"><a href="#">关于</a></li>
             </ul>
         </div>
@@ -123,8 +123,19 @@
             , upload = layui.upload //上传
             , element = layui.element; //元素操作
 
-        //向世界问个好
-        //  layer.msg('Hi,欢迎您来到LayStudy后台管理系统！');
+        //公告
+        layer.open({
+            type: 1
+            ,title: false //不显示标题栏
+            ,closeBtn: false
+            ,area: '300px;'
+            ,shade: 0.8
+            ,id: 'LAY_layuipro' //设定一个id，防止重复弹出
+            ,btn: ['ok,开始使用']
+            ,btnAlign: 'c'
+            ,moveType: 1 //拖拽模式，0或者1
+            ,content: '<div style="padding: 50px; line-height: 22px; background-color: #393D49; color: #fff; font-weight: 300;">您好，欢迎来到二手电脑租借管理系统！<br><br>您可以在左边的导航菜单开始使用，如在使用过程中有任何建议可以随时联系我们！<br><br>祝您使用愉快！</div>'
+        });
 
         //监听Tab切换
         element.on('tab(demo)', function (data) {
@@ -274,6 +285,8 @@
             $("#expenseControl").attr('href', '../../html/Jurisdiction.html');
 
 
+            $("#adminPlantform").attr('target', 'ifrbody');
+            $("#adminPlantform").attr('href', '../../html/Jurisdiction.html');
         }
     });
 
