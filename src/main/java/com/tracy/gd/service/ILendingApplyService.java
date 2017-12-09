@@ -18,7 +18,7 @@ public interface ILendingApplyService {
 
     LendingApply selectByPrimaryKey(Integer laId);
 
-    List<LendingApply> selectAuditing();
+    List<LendingApply> selectAuditing(Integer start, Integer offset);
 
     int selectCountCpt(int cptId);
 
@@ -44,10 +44,12 @@ public interface ILendingApplyService {
 
     List<LendingApply> doSelectByUserFilter(String cptName, String dateFrom, String dateTo, String attribute1, Integer laUserId,Integer start, Integer offset);
 
-    List<LendingApply> selectAuditingAddFilter(String cptName, String dateFrom, String dateTo, String userIdentity, String attribute1);
+    List<LendingApply> selectAuditingAddFilter(String cptName, String dateFrom, String dateTo, String userIdentity, String attribute1,Integer start, Integer offset);
 
     int FindPassByUserCount(Integer laUserId);
 
     int selectByUserCount(Integer laUserId);
+    //2017-12-09 11:01:30 查询所有记录数量 purpose: 用于table组件的count
+    int selectAuditingCount();
 
 }

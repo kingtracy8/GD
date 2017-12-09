@@ -21,7 +21,7 @@ public interface LendingApplyMapper {
     List<LendingApply> selectByUser(@Param("laUserId") int laUserId, @Param("start") Integer start, @Param("offset") Integer offset);
 
     //purpose: 审核记录模块，查出申请表中所有申请记录 linsong.wei 2017-11-13 19:34:48
-    List<LendingApply> selectAuditing();
+    List<LendingApply> selectAuditing(@Param("start") Integer start, @Param("offset") Integer offset);
 
     //purpose: 审核记录模块，查看有几个人同时提交了同一台电脑的申请 linsong.wei 2017-11-13 19:34:48
     int selectCountCpt(int cptId);
@@ -45,11 +45,13 @@ public interface LendingApplyMapper {
     List<LendingApply> selectByUserFilter(@Param("cptName") String cptName, @Param("dateFrom") String dateFrom, @Param("dateTo") String dateTo, @Param("attribute1") String attribute1, @Param("laUserId") Integer laUserId, @Param("start") Integer start, @Param("offset") Integer offset);
 
     //过滤审核记录  2017-12-05 16:35:09
-    List<LendingApply> selectAuditingAddFilter(@Param("cptName") String cptName, @Param("dateFrom") String dateFrom, @Param("dateTo") String dateTo, @Param("userIdentity") String userIdentity, @Param("attribute1") String attribute1);
+    List<LendingApply> selectAuditingAddFilter(@Param("cptName") String cptName, @Param("dateFrom") String dateFrom, @Param("dateTo") String dateTo, @Param("userIdentity") String userIdentity, @Param("attribute1") String attribute1,@Param("start") Integer start, @Param("offset") Integer offset);
 
     //2017-12-08 21:48:57 查询该用户总共有几条通过了的记录 purpose: 用于table组件的count
     int FindPassByUserCount(@Param("laUserId") Integer laUserId);
 
     //同上，但没有 已通过 的限制条件
     int selectByUserCount(@Param("laUserId") Integer laUserId);
+    //2017-12-09 11:01:30 查询所有记录数量 purpose: 用于table组件的count
+    int selectAuditingCount();
 }

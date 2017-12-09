@@ -30,8 +30,8 @@ public class LendingApplyServiceImpl implements ILendingApplyService {
         return lendingApplyMapper.selectByPrimaryKey(laId);
     }
 
-    public List<LendingApply> selectAuditing() {
-        return lendingApplyMapper.selectAuditing();
+    public List<LendingApply> selectAuditing(Integer start, Integer offset) {
+        return lendingApplyMapper.selectAuditing(start,offset);
     }
 
     public int selectCountCpt(int cptId) {
@@ -85,8 +85,8 @@ public class LendingApplyServiceImpl implements ILendingApplyService {
         return lendingApplyMapper.selectByUserFilter(cptName, dateFrom, dateTo, attribute1, laUserId,start,offset);
     }
 
-    public List<LendingApply> selectAuditingAddFilter(String cptName, String dateFrom, String dateTo, String userIdentity, String attribute1) {
-        return lendingApplyMapper.selectAuditingAddFilter(cptName,dateFrom,dateTo,userIdentity,attribute1);
+    public List<LendingApply> selectAuditingAddFilter(String cptName, String dateFrom, String dateTo, String userIdentity, String attribute1,Integer start, Integer offset) {
+        return lendingApplyMapper.selectAuditingAddFilter(cptName,dateFrom,dateTo,userIdentity,attribute1,start,offset);
     }
 
     public int FindPassByUserCount(Integer laUserId) {
@@ -95,6 +95,10 @@ public class LendingApplyServiceImpl implements ILendingApplyService {
 
     public int selectByUserCount(Integer laUserId) {
         return lendingApplyMapper.selectByUserCount(laUserId);
+    }
+
+    public int selectAuditingCount() {
+        return lendingApplyMapper.selectAuditingCount();
     }
 
 

@@ -201,7 +201,8 @@ FROM
     gd_computers c,
     gd_users u
 WHERE a.la_user_id = u.user_id
-        AND a.la_cpt_id = c.cpt_id;
+        AND a.la_cpt_id = c.cpt_id
+         LIMIT #{start},#{offset}
     </select>
     <select id="selectCountCpt" resultType="java.lang.Integer" parameterType="java.lang.Integer">
 SELECT
@@ -338,6 +339,7 @@ AND a.la_is_check = 'Y'
         <if test="attribute1 != null and attribute1 != ''" >
             AND a.attribute1 = #{param5}
         </if>
+        LIMIT #{start},#{offset}
     </select>
     <select id="FindPassByUserCount" resultType="java.lang.Integer">
         SELECT
@@ -361,5 +363,16 @@ AND a.la_is_check = 'Y'
         gd_computers c
         WHERE a.la_cpt_id = c.cpt_id
         AND a.la_user_id  = #{laUserId,jdbcType=INTEGER}
+    </select>
+    <select id="selectAuditingCount" resultType="java.lang.Integer">
+        SELECT
+	        COUNT(a.la_id)
+        FROM
+	      gd_lending_apply a,
+	      gd_computers c,
+	      gd_users u
+        WHERE
+	      a.la_user_id = u.user_id
+        AND a.la_cpt_id = c.cpt_id;
     </select>
 </mapper>

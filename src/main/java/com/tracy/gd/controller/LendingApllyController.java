@@ -328,10 +328,12 @@ public class LendingApllyController {
     */
     @RequestMapping("/AuditingListAddFilter")
     public @ResponseBody
-    HashMap doAuditingListAddFilter(HttpServletRequest request, HttpServletResponse response, @RequestParam("cptName") String cptName, @RequestParam("dateFrom") String dateFrom, @RequestParam("dateTo") String dateTo, @RequestParam("userIdentity") String userIdentity, @RequestParam("attribute1") String attribute1) {
+    HashMap doAuditingListAddFilter(HttpServletRequest request, HttpServletResponse response, @RequestParam("cptName") String cptName, @RequestParam("dateFrom") String dateFrom, @RequestParam("dateTo") String dateTo, @RequestParam("userIdentity") String userIdentity, @RequestParam("attribute1") String attribute1, @RequestParam("page") String page, @RequestParam("limit") String limit) {
         HashMap map = new HashMap();
-
-        List<LendingApply> lendingApplies = lendingApplyService.selectAuditingAddFilter(cptName, dateFrom, dateTo, userIdentity, attribute1);
+        //添加分页 2017-12-09
+        int start = (Integer.valueOf(page) - 1) * Integer.valueOf(limit);
+        int offset = Integer.valueOf(limit);
+        List<LendingApply> lendingApplies = lendingApplyService.selectAuditingAddFilter(cptName, dateFrom, dateTo, userIdentity, attribute1,start,offset);
 
         map.put("code", 0);
         map.put("msg", "");
@@ -346,13 +348,17 @@ public class LendingApllyController {
     */
     @RequestMapping("/AuditingList")
     public @ResponseBody
-    HashMap doShowAuditingList(HttpServletRequest request, HttpServletResponse response) {
+    HashMap doShowAuditingList(HttpServletRequest request, HttpServletResponse response, @RequestParam("page") String page, @RequestParam("limit") String limit) {
         HashMap map = new HashMap();
-
-        List<LendingApply> lendingApplies = lendingApplyService.selectAuditing();
+        //添加分页 2017-12-09
+        int start = (Integer.valueOf(page) - 1) * Integer.valueOf(limit);
+        int offset = Integer.valueOf(limit);
+        List<LendingApply> lendingApplies = lendingApplyService.selectAuditing(start,offset);
 
         map.put("code", 0);
         map.put("msg", "");
+        int count = lendingApplyService.selectAuditingCount();
+        map.put("count", count);
         map.put("data", lendingApplies);
         return map;
     }
@@ -385,7 +391,7 @@ public class LendingApllyController {
         //添加分页 2017-12-08
         int start = (Integer.valueOf(page) - 1) * Integer.valueOf(limit);
         int offset = Integer.valueOf(limit);
-        List<LendingApply> lendingApplies = lendingApplyService.doSelectByUserFilter(cptName, dateFrom, dateTo, attribute1, curUserId,start,offset);
+        List<LendingApply> lendingApplies = lendingApplyService.doSelectByUserFilter(cptName, dateFrom, dateTo, attribute1, curUserId, start, offset);
 
         map.put("code", 0);
         map.put("msg", "");
