@@ -3,9 +3,8 @@ package com.tracy.gd.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.tracy.gd.domain.Computer;
 import com.tracy.gd.domain.LendingHistory;
-import com.tracy.gd.domain.checkPass;
+import com.tracy.gd.dto.checkPass;
 import com.tracy.gd.service.ILendingHistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

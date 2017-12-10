@@ -1,4 +1,4 @@
-package com.tracy.gd.domain;
+package com.tracy.gd.dto;
 
 /**
  * Created by tracy on 2017/11/11. 2017-11-11 13:51:03
