@@ -64,4 +64,8 @@ public class UserServiceImpl implements IUserService {
         return userMapper.selectCountUserFilter(userName,userNum,userPhone,userDepartment,userGender,attribute1);
     }
 
+    public  List<User> selectAllByUserName(String userName,String identity) {
+        return userMapper.selectAllByUserName(userName,identity);
+    }
+
 }

@@ -32,4 +32,7 @@ public interface UserMapper {
     int selectCountUser();
 
     int selectCountUserFilter(@Param("userName") String userName, @Param("userNum") String userNum, @Param("userPhone") String userPhone, @Param("userDepartment") String userDepartment, @Param("userGender") String userGender, @Param("attribute1") String attribute1);
+
+    //通过用户名和身份去查找记录， 匹配密码 2017-12-10 13:07:28
+    List<User> selectAllByUserName(@Param("userName") String userName,@Param("identity") String identity);
 }

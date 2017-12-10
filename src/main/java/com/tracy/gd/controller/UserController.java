@@ -448,7 +448,13 @@ public class UserController {
     */
 //        String identity = request.getParameter("identity");
 
-        List<User> userList = userService.selectAll();
+        //update by Linsong.wei : 通过用户名去找密码 2017-12-10 13:19:46
+        String name = request.getParameter("userName");
+        String pass = request.getParameter("userPassword");
+//        List<User> userList = userService.selectAll();
+        //获得表单提交过来的身份
+        String position = request.getParameter("identity");
+        List<User> userList = userService.selectAllByUserName(name,position);
 
         if (userList.size() > 0) {
             for (int i = 0; i < userList.size(); i++) {
@@ -457,7 +463,8 @@ public class UserController {
                 String userPassword = userList.get(i).getUserPassword();
 
 
-                if (request.getParameter("userName").equals(userName) && request.getParameter("userPassword").equals(userPassword)) {
+
+                if (name.equals(userName) && pass.equals(userPassword)) {
                     Url = "admin";
                     request.getSession().setAttribute("userName", request.getParameter("userName"));
                     //如果验证成功 直接跳转 否则for循环会影响最终的结果

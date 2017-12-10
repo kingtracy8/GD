@@ -29,4 +29,6 @@ public interface IUserService {
     List<User> selectUserFilter(String userName, String userNum, String userPhone, String userDepartment, String userGender, String attribute1, Integer start, Integer offset);
 
     int selectCountUserFilter(String userName, String userNum, String userPhone, String userDepartment, String userGender, String attribute1);
+
+    List<User> selectAllByUserName(String userName,String identity);
 }

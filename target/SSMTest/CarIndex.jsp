@@ -947,7 +947,7 @@
     </div>
     <div class="loginBox" style="border:2px solid #000">
         <div class="login_cont">
-            <form action="/user/FormLogin" method="post">
+            <form action="/csu/platform" method="post">
                 <ul class="login">
                     <li class="l_tit" style="color:#000;text-align: center">邮箱/用户名/手机号</li>
                     <li class="mb_10"><input type="text" name="userName" class="login_input"
