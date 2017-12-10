@@ -112,7 +112,7 @@
             <p class="error_p_con">●<span id="num">3</span>秒后自动跳转!</p>
         </div>
         <div class="btn_error">
-            <a class="btn_back1" href="../CarIndex.jsp">返回登陆页面</a>
+            <a class="btn_back1" href="../FinalIndex.jsp">返回登陆页面</a>
 
         </div>
 
@@ -129,7 +129,7 @@ $(document).ready(function() {
                 $('#num').attr('innerHTML', count);
                 jump(count);
             } else {
-                location.href="../CarIndex.jsp";
+                location.href="../FinalIndex.jsp";
             }
         }, 1000);
     }

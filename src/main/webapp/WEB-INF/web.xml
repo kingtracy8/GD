@@ -98,7 +98,7 @@
         <url-pattern>/</url-pattern>  
     </servlet-mapping>  
     <welcome-file-list>  
-        <welcome-file>/CarIndex.jsp</welcome-file>
+        <welcome-file>/FinalIndex.jsp</welcome-file>
     </welcome-file-list>  
   
 </web-app>  
