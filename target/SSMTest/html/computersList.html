@@ -142,16 +142,36 @@
                     // 传入电脑id，去后端controller里查询，用当前用户id和电脑id去查，
                     // 如果存在该电脑该用户且未经过管理员审核的记录，则不允许重复申请 （attribute1=“N”）如果不加这个条件会影响下一次借电脑
                     //  console.log("去校验重复");
+
+
+                    //update by ： linsong.wei  2017-12-11 10:30:07
+                    // 先查找是否有欠费记录，如果没有再判断是否重复
+
                     $.ajax({
-                        url: 'http://localhost:8080/LendingApply/findDuplicate?cptId=' + data.cptId,
+                        url: 'http://localhost:8080/Expense/FindUserArrears',
                         type: "GET",
                         dataType: 'json',
                         contentType: 'application/json;charset=UTF-8', //contentType很重要
                         success: function (result) {
-                            if (result.count == 0) {
-                                //如果记录表里没有已经申请同一台电脑的记录，
-                                var url = "http://localhost:8080/html/LendingApply.html?cptId=" + data.cptId;
-                                console.log(url);
+
+                            console.log(result);
+
+                            if (result.count > 0) {
+                                layer.msg("您有欠费记录，请到服务台缴纳费用方可申请！");
+                            } else {
+
+                                //没有欠费记录
+
+                                $.ajax({
+                                    url: 'http://localhost:8080/LendingApply/findDuplicate?cptId=' + data.cptId,
+                                    type: "GET",
+                                    dataType: 'json',
+                                    contentType: 'application/json;charset=UTF-8', //contentType很重要
+                                    success: function (result) {
+                                        if (result.count == 0) {
+                                            //如果记录表里没有已经申请同一台电脑的记录，
+                                            var url = "http://localhost:8080/html/LendingApply.html?cptId=" + data.cptId;
+                                            console.log(url);
 //                                var index = layer.open({
 //                                    type: 2,
 //                                    title: '申请使用',
@@ -159,36 +179,41 @@
 //                                    area: ['700px', '600px'],
 //                                    content: [url, 'no']
 //                                });
-                                var index =  layer.open({
-                                    type: 2
-                                    ,title: '申请使用'
-                                    ,offset: ['50px', '350px']
-                                    ,area: ['700px', '600px']
-                                    ,shade: 0.4
-                                    ,maxmin: true
-                                    ,content: [url, 'no']
-                                    ,btn: ['关闭', '全部关闭'] //只是为了演示
-                                    ,yes: function(){
-                                        layer.close(this);
-                                    }
-                                    ,btn2: function(){
-                                        layer.closeAll();
-                                    }
-                                    ,zIndex: layer.zIndex //重点1
-                                    ,success: function(layero){
-                                        layer.setTop(layero); //重点2
+                                            var index = layer.open({
+                                                type: 2
+                                                , title: '申请使用'
+                                                , offset: ['50px', '350px']
+                                                , area: ['700px', '600px']
+                                                , shade: 0.4
+                                                , maxmin: true
+                                                , content: [url, 'no']
+                                                , btn: ['关闭', '全部关闭'] //只是为了演示
+                                                , yes: function () {
+                                                    layer.close(this);
+                                                }
+                                                , btn2: function () {
+                                                    layer.closeAll();
+                                                }
+                                                , zIndex: layer.zIndex //重点1
+                                                , success: function (layero) {
+                                                    layer.setTop(layero); //重点2
+                                                }
+                                            });
+
+
+                                            layer.iframeAuto(index);    //自适应
+
+                                        } else {
+                                            layer.msg("您已经提交了这台电脑的申请记录，管理员尚未审核，不能重复提交！，您可移步申请记录，在管理员审核之前进行撤回操作！");
+                                        }
                                     }
                                 });
 
-
-
-                                layer.iframeAuto(index);    //自适应
-
-                            } else {
-                                layer.msg("您已经提交了这台电脑的申请记录，管理员尚未审核，不能重复提交！，您可移步申请记录，在管理员审核之前进行撤回操作！");
                             }
                         }
                     });
+
+
                 }
             }
         });

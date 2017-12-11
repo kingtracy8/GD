@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import javax.lang.model.type.NullType;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
@@ -67,9 +68,30 @@ public class LendingHistoryController {
         //update by: linsong.wei 2017-12-05 15:29:15
 
         for (int i = 0; i < lendingHistories.size(); i++) {
-            int who = lendingHistories.get(i).getLhWhoChecked();    //是谁审核的
-            User user = userService.getUserById(who);
-            lendingHistories.get(i).setAttribute2(user.getUserName());
+
+            int who = 0;
+
+            //当用户提交申请，且未审核的时候，是没有审核人的，即拿不到who，抛出kong'zhi'zhen空指针异常
+            //update by : linsong.wei 2017-12-11 11:16:50
+            try {
+                who = lendingHistories.get(i).getLhWhoChecked();    //是谁审核的
+            } catch (NullPointerException e) {
+                who = 0;
+            }
+
+
+
+            //如果用户对象不为空，才设置是谁审核的
+            try {
+                User user = userService.getUserById(who);
+                lendingHistories.get(i).setAttribute2(user.getUserName());
+            }catch (NullPointerException e){
+                lendingHistories.get(i).setAttribute2("尚未审核");
+            }
+
+
+
+
         }
 
         map.put("code", 0);
@@ -93,7 +115,7 @@ public class LendingHistoryController {
         int start = (Integer.valueOf(page) - 1) * Integer.valueOf(limit);
         int offset = Integer.valueOf(limit);
 
-        List<LendingHistory> lendingHistories = lendingHistoryService.selectAddFilter(cptName, dateFrom, dateTo, eIsReturned,start,offset);
+        List<LendingHistory> lendingHistories = lendingHistoryService.selectAddFilter(cptName, dateFrom, dateTo, eIsReturned, start, offset);
 
         map.put("code", 0);
         map.put("msg", "");

@@ -26,4 +26,5 @@ public interface IExpenseService {
 
     int deleteByLaId(int LaId);
 
+    int FindUserArrears(int userId);
 }

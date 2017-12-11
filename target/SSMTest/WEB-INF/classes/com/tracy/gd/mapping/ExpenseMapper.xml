@@ -216,4 +216,25 @@
     delete from gd_expense WHERE
      e_la_id = #{eLaId,jdbcType=INTEGER}
   </delete>
+  <select id="FindUserArrears" resultType="java.lang.Integer">
+    SELECT
+	count(e.e_id)
+FROM
+	gd_users u,
+	gd_expense e,
+	gd_lending_apply la
+WHERE
+	u.user_id = la.la_user_id
+AND e.e_la_id = la.la_id
+AND EXISTS (
+	SELECT
+		'X'
+	FROM
+		gd_expense e1
+	WHERE
+		e1.e_id = e.e_id
+	AND e1.attribute1 = 'N'
+)
+AND u.user_id = #{userId,jdbcType=INTEGER}
+  </select>
 </mapper>

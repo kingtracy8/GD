@@ -53,6 +53,26 @@ public class LendingApply {
     @Transient
     private Integer eExpense;
 
+//    public void seteDays(Integer eDays) {
+//        this.eDays = eDays;
+//    }
+//
+//    public void seteExpense(Integer eExpense) {
+//        this.eExpense = eExpense;
+//    }
+
+    public String geteAttribute1() {
+        return eAttribute1;
+    }
+
+    public void seteAttribute1(String eAttribute1) {
+        this.eAttribute1 = eAttribute1;
+    }
+
+    //是否已经付款  2017-12-11 10:42:18
+    @Transient
+    private String eAttribute1;
+
     /*Update By: linsong.wei   2017-11-28 21:24:50
     把基本类型int换成Integer，否则会有默认值 0
 */

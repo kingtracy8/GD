@@ -105,8 +105,10 @@
         <th lay-data="{field:'eIsReturned', width:120}">是否已经归还</th>
         <th lay-data="{field:'eDays', width:120}">实际借用天数</th>
         <th lay-data="{field:'eExpense', width:120}">应缴费用</th>
-        <th lay-data="{field:'laIsCheck', width:120}">是否审核通过</th>
-        <th lay-data="{field:'attribute1', width:120}">是否已经审核</th>
+        <!--  update by : linsong.wei  2017-12-11 10:16:00 用户在归还页面，肯定是已经审核并且通过审核，需要加一个是否付款 -->
+        <th lay-data="{field:'eAttribute1', width:120}">是否已经付款</th>
+        <!--<th lay-data="{field:'laIsCheck', width:120}">是否审核通过</th>-->
+        <!--<th lay-data="{field:'attribute1', width:120}">是否已经审核</th>-->
         <th lay-data="{fixed: 'right', width:160, align:'center', toolbar: '#Toolbar'}">
     </tr>
     </thead>

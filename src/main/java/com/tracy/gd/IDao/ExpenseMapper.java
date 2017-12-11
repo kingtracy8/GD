@@ -1,6 +1,7 @@
 package com.tracy.gd.IDao;
 
 import com.tracy.gd.domain.Expense;
+import org.apache.ibatis.annotations.Param;
 
 public interface ExpenseMapper {
     int deleteByPrimaryKey(Integer eId);
@@ -23,5 +24,8 @@ public interface ExpenseMapper {
 
     //撤回申请时候同步删除费用记录
     int deleteByLaId(int LaId);
+
+    //当用户申请电脑的时候，查询该用户是否有欠费  2017-12-11 10:21:04
+    int FindUserArrears(@Param("userId") int userId);
 
 }

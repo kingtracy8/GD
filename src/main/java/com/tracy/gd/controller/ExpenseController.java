@@ -33,6 +33,29 @@ public class ExpenseController {
     @Autowired
     IExpenseRatioService expenseRatioService;
 
+
+    /*
+       purpose:查询当前用户是否有欠费记录
+       Create by : linsong.wei  2017-12-11 10:27:02
+    */
+    @RequestMapping("/FindUserArrears")
+    public @ResponseBody
+    HashMap doFindUserArrears(HttpServletRequest request, HttpServletResponse response) {
+
+        HashMap map = new HashMap();
+
+        int count = 0;
+
+        int curUserId = (Integer) request.getSession().getAttribute("userId");
+        //找到用户有几条欠费记录
+        count = expenseService.FindUserArrears(curUserId);
+
+        map.put("count", count);
+        return map;
+
+    }
+
+
     /*
         purpose:将已经审核的电脑归还
         Create by : linsong.wei  2017-11-27 16:56:26

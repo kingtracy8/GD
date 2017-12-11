@@ -22,6 +22,7 @@
         <result column="e_expense" property="eExpense" jdbcType="VARCHAR"/>
         <result column="e_areturn_time" property="eAreturnTime" jdbcType="VARCHAR"/>
         <result column="e_days" property="eDays" jdbcType="VARCHAR"/>
+        <result column="e_attribute1" property="eAttribute1" jdbcType="VARCHAR"/>
     </resultMap>
     <sql id="Base_Column_List">
     la_id, la_user_id, la_cpt_id, la_reason, la_lend_time, la_return_time, la_commons, 
@@ -249,7 +250,8 @@ WHERE
 	e.e_is_returned,
 	e.e_days,
 	e.e_expense,
-	e.e_areturn_time
+	e.e_areturn_time,
+	e.attribute1 e_attribute1
 FROM
 	gd_lending_apply a,
 	gd_computers c,
@@ -268,7 +270,8 @@ AND a.la_is_check = 'Y'
         e.e_is_returned,
         e.e_days,
         e.e_expense,
-        e.e_areturn_time
+        e.e_areturn_time,
+        e.attribute1 e_attribute1
         FROM
         gd_lending_apply a,
         gd_computers c,

@@ -49,4 +49,8 @@ public class ExpenseServiceImpl implements IExpenseService{
     public int deleteByLaId(int LaId) {
         return expenseMapper.deleteByLaId(LaId);
     }
+
+    public int FindUserArrears(int userId) {
+        return expenseMapper.FindUserArrears(userId);
+    }
 }
