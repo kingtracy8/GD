@@ -1,14 +1,24 @@
 package com.tracy.gd.controller;
 
+import com.tracy.gd.CustomAnnotations.Token;
 import com.tracy.gd.domain.User;
+import com.tracy.gd.dto.addUser;
 import com.tracy.gd.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -21,6 +31,57 @@ public class CommonController {
 
     @Autowired
     private IUserService userService;
+
+    @RequestMapping("/AddUserPage")
+    public String doShowAddUserPage(HttpServletRequest request, Model model){
+        return "addUser"; //返回jsp视图
+    }
+
+
+    /**
+     * 处理添加用户jsp页面提交的请求 防止重复提交
+     * 2017-12-18 20:28:11 Create by linsong.wei
+     *
+     * @param request
+     * @param response
+     * @param adduser
+     * @return
+     */
+    @RequestMapping("/AddUser")
+    @Transactional(propagation = Propagation.REQUIRED)
+    public @ResponseBody
+    HashMap doRegister(HttpServletRequest request, HttpServletResponse response, @RequestBody addUser adduser) {
+
+        HashMap map = new HashMap();
+        User inUser = new User();
+        //将dto的数据相应的赋予dao
+        inUser.setUserName(adduser.getUserName());
+        inUser.setUserNum(adduser.getUserNum());
+        inUser.setUserPassword(adduser.getUserPassword());
+        inUser.setUserDepartment(adduser.getUserDepartment());
+        inUser.setUserEmail(adduser.getUserEmail());
+        inUser.setUserPhone(adduser.getUserPhone());
+        inUser.setUserGender(adduser.getUserGender());
+
+        int flag = -1;
+        String ptoken = adduser.getToken();//表单
+        String stoken = (String) request.getSession().getAttribute("token");
+        if (ptoken != null && ptoken.equals(stoken)) {
+            request.getSession().removeAttribute("token");
+            inUser.setRegisterTime(new Date());
+            //只能注册成为user
+            inUser.setAttribute1("user");
+            flag = userService.insertSelective(inUser);
+
+
+        } else {
+//            System.out.println("请不要重复提交");
+            flag = -2; //-2标志为重复提交
+        }
+        map.put("flag", flag);
+        return map;
+    }
+
 
     //检查form表单提交的用户名和密码是否正确
     @RequestMapping(value = "/platform", method = RequestMethod.POST)
@@ -36,7 +97,7 @@ public class CommonController {
         //获得表单提交过来的身份
         String position = request.getParameter("identity");
 
-        List<User> userList = userService.selectAllByUserName(name,position);
+        List<User> userList = userService.selectAllByUserName(name, position);
 
         if (userList.size() > 0) {
             for (int i = 0; i < userList.size(); i++) {
