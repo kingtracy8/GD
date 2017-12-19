@@ -85,8 +85,8 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <!--拦截这个请求，生成令牌，防止重复提交-->
-            <!--<mvc:mapping path="csu/AddUser"/>-->
             <mvc:mapping path="/csu/AddUserPage"/>
+            <mvc:mapping path="/csu/ApplyCpt"/>
             <bean class="com.tracy.gd.Interceptor.TokenInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>

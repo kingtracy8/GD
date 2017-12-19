@@ -18,7 +18,7 @@
 </head>
 <body>
 <blockquote class="layui-elem-quote layui-text" style="margin-top: 10px">
-    您好，管理员，您可以添加用户。test:<div>${token}</div>
+    您好，管理员，您可以添加用户。
 </blockquote>
 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
     <legend>请您输入以下信息</legend>

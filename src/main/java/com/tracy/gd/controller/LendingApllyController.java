@@ -4,6 +4,7 @@ import com.tracy.gd.domain.Computer;
 import com.tracy.gd.domain.Expense;
 import com.tracy.gd.domain.LendingApply;
 import com.tracy.gd.domain.LendingHistory;
+import com.tracy.gd.dto.lengding;
 import com.tracy.gd.service.IComputerService;
 import com.tracy.gd.service.IExpenseService;
 import com.tracy.gd.service.ILendingApplyService;
@@ -424,7 +425,7 @@ public class LendingApllyController {
         return map;
     }
 
-
+/*  为了防止重复提交，重新写了一版，暂时弃用　　2017-12-19 10:32:55 linsong.wei
     //purpose: 提交申请
     @RequestMapping("/commitApply")
     @Transactional(propagation = Propagation.REQUIRED)
@@ -473,5 +474,85 @@ public class LendingApllyController {
         map.put("flagHis", flagHis);
         return map;
     }
+*/
+    /**
+     *  防止重复提交申请
+     * @param request
+     * @param response
+     * @param lending 从前端传过来的dto，相对于LendingApply那个DAO添加了token域
+     * @return
+     */
+    @RequestMapping("/commitApply")
+    @Transactional(propagation = Propagation.REQUIRED)
+    public @ResponseBody
+    HashMap doCommitApply(HttpServletRequest request, HttpServletResponse response, @RequestBody lengding lending) {
+
+        HashMap map = new HashMap();
+        int flagApply = -5;
+        int flagHis = -5;
+
+        int curUserId = (Integer) request.getSession().getAttribute("userId");
+
+        /*
+             判断是否重复提交
+         */
+        String ptoken = lending.getToken();//表单
+        String stoken = (String) request.getSession().getAttribute("token");
+
+        if (ptoken != null && ptoken.equals(stoken)) {
+            request.getSession().removeAttribute("token");
+            LendingApply InlendingApply = new LendingApply(); //将从页面传过来dto的数据塞到dao中
+            InlendingApply.setLaCptId(lending.getLaCptId());
+            InlendingApply.setLaCommons(lending.getLaCommons());
+            InlendingApply.setLaLendTime(lending.getLaLendTime());
+            InlendingApply.setLaLocation(lending.getLaLocation());
+            InlendingApply.setLaReason(lending.getLaReason());
+            InlendingApply.setLaReturnTime(lending.getLaReturnTime());
+
+            InlendingApply.setLaUserId(curUserId);      //设置申请人 ：当前用户
+            InlendingApply.setLaIsCheck("N");           //设置为未审核状态
+            InlendingApply.setAttribute1("N");
+            //插入记录 申请表
+            flagApply = lendingApplyService.insertSelective(InlendingApply);
+
+
+            //并插入到申请历史表
+            LendingHistory lendingHistory = new LendingHistory();
+
+            //申请表id 由于mybatis使用了 useGeneratedKeys="true" keyProperty="laId" 属性，可返回插入当前记录的主键，
+            //从而可以将申请表id插入到历史表中  linsong.wei 2017-11-12 17:16:34
+            //注：若不加这个属性，默认返回插入的记录数
+            lendingHistory.setLhLaId(InlendingApply.getLaId());
+            lendingHistory.setLhUserId(curUserId);      //仅需插入这两个字段，其余字段待管理员审核后更新,相当于在这记录一下，让管理员去审核（更新）
+            //设置成管理员未审核状态 linsong.wei 2017-11-14 14:21:18
+            lendingHistory.setAttribute1("N");
+            flagHis = lendingHistoryService.insertSelective(lendingHistory);
+
+            // Update By: linsong.wei  需求变更，添加归还功能
+            //1.申请的时候插入到费用记录表里
+            Expense expense = new Expense();
+
+            expense.seteLaId(InlendingApply.getLaId());
+            expense.seteLaCptId(lending.getLaCptId());
+            expense.seteLaUserId(curUserId);
+            expense.seteLendTime(lending.getLaLendTime());
+            expense.seteSreturnTime(lending.getLaReturnTime());
+            //设置为未归还状态，当归还的时候再更改成Y
+            expense.seteIsReturned("N");
+
+            //更新记录
+            expenseService.insertSelective(expense);
+        } else {
+            flagApply = -2; //-2标志为重复提交
+            flagHis = -2;
+        }
+
+
+
+        map.put("flag", flagApply);
+        map.put("flagHis", flagHis);
+        return map;
+    }
+
 
 }

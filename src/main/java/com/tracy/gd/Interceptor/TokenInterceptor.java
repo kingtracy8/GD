@@ -33,7 +33,7 @@ public class TokenInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
-        System.out.println("拦截器执行preHandle,生成token,并放入session");
+//        System.out.println("拦截器执行preHandle,生成token,并放入session");
 
         String token = UUID.randomUUID().toString();
         request.getSession().setAttribute("token", token);

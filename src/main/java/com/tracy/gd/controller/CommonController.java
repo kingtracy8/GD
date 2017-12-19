@@ -1,6 +1,9 @@
 package com.tracy.gd.controller;
 
-import com.tracy.gd.CustomAnnotations.Token;
+import com.tracy.gd.dto.lengding;
+import com.tracy.gd.domain.Expense;
+import com.tracy.gd.domain.LendingApply;
+import com.tracy.gd.domain.LendingHistory;
 import com.tracy.gd.domain.User;
 import com.tracy.gd.dto.addUser;
 import com.tracy.gd.service.IUserService;
@@ -31,6 +34,20 @@ public class CommonController {
 
     @Autowired
     private IUserService userService;
+
+    /**
+     *  跳转到申请电脑页面
+     * 2017-12-19 10:05:36 Create by linsong.wei
+     * @param request
+     * @param model
+     * @return
+     */
+    @RequestMapping("/ApplyCpt")
+    public String doApplyCpt(HttpServletRequest request, Model model){
+        return "LendingApply";
+    }
+
+
 
     @RequestMapping("/AddUserPage")
     public String doShowAddUserPage(HttpServletRequest request, Model model){
