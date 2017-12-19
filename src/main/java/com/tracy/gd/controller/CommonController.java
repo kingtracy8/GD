@@ -35,6 +35,22 @@ public class CommonController {
     @Autowired
     private IUserService userService;
 
+
+    /**
+     *  跳转到用户注册页面
+     * 2017-12-19 19:13:49 Create by linsong.wei
+     * @param request
+     * @param model
+     * @return
+     */
+    @RequestMapping("/register")
+    public String doRegister(HttpServletRequest request, Model model){
+        return "register";
+    }
+
+
+
+
     /**
      *  跳转到申请电脑页面
      * 2017-12-19 10:05:36 Create by linsong.wei

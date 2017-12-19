@@ -96,7 +96,7 @@
             title: '用户注册',
             offset: '100px',  //水平居中
             area: ['700px', '500px'],
-            content: 'http://localhost:8080/html/register.html' //这里content是一个URL，如果你不想让iframe出现滚动条，你还可以content: ['http://sentsin.com', 'no']
+            content: 'http://localhost:8080/csu/register'
         });
         layer.iframeAuto(index);    //自适应
 

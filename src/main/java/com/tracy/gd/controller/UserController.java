@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.tracy.gd.domain.LendingHistory;
+import com.tracy.gd.dto.addUser;
 import com.tracy.gd.dto.checkPass;
 import com.tracy.gd.service.ILendingHistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -307,6 +308,8 @@ public class UserController {
     }
 
 
+    /*
+
     //用户注册
     // 2017-11-10 10:37:48 Create by linsong.wei
     // 疑问1：@ResponseBody标签参数中有requset和response则在页面中才更方便的取json数据
@@ -321,6 +324,48 @@ public class UserController {
         //只能注册成为user
         inUser.setAttribute1("user");
         int flag = userService.insertSelective(inUser);
+        map.put("flag", flag);
+        return map;
+    }
+    */
+
+    /**
+     *
+     * @param request
+     * @param response
+     * @param dto
+     * @return
+     */
+    @RequestMapping("/RegisterUser")
+    @Transactional(propagation = Propagation.REQUIRED)      //出异常的时候事务控制，回滚操作 Create by:linsong.wei 2017-11-29 16:15:45
+    public @ResponseBody
+    HashMap doRegister2(HttpServletRequest request, HttpServletResponse response, @RequestBody addUser dto) {
+
+        HashMap map = new HashMap();
+        int flag = -5;
+        User inUser = new User();
+
+        //将dto的数据相应的赋予dao
+        inUser.setUserName(dto.getUserName());
+        inUser.setUserNum(dto.getUserNum());
+        inUser.setUserPassword(dto.getUserPassword());
+        inUser.setUserDepartment(dto.getUserDepartment());
+        inUser.setUserEmail(dto.getUserEmail());
+        inUser.setUserPhone(dto.getUserPhone());
+        inUser.setUserGender(dto.getUserGender());
+
+
+        String ptoken = dto.getToken();//表单
+        String stoken = (String) request.getSession().getAttribute("token");
+        if (ptoken != null && ptoken.equals(stoken)) {
+            request.getSession().removeAttribute("token");
+            inUser.setRegisterTime(new Date());
+            inUser.setAttribute1("user");
+            flag = userService.insertSelective(inUser);
+        } else {
+            flag = -2; //-2标志为重复提交
+        }
+
         map.put("flag", flag);
         return map;
     }

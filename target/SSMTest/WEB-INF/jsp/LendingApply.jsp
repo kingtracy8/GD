@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -94,7 +94,7 @@
 <body>
 
 <blockquote class="layui-elem-quote layui-text">
-    这里是申请页面，请确认电脑信息，并填写申请信息。<div>${token}</div>
+    这里是申请页面，请确认电脑信息，并填写申请信息。
 </blockquote>
 
 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
@@ -242,17 +242,12 @@
         form.on('submit(demo1)', function (data) {
 
 
-            if (data.field.laReturnTime < data.field.laLendTime) {  //时间验证
-                //  layer.msg("归还日期不能早于借用日期！请重新选择");
+            if (data.field.laReturnTime < data.field.laLendTime) {
                 layer.alert('归还日期不能早于借用日期！', {icon: 5});
             } else {
 
                 //ajax 提交
                 data.field.laCptId = GetQueryString("cptId");   //layui表格重置之后 cptId会被清空，在这再次从url中设置一遍 linsong.wei 2017-11-12 13:35:22
-
-//                layer.alert(JSON.stringify(data.field), {
-//                    title: '最终的提交信息'
-//                });
 
                 $.ajax({
                     url: "http://localhost:8080/LendingApply/commitApply",
@@ -261,7 +256,6 @@
                     dataType: 'json',
                     contentType: 'application/json;charset=UTF-8',
                     success: function (result) {
-                        console.log(result.flag);
                         if (result.flag >= 1 && result.flagHis >= 1) {
                             layer.msg("恭喜您，成功提交申请，待管理员审核后方可借出!");
                             //获得父控件的弹层并设置关闭时间
@@ -269,7 +263,7 @@
                             setTimeout(function () {
                                 parent.layer.close(index)
                             }, 2500);
-                        }else {
+                        } else {
                             layer.msg("请勿重复提交！");
                         }
                     }, error: function (XMLHttpRequest, textStatus) {
@@ -280,8 +274,6 @@
 
 
             }
-
-
             return false;
         });
 
