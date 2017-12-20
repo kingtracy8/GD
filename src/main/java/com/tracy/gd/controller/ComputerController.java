@@ -3,7 +3,6 @@ package com.tracy.gd.controller;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sun.deploy.net.HttpResponse;
 import com.tracy.gd.domain.Admin;
 import com.tracy.gd.domain.Computer;
 import com.tracy.gd.domain.User;
