@@ -6,6 +6,7 @@ import com.tracy.gd.domain.LendingApply;
 import com.tracy.gd.domain.LendingHistory;
 import com.tracy.gd.domain.User;
 import com.tracy.gd.dto.addUser;
+import com.tracy.gd.dto.updateExpense;
 import com.tracy.gd.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,38 +36,51 @@ public class CommonController {
     @Autowired
     private IUserService userService;
 
+    /**
+     * 跳转到缴费管理页面
+     * linsong.wei 2017-12-24 19:33:15
+     *
+     * @param request
+     * @param model
+     * @return
+     */
+    @RequestMapping("/expenseManager")
+    public String doExpenseManager(HttpServletRequest request, Model model) {
+
+        return "ExpenseManager";
+    }
+
 
     /**
-     *  跳转到用户注册页面
+     * 跳转到用户注册页面
      * 2017-12-19 19:13:49 Create by linsong.wei
+     *
      * @param request
      * @param model
      * @return
      */
     @RequestMapping("/register")
-    public String doRegister(HttpServletRequest request, Model model){
+    public String doRegister(HttpServletRequest request, Model model) {
         return "register";
     }
 
 
-
-
     /**
-     *  跳转到申请电脑页面
+     * 跳转到申请电脑页面
      * 2017-12-19 10:05:36 Create by linsong.wei
+     *
      * @param request
      * @param model
      * @return
      */
     @RequestMapping("/ApplyCpt")
-    public String doApplyCpt(HttpServletRequest request, Model model){
+    public String doApplyCpt(HttpServletRequest request, Model model) {
         return "LendingApply";
     }
 
 
-
     @RequestMapping("/AddUserPage")
-    public String doShowAddUserPage(HttpServletRequest request, Model model){
+    public String doShowAddUserPage(HttpServletRequest request, Model model) {
         return "addUser"; //返回jsp视图
     }
 

@@ -237,4 +237,66 @@ AND EXISTS (
 )
 AND u.user_id = #{userId,jdbcType=INTEGER}
   </select>
+
+  <resultMap id="ResultMap1" type="com.tracy.gd.dto.updateExpense" >
+    <id column="la_id" property="laId" jdbcType="INTEGER" />
+    <result column="e_la_id" property="eLaId" jdbcType="INTEGER" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="cpt_name" property="cptName" jdbcType="VARCHAR" />
+    <result column="lend_time" property="LendTime" jdbcType="TIMESTAMP" />
+    <result column="areturn_time" property="AreturnTime" jdbcType="TIMESTAMP" />
+    <result column="is_returned" property="IsReturned" jdbcType="VARCHAR" />
+    <result column="days" property="Days" jdbcType="INTEGER" />
+    <result column="expense" property="Expense" jdbcType="DECIMAL" />
+    <result column="isPay" property="IsPay" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <select id="findAllExpenseRecord" resultMap="ResultMap1">
+SELECT
+	a.la_id,
+	u.user_name user_name,
+	c.cpt_name cpt_name,
+	e.e_is_returned is_returned,
+	e.e_days days,
+	e.e_expense expense,
+	e.e_lend_time lend_time,
+	e.e_areturn_time areturn_time,
+	e.attribute1 isPay
+FROM
+	gd_lending_apply a,
+	gd_computers c,
+	gd_expense e,
+	gd_users u
+WHERE
+	a.la_cpt_id = c.cpt_id
+AND a.la_id = e.e_la_id
+AND a.attribute1 = 'Y'
+AND a.la_is_check = 'Y'
+AND a.la_user_id = u.user_id
+LIMIT #{start},#{offset}
+  </select>
+  <update id="updateExpenseRecordStatus">
+    update gd_expense
+    <set >
+      <if test="isPay != null and isPay != ''" >
+        attribute1 = #{isPay,jdbcType=VARCHAR}
+      </if>
+    </set>
+    where e_la_id = #{laId,jdbcType=INTEGER}
+  </update>
+  <select id="ExpenseTICount" resultType="java.lang.Integer">
+SELECT
+	COUNT(e.e_la_id)
+FROM
+	gd_lending_apply a,
+	gd_computers c,
+	gd_expense e,
+	gd_users u
+WHERE
+	a.la_cpt_id = c.cpt_id
+AND a.la_id = e.e_la_id
+AND a.attribute1 = 'Y'
+AND a.la_is_check = 'Y'
+AND a.la_user_id = u.user_id
+  </select>
 </mapper>

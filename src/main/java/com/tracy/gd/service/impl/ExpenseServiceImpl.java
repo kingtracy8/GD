@@ -2,18 +2,22 @@ package com.tracy.gd.service.impl;
 
 import com.tracy.gd.IDao.ExpenseMapper;
 import com.tracy.gd.domain.Expense;
+import com.tracy.gd.dto.updateExpense;
 import com.tracy.gd.service.IExpenseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created by trcay on 2017/11/27.
  */
 @Service("expenseService")
-public class ExpenseServiceImpl implements IExpenseService{
+public class ExpenseServiceImpl implements IExpenseService {
 
     @Autowired
     ExpenseMapper expenseMapper;
+
     public int deleteByPrimaryKey(Integer eId) {
         return expenseMapper.deleteByPrimaryKey(eId);
     }
@@ -52,5 +56,17 @@ public class ExpenseServiceImpl implements IExpenseService{
 
     public int FindUserArrears(int userId) {
         return expenseMapper.FindUserArrears(userId);
+    }
+
+    public List<updateExpense> findAllExpenseRecord(Integer start, Integer offset) {
+        return expenseMapper.findAllExpenseRecord(start, offset);
+    }
+
+    public int updateExpenseRecordStatus(String isPay, Integer laId) {
+        return expenseMapper.updateExpenseRecordStatus(isPay,laId);
+    }
+
+    public int ExpenseTICount() {
+        return expenseMapper.ExpenseTICount();
     }
 }

@@ -3,6 +3,7 @@ package org.zsl.testmybatis;
 import javax.annotation.Resource;
 
 import com.tracy.gd.domain.*;
+import com.tracy.gd.dto.updateExpense;
 import com.tracy.gd.service.*;
 import org.apache.log4j.Logger;
 import org.junit.Test;
@@ -136,7 +137,12 @@ public class TestMyBatis {
 //        user.setUserName("test");
 //         List<User> users = userService.selectUserFilter(user,0,10);
 //        logger.info(JSON.toJSONString(users));
-        List<Computer> Computer = computerService.selectComputerLists(0,10);
-        logger.info(JSON.toJSONString(Computer));
+//        List<Computer> Computer = computerService.selectComputerLists(0,10);
+//        logger.info(JSON.toJSONString(Computer));
+
+//        List<updateExpense> updateExpenses = expenseService.findAllExpenseRecord(0,10);
+        int a = expenseService.ExpenseTICount();
+        logger.info(JSON.toJSONString(a));
+
     }
 }  

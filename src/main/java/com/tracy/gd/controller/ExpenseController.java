@@ -2,6 +2,7 @@ package com.tracy.gd.controller;
 
 import com.tracy.gd.domain.Computer;
 import com.tracy.gd.domain.Expense;
+import com.tracy.gd.dto.updateExpense;
 import com.tracy.gd.service.IComputerService;
 import com.tracy.gd.service.IExpenseRatioService;
 import com.tracy.gd.service.IExpenseService;
@@ -9,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -18,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by linsong.wei on 2017/11/27.
@@ -32,6 +36,61 @@ public class ExpenseController {
     IComputerService computerService;
     @Autowired
     IExpenseRatioService expenseRatioService;
+
+    /**
+     * 缴费记录页面更新缴费状态
+     * Author:linsong.wei
+     * 2017-12-24 19:45:24
+     *
+     * @return
+     */
+    @RequestMapping("/updateExpenseStatus")
+    @Transactional(propagation = Propagation.REQUIRED)
+    public @ResponseBody
+    HashMap doUpdateExpenseStatus(HttpServletRequest request, HttpServletResponse response, @RequestBody updateExpense updateExpense) {
+
+        HashMap map = new HashMap();
+        int flag;
+        try {
+            //做一个输入正确性判断，防止用户输入错误
+            if (updateExpense.getIsPay().equals("Y") || updateExpense.getIsPay().equals("N")) {
+                flag = expenseService.updateExpenseRecordStatus(updateExpense.getIsPay(), updateExpense.getLaId());
+            }else {
+                flag = -2;
+            }
+//            flag = 1;
+        } catch (Exception e) {
+            throw new RuntimeException("update error!");
+        }
+
+        map.put("flag", flag);
+        return map;
+    }
+
+
+    /**
+     * purpose:缴费管理页面表格接口
+     * Author: linsong.wei
+     * 2017-12-24 18:53:10
+     *
+     * @return
+     */
+    @RequestMapping("/expenseMangerTI")
+    public @ResponseBody
+    HashMap expenseMangerTableInterface(HttpServletRequest request, HttpServletResponse response, @RequestParam("page") String page, @RequestParam("limit") String limit) {
+
+        HashMap map = new HashMap();
+        int start = (Integer.valueOf(page) - 1) * Integer.valueOf(limit);
+        int offset = Integer.valueOf(limit);
+        List<updateExpense> updateExpenses = expenseService.findAllExpenseRecord(start, offset);
+
+        map.put("code", 0);
+        map.put("msg", "");
+        int count = expenseService.ExpenseTICount();
+        map.put("count", count);
+        map.put("data", updateExpenses);
+        return map;
+    }
 
 
     /*
