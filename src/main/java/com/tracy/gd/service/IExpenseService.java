@@ -36,4 +36,7 @@ public interface IExpenseService {
     int updateExpenseRecordStatus(String isPay, Integer laId);
 
     int ExpenseTICount();
+
+    List<updateExpense> findAllExpenseRecordFilter(String userName, String cptName, String isPay, Integer start, Integer offset);
+
 }

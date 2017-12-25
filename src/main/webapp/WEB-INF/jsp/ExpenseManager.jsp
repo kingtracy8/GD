@@ -9,8 +9,8 @@
 <html>
 <head>
     <title>缴费管理</title>
-    <link rel="stylesheet" href="../js/css/layui.css">
-    <script src="../js/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="../../js/css/layui.css">
+    <script src="../../js/jquery-3.2.1.min.js"></script>
     <script src="../../js/layui.js"></script>
 </head>
 <body>
@@ -24,7 +24,15 @@
     </fieldset>
 
     <form class="layui-form" action="">
+
         <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">用户名</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="userName" id="userName" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
             <div class="layui-inline">
                 <label class="layui-form-label">电脑名称</label>
                 <div class="layui-input-inline">
@@ -32,26 +40,14 @@
                 </div>
             </div>
 
-            <div class="layui-inline">
-                <label class="layui-form-label">借用日期从</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="dateFrom" id="dateFrom" lay-verify="date" placeholder="yyyy-MM-dd"
-                           autocomplete="off" class="layui-input">
-                </div>
-                <div class="layui-form-mid">至</div>
-                <div class="layui-input-inline">
-                    <input type="text" name="dateTo" id="dateTo" lay-verify="date" placeholder="yyyy-MM-dd"
-                           autocomplete="off" class="layui-input">
-                </div>
-            </div>
         </div>
 
         <div class="layui-form-item">
             <div class="layui-inline">
-                <label class="layui-form-label">已归还</label>
+                <label class="layui-form-label">已付款</label>
                 <div class="layui-input-block">
-                    <input type="radio" name="cptIsReturned" value="Y" title="是">
-                    <input type="radio" name="cptIsReturned" value="N" title="否">
+                    <input type="radio" name="isPay" value="Y" title="是">
+                    <input type="radio" name="isPay" value="N" title="否">
                 </div>
             </div>
         </div>
@@ -95,32 +91,18 @@
 <script>
 
 
-    layui.use(['form', 'layedit', 'laydate', 'table'], function () {
+    layui.use(['form', 'table'], function () {
         var table = layui.table;
         var form = layui.form
-            , layer = layui.layer
-            , laydate = layui.laydate;
+            , layer = layui.layer;
 
 
-        //日期
-        laydate.render({
-            elem: '#dateFrom'
-        });
-        laydate.render({
-            elem: '#dateTo'
-        });
-
-        //监听工具条
         table.on('tool(test)', function (obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
 
 
             var data = obj.data //获得当前行数据
                 , layEvent = obj.event; //获得 lay-event 对应的值
             if (layEvent === 'update') {
-
-                //如果已经归还，不允许重复归还
-
-
 
                     var index = layer.confirm('确定要更新该用户的缴费信息吗?', {icon: 3, title: '提示'}, function (index) {
 
@@ -138,6 +120,9 @@
                                     });
                                 }else if(result.flag==-2){
                                     layer.alert("请正确填写！Y或者N");
+                                    table.reload('ExpenseTable', {
+                                        url: '/Expense/expenseMangerTI'
+                                    });
                                 }
 
                             }, error: function () {
@@ -153,14 +138,21 @@
 
 
         form.on('submit(FilterForm)', function (data) {
-
+            var userName = document.getElementById('userName');
             var cptName = document.getElementById('cptName');
-            var dateFrom = document.getElementById('dateFrom');
-            var dateTo = document.getElementById('dateTo');
-            var cptIsReturned = $('input:radio:checked').val();
-            if (typeof(cptIsReturned) == "undefined") {
-                cptIsReturned = '';
+            var isPay = $('input:radio:checked').val();
+            if (typeof(isPay) == "undefined") {
+                isPay = '';
             }
+
+            table.reload('ExpenseTable',{
+                url:'/Expense/expenseMangerTIFilter',
+                where:{
+                    userName:userName.value,
+                    cptName:cptName.value,
+                    isPay:isPay
+                }
+            });
 
             return false;
         });
@@ -169,7 +161,6 @@
     });
 
     function doReset() {
-        //简单粗暴  直接刷新，得到全部的数据 。。。  linsong.wei 2017-11-10 22:47:40
         window.location.reload();
     }
 

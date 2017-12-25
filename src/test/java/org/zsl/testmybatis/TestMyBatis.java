@@ -141,8 +141,8 @@ public class TestMyBatis {
 //        logger.info(JSON.toJSONString(Computer));
 
 //        List<updateExpense> updateExpenses = expenseService.findAllExpenseRecord(0,10);
-        int a = expenseService.ExpenseTICount();
-        logger.info(JSON.toJSONString(a));
+        List<updateExpense> updateExpenses = expenseService.findAllExpenseRecordFilter("lin","华硕","Y",0,10);
+        logger.info(JSON.toJSONString(updateExpenses));
 
     }
 }  

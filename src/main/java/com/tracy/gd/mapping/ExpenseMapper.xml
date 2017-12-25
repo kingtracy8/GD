@@ -299,4 +299,45 @@ AND a.attribute1 = 'Y'
 AND a.la_is_check = 'Y'
 AND a.la_user_id = u.user_id
   </select>
+  <select id="findAllExpenseRecordFilter" resultMap="ResultMap1">
+    SELECT
+    a.la_id,
+    u.user_name user_name,
+    c.cpt_name cpt_name,
+    e.e_is_returned is_returned,
+    e.e_days days,
+    e.e_expense expense,
+    e.e_lend_time lend_time,
+    e.e_areturn_time areturn_time,
+    e.attribute1 isPay
+    FROM
+    gd_lending_apply a,
+    gd_computers c,
+    gd_expense e,
+    gd_users u
+    WHERE
+    a.la_cpt_id = c.cpt_id
+    AND a.la_id = e.e_la_id
+    AND a.attribute1 = 'Y'
+    AND a.la_is_check = 'Y'
+    AND a.la_user_id = u.user_id
+    <if test="userName != null and userName != ''" >
+      AND u.user_id IN (
+      SELECT
+      u1.user_id
+      FROM
+      gd_users u1
+      WHERE
+      u1.user_id = u.user_id
+      AND u1.user_name LIKE  CONCAT('%',#{userName},'%')
+      )
+    </if>
+    <if test="cptName != null and cptName != ''" >
+      AND c.cpt_name LIKE CONCAT('%',#{cptName},'%')
+    </if>
+    <if test="isPay != null and isPay != ''" >
+      AND e.attribute1 = #{isPay}
+    </if>
+    LIMIT #{start},#{offset}
+  </select>
 </mapper>

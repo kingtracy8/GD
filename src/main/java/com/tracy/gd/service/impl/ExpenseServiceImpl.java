@@ -63,10 +63,14 @@ public class ExpenseServiceImpl implements IExpenseService {
     }
 
     public int updateExpenseRecordStatus(String isPay, Integer laId) {
-        return expenseMapper.updateExpenseRecordStatus(isPay,laId);
+        return expenseMapper.updateExpenseRecordStatus(isPay, laId);
     }
 
     public int ExpenseTICount() {
         return expenseMapper.ExpenseTICount();
+    }
+
+    public List<updateExpense> findAllExpenseRecordFilter(String userName, String cptName, String isPay, Integer start, Integer offset) {
+        return expenseMapper.findAllExpenseRecordFilter(userName, cptName, isPay, start, offset);
     }
 }

@@ -57,4 +57,12 @@ public interface ExpenseMapper {
      * @return
      */
     int ExpenseTICount();
+
+    /**
+     * Author: linsong.wei
+     *
+     * @return 查找所有用户的借用、归还信息，以及是否已经缴费 (e_attribute1) ，有查询条件
+     */
+    List<updateExpense> findAllExpenseRecordFilter(@Param("userName") String userName, @Param("cptName") String cptName, @Param("isPay") String isPay, @Param("start") Integer start, @Param("offset") Integer offset);
+
 }

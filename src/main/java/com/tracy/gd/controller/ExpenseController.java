@@ -38,6 +38,40 @@ public class ExpenseController {
     IExpenseRatioService expenseRatioService;
 
     /**
+     * Author: linsong.wei 2017-12-25 10:36:08
+     * purpose:有查询条件的表格接口
+     *
+     * @param request
+     * @param response
+     * @param userName
+     * @param cptName
+     * @param isPay    是否已经付款
+     * @param page
+     * @param limit
+     * @return
+     */
+    @RequestMapping("/expenseMangerTIFilter")
+    public @ResponseBody
+    HashMap doExpenseMangerTIFilter(HttpServletRequest request, HttpServletResponse response, @RequestParam("userName")
+            String userName, @RequestParam("cptName") String cptName, @RequestParam("isPay") String isPay,
+                                    @RequestParam("page") String page, @RequestParam("limit") String limit) {
+        HashMap map = new HashMap();
+        int start = (Integer.valueOf(page) - 1) * Integer.valueOf(limit);
+        int offset = Integer.valueOf(limit);
+
+        List<updateExpense> updateExpenseList = expenseService.findAllExpenseRecordFilter(userName,cptName,isPay,start,offset);
+
+
+        map.put("code", 0);
+        map.put("msg", "");
+        int count = expenseService.ExpenseTICount();
+        map.put("count", count);
+        map.put("data", updateExpenseList);
+        return map;
+    }
+
+
+    /**
      * 缴费记录页面更新缴费状态
      * Author:linsong.wei
      * 2017-12-24 19:45:24
@@ -55,7 +89,7 @@ public class ExpenseController {
             //做一个输入正确性判断，防止用户输入错误
             if (updateExpense.getIsPay().equals("Y") || updateExpense.getIsPay().equals("N")) {
                 flag = expenseService.updateExpenseRecordStatus(updateExpense.getIsPay(), updateExpense.getLaId());
-            }else {
+            } else {
                 flag = -2;
             }
 //            flag = 1;
