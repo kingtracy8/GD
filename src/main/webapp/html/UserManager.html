@@ -235,34 +235,62 @@
             if (layEvent === 'save') {
 
 
-                var index = layer.confirm('确定要修改该用户信息吗?', {icon: 3, title: '提示',offset: ['350px', '450px']}, function (index) {
+                var index = layer.confirm('确定要修改该用户信息吗?', {
+                    icon: 3,
+                    title: '提示',
+                    offset: ['350px', '450px']
+                }, function (index) {
                     //Author：linsong.wei 2017-12-03 21:10:56
-                    $.ajax({
-                        url: "http://localhost:8080/user/UpdateUserSingle",
-                        type: "POST",
-                        data: JSON.stringify(data), //转JSON字符串
-                        dataType: 'json',
-                        contentType: 'application/json;charset=UTF-8',
-                        success: function (result) {
-                            if (result.flag == 1) {
-                                layer.alert("操作成功!");
-                                //重载表格
-                                table.reload('idTest', {
-                                    url: '/user/UserManager'
-                                });
-                            } else {
-                                layer.alert("操作失败，请重试！");
-                            }
-                        }, error: function (XMLHttpRequest, textStatus) {
-                            //如果后台发生错误，进行回滚，前台给出相应的提示 update by: linsong.wei 2017年11月29日
-                            layer.alert("操作失败!请重试！");
+
+                    //做身份输入有效性判断，错误输入不让提交！ Author：linsong.wei 2017-12-26 10:45:16
+                    if (data.attribute1 == 'user' || data.attribute1 == 'admin') {
+                        //性别输入有效性验证
+                        if (data.userGender == '男' || data.userGender == '女') {
+
+                            $.ajax({
+                                url: "http://localhost:8080/user/UpdateUserSingle",
+                                type: "POST",
+                                data: JSON.stringify(data), //转JSON字符串
+                                dataType: 'json',
+                                contentType: 'application/json;charset=UTF-8',
+                                success: function (result) {
+                                    if (result.flag == 1) {
+                                        layer.alert("操作成功!");
+                                        //重载表格
+                                        table.reload('idTest', {
+                                            url: '/user/UserManager'
+                                        });
+                                    } else {
+                                        layer.alert("操作失败，请重试！");
+                                    }
+                                }, error: function (XMLHttpRequest, textStatus) {
+                                    //如果后台发生错误，进行回滚，前台给出相应的提示 update by: linsong.wei 2017年11月29日
+                                    layer.alert("操作失败!请重试！");
+                                }
+                            });
+
+                        } else {
+                            layer.alert("性别只能输入'男'或'女'!谢谢配合！");
+                            table.reload('idTest', {
+                                url: '/user/UserManager'
+                            });
                         }
-                    });
+                    } else {
+                        layer.alert("身份只能输入'admin'或'user'!谢谢配合！");
+                        table.reload('idTest', {
+                            url: '/user/UserManager'
+                        });
+                    }
+
                 });
 
             } else if (layEvent === 'delete') {
 
-                var indexDel = layer.confirm('确定要删除该用户信息吗?', {icon: 3, title: '提示',offset: ['350px', '450px']}, function (index) {
+                var indexDel = layer.confirm('确定要删除该用户信息吗?', {
+                    icon: 3,
+                    title: '提示',
+                    offset: ['350px', '450px']
+                }, function (index) {
                     $.ajax({
                         url: "http://localhost:8080/user/DeleteUserSingle",
                         type: "POST",
