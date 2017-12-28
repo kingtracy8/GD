@@ -233,47 +233,57 @@
             var data = obj.data //获得当前行数据
                 , layEvent = obj.event; //获得 lay-event 对应的值
 
+
             if (layEvent === 'save') {
 
-                //做有效性输入判断  linsong.wei 2017-12-25 18:44:06
 
-                if (data.cptIslending == 'Y' || data.cptIslending == 'N') {
-
-                    var indexSave = layer.confirm('确定要修改该电脑信息吗?', {
-                        icon: 3,
-                        title: '提示',
-                        offset: ['350px', '450px']
-                    }, function (index) {
-                        //Author：linsong.wei 2017-12-03 21:10:56
-                        $.ajax({
-                            url: "http://localhost:8080/Computer/UpdateComputerSingle",
-                            type: "POST",
-                            data: JSON.stringify(data), //转JSON字符串
-                            dataType: 'json',
-                            contentType: 'application/json;charset=UTF-8',
-                            success: function (result) {
-                                if (result.flag == 1) {
-                                    layer.alert("操作成功!");
-                                    //重载表格
-                                    table.reload('idTest', {
-                                        url: '/Computer/computerList'
-                                    });
-                                } else {
-                                    layer.alert("操作失败，请重试！");
-                                }
-                            }, error: function (XMLHttpRequest, textStatus) {
-                                //如果后台发生错误，进行回滚，前台给出相应的提示 update by: linsong.wei 2017年11月29日
-                                layer.alert("操作失败!请重试！");
-                            }
-                        });
-                    });
-
-                } else {
-                    layer.alert("是否借出只能填Y或N！");
+                if (data.cptName.trim().length == 0) {
+                    layer.alert("电脑名称不能为空！");
                     table.reload('idTest', {
                         url: '/Computer/computerList'
                     });
+                } else {
+                    //做有效性输入判断  linsong.wei 2017-12-25 18:44:06
+
+                    if (data.cptIslending == 'Y' || data.cptIslending == 'N') {
+
+                        var indexSave = layer.confirm('确定要修改该电脑信息吗?', {
+                            icon: 3,
+                            title: '提示',
+                            offset: ['350px', '450px']
+                        }, function (index) {
+                            //Author：linsong.wei 2017-12-03 21:10:56
+                            $.ajax({
+                                url: "http://localhost:8080/Computer/UpdateComputerSingle",
+                                type: "POST",
+                                data: JSON.stringify(data), //转JSON字符串
+                                dataType: 'json',
+                                contentType: 'application/json;charset=UTF-8',
+                                success: function (result) {
+                                    if (result.flag == 1) {
+                                        layer.alert("操作成功!");
+                                        //重载表格
+                                        table.reload('idTest', {
+                                            url: '/Computer/computerList'
+                                        });
+                                    } else {
+                                        layer.alert("操作失败，请重试！");
+                                    }
+                                }, error: function (XMLHttpRequest, textStatus) {
+                                    //如果后台发生错误，进行回滚，前台给出相应的提示 update by: linsong.wei 2017年11月29日
+                                    layer.alert("操作失败!请重试！");
+                                }
+                            });
+                        });
+
+                    } else {
+                        layer.alert("是否借出只能填Y或N！");
+                        table.reload('idTest', {
+                            url: '/Computer/computerList'
+                        });
+                    }
                 }
+
 
             } else if (layEvent === 'delete') {
 
