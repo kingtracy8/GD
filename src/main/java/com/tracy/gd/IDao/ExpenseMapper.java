@@ -3,9 +3,10 @@ package com.tracy.gd.IDao;
 import com.tracy.gd.domain.Expense;
 import com.tracy.gd.dto.updateExpense;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface ExpenseMapper {
     int deleteByPrimaryKey(Integer eId);
 

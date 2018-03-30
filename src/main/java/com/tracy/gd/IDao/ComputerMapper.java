@@ -2,9 +2,10 @@ package com.tracy.gd.IDao;
 
 import com.tracy.gd.domain.Computer;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface ComputerMapper {
     int deleteByPrimaryKey(Integer cptId);
 
