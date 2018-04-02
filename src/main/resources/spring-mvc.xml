@@ -17,32 +17,53 @@
     <!-- 自动扫描该包 除了@Service注解的类  update by: linsong.wei 2017-11-29 15:12:27-->
     <!--<context:component-scan base-package="com.tracy.gd">-->
     <!--</context:component-scan>-->
+
+
     <!--开启@Transactional注解-->
     <tx:annotation-driven proxy-target-class="true" transaction-manager="transactionManager"/>
 
-    <!--<mvc:annotation-driven />-->
+    <!--  已写到<mvc:annotation-driven>里  update by linsong.wei 2018-04-02 11:24:04 -->
+
 
     <!--避免IE执行AJAX时，返回JSON出现下载文件 -->
-    <bean id="mappingJacksonHttpMessageConverter"
-          class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-        <property name="supportedMediaTypes">
-            <list>
-                <value>application/json;charset=UTF-8</value>
-            </list>
-        </property>
-    </bean>
-    <!-- 启动SpringMVC的注解功能，完成请求和注解POJO的映射 -->
-    <bean
-            class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
-        <property name="messageConverters">
-            <list>
-                <ref bean="mappingJacksonHttpMessageConverter"/> <!-- JSON转换器 -->
-            </list>
-        </property>
-    </bean>
+    <!--<bean id="mappingJacksonHttpMessageConverter"-->
+    <!--class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">-->
+    <!--<property name="supportedMediaTypes">-->
+    <!--<list>-->
+    <!--<value>application/json;charset=UTF-8</value>-->
+    <!--</list>-->
+    <!--</property>-->
+    <!--</bean>-->
+
+
+    <!-- 启动SpringMVC的注解功能，完成请求和注解POJO的映射  SpringMVC 3.x方式，已经弃用 -->
+    <!--<bean-->
+    <!--class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">-->
+    <!--<property name="messageConverters">-->
+    <!--<list>-->
+    <!--<ref bean="mappingJacksonHttpMessageConverter"/> &lt;!&ndash; JSON转换器 &ndash;&gt;-->
+    <!--</list>-->
+    <!--</property>-->
+    <!--</bean>-->
+
+    <!-- update by linsong.wei 2018-04-02 11:05:46-->
+    <!-- 启动SpringMVC的注解功能 SpringMVC 4 方式，为了避免IE执行AJAX时，返回JSON出现下载文件，使用 <mvc:annotation-driven/> 的conversion-service属性代替以上spring 3.x的设置方法-->
+    <mvc:annotation-driven>
+        <mvc:message-converters register-defaults="false">
+            <!--避免IE执行AJAX时，返回JSON出现下载文件 -->
+            <bean id="mappingJacksonHttpMessageConverter"
+                  class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>application/json;charset=UTF-8</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <!-- 这里的配置我的理解是自动给后面action的方法return的字符串加上前缀和后缀，变成一个 可用的url地址 -->
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
