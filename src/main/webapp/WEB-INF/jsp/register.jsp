@@ -154,11 +154,7 @@
                 success: function (result) {
                     console.log(result.flag);
                     if (result.flag == 1) {
-                        layer.msg("添加用户成功!");
-                        //调用到父页面layui的控件
-                        parent.layui.table.reload('idTest', {
-                            url: '/user/UserManager'
-                        });
+                        layer.msg("注册成功!");
                         //获得父控件的弹层并设置关闭时间
                         var index = parent.layer.getFrameIndex(window.name);
                         setTimeout(function () {

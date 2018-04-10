@@ -111,6 +111,15 @@
             <mvc:mapping path="/csu/register"/>
             <bean class="com.tracy.gd.Interceptor.TokenInterceptor"/>
         </mvc:interceptor>
+        <!--拦截用户未登录的请求 Created by linsong.wei on 2018-04-10 14:09:40-->
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <!--不拦截注册，登陆 路径-->
+            <mvc:exclude-mapping path="/csu/register"/>
+            <mvc:exclude-mapping path="/csu/platform"/>
+            <mvc:exclude-mapping path="/user/RegisterUser"/>
+            <bean class="com.tracy.gd.Interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
     </mvc:interceptors>
 
 </beans>
