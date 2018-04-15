@@ -117,6 +117,36 @@ public class LendingHistoryController {
 
         List<LendingHistory> lendingHistories = lendingHistoryService.selectAddFilter(cptName, dateFrom, dateTo, eIsReturned, start, offset);
 
+
+        //通过审核人的id去找名字，并将其设置到his对象的备用字段2上（不保存） 传送到前端  以方便获得审核人的名字
+        //update by: linsong.wei 2018-04-15 20:19:14
+
+        for (int i = 0; i < lendingHistories.size(); i++) {
+
+            int who = 0;
+
+            //当用户提交申请，且未审核的时候，是没有审核人的，即拿不到who，抛出kong'zhi'zhen空指针异常
+            //update by : linsong.wei 2017-12-11 11:16:50
+            try {
+                who = lendingHistories.get(i).getLhWhoChecked();    //是谁审核的
+            } catch (NullPointerException e) {
+                who = 0;
+            }
+
+
+
+            //如果用户对象不为空，才设置是谁审核的
+            try {
+                User user = userService.getUserById(who);
+                lendingHistories.get(i).setAttribute2(user.getUserName());
+            }catch (NullPointerException e){
+                lendingHistories.get(i).setAttribute2("尚未审核");
+            }
+
+        }
+
+
+
         map.put("code", 0);
         map.put("msg", "");
         map.put("data", lendingHistories);

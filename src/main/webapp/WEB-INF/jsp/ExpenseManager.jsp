@@ -102,7 +102,15 @@
 
             var data = obj.data //获得当前行数据
                 , layEvent = obj.event; //获得 lay-event 对应的值
-            if (layEvent === 'update') {
+
+
+            //如果用户未归还电脑，不允许修改是否已经付款  linsong.wei    2018-04-15 14:43:24
+            if(data.isReturned=='N'){
+                layer.alert("用户未归还电脑，不能更新计费信息！");
+            }else {
+
+                //归还了之后才可以设置是否付款
+                if (layEvent === 'update') {
 
                     var index = layer.confirm('确定要更新该用户的缴费信息吗?', {icon: 3, title: '提示'}, function (index) {
 
@@ -132,6 +140,7 @@
                     });
 
                 }
+            }
 
 
         });

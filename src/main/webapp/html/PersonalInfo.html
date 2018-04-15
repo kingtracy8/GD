@@ -34,6 +34,14 @@
                     $("#registerTime").val(result.registerTime);
                     $("#attribute1").val(result.attribute1);
                     $("#userGender").val(result.userGender);
+//
+//                    if(result.userGender=='女'){
+//                        $("#women").attr("checked",'checked');
+//                    }
+//                    if(result.userGender=='男'){
+//                        $("#man").attr("checked",'checked');
+//                    }
+
                     $("#userDepartment").attr("value", result.userDepartment);
                     $("#userDepartment").attr("text", result.userDepartment);
                     $("#userDepartment").get(0).value = result.userDepartment;
@@ -146,8 +154,8 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label" style="margin-left: 26%">性别:</label>
                     <div class="layui-input-block" id="userGender">
-                        <input type="radio" name="userGender" value="男" title="男" checked>
-                        <input type="radio" name="userGender" value="女" title="女">
+                        <input type="radio" name="userGender" id="man" value="男" title="男" checked>
+                        <input type="radio" name="userGender" id="women" value="女" title="女">
                     </div>
                 </div>
                 <div class="layui-form-item">
