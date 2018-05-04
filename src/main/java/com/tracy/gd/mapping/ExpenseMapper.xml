@@ -336,7 +336,10 @@ AND a.la_user_id = u.user_id
       AND c.cpt_name LIKE CONCAT('%',#{cptName},'%')
     </if>
     <if test="isPay != null and isPay != ''" >
-      AND e.attribute1 = #{isPay}
+      AND (
+      e.attribute1 IS NULL
+      OR e.attribute1 = #{isPay}
+      )
     </if>
     LIMIT #{start},#{offset}
   </select>

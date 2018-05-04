@@ -80,16 +80,21 @@ public class LendingHistoryController {
             }
 
 
-
             //如果用户对象不为空，才设置是谁审核的
             try {
                 User user = userService.getUserById(who);
                 lendingHistories.get(i).setAttribute2(user.getUserName());
-            }catch (NullPointerException e){
+            } catch (NullPointerException e) {
                 lendingHistories.get(i).setAttribute2("尚未审核");
             }
 
 
+            /*如果审核未通过的记录，在前段不展示“是否已经归还”字段
+            * update by : linsong.wei2018-05-04 15:08:55
+             */
+            if (lendingHistories.get(i).getLhIsCheck().equals("N")) {
+                lendingHistories.get(i).seteIsReturned("");
+            }
 
 
         }
@@ -134,17 +139,22 @@ public class LendingHistoryController {
             }
 
 
-
             //如果用户对象不为空，才设置是谁审核的
             try {
                 User user = userService.getUserById(who);
                 lendingHistories.get(i).setAttribute2(user.getUserName());
-            }catch (NullPointerException e){
+            } catch (NullPointerException e) {
                 lendingHistories.get(i).setAttribute2("尚未审核");
             }
 
-        }
+            /*如果审核未通过的记录，在前段不展示“是否已经归还”字段
+            * update by : linsong.wei2018-05-04 15:08:55
+             */
+            if (lendingHistories.get(i).getLhIsCheck().equals("N")) {
+                lendingHistories.get(i).seteIsReturned("");
+            }
 
+        }
 
 
         map.put("code", 0);
